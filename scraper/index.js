@@ -1,83 +1,6 @@
 // Import the playwright library into our scraper.
 const playwright = require('playwright');
 
-function getSem(s) { //This will return simple characters to the object
-    if (s.includes("Summer") && s.includes("Fall")){ // Summer and fall
-      return "SF";
-    } else if (s.includes("Summer") && s.includes("Winter")){ // Summer and winter
-      return "SW";
-    } else if (s.includes("Fall") && s.includes("Winter")) { // Fall and winter
-      return "FW";
-    } else if (s.includes("Fall")) { // Fall
-      return "F";
-    } else if (s.includes("Summer")) { // Summer
-      return "S";
-    } else if (s.includes("Winter")) { // Winter
-      return "W";
-    }
-}
-  
-function getJSON(inTxt) { // This will create an array of objects that hold the information of each course
-    let j;
-    let objPage = [];
-    let str = inTxt.split('\n'); //Splits the text so it will go line by line
-
-    for (let i = 0; i < str.length; i++) { // for loop to get each line
-        if (str[i] != '') { // Grabs only if not empty
-
-        if (str[i].charAt(3) == '*' || str[i].charAt(4) == "*") { // This makes sure to grab only the title
-
-            let name = str[i]; //Get full course tittle
-            let cCode = str[i].substring(0,9).trim(); //Get the course code
-            let cCred = str[i].substring(str[i].length-8,str[i].length-2).trim(); //Get the course credit
-            let sSem = getSem(str[i]); // Runs through the get semester function
-
-            // Makes any extra not undefined
-            let dDes = '';
-            let pPre = '';
-            let oOff = '';
-            let rRes = '';
-            let dDep = '';
-            let lLoc = '';
-
-            let temp = 0;
-            while (j < (str.length) && (str[j].charAt(3) != '*' || str[j].charAt(4) != "*") ) { // This while grabs all the course information from the string
-            if (temp == 0 || temp == 1) { // This grabs the description
-                dDes = str[j].trim();
-                temp++;
-            } else if (str[j].includes("Offering(s):")) {
-                oOff = str[j].trim();
-            } else if (str[j].includes("Restriction(s):")) {
-                rRes = str[j].trim();
-            } else if (str[j].includes("Department(s):")) {
-                dDep = str[j].trim();
-            } else if (str[j].includes("Location(s):")) {
-                lLoc = str[j].trim();
-            } else if (str[j].includes("Prerequisite(s):")) {
-                pPre = str[j].trim();
-            }
-            j++;
-            }
-            let obj =  { // Create the object to hold the course information
-            name: name,
-            cCode: cCode,
-            cCred: cCred,
-            sSem: sSem,
-            dDes: dDes,
-            pPre: pPre,
-            oOff: oOff,
-            rRes: rRes,
-            dDep: dDep,
-            lLoc: lLoc
-            };
-            objPage.push(obj); // Add that object to the array of objects
-        }
-    }
-}
-//console.log(objPage);
-return objPage;
-}
-
 async function main() {
     // Open a Chromium browser. We use headless: false
     // to be able to watch what's going on.
@@ -105,8 +28,6 @@ async function main() {
     for (let i = 0; i < programCodes.length; i++) {
         let url = calendarURL.concat(programCodes[i]).concat("/");
         await page.goto(url);
-        let inTxt = await page.innerText('div.sc_sccoursedescs'); // Grabs a string from that page
-        getJSON(inTxt); // Get the object array from that string
     }
 
     // Turn off the browser to clean up after ourselves.
