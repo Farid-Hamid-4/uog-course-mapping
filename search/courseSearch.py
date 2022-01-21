@@ -3,6 +3,7 @@
 
 # Imports
 import argparse
+import sys
 
 # Program Information
 __author__ = "Harsh Topiwala, Jainil Patel, Andrew Heft, Nicholas Baker, Lourenco Velez, Farid Hamid"
@@ -22,6 +23,7 @@ def parseCLIArgs():
     Runs a specific type of search depending on flag set in the command.
     :return: (String) Result to be displayed back to user.
     """ 
+
 
     # Parser initialization
     parser = argparse.ArgumentParser()
@@ -52,6 +54,10 @@ def parseCLIArgs():
     cwParser.add_argument('[Course Weight]', choices=['0.00', '0.25', '0.50', '1.00'])
     cwParser.add_argument('[Offering Season]', type=str.upper, nargs='?', default='all', choices=['S', 'W', 'F', 'ALL'])
     cwParser.set_defaults(which='cw')
+
+    if len(sys.argv) < 2:
+        parser.print_help()
+        sys.exit(1)
 
     args = vars(parser.parse_args())
 
