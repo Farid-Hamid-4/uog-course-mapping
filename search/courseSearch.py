@@ -4,6 +4,7 @@
 # Imports
 import argparse
 import sys
+from searchFunctions import courseCode, courseWeightSeason, programCode, listAllPrograms
 
 # Program Information
 __author__ = "Harsh Topiwala, Jainil Patel, Andrew Heft, Nicholas Baker, Lourenco Velez, Farid Hamid"
@@ -64,17 +65,18 @@ def parseCLIArgs():
     # Call search functions based on command type    
     if args['which'] == 'cc':
         print("Course Code Search")
+        courseCode.courseCodeSearch(args['[Course Code]'])
 
     elif args['which'] == 'pc':
         print("Program Code Search")
-
+        programCode.programCodeSearch(args['[Program Code]'])
 
     elif args['which'] == 'cw':
         print("Course Weight Search")
-
+        courseWeightSeason.courseWS(args['[Course Weight]'], args['[Offering Season]'])
     else:
         print("List all programs")
-
+        listAllPrograms.listAllProgs()
 
 def main():
     """
@@ -83,7 +85,7 @@ def main():
     :return: N/A
     """ 
 
-    parseCLIArgs();
+    parseCLIArgs()
 
 if __name__ == "__main__":
     main()
