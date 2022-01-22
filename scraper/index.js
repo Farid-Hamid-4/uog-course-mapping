@@ -62,31 +62,43 @@ function getJSON(inTxt) { // This will create an array of objects that hold the 
                 // Makes any extra not undefined
                 let dDes = '';
                 let pPre = '';
+                let eEqu = '';
                 let oOff = '';
                 let rRes = '';
                 let dDep = '';
                 let lLoc = '';
 
-                if (i+1 != str.length) {
-                    j = i+1;
+                if (i+2 != str.length) {
+                    j = i+2;
                 }
 
                 let temp = 0;
-                while (j < (str.length) && (str[j].charAt(3) != '*' || str[j].charAt(4) != "*") ) { // This while grabs all the course information from the string
-                    if (temp == 0 || temp == 1) { // This grabs the description
-                        dDes = str[j].trim();
+
+                let fLoc = 0;
+
+
+                while (j < (str.length) && temp < 2 && fLoc != 1 && (str[j].charAt(3) != '*' || str[j].charAt(4) != "*")  ) { // This while grabs all the course information from the string
+                    //console.log(str[j]);
+                    
+                    if (str[j] == "") { // This grabs the description
                         temp++;
-                    } else if (str[j].includes("Offering(s):")) {
+                        j++
+                    } 
+                    if (str[j].includes("Offering(s):")) {
                         oOff = getTextFrom(str[j],"Offering(s):");
-                        //oOff = str[j].trim();
                     } else if (str[j].includes("Restriction(s):")) {
                         rRes = getTextFrom(str[j],"Restriction(s):");
+                    } else if (str[j].includes("Equate(s):")) {
+                        eEqu = getTextFrom(str[j],"Equate(s):");
                     } else if (str[j].includes("Department(s):")) {
                         dDep = getTextFrom(str[j],"Department(s):");
-                    } else if (str[j].includes("Location(s):")) {
+                    } else if (str[j].includes("Location(s):") && fLoc == 0) {
                         lLoc = getTextFrom(str[j],"Location(s):");
+                        fLoc == 1;
                     } else if (str[j].includes("Prerequisite(s):")) {
                         pPre = getTextFrom(str[j],"Prerequisite(s):");
+                    } else {
+                        dDes = str[j].trim();
                     }
                     j++;
                 }
@@ -99,15 +111,18 @@ function getJSON(inTxt) { // This will create an array of objects that hold the 
                     dDes: dDes,
                     pPre: pPre,
                     oOff: oOff,
+                    eEqu: eEqu,
                     rRes: rRes,
                     dDep: dDep,
                     lLoc: lLoc
                 };
                 if ((obj.sSem).includes("W")) {
                     wWin.push(obj);
-                } else if ((obj.sSem).includes("S")) {
+                }
+                if ((obj.sSem).includes("S")) {
                     sSum.push(obj);
-                } else if ((obj.sSem).includes("F")) {
+                }
+                if ((obj.sSem).includes("F")) {
                     fFal.push(obj);
                 } 
                 objPage.push(obj); // Add that object to the array of objects
@@ -176,28 +191,28 @@ async function main() {
 
     }
 
-    fs.writeFile('AllCourses.json', JSON.stringify(aProg, null,'\t'), (err) => {
+    fs.writeFile('/JSON/AllCourses.json', JSON.stringify(aProg, null,'\t'), (err) => {
         if (err) {
             throw err;
         }
         //console.log("JSON data is saved.");
     });
 
-    fs.writeFile('Winter.json', JSON.stringify(wWin, null,'\t'), (err) => {
+    fs.writeFile('/JSON/Winter.json', JSON.stringify(wWin, null,'\t'), (err) => {
         if (err) {
             throw err;
         }
         //console.log("JSON data is saved.");
     });
 
-    fs.writeFile('Fall.json', JSON.stringify(fFal, null,'\t'), (err) => {
+    fs.writeFile('/JSON/Fall.json', JSON.stringify(fFal, null,'\t'), (err) => {
         if (err) {
             throw err;
         }
         //console.log("JSON data is saved.");
     });
 
-    fs.writeFile('Summer.json', JSON.stringify(sSum, null,'\t'), (err) => {
+    fs.writeFile('/JSON/Summer.json', JSON.stringify(sSum, null,'\t'), (err) => {
         if (err) {
             throw err;
         }
