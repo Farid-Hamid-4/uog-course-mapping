@@ -24,7 +24,7 @@ def courseCodeSearch(courseCode):
     :return: N/A
     """ 
 
-    file = open(os.path.dirname(__file__) + '/../../scraper/json/dummy3.json')
+    file = open(os.path.dirname(__file__) + '/../../scraper/json/AllCourses.json')
 
     data = json.load(file)
 
