@@ -47,11 +47,12 @@ function getJSON(inTxt) { // This will create an array of objects that hold the 
 
     for (let i = 0; i < str.length; i++) { // for loop to get each line
         if (str[i] != '') { // Grabs only if not empty
+            
+            let tmp1 = str[i].trim(); //Get full course tittle
+            let tmp = tmp1.split(/\s{2}/);
 
-            if (str[i].charAt(3) == '*' || str[i].charAt(4) == "*") { // This makes sure to grab only the title
+            if (str[i].charAt(2) == '*' || str[i].charAt(3) == '*' || str[i].charAt(4) == "*") { // This makes sure to grab only the title
 
-                let tmp1 = str[i].trim(); //Get full course tittle
-                let tmp = tmp1.split(/\s{2}/);
                 let name = tmp[1];
 
 
@@ -176,6 +177,8 @@ async function main() {
             pCode = tPtr[1].substring(0,4);
         } else if (tPtr[1] != null && (tPtr[1].length == 4)) {
             pCode = tPtr[1].substring(0,3);
+        } else if (tPtr[1] != null && (tPtr[1].length == 3)) {
+            pCode = tPtr[1].substring(0,2);
         }
 
         // Get all the text within the program page
