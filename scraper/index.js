@@ -191,28 +191,34 @@ async function main() {
 
     }
 
-    fs.writeFile('/JSON/AllCourses.json', JSON.stringify(aProg, null,'\t'), (err) => {
+    fs.mkdir("./JSON", (err) => {
+        if (err) {
+            throw err;
+        }
+    });
+
+    fs.writeFile('./JSON/AllCourses.json', JSON.stringify(aProg, null,'\t'), (err) => {
         if (err) {
             throw err;
         }
         //console.log("JSON data is saved.");
     });
 
-    fs.writeFile('/JSON/Winter.json', JSON.stringify(wWin, null,'\t'), (err) => {
+    fs.writeFile('./JSON/Winter.json', JSON.stringify(wWin, null,'\t'), (err) => {
         if (err) {
             throw err;
         }
         //console.log("JSON data is saved.");
     });
 
-    fs.writeFile('/JSON/Fall.json', JSON.stringify(fFal, null,'\t'), (err) => {
+    fs.writeFile('./JSON/Fall.json', JSON.stringify(fFal, null,'\t'), (err) => {
         if (err) {
             throw err;
         }
         //console.log("JSON data is saved.");
     });
 
-    fs.writeFile('/JSON/Summer.json', JSON.stringify(sSum, null,'\t'), (err) => {
+    fs.writeFile('./JSON/Summer.json', JSON.stringify(sSum, null,'\t'), (err) => {
         if (err) {
             throw err;
         }
