@@ -51,7 +51,7 @@ def parseCLIArgs():
     # Case 4: search by credit weight and season: 
     #   courseSearch cw {0.25, 0.5, 0.75, ... } {Season: optional, default all seasons}
     cwParser = subparsers.add_parser('cw', help='Search by course weight and season (optional)')
-    cwParser.add_argument('[Course Weight]', choices=['0.00', '0.25', '0.50', '1.00'])
+    cwParser.add_argument('[Course Weight]', choices=['0.00', '0.25', '0.50', '0.75', '1.00'])
     cwParser.add_argument('[Offering Season]', type=str.upper, nargs='?', default='all', choices=['S', 'W', 'F', 'ALL'])
     cwParser.set_defaults(which='cw')
 
