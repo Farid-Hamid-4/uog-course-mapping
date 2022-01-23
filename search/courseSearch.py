@@ -64,18 +64,14 @@ def parseCLIArgs():
 
     # Call search functions based on command type    
     if args['which'] == 'cc':
-        print("Course Code Search")
         courseCode.courseCodeSearch(args['[Course Code]'])
 
     elif args['which'] == 'pc':
-        print("Program Code Search")
         programCode.programCodeSearch(args['[Program Code]'])
 
     elif args['which'] == 'cw':
-        print("Course Weight Search")
         courseWeightSeason.courseWS(args['[Course Weight]'], args['[Offering Season]'])
     else:
-        print("List all programs")
         listAllPrograms.listAllProgs()
 
 def main():
