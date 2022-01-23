@@ -20,17 +20,18 @@ Last Updated: 1/22/2022, by Farid Hamid
 def listAllProgs():
     """
     listAllProgs Function.
-    :param p1: courseCode
     :return: N/A
     """ 
     
-    file = open(os.path.dirname(__file__) + '/../../scraper/json/dummy3.json')
-
+    file = open(os.path.dirname(__file__) + '/../../scraper/json/AllCourses.json')
     data = json.load(file)
+
+    print('\n-----------------------------------------------------\n')
 
     # Iterate through json objects and list all program names and respective codes.
     for i in data:
-        print(i['pName'], end=" ")
-        print("(" + i['pCode'] + ")")
+        print('{}: {} - {}'.format(i['pCode'], i['pName'], '{} courses'.format(str(len(i['pCour'])))))
+
+    print('\n-----------------------------------------------------\n')
 
     file.close()
