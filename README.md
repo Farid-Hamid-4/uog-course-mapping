@@ -2,10 +2,6 @@
 
 A program to search and filter course offerings at the University of Guelph.
 
-## Description
-
-An in-depth paragraph about your project and overview of use.
-
 ## Getting Started
 
 ### Dependencies
@@ -17,9 +13,9 @@ An in-depth paragraph about your project and overview of use.
     * pip3
     * pytest
 
-# Installation 
+## Installation 
 
-## 1. Clone this repository using HTTPS or SSH
+### 1. Clone this repository using HTTPS or SSH
 
 `git clone https://gitlab.socs.uoguelph.ca/w22_cis3760_team6/sprint-1.git`  
 
@@ -27,11 +23,11 @@ or
 
 `git clone git@gitlab.socs.uoguelph.ca:w22_cis3760_team6/sprint-1.git`
 
-## 2. Checkout to 'sprint1' branch
+### 2. Checkout to 'sprint1' branch
 
 `git checkout sprint1`
 
-## 3. Navgiate to the 'scraper' directory, install dependencies and run the scraper
+### 3. Navgiate to the 'scraper' directory, install dependencies and run the scraper
 
 `npm install`  
 `node ./index.js`
@@ -40,12 +36,12 @@ or
 
 After running the node script, a directory named 'json' should appear with all course data.
 
-## 4. (OPTIONAL) if you want to run unit tests for the search program
+### 4. (OPTIONAL) if you want to run unit tests for the search program
 
 **Make sure you have pip3 installed before continuing!**  
 Install dependencies (pytest) - `pip3 install -r requirements.txt `
 
-# Program Execution
+## Program Execution
 
 * Be sure to use a bash shell to execute the program!
 
@@ -56,13 +52,11 @@ Search by course code - `python3 courseSearch.py cc {course code, i,e ACCT*1220}
 Search by program code - `python3 courseSearch.py pc {program code, i,e ACCT}`  
 Search by course weight and season - `python3 courseSearch.py cw {course weight, i.e 0.25}, {season (optional), i.e, S}`  
 
-# Running tests
+## Running tests
 
 *COMPLETE STEP 4 OF INSTALLATION BEFORE CONTINUING*
 
 In the 'search' directory - `python3 -m pytest`
-
-
 
 ## Authors
 
