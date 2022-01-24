@@ -157,29 +157,8 @@ let getJSON = (inTxt) => {
  * @param {Object array} aProg is all the programs
  */
 let getJSONFile = (aProg) => {
-        if (!fs.existsSync("./json")) { // Checks to see if the folder exists
-            fs.mkdir("./json", (err) => {
-                if (err) {
-                    throw err;
-                }
-            });
-        }
-        fs.writeFile('./JSON/AllCourses.json', JSON.stringify(aProg, null,'\t'), (err) => {
-            if (err) {
-                throw err;
-            }
-        });
-        fs.writeFile('./JSON/Winter.json', JSON.stringify(wWin, null,'\t'), (err) => {
-            if (err) {
-                throw err;
-            }
-        });
-        fs.writeFile('./JSON/Fall.json', JSON.stringify(fFal, null,'\t'), (err) => {
-            if (err) {
-                throw err;
-            }
-        });
-        fs.writeFile('./JSON/Summer.json', JSON.stringify(sSum, null,'\t'), (err) => {
+    if (!fs.existsSync("./json")) { // Checks to see if the folder exists
+        fs.mkdir("./json", (err) => {
             if (err) {
                 throw err;
             }
@@ -212,10 +191,10 @@ let getJSONFile = (aProg) => {
  * @description This is the main for the program
  */
 async function main() {
-    // Open a Chromium browser. We use headless: false
-    // to be able to watch what's going on.
+    // Open a Chromium browser. We use headless: true
+    // to run the process in the background.
     const browser = await playwright.chromium.launch({
-        headless: true
+        headless: false
     });
     // Open a new page / tab in the browser.
     const page = await browser.newPage({
@@ -228,7 +207,7 @@ async function main() {
 
     let programCodes = ["acct", "agr", "ansc", "anth", "arab", "arth", "asci", "bioc", "biol", "biom", "bot", "bus", "chem", "chin", "clas", "coop", "cis", "crop", "cts",
         "econ", "engg", "engl", "edrd", "envm", "envs", "eqn", "euro", "xsen", "frhd", "fin", "food", "fare", "fren", "geog", "germ", "grek",
-        "hist", "hort", "htm", "hk", "hrob", "humn", "ies", "indg", "ibio", "iaef", "ips", "iss", "univ", "idev", "ital", "jls", "larc", "lat", "ling",
+        "hist", "hort", "htm", "hk", "hrob", "humn", "ies", "indg", "ibio", "ieaf", "ips", "iss", "univ", "idev", "ital", "jls", "larc", "lat", "ling",
         "mgmt", "mcs", "math", "micr", "mcb", "mbg", "musc", "nano", "neur", "nutr", "oneh", "oagr", "path", "phil", "phys", "pbio", "pols", "popm", "port", "psyc",
         "real", "soc", "soan", "span", "stat", "sart", "thst", "tox", "vetm", "wmst", "zoo"];
 
