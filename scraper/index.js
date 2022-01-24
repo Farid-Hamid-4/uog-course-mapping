@@ -194,7 +194,7 @@ async function main() {
     // Open a Chromium browser. We use headless: true
     // to run the process in the background.
     const browser = await playwright.chromium.launch({
-        headless: false
+        headless: true
     });
     // Open a new page / tab in the browser.
     const page = await browser.newPage({
