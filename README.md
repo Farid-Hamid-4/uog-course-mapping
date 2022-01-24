@@ -45,7 +45,7 @@ After running the node script, a directory named 'json' should appear with all c
 **Make sure you have pip3 installed before continuing!**  
 Install dependencies (pytest) - `pip3 install -r requirements.txt `
 
-### Program Execution
+# Program Execution
 
 * Be sure to use a bash shell to execute the program!
 
@@ -56,7 +56,7 @@ Search by course code - `python3 courseSearch.py cc {course code, i,e ACCT*1220}
 Search by program code - `python3 courseSearch.py pc {program code, i,e ACCT}`  
 Search by course weight and season - `python3 courseSearch.py cw {course weight, i.e 0.25}, {season (optional), i.e, S}`  
 
-### Running tests
+# Running tests
 
 *COMPLETE STEP 4 OF INSTALLATION BEFORE CONTINUING*
 
