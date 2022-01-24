@@ -48,9 +48,9 @@ Install dependencies (pytest) - `pip3 install -r requirements.txt `
 Help menu - `python3 courseSearch.py`  
 
 List all programs - `python3 courseSearch.py lp`  
-Search by course code - `python3 courseSearch.py cc {course code, i,e ACCT*1220}`  
-Search by program code - `python3 courseSearch.py pc {program code, i,e ACCT}`  
-Search by course weight and season - `python3 courseSearch.py cw {course weight, i.e 0.25}, {season (optional), i.e, S}`  
+Search by course code - `python3 courseSearch.py cc {course code, i.e ACCT*1220}`  
+Search by program code - `python3 courseSearch.py pc {program code, i.e ACCT}`  
+Search by course weight and season - `python3 courseSearch.py cw {course weight, i.e 0.25}, {season (optional), i.e S}`  
 
 ## Running tests
 
