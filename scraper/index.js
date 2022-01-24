@@ -6,12 +6,12 @@ const fs = require('fs');
  * Program Information
  * @author Harsh Topwala, Jainil Patel, Nicholas Baker, Lourenco Velez, Farid Hamid
  * @version "1.0.0"
- * @maintainer "Harsh Topwala" 
- * @email "htopiwal@uoguelph.ca" 
+ * @maintainer "Nicholas Baker, Jainil Patel" 
+ * @email "nbaker05@uoguelph.ca, jainil@uoguelph.ca" 
  * @status "Development"
  */
 
-/* ----------------- Arrays for courses each semester ----------------- */
+/* ----------------- Arrays to store courses for each semester ----------------- */
 let wWin = [];
 let fFal = [];
 let sSum = [];
@@ -21,7 +21,6 @@ let sSum = [];
  * @description This fucntion will split the spt value in the str string
  * @param {string} str This string holds the information we want
  * @param {string} spt This string holds what we want to take away from str
- * 
  * @returns {string} With only information we want
  */
 let getTextFrom = (str, spt) => {
@@ -33,7 +32,6 @@ let getTextFrom = (str, spt) => {
  * @name getSem
  * @description This function will go though the given string and determine which semesters are within
  * @param {string} str This string holds the information we want
- * 
  * @returns {string} With the semesters the course is in
  */
 let getSem = (str) => {
@@ -60,7 +58,6 @@ let getSem = (str) => {
  * @name getJSON
  * @description This fucntion will make an array of courses
  * @param {string} inTxt is all the text within the current program
- * 
  * @returns {Object array} This will hold all the courses within the current program  
  */
 let getJSON = (inTxt) => {
