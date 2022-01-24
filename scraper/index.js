@@ -160,8 +160,8 @@ let getJSON = (inTxt) => {
  * @param {Object array} aProg is all the programs
  */
 let getJSONFile = (aProg) => {
-        if (!fs.existsSync("./JSON")) { // Checks to see if the folder exists
-            fs.mkdir("./JSON", (err) => {
+        if (!fs.existsSync("./json")) { // Checks to see if the folder exists
+            fs.mkdir("./json", (err) => {
                 if (err) {
                     throw err;
                 }
