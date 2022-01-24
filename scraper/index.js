@@ -164,22 +164,22 @@ let getJSONFile = (aProg) => {
             }
         });
     }
-    fs.writeFile('./JSON/AllCourses.json', JSON.stringify(aProg, null, '\t'), (err) => {
+    fs.writeFile('./json/AllCourses.json', JSON.stringify(aProg, null, '\t'), (err) => {
         if (err) {
             throw err;
         }
     });
-    fs.writeFile('./JSON/Winter.json', JSON.stringify(wWin, null, '\t'), (err) => {
+    fs.writeFile('./json/Winter.json', JSON.stringify(wWin, null, '\t'), (err) => {
         if (err) {
             throw err;
         }
     });
-    fs.writeFile('./JSON/Fall.json', JSON.stringify(fFal, null, '\t'), (err) => {
+    fs.writeFile('./json/Fall.json', JSON.stringify(fFal, null, '\t'), (err) => {
         if (err) {
             throw err;
         }
     });
-    fs.writeFile('./JSON/Summer.json', JSON.stringify(sSum, null, '\t'), (err) => {
+    fs.writeFile('./json/Summer.json', JSON.stringify(sSum, null, '\t'), (err) => {
         if (err) {
             throw err;
         }
