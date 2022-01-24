@@ -22,6 +22,9 @@ An in-depth paragraph about your project and overview of use.
 ## 1. Clone this repository using HTTPS or SSH
 
 `git clone https://gitlab.socs.uoguelph.ca/w22_cis3760_team6/sprint-1.git`  
+
+or  
+
 `git clone git@gitlab.socs.uoguelph.ca:w22_cis3760_team6/sprint-1.git`
 
 ## 2. Checkout to 'sprint1' branch
