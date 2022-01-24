@@ -43,5 +43,7 @@ def courseCodeSearch(courseCode):
 
     if resultCount == 0:
         print("No results found.")
+        print('-----------------------------------------------------\n')
+
 
     file.close()
