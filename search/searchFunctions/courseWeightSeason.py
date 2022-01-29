@@ -44,14 +44,14 @@ def courseWS(credit, season):
     print('\n-----------------------------------------------------\n')
 
     # Iterate thorugh program courses and search by credit weight. Default season is left on All.
-    for i in data:
+    for listing in data:
         if season == 'ALL':
-            for j in i['pCour']:
-                if j['cCred'] == credit:
-                    print('{} - {} - {} \n'.format(j['cCode'], j['name'], j['sSem']))
+            for course in listing['programCourse']:
+                if course['credit'] == credit:
+                    print('{} - {} - {} \n'.format(course['code'], course['name'], course['semester']))
         else:
-            if i['cCred'] == credit:
-                print('{} - {} - {} \n'.format(i['cCode'], i['name'], i['sSem']))
+            if listing['credit'] == credit:
+                print('{} - {} - {} \n'.format(listing['code'], listing['name'], listing['semester']))
 
     print('-----------------------------------------------------\n')
 

@@ -29,8 +29,8 @@ def listAllProgs():
     print('\n-----------------------------------------------------\n')
 
     # Iterate through json objects and list all program names and respective codes.
-    for i in data:
-        print('{}: {} - {}'.format(i['pCode'], i['pName'], '{} courses'.format(str(len(i['pCour'])))))
+    for program in data:
+        print('{}: {} - {}'.format(program['programCode'], program['programName'], '{} courses'.format(str(len(program['programCourse'])))))
 
     print('\n-----------------------------------------------------\n')
 
