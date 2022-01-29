@@ -198,6 +198,10 @@ let getJSONFile = (programArr) => {
     });
 }
 
+/*let getUrl = () {
+
+}*/
+
 /**
  * @name main
  * @description This is the main for the program
@@ -215,21 +219,34 @@ async function main() {
 
     const calendarURL = "https://calendar.uoguelph.ca/undergraduate-calendar/course-descriptions/";
 
-    // await page.goto(calendar);
-
-    let programCodes = ["acct", "agr", "ansc", "anth", "arab", "arth", "asci", "bioc", "biol", "biom", "bot", "bus", "chem", "chin", "clas", "coop", "cis", "crop", "cts",
+    /*let programCodes = ["acct", "agr", "ansc", "anth", "arab", "arth", "asci", "bioc", "biol", "biom", "bot", "bus", "chem", "chin", "clas", "coop", "cis", "crop", "cts",
         "econ", "engg", "engl", "edrd", "envm", "envs", "eqn", "euro", "xsen", "frhd", "fin", "food", "fare", "fren", "geog", "germ", "grek",
         "hist", "hort", "htm", "hk", "hrob", "humn", "ies", "indg", "ibio", "ieaf", "ips", "iss", "univ", "idev", "ital", "jls", "larc", "lat", "ling",
         "mgmt", "mcs", "math", "micr", "mcb", "mbg", "musc", "nano", "neur", "nutr", "oneh", "oagr", "path", "phil", "phys", "pbio", "pols", "popm", "port", "psyc",
-        "real", "soc", "soan", "span", "stat", "sart", "thst", "tox", "vetm", "wmst", "zoo"];
+        "real", "soc", "soan", "span", "stat", "sart", "thst", "tox", "vetm", "wmst", "zoo"];*/
 
     // console.log(programCodes.length);
 
     let programArr = [];
 
     console.clear();
+    await page.goto(calendarURL);
+    let inTxt = await page.textContent("div.az_sitemap");
+    inTxt = inTxt.replace("#ABCDEFGHIJKLMNOPQRSTUVWXYZ","");
+    let programCodes = inTxt.match(/[A-Z]{2,4}/g);
+    let i = 0;
+    
+    for (i = 0; i < programCodes.length; i++) {
+        programCodes[i] = programCodes[i].toLowerCase();
+        if (programCodes[i] == "iaef") {
+            programCodes[i] = "ieaf";
+        }
+    } 
+    //console.log(programCodes);
+    //console.log(inTxt);
+
     // Tell the tab to navigate to the various program topic pages.
-    for (let i = 0; i < programCodes.length; i++) {
+    for (i = 0; i < programCodes.length; i++) {
         console.log("\n"+ i + " of " + programCodes.length + " Programs have been scraped\n");
         
 
@@ -255,6 +272,7 @@ async function main() {
         }
 
         // Get all the text within the program page
+        //console.log(programCodes[i]);
         let inTxt = await page.innerText('div.sc_sccoursedescs'); // Grabs a string from that page
 
         // Program object
