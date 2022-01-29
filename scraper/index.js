@@ -232,23 +232,23 @@ async function main() {
     console.clear();
     await page.goto(calendarURL);
     let inTxt = await page.textContent("div.az_sitemap");
-    inTxt = inTxt.replace("#ABCDEFGHIJKLMNOPQRSTUVWXYZ","");
+    inTxt = inTxt.replace("#ABCDEFGHIJKLMNOPQRSTUVWXYZ", "");
     let programCodes = inTxt.match(/[A-Z]{2,4}/g);
     let i = 0;
-    
+
     for (i = 0; i < programCodes.length; i++) {
         programCodes[i] = programCodes[i].toLowerCase();
         if (programCodes[i] == "iaef") {
             programCodes[i] = "ieaf";
         }
-    } 
+    }
     //console.log(programCodes);
     //console.log(inTxt);
 
     // Tell the tab to navigate to the various program topic pages.
     for (i = 0; i < programCodes.length; i++) {
-        console.log("\n"+ i + " of " + programCodes.length + " Programs have been scraped\n");
-        
+        console.log("\n" + i + " of " + programCodes.length + " Programs have been scraped\n");
+
 
         // Go to the programs page
         let url = calendarURL.concat(programCodes[i]).concat("/");
