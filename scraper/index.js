@@ -54,6 +54,15 @@ let getSem = (courseTitle) => {
     return ret;
 }
 
+let getPreCode = (prereqStr) => {
+    let courseCodes = prereqStr.match(/[A-Z*]{2,5}[0-9]{4}/g);
+    //console.log(courseCodes);
+    if (courseCodes == null) {
+        courseCodes = [];
+    }
+    return courseCodes;
+}
+
 /**
  * @name getJSON
  * @description This fucntion will make an array of courses
@@ -83,6 +92,7 @@ let getJSON = (inTxt) => {
             let courseRestriction = '';
             let courseDepartment = '';
             let courseLocation = '';
+            let coursePrerequisiteCodes = [];
             let temp = 0;
             let fLoc = 0;
 
@@ -113,6 +123,7 @@ let getJSON = (inTxt) => {
                         fLoc == 1;
                     } else if (str[j].includes("Prerequisite(s):")) { // Grabs prerequisites
                         coursePrerequisite = getTextFrom(str[j], "Prerequisite(s):");
+                        coursePrerequisiteCodes = getPreCode(coursePrerequisite);
                     } else { // Grabs descriptions
                         courseDescription = str[j].trim();
                     }
@@ -131,7 +142,8 @@ let getJSON = (inTxt) => {
                     courseEquate: courseEquate,
                     courseRestriction: courseRestriction,
                     courseDepartment: courseDepartment,
-                    courseLocation: courseLocation
+                    courseLocation: courseLocation,
+                    coursePrerequisiteCodes: coursePrerequisiteCodes
                 };
 
                 /* ----------------- Add each course to the appropriate semester array ----------------- */
@@ -215,9 +227,11 @@ async function main() {
 
     let programArr = [];
 
-
+    console.clear();
     // Tell the tab to navigate to the various program topic pages.
     for (let i = 0; i < programCodes.length; i++) {
+        console.log("\n"+ i + " of " + programCodes.length + " Programs have been scraped\n");
+        
 
         // Go to the programs page
         let url = calendarURL.concat(programCodes[i]).concat("/");
@@ -252,11 +266,12 @@ async function main() {
 
         // Add to the overall 
         programArr.push(programObject);
+        console.clear();
     }
 
     // Print the courses to a JSON folder
     getJSONFile(programArr);
-
+    console.log("\nAll the programs have been scraped\n")
     // Turn off the browser to clean up after ourselves.
     await browser.close();
 }
