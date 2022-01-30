@@ -54,13 +54,74 @@ let getSem = (courseTitle) => {
     return ret;
 }
 
-let getPreCode = (prereqStr) => {
-    let courseCodes = prereqStr.match(/[A-Z*]{2,5}[0-9]{4}/g);
-    //console.log(courseCodes);
-    if (courseCodes == null) {
-        courseCodes = [];
+let getOf = (spaceSplit,index) => {
+    let before;
+    let after;
+    let of;
+    for (let i = 0; i < spaceSplit.length; i++) {
+        if (spaceSplit[i].includes("(")) {
+            before = i;
+        } else if (spaceSplit[i].includes(")")) {
+            after = i;
+        } else if (spaceSplit[i].includes("of")) {
+            of = i;
+        }
+        if (before != null && after != null && of != null) {
+            if ((before < of) && (of < index) && (index <= after)) {
+                return true
+            }
+        }
     }
-    return courseCodes;
+    return false
+}
+
+let getPreCode = (prereqStr) => {
+    let obj = {
+        or_courses: [],
+        mandatory: []
+    };
+    let spaceSplit = prereqStr.split(" ");
+    let coursePre = prereqStr.match(/[A-Z*]{2,5}[0-9]{4}/g);
+    if (coursePre != null) {
+        if (prereqStr.includes("or") || prereqStr.match(/[(1-9 ]{3}[of]{2}/g) != null) {
+            for (let i = 0; i < coursePre.length; i++) {
+                for (let j = 0; j < spaceSplit.length; j++) {
+                    if (j == 0 && spaceSplit[j].includes(coursePre[i])) {
+                        if (spaceSplit[j+1].includes("or")) {
+                            obj.or_courses.push(coursePre[i]);
+                        } else if (getOf(spaceSplit,j))  {
+                            obj.or_courses.push(coursePre[i]);
+                        } else {
+                            obj.mandatory.push(coursePre[i]);
+                        }
+                    } else if (j > -1 && j < spaceSplit.length-1 && spaceSplit[j].includes(coursePre[i])) {
+                        if (spaceSplit[j+1].includes("or")) {
+                            obj.or_courses.push(coursePre[i]);
+                        } else if (spaceSplit[j-1].includes("or")) {
+                            obj.or_courses.push(coursePre[i]);
+                        } else if (getOf(spaceSplit,j))  {
+                            obj.or_courses.push(coursePre[i]);
+                        } else {
+                            obj.mandatory.push(coursePre[i]);
+                        }
+                    } else if (j <= spaceSplit.length && spaceSplit[j].includes(coursePre[i])) {
+                        if (spaceSplit[j-1].includes("or")) {
+                            obj.or_courses.push(coursePre[i]);
+                        } else if (getOf(spaceSplit,j))  {
+                            obj.or_courses.push(coursePre[i]);
+                        } else {
+                            obj.mandatory.push(coursePre[i]);
+                        }
+                    }
+                }
+            }
+        } else if (prereqStr.match(/[1-9 ]{2}[of]{2}/g) != null) {
+            obj.or_courses = coursePre;
+        } else {
+            obj.mandatory = coursePre;
+        }
+    } 
+    return obj;
 }
 
 /**
