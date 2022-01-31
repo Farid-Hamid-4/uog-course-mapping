@@ -24,7 +24,7 @@ def formattedInfo(courseInfo):
     :return: string (an easy-to-digest block of course information)
     """ 
 
-    lines = courseInfo.split('\*')
+    lines = courseInfo.split('\n')
     res = []
     for line in lines:
         res.append(line)
@@ -46,14 +46,14 @@ def printCourseResults(course):
     :return: string (an easy-to-digest block of course information)
     """ 
 
-    courseName = '{} - {} - {}\*'.format(course['code'], course['name'], course['credit'])
-    description = 'Description: {}\*'.format(printIfExists(course['description']))
-    prerequisites = 'Prerequisite(s): {}\*'.format(printIfExists(course['prerequisites']))
-    offerings = 'Offering(s): {}\*'.format(printIfExists(course['offering']))
-    restrictions = 'Restriction(s): {}\*'.format(printIfExists(course['restriction']))
-    equates = 'Equate(s): {}\*'.format(printIfExists(course['equate']))
-    department = 'Department(s): {}\*'.format(printIfExists(course['department']))
-    locations = 'Location(s): {}\*'.format(printIfExists(course['location']))
+    courseName = '{} - {} - {}\n'.format(course['code'], course['name'], course['credit'])
+    description = 'Description: {}\n'.format(printIfExists(course['description']))
+    prerequisites = 'Prerequisite(s): {}\n'.format(printIfExists(course['prerequisites']))
+    offerings = 'Offering(s): {}\n'.format(printIfExists(course['offering']))
+    restrictions = 'Restriction(s): {}\n'.format(printIfExists(course['restriction']))
+    equates = 'Equate(s): {}\n'.format(printIfExists(course['equate']))
+    department = 'Department(s): {}\n'.format(printIfExists(course['department']))
+    locations = 'Location(s): {}\n'.format(printIfExists(course['location']))
 
     unformattedString = courseName + description + prerequisites + offerings + restrictions + equates + department + locations    
     return formattedInfo(unformattedString)
