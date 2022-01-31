@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "playwright": "^1.18.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.8.0"
   }
 }
