@@ -35,11 +35,11 @@ def programCodeSearch(programCode):
     print('\n-----------------------------------------------------\n')
     
     # Iterate through programs and list all courses in that a program. 
-    for i in data:
-        if i['pCode'] == programCode:
-            for j in i['pCour']:
+    for program in data:
+        if program['programCode'] == programCode:
+            for course in program['programCourse']:
                 resultCount += 1
-                print(printCourseResults(j))
+                print(printCourseResults(course))
                 print('-----------------------------------------------------\n')
 
     

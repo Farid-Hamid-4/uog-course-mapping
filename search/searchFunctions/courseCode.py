@@ -33,11 +33,11 @@ def courseCodeSearch(courseCode):
     print('\n-----------------------------------------------------\n')
 
     # Iterate through program courses and match course codes to print information on a specfic course. 
-    for i in data:
-        for j in i['pCour']:
-            if j['cCode'] == courseCode:
+    for program in data:
+        for course in program['programCourse']:
+            if course['code'] == courseCode:
                 resultCount += 1
-                print(printCourseResults(j))
+                print(printCourseResults(course))
                 print('-----------------------------------------------------\n')
                 break
 

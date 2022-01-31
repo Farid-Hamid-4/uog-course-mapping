@@ -7,10 +7,12 @@ A program to search and filter course offerings at the University of Guelph.
 ### Dependencies
 
 * Chromium (if you're using a linux-based system, `sudo apt-get install chromium`)
+* graphviz (if you're using a linux-based system, `sudo apt-get install graphviz graphviz-dev`)
 * Node 14 or higher
     * Playwright
-* Python 3
+* Python 3.9 >
     * pip3
+    * pygraphviz
     * pytest
 
 ## Installation 
@@ -30,16 +32,17 @@ or
 ### 3. Navgiate to the 'scraper' directory, install dependencies and run the scraper
 
 `npm install`  
-`node ./index.js`
+`node scraper.js`
 
 **If `node ./index.js` throws an error, make sure chromium is installed on your system and make sure your Node version is >= 14**
 
 After running the node script, a directory named 'json' should appear with all course data.
 
-### 4. (OPTIONAL) if you want to run unit tests for the search program
+### 4. Install python dependencies
 
-**Make sure you have pip3 installed before continuing!**  
-Install dependencies (pytest) - `pip3 install -r requirements.txt `
+Naviate to the `search` directory.
+**Make sure you have pip3 installed before continuing and make sure python version is >= 3.9!**  
+Install dependencies - `pip3 install -r requirements.txt `
 
 ## Program Execution
 
@@ -47,7 +50,8 @@ Install dependencies (pytest) - `pip3 install -r requirements.txt `
 
 Help menu - `python3 courseSearch.py`  
 
-List all programs - `python3 courseSearch.py lp`  
+Generate prerequisite graph for a program - `python3 makeGraph.py {program code, i.e CIS}`
+List all programs - `python3 courseSearch.py lp`
 Search by course code - `python3 courseSearch.py cc {course code, i.e ACCT*1220}`  
 Search by program code - `python3 courseSearch.py pc {program code, i.e ACCT}`  
 Search by course weight and season - `python3 courseSearch.py cw {course weight, i.e 0.25}, {season (optional), i.e S}`  
