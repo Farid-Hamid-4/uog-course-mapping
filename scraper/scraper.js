@@ -30,7 +30,7 @@ let getTextFrom = (searchString, keyword) => {
 
 /**
  * @name getSem
- * @description This function will go though the given string and determine which semesters are within
+ * @description This function will go through the given string and determine which semesters are within
  * @param {string} courseTitle This string holds the information we want
  * @returns {string} With the semesters the course is in
  */
@@ -54,20 +54,27 @@ let getSem = (courseTitle) => {
     return ret;
 }
 
-let getOf = (spaceSplit,index) => {
-    let before;
-    let after;
-    let of;
-    for (let i = 0; i < spaceSplit.length; i++) {
-        if (spaceSplit[i].includes("(")) {
-            before = i;
-        } else if (spaceSplit[i].includes(")")) {
-            after = i;
-        } else if (spaceSplit[i].includes("of")) {
-            of = i;
+/**
+ * @name getOf
+ * @description This function will go though the given string and determine which semesters are within
+ * @param {string} prerequisitesSpaceSplit This string holds the course requirements split by spaces. Ex: [CIS*3760] [(1] [of] ...
+ * @param {integer} index This integer holds the current prerequisitesSpaceSplit string index being checked that matches course prerequisites
+ * @returns {boolean} Returns true or false, true if there is an 'of', and false if there is not
+ */
+let getOf = (prerequisitesSpaceSplit,index) => {
+
+    let before, after, of;
+
+    for (let i = 0; i < prerequisitesSpaceSplit.length; i++) { // Loops through course prerequisites separated by space and searches for 1 of case. (1 of ...)
+        if (prerequisitesSpaceSplit[i].includes("(")) { // Checks for first bracket of case
+            before = i; // Keeps track of first bracket index
+        } else if (prerequisitesSpaceSplit[i].includes(")")) { // Checks for last bracket of casae
+            after = i; // Keeps track of last bracket index
+        } else if (prerequisitesSpaceSplit[i].includes("of")) { // Checks for keyword 'of'
+            of = i; // Keeps track of 'of' index
         }
-        if (before != null && after != null && of != null) {
-            if ((before < of) && (of < index) && (index <= after)) {
+        if (before != null && after != null && of != null) { // If all keys are found then check if it meets format
+            if ((before < of) && (of < index) && (index <= after)) { // if format is (# of ...) then return true
                 return true
             }
         }
@@ -75,53 +82,64 @@ let getOf = (spaceSplit,index) => {
     return false
 }
 
+/**
+ * @name getPreCode
+ * @description This function will go though the given string and determine which semesters are within
+ * @param {string} prereqStr This string holds the requirements for the current course
+ * @returns {Object} courseRequirementGrp holds the requirement groups, or/of cases, and mandatory
+ */
 let getPreCode = (prereqStr) => {
-    let obj = {
+
+    let courseRequirementGrp = {
         or_courses: [],
         mandatory: []
     };
-    let spaceSplit = prereqStr.split(" ");
-    let coursePre = prereqStr.match(/[A-Z*]{2,5}[0-9]{4}/g);
-    if (coursePre != null) {
-        if (prereqStr.includes("or") || prereqStr.match(/[(1-9 ]{3}[of]{2}/g) != null) {
-            for (let i = 0; i < coursePre.length; i++) {
-                for (let j = 0; j < spaceSplit.length; j++) {
-                    if (j == 0 && spaceSplit[j].includes(coursePre[i])) {
-                        if (spaceSplit[j+1].includes("or")) {
-                            obj.or_courses.push(coursePre[i]);
-                        } else if (getOf(spaceSplit,j))  {
-                            obj.or_courses.push(coursePre[i]);
-                        } else {
-                            obj.mandatory.push(coursePre[i]);
+
+    let prerequisitesSpaceSplit = prereqStr.split(" "); // splits the prerequisite string so it can go word by word to find cases, "or" "1 of" "2 of", e.t.c
+    let coursePrereqs = prereqStr.match(/[A-Z*]{2,5}[0-9]{4}/g); // splits the prerequisite string and holds the course codes in the string
+
+    if (coursePrereqs != null) {
+        if (prereqStr.includes("or") || prereqStr.match(/[(1-9 ]{3}[of]{2}/g) != null) { // If there is an "or" case or a "(# of ...)" case
+
+            /* Loop through the course codes in the prerequisites */
+            for (let i = 0; i < coursePrereqs.length; i++) {
+                
+                /* Loop through all words in prerequisites */
+                for (let j = 0; j < prerequisitesSpaceSplit.length; j++) {
+                    if (j == 0 && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 1: index 0 is a course code
+                        if (prerequisitesSpaceSplit[j+1].includes("or")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
+                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
+                        } else { // else it is a mandatory, push to mandatory array
+                            courseRequirementGrp.mandatory.push(coursePrereqs[i]);
                         }
-                    } else if (j > -1 && j < spaceSplit.length-1 && spaceSplit[j].includes(coursePre[i])) {
-                        if (spaceSplit[j+1].includes("or")) {
-                            obj.or_courses.push(coursePre[i]);
-                        } else if (spaceSplit[j-1].includes("or")) {
-                            obj.or_courses.push(coursePre[i]);
-                        } else if (getOf(spaceSplit,j))  {
-                            obj.or_courses.push(coursePre[i]);
-                        } else {
-                            obj.mandatory.push(coursePre[i]);
+                    } else if (j > -1 && j < prerequisitesSpaceSplit.length-1 && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 2: index 1->(length-1)
+                        if (prerequisitesSpaceSplit[j+1].includes("or")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
+                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
+                        } else if (prerequisitesSpaceSplit[j-1].includes("or")) { // Check if an "or" comes before course code "... or CIS*#", if true, push to or_courses array
+                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
+                        } else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
+                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
+                        } else { // else it is mandatory, push to mandatory array
+                            courseRequirementGrp.mandatory.push(coursePrereqs[i]);
                         }
-                    } else if (j <= spaceSplit.length && spaceSplit[j].includes(coursePre[i])) {
-                        if (spaceSplit[j-1].includes("or")) {
-                            obj.or_courses.push(coursePre[i]);
-                        } else if (getOf(spaceSplit,j))  {
-                            obj.or_courses.push(coursePre[i]);
-                        } else {
-                            obj.mandatory.push(coursePre[i]);
+                    } else if (j <= prerequisitesSpaceSplit.length && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 3: 
+                        if (prerequisitesSpaceSplit[j-1].includes("or")) { // Check if or comes after course code "CIS*# or ...", if true, push to or_courses array
+                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
+                        } else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
+                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
+                        } else { // else it is mandatory, push to mandatory array
+                            courseRequirementGrp.mandatory.push(coursePrereqs[i]);
                         }
                     }
                 }
             }
-        } else if (prereqStr.match(/[1-9 ]{2}[of]{2}/g) != null) {
-            obj.or_courses = coursePre;
-        } else {
-            obj.mandatory = coursePre;
+        } else if (prereqStr.match(/[1-9 ]{2}[of]{2}/g) != null) { // If it does not have an "or", and it is not a "(# of ...)" case, check if it is a "# of ..." case. No brackets. Then it they are all or cases
+            courseRequirementGrp.or_courses = coursePrereqs;
+        } else { // If it does not have an "or", it is not a "(# of ...)", and it is not a "# of ..." case, then all course codes are mandatory
+            courseRequirementGrp.mandatory = coursePrereqs;
         }
     } 
-    return obj;
+    return courseRequirementGrp;
 }
 
 /**
