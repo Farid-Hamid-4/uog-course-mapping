@@ -1,6 +1,6 @@
 /* ----------------- Import the required libraries ----------------- */
 const playwright = require('playwright');
-const fs = require('fs');
+const fileSystem = require('fs');
 
 /**
  * Program Information
@@ -12,9 +12,9 @@ const fs = require('fs');
  */
 
 /* ----------------- Arrays to store courses for each semester ----------------- */
-let winterCoursesArr = [];
-let fallCoursesArr = [];
-let summerCoursesArr = [];
+let winterCoursesArray = [];
+let fallCoursesArray = [];
+let summerCoursesArray = [];
 
 /**
  * @name getTextFrom
@@ -227,13 +227,13 @@ let getJSON = (inTxt) => {
 
                 /* ----------------- Add each course to the appropriate semester array ----------------- */
                 if ((courseObject.semester).includes("W")) {
-                    winterCoursesArr.push(courseObject);
+                    winterCoursesArray.push(courseObject);
                 }
                 if ((courseObject.semester).includes("S")) {
-                    summerCoursesArr.push(courseObject);
+                    summerCoursesArray.push(courseObject);
                 }
                 if ((courseObject.semester).includes("F")) {
-                    fallCoursesArr.push(courseObject);
+                    fallCoursesArray.push(courseObject);
                 }
                 courseObjectArr.push(courseObject); // Add that object to the array of objects
             }
@@ -245,32 +245,33 @@ let getJSON = (inTxt) => {
 /**
  * @name getJSONFile
  * @description This fucntion will print all the courses for json files
- * @param {Object array} programArr is all the programs
+ * @param {Object array} programArray is all the programs
  */
-let getJSONFile = (programArr) => {
-    if (!fs.existsSync("./json")) { // Checks to see if the folder exists
-        fs.mkdir("./json", (err) => {
+let getJSONFile = (programArray) => {
+    if (!fileSystem.existsSync("./json")) { // Checks to see if the folder exists
+        fileSystem.mkdir("./json", (err) => {
             if (err) {
                 throw err;
             }
         });
     }
-    fs.writeFile('./json/AllCourses.json', JSON.stringify(programArr, null, '\t'), (err) => {
-        if (err) {
-            throw err;
-        }
-    });
-    fs.writeFile('./json/Winter.json', JSON.stringify(winterCoursesArr, null, '\t'), (err) => {
-        if (err) {
-            throw err;
-        }
-    });
-    fs.writeFile('./json/Fall.json', JSON.stringify(fallCoursesArr, null, '\t'), (err) => {
-        if (err) {
-            throw err;
-        }
-    });
-    fs.writeFile('./json/Summer.json', JSON.stringify(summerCoursesArr, null, '\t'), (err) => {
+
+    // Create a json file for all the courses, and for each season
+    writeJsonFile('./json/AllCourses.json', programArray);
+    writeJsonFile('./json/Summer.json', summerCoursesArray);
+    writeJsonFile('./json/Fall.json', fallCoursesArray);
+    writeJsonFile('./json/Winter.json', winterCoursesArray);
+
+}
+
+/**
+ * @name writeJsonFile
+ * @description This function will create/write the files into the json folder
+ * @param {file} fileName is name of the file
+ * @param {Object array} programArray is all the programs
+ */
+let writeJsonFile = (fileName, programArray) => {
+    fileSystem.writeFile(fileName, JSON.stringify(programArray, null, '\t'), (err) => {
         if (err) {
             throw err;
         }
@@ -294,7 +295,7 @@ async function main() {
 
     const calendarURL = "https://calendar.uoguelph.ca/undergraduate-calendar/course-descriptions/";
 
-    let programArr = [];
+    let programArray = [];
 
     console.clear();
     await page.goto(calendarURL);
@@ -303,8 +304,13 @@ async function main() {
     let programCodes = inTxt.match(/[A-Z]{2,4}/g);
     let i = 0;
     
+    // Convert each character in the program codes to lowercase
     for (i = 0; i < programCodes.length; i++) {
         programCodes[i] = programCodes[i].toLowerCase();
+
+        // The course has a program code of "IAEF" but the url displays it as the following
+        // https://calendar.uoguelph.ca/undergraduate-calendar/course-descriptions/ieaf/
+        // In other words, the program code is not consistent with the url "AE" and "EA" respectively.
         if (programCodes[i] == "iaef") {
             programCodes[i] = "ieaf";
         }
@@ -325,16 +331,7 @@ async function main() {
 
         // Get the program name and code
         let programName = tPtr[0].trim();
-        let programCode;
-
-        // Grab the program code from the title
-        if (tPtr[1] != null && (tPtr[1].length == 5)) {
-            programCode = tPtr[1].substring(0, 4);
-        } else if (tPtr[1] != null && (tPtr[1].length == 4)) {
-            programCode = tPtr[1].substring(0, 3);
-        } else if (tPtr[1] != null && (tPtr[1].length == 3)) {
-            programCode = tPtr[1].substring(0, 2);
-        }
+        let programCode = programCodes[i].toUpperCase();
 
         // Get all the text within the program page
         let inTxt = await page.innerText('div.sc_sccoursedescs'); // Grabs a string from that page
@@ -347,12 +344,12 @@ async function main() {
         };
 
         // Add to the overall 
-        programArr.push(programObject);
+        programArray.push(programObject);
         console.clear();
     }
 
     // Print the courses to a JSON folder
-    getJSONFile(programArr);
+    getJSONFile(programArray);
     console.log("\nAll the programs have been scraped\n")
     // Turn off the browser to clean up after ourselves.
     await browser.close();
