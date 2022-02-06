@@ -5,7 +5,7 @@
 import argparse
 import sys
 import json
-import os.path
+import os
 import pygraphviz as pgv
 
 # Program Information
@@ -15,16 +15,14 @@ __maintainer__ = "Harsh Topiwala"
 __email__ = "htopiwal@uoguelph.ca"
 __status__ = "Development"
 
-
 """
 A CLI-based program with the purpose of generating a graph to visualize courses and their prerequisties.
-Last Updated: 1/29/2022, by Harsh Topiwala
+Last Updated: 2/3/2022, by Harsh Topiwala
 """
-
 
 def grabProgramData(programCode):
     """
-    Returns program data if the program exists
+    Returns program courses if the program exists
     :param p1: programCode (string)
     :return: (Array of objects) program information
     """ 
@@ -32,13 +30,73 @@ def grabProgramData(programCode):
     # Open file containing all course information for reading
     file = open(os.path.dirname(__file__) + '/../scraper/json/AllCourses.json')
     data = json.load(file)
-    
+    courseData = []
     # Traverse through all programs and find program with specified code 
     for program in data:
         if program['programCode'] == programCode:
-            return program['programCourse']
+            courseData = program['programCourse']
+            break
 
-    return []
+    file.close()
+    return courseData
+
+def grabMajorData(majorCode):
+    """
+    Returns a list of courses (objects) that are required for a major
+    :param p1: majorCode (string)
+    :return: (Array of objects) major information
+    """ 
+
+    # Open file containing all course information for reading
+    file = open(os.path.dirname(__file__) + '/../scraper/json/MajorData.json')
+    data = json.load(file)
+    majorData = []
+    # Traverse through all programs and find program with specified code 
+    for major in data:
+        if major['majorCode'] == majorCode:
+            for courseCode in major['majorCourses']:
+                majorData.append(getCourseData(courseCode))
+            
+    file.close()
+    return majorData
+
+def getCourseData(courseCode):
+    """
+    Returns data for a singular course 
+    :param p1: courseCode (string)
+    :return: single object containing course data
+    """
+
+    # Open file containing all course information for reading
+    file = open(os.path.dirname(__file__) + '/../scraper/json/AllCourses.json')
+    data = json.load(file)
+    courseObj = {}
+
+    for program in data:
+        for course in program['programCourse']:
+            if course['code'] == courseCode:
+                courseObj = course
+
+    file.close()
+    return courseObj
+
+def listAllMajors():
+    """
+    Prints all majors and their codes
+    :return: N/A
+    """ 
+    # Open file containing all course information for reading
+    file = open(os.path.dirname(__file__) + '/../scraper/json/MajorData.json')
+    data = json.load(file)
+    # Traverse through all programs and find program with specified code 
+    print('\n-----------------------------------------------------\n')
+
+    for major in data:
+        print('{} - {}'.format(major['majorName'], major['majorCode']))
+
+    print('\n-----------------------------------------------------\n')        
+    file.close()
+
 
 def add_graph_nodes(graph, prereq, currCourse, courseType):
     """
@@ -55,7 +113,6 @@ def add_graph_nodes(graph, prereq, currCourse, courseType):
     else:
         graph.add_edge(prereq, currCourse, dir='forward')
         
-    
     return graph
 
 def getNodeColor(courseCode):
@@ -74,54 +131,84 @@ def getNodeColor(courseCode):
     
     return 'magenta'
 
-def generateGraph(programCode):
+def generateGraph(code, graphType):
     """
     Generates a graph based on program code specified in command.
-    :param p1: programCode (string)
+    :param p1: code (string)
+    :param p1: type (string)
     :return: None
-    """ 
+    """
 
-    courses = grabProgramData(programCode)
-    if len(courses) == 0:
-        print('Program with code "{}" does not exist.'.format(programCode))
+    # Grabbing data based on graph type
+    data = []
+    if graphType == 'major':
+        data = grabMajorData(code)
+    elif graphType == 'program':
+        data = grabProgramData(code)
+
+    if len(data) == 0:
+        print('{} with code "{}" does not exist.'.format(graphType.title(), code))
         return
     
     # Initialize empty graph
     graph = pgv.AGraph(ranksep='5')
-    legend = pgv.AGraph(ranksep='2')
     
     # Generate graph
-    for course in courses:
+    for dataItem in data:
         # Traverse through prerequisites and create nodes and edges
-        prereqCodes = course['prerequisiteCodes']
-
+        prereqCodes = dataItem['prerequisiteCodes']
+        
         # '1 of' case
         for prereq in prereqCodes['or_courses']:
-            # Add nodes and create edge between node
-            graph = add_graph_nodes(graph, prereq, course['code'], 'or')
+            graph = add_graph_nodes(graph, prereq, dataItem['code'], 'or')
         
         # 'Mandatory' case
         for prereq in prereqCodes['mandatory']:
-            graph = add_graph_nodes(graph, prereq, course['code'], 'mandatory')
+            graph = add_graph_nodes(graph, prereq, dataItem['code'], 'mandatory')
 
     # Layout and export graph
     graph.layout(prog='dot')
-    graph.draw('{}_graph.pdf'.format(programCode))
-        
-def parseArguments():
 
+    # Check if directory for graphs exists
+    if not os.path.exists('graphs'):
+        os.makedirs('graphs')
+
+    # Draw graph to directory
+    graph.draw('graphs/{}_{}_graph.pdf'.format(code, graphType))
+
+
+def parseArguments():
     """
     Parses CLI command to get program to generate graph for.
     :return: (String) Result to be displayed back to user.
     """ 
     # Parser initialization
     parser = argparse.ArgumentParser()
-    parser.add_argument('programCode')
+
+    subparsers = parser.add_subparsers(help='Graph Generation Methods')
+
+    # Program code parsing
+    prerequisiteParser = subparsers.add_parser('prg', help='Generate prerequisite graph for all courses in a program. e.g python3 makeGraph.py prg CIS ')
+    prerequisiteParser.add_argument('[Program Code]')
+    prerequisiteParser.set_defaults(which='prg')
+
+    # Major code parsing
+    prerequisiteMajorParser = subparsers.add_parser('mrg', help='Generate prerequisite graph for all courses in a major. e.g python3 makeGraph.py mrg CIS ')
+    prerequisiteMajorParser.add_argument('[Major Code]')
+    prerequisiteMajorParser.set_defaults(which='mrg')
+
+    # Parser for listing majors and their codes
+    listMajorsParser = subparsers.add_parser('lm', help='List all majors and their codes, i.e python3 makeGraph.py lp')
+    listMajorsParser.set_defaults(which='lm')
 
     args = vars(parser.parse_args())
 
-    if args['programCode']:
-        generateGraph(args['programCode'])
+    if args['which'] == 'prg':
+        generateGraph(args['[Program Code]'], 'program')
+    elif args['which'] == 'mrg':
+        generateGraph(args['[Major Code]'], 'major')
+    else:
+        listAllMajors()
 
 def main():
     """
@@ -131,7 +218,6 @@ def main():
     """ 
 
     parseArguments()
-
 
 if __name__ == "__main__":
     main()
