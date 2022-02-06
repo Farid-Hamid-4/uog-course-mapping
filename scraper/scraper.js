@@ -1,6 +1,7 @@
 /* ----------------- Import the required libraries ----------------- */
 const playwright = require('playwright');
 const fileSystem = require('fs');
+const { join } = require('path');
 
 /**
  * Program Information
@@ -15,6 +16,7 @@ const fileSystem = require('fs');
 let winterCoursesArray = [];
 let fallCoursesArray = [];
 let summerCoursesArray = [];
+let majorList = [];
 
 /**
  * @name getTextFrom
@@ -256,7 +258,7 @@ let getJSONFile = (programArray) => {
     writeJsonFile('./json/Summer.json', summerCoursesArray);
     writeJsonFile('./json/Fall.json', fallCoursesArray);
     writeJsonFile('./json/Winter.json', winterCoursesArray);
-
+    writeJsonFile('./json/MajorData.json', majorList);
 }
 
 /**
@@ -271,6 +273,46 @@ let writeJsonFile = (fileName, programArray) => {
             throw err;
         }
     });
+}
+
+/**
+ * @name siteMapRegex
+ * @description This function will regex the elements taken from siteMap
+ * @param {string} siteString is the string holding the current site, string to be regex'd
+ * @return {string} returns siteString after regex
+ */
+let siteMapRegex = (siteString) => {
+    //These lines will rework the string to make it usable as a link
+    //The order of these replaces are necessary when building a link
+    siteString = siteString.replace(/[of ]{3}|[in ]{3}/g,"");//Gets rid of the of's and in's
+    siteString = siteString.replace(".(","-");//Replaces the .( with a -
+    siteString = siteString.replace(/[(.,&)]/g,"");//Gets rid of all (.,&) in the string
+    siteString = siteString.replace(/[\]\[]/g,"");//Gets rid of square brackets
+    siteString = siteString.replace(/  /g," ");//Gets rid of double spaces
+    siteString = siteString.replace(/ /g,"-");//Any space becomes a dash
+    siteString = siteString.replace(/[:]/g,"-");//Colons become -
+    siteString = siteString.toLowerCase();//Lower case so it can be used
+    return siteString;
+}
+
+/**
+ * @name caseRemove
+ * @description This function will replace/remove cases in URL strings. Used commonly for occasional "and", "co-op:c", "co-op-c", and removal of them.
+ * @param {string} invalidString is the name of the string which needs to be changed
+ * @param {string} removeString is the name of the string that is being replaced, "and " "co op ", e.t.c
+ * @param {string} replaceString is the name of the string that will be replacing removeString
+ * @return {string} returns the string for further usage
+ */
+let caseRemove = (invalidString, removeString, replaceString) => {
+    // Restore spaces that have been regexed for '-'
+    invalidString = invalidString.replace(/[-]/g," ");
+    if (invalidString.includes(removeString)){
+        invalidString = invalidString.replace(removeString,replaceString);
+    }
+    // Restore '-' in empty spaces to fix url
+    invalidString = invalidString.replace(/[ ]/g,"-");
+
+    return invalidString;
 }
 
 /**
@@ -297,8 +339,8 @@ async function main() {
     let innerText = await page.textContent("div.az_sitemap");
     innerText = innerText.replace("#ABCDEFGHIJKLMNOPQRSTUVWXYZ","");
     let programCodes = innerText.match(/[A-Z]{2,4}/g);
-    let i = 0;
-    
+    let i = 0, j = 0, k = 0;
+
     // Convert each character in the program codes to lowercase
     for (i = 0; i < programCodes.length; i++) {
         programCodes[i] = programCodes[i].toLowerCase();
@@ -343,9 +385,154 @@ async function main() {
         console.clear();
     }
 
+    console.log("\nAll the programs have been scraped\nNow scraping Majors\n")
+
+    const degreeUrl = "https://calendar.uoguelph.ca/undergraduate-calendar/degree-programs/";
+    const majorUrl = "https://calendar.uoguelph.ca/undergraduate-calendar/programs-majors-minors/"
+
+    await page.goto(degreeUrl);
+
+    innerText = await page.innerText("div.sitemap");    
+    let newLineText = innerText.split("\n");
+    let bachelor = [];
+    let programs = [];
+    let urlCases = ["and ", "co op:c", "co op ", " hrt"];
+    let urlCaseReplace = ["", "co op c", "", " hort"];
+    let majorCount = 0;
+
+    // Go into Degree-Programs site and get degree
+    for (i = 0; i < newLineText.length; i++) {
+        if (!newLineText[i].includes("Indigenous")) {
+            newLineText[i] = newLineText[i].replace(/[and ]{4}/g,"");
+        }
+        newLineText[i] = siteMapRegex(newLineText[i]);
+    }
+    
+    
+    // Go into Degree-Programs site and get Programs from Degree. degreeUrl + degree -> degree is held in newLineText
+    for (i = 0; i < newLineText.length; i++) {
+
+        if (newLineText[i].includes("bachelor")) {
+            await page.goto(degreeUrl+newLineText[i]+"/");
+            let checkTxt = await page.textContent("nav#tabs");
+            if (checkTxt.includes("Programs")){
+                newLineText[i] = newLineText[i] + "/#programstext";
+            } else if (checkTxt.includes("Requirements")){
+                newLineText[i] = newLineText[i] + "/#requirementstext"
+            }
+            bachelor.push(newLineText[i]);
+        }
+    }
+
+    console.clear();
+    // go into Degree programs and make array of programs. Navigate to each program in the degree. degreeUrl + degree -> get programs -> majorUrl + program
+    for (i = 0; i < bachelor.length; i++){
+        console.log("\n"+ i + " of " + bachelor.length + " Degrees have been scraped\n");
+        // Go into programs section (This means that there are multiple majors)
+        if (bachelor[i].includes("programstext")){
+            await page.goto(degreeUrl+bachelor[i]);
+            innerText = await page.innerText("div.sitemap");
+            newLineText = innerText.split("\n");
+            // Inside degree url in programs section, regex newlinetext which holds sites of programs
+            for (j = 0; j < newLineText.length; j++){
+                newLineText[j] = siteMapRegex(newLineText[j]);
+                // navigate programs, programs is majorUrl + newLineText + #requirementsText
+                await page.goto(majorUrl+newLineText[j]);
+
+                // check if page was found
+                let title = await page.textContent("h1.page-title");
+                for (let caseCheck = 0; caseCheck < urlCases.length && title.includes("Page Not Found"); caseCheck++){
+
+                    // Before removing "co op" remove the last c from url as there are unique cases where co-op stays in the middle but the -c at the end does not
+                    if (caseCheck == 2){
+                        if (newLineText[j].slice(-1) == 'c'){
+                            newLineText[j] = newLineText[j].substring(0, newLineText[j].lastIndexOf("-")) + "c";
+                        }
+                        await page.goto(majorUrl+newLineText[j]);
+                        title = await page.textContent("h1.page-title");
+                        if (!title.includes("Page Not Found")) break;
+                    }
+                    
+                    newLineText[j] = caseRemove(newLineText[j], urlCases[caseCheck], urlCaseReplace[caseCheck]);
+                    // Open page
+                    await page.goto(majorUrl+newLineText[j]);
+                    title = await page.textContent("h1.page-title");
+                }
+                newLineText[j] = newLineText[j] + "/#requirementstext";
+                
+                // Go to requirements
+                await page.goto(majorUrl+newLineText[j]);
+                
+
+                // Grab course requirements, Line 455 already puts us in the requirements section of major
+                let checkForMajor = await page.innerText("div#requirementstextcontainer");
+                
+                //If major is included in the text at all
+                if (checkForMajor.includes("Major")) {
+                    let majorFlag = 0;
+                    checkForMajor = checkForMajor.split("\n");
+                    
+                    //Create the major object
+                    let majorObject = {
+                        majorName: '',
+                        majorCode: '',
+                        majorCourses: []
+                    };
+
+                    //Get the header text
+                    let majorTitle = await page.innerText("h1.page-title");
+
+                    //Get the major name and code
+                    majorObject.majorName = majorTitle.substring(0,majorTitle.indexOf(majorTitle.match(/[ (A-Z:)]{5,9}/g)[0]));
+                    majorObject.majorCode = majorTitle.match(/[A-Z:]{2,6}/g)[0];
+
+                    //Loop through the pages line by line
+                    for (let k = 0; k < checkForMajor.length; k++) {
+                        checkForMajor[k] = checkForMajor[k].trim();
+                        
+                        //If line holds major or any of these grab info below
+                        if (checkForMajor[k] == "Major" || checkForMajor[k] == "Major (Honours Program)" || checkForMajor[k] == "Major Co-op (Honours Program)" ||  checkForMajor[k] == "Schedule of Studies" ||  checkForMajor[k] == "Core Requirements" || checkForMajor[k] == "Major (Honours Program) Co-op") {
+                            majorFlag = 1;
+                        }
+
+                        //If line matches these stop grabing info
+                        if (checkForMajor[k].includes("Area of Emphasis") || checkForMajor[k] == "Restricted Electives" || checkForMajor[k] == "Minor" || checkForMajor[k] == "Minor (Honours Program)" || checkForMajor[k] == "List A:" || checkForMajor[k] == "Credit Summary") {
+                            majorFlag = 0;
+                        }
+
+                        //If the line holds a course code & vredit value & the major flag is checked grab info
+                        if (majorFlag == 1 && checkForMajor[k].match(/[0-9]{1}[.]{1}[0-9]{1}[0-9]{1}/g) != null && checkForMajor[k].match(/[A-Z*]{2,5}[0-9]{4}/g) != null && checkForMajor[k].includes("\t")) {
+                            let matchingCodes = checkForMajor[k].match(/[A-Z*]{2,5}[0-9]{4}/g);
+                            checkForMajor[k].indexOf(checkForMajor[k].match(/[A-Z*]{2,5}[0-9]{4}/g)[0])
+                            if (checkForMajor[k].indexOf(matchingCodes[0]) == 0) {
+                                for (let q = 0; q < matchingCodes.length; q++) {
+                                    majorObject.majorCourses.push(matchingCodes[q]);
+                                }
+                            }
+                            //If there is an or below grab info
+                            if (k +1 < checkForMajor.length) {
+                                if (checkForMajor[k+1].match(/[A-Z*]{2,5}[0-9]{4}/g) != null && checkForMajor[k+1].indexOf("or") == 0) {
+                                    matchingCodes = checkForMajor[k+1].match(/[A-Z*]{2,5}[0-9]{4}/g);
+                                    for (let q = 0; q < matchingCodes.length; q++) {
+                                        majorObject.majorCourses.push(matchingCodes[q]);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    //Add object to the array and add to count
+                    majorList.push(majorObject);
+                    majorCount++;
+                }
+            }
+        } // else grab required courses
+        console.clear();
+    }
+    console.log("\nAll the programs and degrees have been scraped\n");
+    
     // Print the courses to a JSON folder
     getJSONFile(programArray);
-    console.log("\nAll the programs have been scraped\n")
     // Turn off the browser to clean up after ourselves.
     await browser.close();
 }
