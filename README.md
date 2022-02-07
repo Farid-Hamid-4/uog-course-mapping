@@ -50,9 +50,9 @@ Install dependencies - `pip3 install -r requirements.txt `
 
 Help menu - `python3 courseSearch.py`  
 
-Generate prerequisite graph for a program - `python3 makeGraph.py prg {program code, i.e CIS}`
-Generate prerequisite graph for a major - `python3 makeGraph.py mrg {major code, i.e CS}`
-List all majors - `python3 makeGraph.py lm`
+Generate prerequisite graph for a program - `python3 makeGraph.py prg {program code, i.e CIS}`  
+Generate prerequisite graph for a major - `python3 makeGraph.py mrg {major code, i.e CS}`  
+List all majors - `python3 makeGraph.py lm`  
 List all programs - `python3 courseSearch.py lp`
 Search by course code - `python3 courseSearch.py cc {course code, i.e ACCT*1220}`  
 Search by program code - `python3 courseSearch.py pc {program code, i.e ACCT}`  
