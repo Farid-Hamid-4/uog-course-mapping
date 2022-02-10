@@ -323,7 +323,7 @@ async function main() {
     // Open a Chromium browser. We use headless: true
     // to run the process in the background.
     browser = await playwright.chromium.launch({
-        headless: false
+        headless: true
     });
     // Open a new page / tab in the browser.
     page = await browser.newPage({
@@ -537,7 +537,7 @@ async function main() {
 
 
     // Mcgill scraper
-    let searchPage = "https://www.mcgill.ca/study/2021-2022/courses/search?page=" // page without number, it will go till the end
+    let searchPage = "https://www.mcgill.ca/study/2021-2022/courses/search?f%5B0%5D=level%3Aundergraduate&page=" // page without number, it will go till the end
     let coursePage = "https://www.mcgill.ca/study/2021-2022/courses/"
     let courseCodes = []; // array holding course codes, first two words of name
     let courseCodeString = ""; // Holds information by spaces
@@ -547,7 +547,27 @@ async function main() {
 
     // Go to first page
     await page.goto(searchPage + 0);
+    await page.click('text=Show more');
+    let subjects = await page.innerText("ul#facetapi-facet-search-apicourses-block-field-subject-code");
+    subjects = subjects.split("\n");
+    let allSubjects = [];
 
+    // This is getting all the subject titles
+    for (let index = 0; index < subjects.length; index++) {
+        if (!subjects[index].includes("Apply")){
+            
+            //subjectSplit = subjects[index].split(" ");
+            let matchingCod = subjects[index].match(/[A-Z1-9 ]{5}/g);
+            let matchingNum = subjects[index].match(/[ (]{2}[0-9]{1,3}[)]{1}/g);
+            // Program object
+            let programObject = {
+                programName: subjects[index].substring(subjects[index].lastIndexOf(matchingCod[0]),subjects[index].indexOf(matchingNum[0])),
+                programCode: matchingCod[0].trim(),
+                programCourse: [] // Get the object array from that string
+            };
+            allSubjects.push(programObject);
+        }
+    }
 
     for (loadedPages; pageExists.length != 0; loadedPages++){ // 549 is last page, pageExists is trying to find length 0 but wasn't working properly previously.
         pageExists = await page.$$('text=❯');
@@ -562,21 +582,25 @@ async function main() {
         if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
             await browser.close();
             browser = await playwright.chromium.launch({
-                headless: false
+                headless: true
             });
             // Open a new page / tab in the browser.
             page = await browser.newPage({
                 bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
             });
         }
+        console.clear();
+        console.log("loaded pages: "+ loadedPages);
         await page.goto(searchPage + loadedPages);
     }
+
     let k = 0;
-    for (k; k < courseCodes.length; k++){
+    let indexk = 0;
+    for (k; k < 200/*courseCodes.length*/; k++){
         if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
             await browser.close();
             browser = await playwright.chromium.launch({
-                headless: false
+                headless: true
             });
             // Open a new page / tab in the browser.
             page = await browser.newPage({
@@ -584,10 +608,33 @@ async function main() {
             });
         }
         await page.goto(coursePage + courseCodes[k]);
+        
         title = await page.innerText("h1#page-title");
         if (title.includes("Page not found")) break;
+        // This is where the getting info
+        
+        let temp = courseCodes[k].split("-");
+        if (temp[0].toUpperCase() == allSubjects[indexk].programCode) {
+            let courseObject = { //Course object holds all the information for each course
+                code: courseCodes[k]
+            };
+            allSubjects[indexk].programCourse.push(courseObject);
+        } else {
+            indexk++;
+            let courseObject = { //Course object holds all the information for each course
+                code: courseCodes[k]
+            };
+            allSubjects[indexk].programCourse.push(courseObject);
+        }
+
+
+
+        console.clear();
+        console.log("loaded pages: "+ loadedPages);
+        console.log("Courses Searched: "+ k);
         loadedPages++;
     }
+    writeJsonFile("./test.json",allSubjects);
     if (title.includes("Page not found")) console.log("This one was empty " + courseCodes[k]);
     console.log("Went through this many course sites " + k);
 
