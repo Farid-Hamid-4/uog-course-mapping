@@ -1,0 +1,2299 @@
+[
+	{
+		"programName": "AAAA",
+		"programCode": "AAAA",
+		"programCourse": [
+			{
+				"name": "AAAA",
+				"code": "AAAA 100",
+				"semester": "FW"
+			}
+		]
+	},
+	{
+		"programName": "Accounting",
+		"programCode": "ACCT",
+		"programCourse": [
+			{
+				"name": "Intermediate Financial Accounting 1",
+				"code": "ACCT 351",
+				"semester": "SFW"
+			},
+			{
+				"name": "Intermediate Financial Accounting 2",
+				"code": "ACCT 352",
+				"semester": "FW"
+			},
+			{
+				"name": "Financial Statement Analysis",
+				"code": "ACCT 354",
+				"semester": "FW"
+			},
+			{
+				"name": "Management Accounting",
+				"code": "ACCT 361",
+				"semester": "FW"
+			},
+			{
+				"name": "Cost Accounting",
+				"code": "ACCT 362",
+				"semester": "FW"
+			},
+			{
+				"name": "Principles of Taxation",
+				"code": "ACCT 385",
+				"semester": "FW"
+			},
+			{
+				"name": "ACCT",
+				"code": "ACCT 401",
+				"semester": "F"
+			},
+			{
+				"name": "Data Analytics in Capital Market",
+				"code": "ACCT 451",
+				"semester": "W"
+			},
+			{
+				"name": "Financial Reporting Valuation",
+				"code": "ACCT 452",
+				"semester": "W"
+			},
+			{
+				"name": "Advanced Financial Accounting",
+				"code": "ACCT 453",
+				"semester": "FW"
+			},
+			{
+				"name": "Development of Accounting Thought",
+				"code": "ACCT 455",
+				"semester": "FW"
+			},
+			{
+				"name": "Management Control",
+				"code": "ACCT 463",
+				"semester": "FW"
+			},
+			{
+				"name": "Principles of Auditing",
+				"code": "ACCT 475",
+				"semester": "FW"
+			},
+			{
+				"name": "Business Taxation 2",
+				"code": "ACCT 486",
+				"semester": "FW"
+			}
+		]
+	},
+	{
+		"programName": "Biology (Agric & Envir Sc)",
+		"programCode": "AEBI",
+		"programCourse": [
+			{
+				"name": "AEBI",
+				"code": "AEBI 120",
+				"semester": "F"
+			},
+			{
+				"name": "Cell Biology",
+				"code": "AEBI 122",
+				"semester": "W"
+			},
+			{
+				"name": "AEBI",
+				"code": "AEBI 210",
+				"semester": "F"
+			},
+			{
+				"name": "Organisms 2",
+				"code": "AEBI 211",
+				"semester": "W"
+			},
+			{
+				"name": "Evolution and Phylogeny",
+				"code": "AEBI 212",
+				"semester": "W"
+			},
+			{
+				"name": "Tropical Horticultural Ecology",
+				"code": "AEBI 421",
+				"semester": "S"
+			},
+			{
+				"name": "Sustainable Land Use",
+				"code": "AEBI 423",
+				"semester": "S"
+			},
+			{
+				"name": "Tropical Energy and Food",
+				"code": "AEBI 425",
+				"semester": "S"
+			},
+			{
+				"name": "Barbados Interdisciplinary Project",
+				"code": "AEBI 427",
+				"semester": "S"
+			}
+		]
+	},
+	{
+		"programName": "Chemistry (Agric&EnvirSci)",
+		"programCode": "AECH",
+		"programCourse": [
+			{
+				"name": "AECH",
+				"code": "AECH 110",
+				"semester": "F"
+			},
+			{
+				"name": "General Chemistry 2",
+				"code": "AECH 111",
+				"semester": "W"
+			},
+			{
+				"name": "AECH",
+				"code": "AECH 118",
+				"semester": "F"
+			},
+			{
+				"name": "AECH",
+				"code": "AECH 119",
+				"semester": "W"
+			}
+		]
+	},
+	{
+		"programName": "English (Agric & Envir Sc)",
+		"programCode": "AEHM",
+		"programCourse": [
+			{
+				"name": "AEHM",
+				"code": "AEHM 205",
+				"semester": "FW"
+			},
+			{
+				"name": "AEHM",
+				"code": "AEHM 330",
+				"semester": "F"
+			}
+		]
+	},
+	{
+		"programName": "Mathematics (Agric&Envir Sci)",
+		"programCode": "AEMA",
+		"programCourse": [
+			{
+				"name": "AEMA",
+				"code": "AEMA 101",
+				"semester": "F"
+			},
+			{
+				"name": "AEMA",
+				"code": "AEMA 102",
+				"semester": "W"
+			},
+			{
+				"name": "AEMA",
+				"code": "AEMA 202",
+				"semester": "F"
+			},
+			{
+				"name": "AEMA",
+				"code": "AEMA 305",
+				"semester": "W"
+			},
+			{
+				"name": "AEMA",
+				"code": "AEMA 310",
+				"semester": "FW"
+			},
+			{
+				"name": "AEMA",
+				"code": "AEMA 403",
+				"semester": "FW"
+			},
+			{
+				"name": "Temporal and Spatial Statistics 01",
+				"code": "AEMA 414",
+				"semester": "W"
+			}
+		]
+	},
+	{
+		"programName": "Physics (Agric & Envir Sci)",
+		"programCode": "AEPH",
+		"programCourse": [
+			{
+				"name": "Introductory Physics 1",
+				"code": "AEPH 112",
+				"semester": "F"
+			},
+			{
+				"name": "Physics 1",
+				"code": "AEPH 113",
+				"semester": "F"
+			},
+			{
+				"name": "Introductory Physics 2",
+				"code": "AEPH 114",
+				"semester": "W"
+			},
+			{
+				"name": "Physics 2",
+				"code": "AEPH 115",
+				"semester": "W"
+			},
+			{
+				"name": "AEPH",
+				"code": "AEPH 120",
+				"semester": "F"
+			},
+			{
+				"name": "AEPH",
+				"code": "AEPH 122",
+				"semester": "W"
+			}
+		]
+	},
+	{
+		"programName": "AERO",
+		"programCode": "AERO",
+		"programCourse": [
+			{
+				"name": "AERO",
+				"code": "AERO 401",
+				"semester": "F"
+			},
+			{
+				"name": "AERO",
+				"code": "AERO 410",
+				"semester": "W"
+			},
+			{
+				"name": "AERO",
+				"code": "AERO 460D1",
+				"semester": "F"
+			},
+			{
+				"name": "AERO",
+				"code": "AERO 460D2",
+				"semester": "W"
+			}
+		]
+	},
+	{
+		"programName": "African Studies",
+		"programCode": "AFRI",
+		"programCourse": [
+			{
+				"name": "AFRI",
+				"code": "AFRI 200",
+				"semester": "F"
+			},
+			{
+				"name": "AFRI",
+				"code": "AFRI 401",
+				"semester": "F"
+			},
+			{
+				"name": "AFRI",
+				"code": "AFRI 480",
+				"semester": "F"
+			},
+			{
+				"name": "Research Seminar in African Studies",
+				"code": "AFRI 598",
+				"semester": "W"
+			}
+		]
+	},
+	{
+		"programName": "Agricultural Economics",
+		"programCode": "AGEC",
+		"programCourse": [
+			{
+				"name": "AGEC",
+				"code": "AGEC 200",
+				"semester": "F"
+			},
+			{
+				"name": "Economic Systems of Agriculture",
+				"code": "AGEC 231",
+				"semester": "W"
+			},
+			{
+				"name": "AGEC",
+				"code": "AGEC 320",
+				"semester": "W"
+			},
+			{
+				"name": "AGEC",
+				"code": "AGEC 330",
+				"semester": "F"
+			},
+			{
+				"name": "Farm Management and Finance",
+				"code": "AGEC 332",
+				"semester": "F"
+			},
+			{
+				"name": "Resource Economics",
+				"code": "AGEC 333",
+				"semester": "F"
+			},
+			{
+				"name": "AGEC",
+				"code": "AGEC 430",
+				"semester": "W"
+			},
+			{
+				"name": "Economics of International Agricultural Development",
+				"code": "AGEC 442",
+				"semester": "W"
+			},
+			{
+				"name": "AGEC",
+				"code": "AGEC 450",
+				"semester": "W"
+			},
+			{
+				"name": "Research and Methodology",
+				"code": "AGEC 491",
+				"semester": "F"
+			},
+			{
+				"name": "Special Topics in Agricultural Economics 01",
+				"code": "AGEC 492",
+				"semester": "FW"
+			}
+		]
+	},
+	{
+		"programName": "Agriculture",
+		"programCode": "AGRI",
+		"programCourse": [
+			{
+				"name": "AGRI",
+				"code": "AGRI 195",
+				"semester": "F"
+			},
+			{
+				"name": "AGRI",
+				"code": "AGRI 196",
+				"semester": "W"
+			},
+			{
+				"name": "Agro-Ecosystems Field Course",
+				"code": "AGRI 215",
+				"semester": "F"
+			},
+			{
+				"name": "AGRI",
+				"code": "AGRI 310",
+				"semester": "SFW"
+			},
+			{
+				"name": "AGRI",
+				"code": "AGRI 330",
+				"semester": "W"
+			},
+			{
+				"name": "AGRI",
+				"code": "AGRI 340",
+				"semester": "W"
+			},
+			{
+				"name": "AGRI",
+				"code": "AGRI 410",
+				"semester": "SFW"
+			},
+			{
+				"name": "AGRI",
+				"code": "AGRI 410D1",
+				"semester": "S"
+			},
+			{
+				"name": "AGRI",
+				"code": "AGRI 410D2",
+				"semester": "F"
+			},
+			{
+				"name": "Global Issues on Development, Food and Agriculture",
+				"code": "AGRI 411",
+				"semester": "W"
+			},
+			{
+				"name": "AGRI",
+				"code": "AGRI 430",
+				"semester": "W"
+			},
+			{
+				"name": "AGRI",
+				"code": "AGRI 490",
+				"semester": "FW"
+			},
+			{
+				"name": "Agricultural Development Internship",
+				"code": "AGRI 499",
+				"semester": "SFW"
+			},
+			{
+				"name": "Sustainable Development Plans",
+				"code": "AGRI 519",
+				"semester": "F"
+			}
+		]
+	},
+	{
+		"programName": "Anaesthesia",
+		"programCode": "ANAE",
+		"programCourse": [
+			{
+				"name": "ANAE",
+				"code": "ANAE 301",
+				"semester": "SW"
+			}
+		]
+	},
+	{
+		"programName": "Anatomy & Cell Biology",
+		"programCode": "ANAT",
+		"programCourse": [
+			{
+				"name": "Molecular Mechanisms of Cell Function",
+				"code": "ANAT 212",
+				"semester": "W"
+			},
+			{
+				"name": "Systemic Human Anatomy",
+				"code": "ANAT 214",
+				"semester": "F"
+			},
+			{
+				"name": "Introduction to Dynamic Histology",
+				"code": "ANAT 261",
+				"semester": "F"
+			},
+			{
+				"name": "Introductory Molecular and Cell Biology",
+				"code": "ANAT 262",
+				"semester": "W"
+			},
+			{
+				"name": "Human Musculoskeletal Anatomy",
+				"code": "ANAT 314",
+				"semester": "W"
+			},
+			{
+				"name": "Clinical Human Musculoskeletal Anatomy",
+				"code": "ANAT 315",
+				"semester": "F"
+			},
+			{
+				"name": "Clinical Human Visceral Anatomy",
+				"code": "ANAT 316",
+				"semester": "W"
+			},
+			{
+				"name": "Circuitry of the Human Brain",
+				"code": "ANAT 321",
+				"semester": "F"
+			},
+			{
+				"name": "Neuroendocrinology",
+				"code": "ANAT 322",
+				"semester": "W"
+			},
+			{
+				"name": "Clinical Neuroanatomy",
+				"code": "ANAT 323",
+				"semester": "F"
+			},
+			{
+				"name": "Cellular Trafficking",
+				"code": "ANAT 365",
+				"semester": "F"
+			},
+			{
+				"name": "Experimental Embryology",
+				"code": "ANAT 381",
+				"semester": "F"
+			},
+			{
+				"name": "Undergraduate Research Project",
+				"code": "ANAT 396",
+				"semester": "FW"
+			},
+			{
+				"name": "Development, Disease and Regeneration",
+				"code": "ANAT 416",
+				"semester": "W"
+			},
+			{
+				"name": "Honours Research Project",
+				"code": "ANAT 432",
+				"semester": "FW"
+			},
+			{
+				"name": "ANAT",
+				"code": "ANAT 432D1",
+				"semester": "F"
+			},
+			{
+				"name": "ANAT",
+				"code": "ANAT 432D2",
+				"semester": "W"
+			},
+			{
+				"name": "Membranes and Cellular Signaling",
+				"code": "ANAT 458",
+				"semester": "W"
+			},
+			{
+				"name": "ANAT",
+				"code": "ANAT 499",
+				"semester": "FW"
+			},
+			{
+				"name": "Advanced Human Anatomy Laboratory",
+				"code": "ANAT 514",
+				"semester": "W"
+			},
+			{
+				"name": "Cell and Molecular Biology of Aging",
+				"code": "ANAT 541",
+				"semester": "W"
+			},
+			{
+				"name": "Transmission Electron Microscopy of Biological Samples",
+				"code": "ANAT 542",
+				"semester": "W"
+			},
+			{
+				"name": "Diseases-Membrane Trafficking",
+				"code": "ANAT 565",
+				"semester": "W"
+			}
+		]
+	},
+	{
+		"programName": "Animal Science",
+		"programCode": "ANSC",
+		"programCourse": [
+			{
+				"name": "Biochemistry 2",
+				"code": "ANSC 234",
+				"semester": "W"
+			},
+			{
+				"name": "ANSC",
+				"code": "ANSC 250",
+				"semester": "F"
+			},
+			{
+				"name": "Comparative Anatomy",
+				"code": "ANSC 251",
+				"semester": "W"
+			},
+			{
+				"name": "ANSC",
+				"code": "ANSC 301",
+				"semester": "W"
+			},
+			{
+				"name": "Animal Health and Disease",
+				"code": "ANSC 312",
+				"semester": "W"
+			},
+			{
+				"name": "Mammalian Physiology",
+				"code": "ANSC 323",
+				"semester": "F"
+			},
+			{
+				"name": "Developmental Biology and Reproduction",
+				"code": "ANSC 324",
+				"semester": "W"
+			},
+			{
+				"name": "Fundamentals of Population Genetics",
+				"code": "ANSC 326",
+				"semester": "F"
+			},
+			{
+				"name": "ANSC",
+				"code": "ANSC 350",
+				"semester": "W"
+			},
+			{
+				"name": "ANSC",
+				"code": "ANSC 400",
+				"semester": "W"
+			},
+			{
+				"name": "ANSC",
+				"code": "ANSC 420",
+				"semester": "F"
+			},
+			{
+				"name": "Metabolic Endocrinology",
+				"code": "ANSC 424",
+				"semester": "W"
+			},
+			{
+				"name": "Animal Nutrition and Metabolism",
+				"code": "ANSC 433",
+				"semester": "W"
+			},
+			{
+				"name": "Dairy and Beef Production Management",
+				"code": "ANSC 451",
+				"semester": "W"
+			},
+			{
+				"name": "Special Topics: Animal Science",
+				"code": "ANSC 455",
+				"semester": "FW"
+			},
+			{
+				"name": "Swine and Poultry Production",
+				"code": "ANSC 458",
+				"semester": "F"
+			},
+			{
+				"name": "ANSC",
+				"code": "ANSC 490",
+				"semester": "FW"
+			},
+			{
+				"name": "ANSC",
+				"code": "ANSC 560",
+				"semester": "F"
+			},
+			{
+				"name": "Applied Information Systems",
+				"code": "ANSC 565",
+				"semester": "W"
+			}
+		]
+	},
+	{
+		"programName": "Anthropology",
+		"programCode": "ANTH",
+		"programCourse": [
+			{
+				"name": "ANTH",
+				"code": "ANTH 201",
+				"semester": "W"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 202",
+				"semester": "F"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 204",
+				"semester": "W"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 206",
+				"semester": "F"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 207",
+				"semester": "S"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 209",
+				"semester": "SW"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 210",
+				"semester": "F"
+			},
+			{
+				"name": "Anthropology of Development",
+				"code": "ANTH 212",
+				"semester": "W"
+			},
+			{
+				"name": "Legal Anthropology",
+				"code": "ANTH 222",
+				"semester": "W"
+			},
+			{
+				"name": "Medical Anthropology",
+				"code": "ANTH 227",
+				"semester": "F"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 302",
+				"semester": "W"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 307",
+				"semester": "W"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 308",
+				"semester": "SF"
+			},
+			{
+				"name": "Zooarchaeology",
+				"code": "ANTH 312",
+				"semester": "W"
+			},
+			{
+				"name": "Psychological Anthropology 01",
+				"code": "ANTH 314",
+				"semester": "F"
+			},
+			{
+				"name": "Globalization and Religion",
+				"code": "ANTH 318",
+				"semester": "W"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 330",
+				"semester": "F"
+			},
+			{
+				"name": "Indigenous Studies of Anthropology",
+				"code": "ANTH 338",
+				"semester": "F"
+			},
+			{
+				"name": "Ecological Anthropology",
+				"code": "ANTH 339",
+				"semester": "W"
+			},
+			{
+				"name": "Anthropology and the Animal",
+				"code": "ANTH 343",
+				"semester": "W"
+			},
+			{
+				"name": "History of Anthropological Theory",
+				"code": "ANTH 352",
+				"semester": "F"
+			},
+			{
+				"name": "Theories of Culture and Society",
+				"code": "ANTH 355",
+				"semester": "W"
+			},
+			{
+				"name": "Archaeological Methods",
+				"code": "ANTH 357",
+				"semester": "F"
+			},
+			{
+				"name": "The Process of Anthropological Research",
+				"code": "ANTH 358",
+				"semester": "W"
+			},
+			{
+				"name": "History of Archaeological Theory",
+				"code": "ANTH 359",
+				"semester": "W"
+			},
+			{
+				"name": "Archaeology of South Asia",
+				"code": "ANTH 361",
+				"semester": "F"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 380",
+				"semester": "FW"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 402",
+				"semester": "W"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 403",
+				"semester": "F"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 408",
+				"semester": "W"
+			},
+			{
+				"name": "Topics: Anthropological Theory",
+				"code": "ANTH 412",
+				"semester": "F"
+			},
+			{
+				"name": "Gender in Archaeology",
+				"code": "ANTH 413",
+				"semester": "F"
+			},
+			{
+				"name": "Archaeology of Hunter-Gatherers",
+				"code": "ANTH 419",
+				"semester": "F"
+			},
+			{
+				"name": "Mind, Brain and Psychopathology",
+				"code": "ANTH 423",
+				"semester": "W"
+			},
+			{
+				"name": "Saints and Mediation in Latin America",
+				"code": "ANTH 428",
+				"semester": "F"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 440",
+				"semester": "F"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 480",
+				"semester": "FW"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 490",
+				"semester": "FW"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 490D1",
+				"semester": "F"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 490D2",
+				"semester": "W"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 490N1",
+				"semester": "W"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 490N2",
+				"semester": "F"
+			},
+			{
+				"name": "Joint Honours Thesis",
+				"code": "ANTH 491",
+				"semester": "FW"
+			},
+			{
+				"name": "Internship: Anthropology",
+				"code": "ANTH 499",
+				"semester": "FW"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 501",
+				"semester": "F"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 505",
+				"semester": "W"
+			},
+			{
+				"name": "Political Ecology",
+				"code": "ANTH 512",
+				"semester": "W"
+			},
+			{
+				"name": "South Asian Archaeology in Age of Text",
+				"code": "ANTH 521",
+				"semester": "W"
+			},
+			{
+				"name": "ANTH",
+				"code": "ANTH 540",
+				"semester": "F"
+			},
+			{
+				"name": "Advanced Topics in Ethnology",
+				"code": "ANTH 555",
+				"semester": "W"
+			}
+		]
+	},
+	{
+		"programName": "Architecture",
+		"programCode": "ARCH",
+		"programCourse": [
+			{
+				"name": "ARCH",
+				"code": "ARCH 201",
+				"semester": "F"
+			},
+			{
+				"name": "ARCH",
+				"code": "ARCH 202",
+				"semester": "W"
+			},
+			{
+				"name": "Architectural Drawing",
+				"code": "ARCH 221",
+				"semester": "F"
+			},
+			{
+				"name": "ARCH",
+				"code": "ARCH 240",
+				"semester": "F"
+			},
+			{
+				"name": "Architectural Structures 1",
+				"code": "ARCH 241",
+				"semester": "F"
+			},
+			{
+				"name": "ARCH",
+				"code": "ARCH 250",
+				"semester": "F"
+			},
+			{
+				"name": "Architectural History 2",
+				"code": "ARCH 251",
+				"semester": "W"
+			},
+			{
+				"name": "ARCH",
+				"code": "ARCH 303",
+				"semester": "F"
+			},
+			{
+				"name": "ARCH",
+				"code": "ARCH 304",
+				"semester": "W"
+			},
+			{
+				"name": "Architectural Sketching",
+				"code": "ARCH 325",
+				"semester": "F"
+			},
+			{
+				"name": "Digital Representation",
+				"code": "ARCH 342",
+				"semester": "F"
+			},
+			{
+				"name": "Architectural History 3",
+				"code": "ARCH 354",
+				"semester": "F"
+			},
+			{
+				"name": "Energy, Environment, and Buildings 1",
+				"code": "ARCH 377",
+				"semester": "FW"
+			},
+			{
+				"name": "Introduction to Building Environments",
+				"code": "ARCH 378",
+				"semester": "W"
+			},
+			{
+				"name": "ARCH",
+				"code": "ARCH 405",
+				"semester": "F"
+			},
+			{
+				"name": "ARCH",
+				"code": "ARCH 406",
+				"semester": "W"
+			},
+			{
+				"name": "Architectural Structures 2",
+				"code": "ARCH 445",
+				"semester": "F"
+			},
+			{
+				"name": "Energy, Environment, and Buildings 2",
+				"code": "ARCH 447",
+				"semester": "F"
+			},
+			{
+				"name": "ARCH",
+				"code": "ARCH 490",
+				"semester": "F"
+			},
+			{
+				"name": "Selected Topics in Professional Practice",
+				"code": "ARCH 492",
+				"semester": "W"
+			},
+			{
+				"name": "Architectural Modelling",
+				"code": "ARCH 512",
+				"semester": "W"
+			},
+			{
+				"name": "Sustainable Design",
+				"code": "ARCH 515",
+				"semester": "W"
+			},
+			{
+				"name": "Sustainable Residential Development",
+				"code": "ARCH 517",
+				"semester": "F"
+			},
+			{
+				"name": "History of Housing",
+				"code": "ARCH 528",
+				"semester": "W"
+			},
+			{
+				"name": "Architectural Intentions Vitruvius - Renaissance",
+				"code": "ARCH 531",
+				"semester": "W"
+			},
+			{
+				"name": "History of Architecture in Canada",
+				"code": "ARCH 535",
+				"semester": "F"
+			},
+			{
+				"name": "Heritage Conservation",
+				"code": "ARCH 536",
+				"semester": "W"
+			},
+			{
+				"name": "ARCH",
+				"code": "ARCH 540",
+				"semester": "FW"
+			},
+			{
+				"name": "Selected Topics in Architecture 2",
+				"code": "ARCH 541",
+				"semester": "FW"
+			},
+			{
+				"name": "Selected Topics in Architecture 4",
+				"code": "ARCH 543",
+				"semester": "W"
+			}
+		]
+	},
+	{
+		"programName": "Art History",
+		"programCode": "ARTH",
+		"programCourse": [
+			{
+				"name": "ARTH",
+				"code": "ARTH 202",
+				"semester": "SF"
+			}
+		]
+	},
+	{
+		"programName": "Atmospheric & Oceanic Sciences",
+		"programCode": "ATOC",
+		"programCourse": []
+	},
+	{
+		"programName": "Arts & Science",
+		"programCode": "BASC",
+		"programCourse": []
+	},
+	{
+		"programName": "BIEN",
+		"programCode": "BIEN",
+		"programCourse": []
+	},
+	{
+		"programName": "Bioinformatics",
+		"programCode": "BINF",
+		"programCourse": []
+	},
+	{
+		"programName": "Biochemistry",
+		"programCode": "BIOC",
+		"programCourse": []
+	},
+	{
+		"programName": "Biology (Sci)",
+		"programCode": "BIOL",
+		"programCourse": []
+	},
+	{
+		"programName": "Biotechnology",
+		"programCode": "BIOT",
+		"programCourse": []
+	},
+	{
+		"programName": "Biomedical Engineering",
+		"programCode": "BMDE",
+		"programCourse": []
+	},
+	{
+		"programName": "Bioresource Engineering",
+		"programCode": "BREE",
+		"programCourse": []
+	},
+	{
+		"programName": "Biotechnology",
+		"programCode": "BTEC",
+		"programCourse": []
+	},
+	{
+		"programName": "Business Law 1",
+		"programCode": "BUS1",
+		"programCourse": []
+	},
+	{
+		"programName": "Business Law 2",
+		"programCode": "BUS2",
+		"programCourse": []
+	},
+	{
+		"programName": "Business Admin",
+		"programCode": "BUSA",
+		"programCourse": []
+	},
+	{
+		"programName": "Accountancy",
+		"programCode": "CACC",
+		"programCourse": []
+	},
+	{
+		"programName": "CACF",
+		"programCode": "CACF",
+		"programCourse": []
+	},
+	{
+		"programName": "Canadian Studies",
+		"programCode": "CANS",
+		"programCourse": []
+	},
+	{
+		"programName": "Catholic Studies",
+		"programCode": "CATH",
+		"programCourse": []
+	},
+	{
+		"programName": "Business",
+		"programCode": "CBUS",
+		"programCourse": []
+	},
+	{
+		"programName": "Auditing (CCE)",
+		"programCode": "CCAU",
+		"programCourse": []
+	},
+	{
+		"programName": "Computer Science (CCE)",
+		"programCode": "CCCS",
+		"programCourse": []
+	},
+	{
+		"programName": "CCFA",
+		"programCode": "CCFA",
+		"programCourse": []
+	},
+	{
+		"programName": "Financial Accounting (CCE)",
+		"programCode": "CCFC",
+		"programCourse": []
+	},
+	{
+		"programName": "Law (CCE)",
+		"programCode": "CCLW",
+		"programCourse": []
+	},
+	{
+		"programName": "Managerial Accounting (CCE)",
+		"programCode": "CCMA",
+		"programCourse": []
+	},
+	{
+		"programName": "Communication (CCE)",
+		"programCode": "CCOM",
+		"programCourse": []
+	},
+	{
+		"programName": "Computer Science (CCE)",
+		"programCode": "CCS2",
+		"programCourse": []
+	},
+	{
+		"programName": "Translation",
+		"programCode": "CCTR",
+		"programCourse": []
+	},
+	{
+		"programName": "Tax (CCE)",
+		"programCode": "CCTX",
+		"programCourse": []
+	},
+	{
+		"programName": "CEAP",
+		"programCode": "CEAP",
+		"programCourse": []
+	},
+	{
+		"programName": "Economics (CCE)",
+		"programCode": "CEC1",
+		"programCourse": []
+	},
+	{
+		"programName": "Economics (CCE)",
+		"programCode": "CEC2",
+		"programCourse": []
+	},
+	{
+		"programName": "English Communication",
+		"programCode": "CEEN",
+		"programCourse": []
+	},
+	{
+		"programName": "French Communication",
+		"programCode": "CEFN",
+		"programCourse": []
+	},
+	{
+		"programName": "English (CCE)",
+		"programCode": "CEGL",
+		"programCourse": []
+	},
+	{
+		"programName": "Entrepreneurship",
+		"programCode": "CEN2",
+		"programCourse": []
+	},
+	{
+		"programName": "Engineering (CCE)",
+		"programCode": "CENG",
+		"programCourse": []
+	},
+	{
+		"programName": "Entrepreneurship",
+		"programCode": "CENT",
+		"programCourse": []
+	},
+	{
+		"programName": "CESL",
+		"programCode": "CESL",
+		"programCourse": []
+	},
+	{
+		"programName": "Finance (CCE)",
+		"programCode": "CFIN",
+		"programCourse": []
+	},
+	{
+		"programName": "French (CCE)",
+		"programCode": "CFRN",
+		"programCourse": []
+	},
+	{
+		"programName": "Management",
+		"programCode": "CGM2",
+		"programCourse": []
+	},
+	{
+		"programName": "General Management",
+		"programCode": "CGMG",
+		"programCourse": []
+	},
+	{
+		"programName": "Chemical Engineering",
+		"programCode": "CHEE",
+		"programCourse": []
+	},
+	{
+		"programName": "Chemistry",
+		"programCode": "CHEM",
+		"programCourse": []
+	},
+	{
+		"programName": "Health Care",
+		"programCode": "CHLC",
+		"programCourse": []
+	},
+	{
+		"programName": "CHSS",
+		"programCode": "CHSS",
+		"programCourse": []
+	},
+	{
+		"programName": "CIAM",
+		"programCode": "CIAM",
+		"programCourse": []
+	},
+	{
+		"programName": "CINC",
+		"programCode": "CINC",
+		"programCourse": []
+	},
+	{
+		"programName": "Civil Engineering",
+		"programCode": "CIVE",
+		"programCourse": []
+	},
+	{
+		"programName": "Classics",
+		"programCode": "CLAS",
+		"programCourse": []
+	},
+	{
+		"programName": "Management Information Systems",
+		"programCode": "CMIS",
+		"programCourse": []
+	},
+	{
+		"programName": "Comparative Law",
+		"programCode": "CMPL",
+		"programCourse": []
+	},
+	{
+		"programName": "Marketing",
+		"programCode": "CMR2",
+		"programCourse": []
+	},
+	{
+		"programName": "CMRK",
+		"programCode": "CMRK",
+		"programCourse": []
+	},
+	{
+		"programName": "Management Science (CCE)",
+		"programCode": "CMS2",
+		"programCourse": []
+	},
+	{
+		"programName": "Management Science (CCE)",
+		"programCode": "CMSC",
+		"programCourse": []
+	},
+	{
+		"programName": "Cognitive Science",
+		"programCode": "COGS",
+		"programCourse": []
+	},
+	{
+		"programName": "Computer Science (Sci)",
+		"programCode": "COMP",
+		"programCourse": []
+	},
+	{
+		"programName": "Communication Studies",
+		"programCode": "COMS",
+		"programCourse": []
+	},
+	{
+		"programName": "Organizational Behaviour",
+		"programCode": "CORG",
+		"programCourse": []
+	},
+	{
+		"programName": "CPAC",
+		"programCode": "CPAC",
+		"programCourse": []
+	},
+	{
+		"programName": "CPAG",
+		"programCode": "CPAG",
+		"programCourse": []
+	},
+	{
+		"programName": "CPD2",
+		"programCode": "CPD2",
+		"programCourse": []
+	},
+	{
+		"programName": "Professional Devel",
+		"programCode": "CPDV",
+		"programCourse": []
+	},
+	{
+		"programName": "Policy",
+		"programCode": "CPL2",
+		"programCourse": []
+	},
+	{
+		"programName": "Public Relations",
+		"programCode": "CPRL",
+		"programCourse": []
+	},
+	{
+		"programName": "CSCI",
+		"programCode": "CSCI",
+		"programCourse": []
+	},
+	{
+		"programName": "Spanish (CCE)",
+		"programCode": "CSPN",
+		"programCourse": []
+	},
+	{
+		"programName": "Transportation",
+		"programCode": "CTPT",
+		"programCourse": []
+	},
+	{
+		"programName": "Dentistry",
+		"programCode": "DENT",
+		"programCourse": []
+	},
+	{
+		"programName": "Dummy Black Out Subject Code",
+		"programCode": "DUMY",
+		"programCourse": []
+	},
+	{
+		"programName": "Asian Language & Literature",
+		"programCode": "EAST",
+		"programCourse": []
+	},
+	{
+		"programName": "Economics (Arts)",
+		"programCode": "ECON",
+		"programCourse": []
+	},
+	{
+		"programName": "Electrical Engineering",
+		"programCode": "ECSE",
+		"programCourse": []
+	},
+	{
+		"programName": "Arts Education",
+		"programCode": "EDEA",
+		"programCourse": []
+	},
+	{
+		"programName": "Curriculum and Instruction",
+		"programCode": "EDEC",
+		"programCourse": []
+	},
+	{
+		"programName": "Elementary Education",
+		"programCode": "EDEE",
+		"programCourse": []
+	},
+	{
+		"programName": "Admin & Policy Studies in Ed",
+		"programCode": "EDEM",
+		"programCourse": []
+	},
+	{
+		"programName": "Religious Studies",
+		"programCode": "EDER",
+		"programCourse": []
+	},
+	{
+		"programName": "Secondary Education",
+		"programCode": "EDES",
+		"programCourse": []
+	},
+	{
+		"programName": "Vocational Education",
+		"programCode": "EDET",
+		"programCourse": []
+	},
+	{
+		"programName": "Bachelor of Ed Core Program",
+		"programCode": "EDFC",
+		"programCourse": []
+	},
+	{
+		"programName": "Student Teaching",
+		"programCode": "EDFE",
+		"programCourse": []
+	},
+	{
+		"programName": "Education Field Montreal",
+		"programCode": "EDFM",
+		"programCourse": []
+	},
+	{
+		"programName": "Kinesiology&Physical Education",
+		"programCode": "EDKP",
+		"programCourse": []
+	},
+	{
+		"programName": "Ed Psych & Couns (Counselling)",
+		"programCode": "EDPC",
+		"programCourse": []
+	},
+	{
+		"programName": "EDPD",
+		"programCode": "EDPD",
+		"programCourse": []
+	},
+	{
+		"programName": "Ed Psych & Couns (Psychology)",
+		"programCode": "EDPE",
+		"programCourse": []
+	},
+	{
+		"programName": "Ed Psych & Couns (Inclusive)",
+		"programCode": "EDPI",
+		"programCourse": []
+	},
+	{
+		"programName": "Ed Psych & Couns (Media)",
+		"programCode": "EDPT",
+		"programCourse": []
+	},
+	{
+		"programName": "Education in Second Languages",
+		"programCode": "EDSL",
+		"programCourse": []
+	},
+	{
+		"programName": "EDSP",
+		"programCode": "EDSP",
+		"programCourse": []
+	},
+	{
+		"programName": "EDTL",
+		"programCode": "EDTL",
+		"programCourse": []
+	},
+	{
+		"programName": "Education University of MTL",
+		"programCode": "EDUM",
+		"programCourse": []
+	},
+	{
+		"programName": "Elective",
+		"programCode": "ELEC",
+		"programCourse": []
+	},
+	{
+		"programName": "English (Arts)",
+		"programCode": "ENGL",
+		"programCourse": []
+	},
+	{
+		"programName": "Entomology",
+		"programCode": "ENTO",
+		"programCourse": []
+	},
+	{
+		"programName": "Environmental Biology",
+		"programCode": "ENVB",
+		"programCourse": []
+	},
+	{
+		"programName": "Environment",
+		"programCode": "ENVR",
+		"programCourse": []
+	},
+	{
+		"programName": "Epidemiology & Biostatistics",
+		"programCode": "EPIB",
+		"programCourse": []
+	},
+	{
+		"programName": "Earth & Planetary Sciences",
+		"programCode": "EPSC",
+		"programCourse": []
+	},
+	{
+		"programName": "Earth System Science",
+		"programCode": "ESYS",
+		"programCourse": []
+	},
+	{
+		"programName": "Experimental Medicine",
+		"programCode": "EXMD",
+		"programCourse": []
+	},
+	{
+		"programName": "Experimental Surgery",
+		"programCode": "EXSU",
+		"programCourse": []
+	},
+	{
+		"programName": "Faculty Course",
+		"programCode": "FACC",
+		"programCourse": []
+	},
+	{
+		"programName": "Faculty of Agric & Envir Sci",
+		"programCode": "FAES",
+		"programCourse": []
+	},
+	{
+		"programName": "Food Science",
+		"programCode": "FDSC",
+		"programCourse": []
+	},
+	{
+		"programName": "FIGA",
+		"programCode": "FIGA",
+		"programCourse": []
+	},
+	{
+		"programName": "Education workshop",
+		"programCode": "FIGE",
+		"programCourse": []
+	},
+	{
+		"programName": "FIGF",
+		"programCode": "FIGF",
+		"programCourse": []
+	},
+	{
+		"programName": "Learning to Teach Grad wrkshop",
+		"programCode": "FIGG",
+		"programCourse": []
+	},
+	{
+		"programName": "FIGI",
+		"programCode": "FIGI",
+		"programCourse": []
+	},
+	{
+		"programName": "FIGM",
+		"programCode": "FIGM",
+		"programCourse": []
+	},
+	{
+		"programName": "FIGN",
+		"programCode": "FIGN",
+		"programCourse": []
+	},
+	{
+		"programName": "Freshman Interest Groups",
+		"programCode": "FIGS",
+		"programCourse": []
+	},
+	{
+		"programName": "World Cinemas",
+		"programCode": "FILM",
+		"programCourse": []
+	},
+	{
+		"programName": "Finance",
+		"programCode": "FINE",
+		"programCourse": []
+	},
+	{
+		"programName": "Family Medicine",
+		"programCode": "FMED",
+		"programCourse": []
+	},
+	{
+		"programName": "FMT4",
+		"programCode": "FMT4",
+		"programCourse": []
+	},
+	{
+		"programName": "Farm Management Technology",
+		"programCode": "FMTP",
+		"programCourse": []
+	},
+	{
+		"programName": "French (Arts)",
+		"programCode": "FREN",
+		"programCourse": []
+	},
+	{
+		"programName": "French as a Second Language",
+		"programCode": "FRSL",
+		"programCourse": []
+	},
+	{
+		"programName": "Faculty of Science",
+		"programCode": "FSCI",
+		"programCourse": []
+	},
+	{
+		"programName": "GDEU",
+		"programCode": "GDEU",
+		"programCourse": []
+	},
+	{
+		"programName": "Geography",
+		"programCode": "GEOG",
+		"programCourse": []
+	},
+	{
+		"programName": "German (Arts)",
+		"programCode": "GERM",
+		"programCourse": []
+	},
+	{
+		"programName": "GSFS",
+		"programCode": "GSFS",
+		"programCourse": []
+	},
+	{
+		"programName": "Human Genetics",
+		"programCode": "HGEN",
+		"programCourse": []
+	},
+	{
+		"programName": "Hispanic Studies (Arts)",
+		"programCode": "HISP",
+		"programCourse": []
+	},
+	{
+		"programName": "History",
+		"programCode": "HIST",
+		"programCourse": []
+	},
+	{
+		"programName": "Humanistic Studies",
+		"programCode": "HMST",
+		"programCourse": []
+	},
+	{
+		"programName": "Hist & Phil of Science",
+		"programCode": "HPSC",
+		"programCourse": []
+	},
+	{
+		"programName": "Health Science Electives",
+		"programCode": "HSEL",
+		"programCourse": []
+	},
+	{
+		"programName": "IDFC",
+		"programCode": "IDFC",
+		"programCourse": []
+	},
+	{
+		"programName": "Internal Medicine",
+		"programCode": "IMED",
+		"programCourse": []
+	},
+	{
+		"programName": "INDG",
+		"programCode": "INDG",
+		"programCourse": []
+	},
+	{
+		"programName": "Industrial Relations",
+		"programCode": "INDR",
+		"programCourse": []
+	},
+	{
+		"programName": "Interdisciplinary Studies",
+		"programCode": "INDS",
+		"programCourse": []
+	},
+	{
+		"programName": "Information Systems",
+		"programCode": "INSY",
+		"programCourse": []
+	},
+	{
+		"programName": "International Development",
+		"programCode": "INTD",
+		"programCourse": []
+	},
+	{
+		"programName": "INTG",
+		"programCode": "INTG",
+		"programCourse": []
+	},
+	{
+		"programName": "IPEA",
+		"programCode": "IPEA",
+		"programCourse": []
+	},
+	{
+		"programName": "Islamic Studies",
+		"programCode": "ISLA",
+		"programCourse": []
+	},
+	{
+		"programName": "Italian (Arts)",
+		"programCode": "ITAL",
+		"programCourse": []
+	},
+	{
+		"programName": "Jewish Studies",
+		"programCode": "JWST",
+		"programCourse": []
+	},
+	{
+		"programName": "Latin American & Caribbean St",
+		"programCode": "LACS",
+		"programCourse": []
+	},
+	{
+		"programName": "Law General",
+		"programCode": "LAWG",
+		"programCourse": []
+	},
+	{
+		"programName": "Labour/Employmt/Environmt Law",
+		"programCode": "LEEL",
+		"programCourse": []
+	},
+	{
+		"programName": "LIBA",
+		"programCode": "LIBA",
+		"programCourse": []
+	},
+	{
+		"programName": "Linguistics",
+		"programCode": "LING",
+		"programCourse": []
+	},
+	{
+		"programName": "LLCU",
+		"programCode": "LLCU",
+		"programCourse": []
+	},
+	{
+		"programName": "Life Sciences",
+		"programCode": "LSCI",
+		"programCourse": []
+	},
+	{
+		"programName": "Mathematics & Statistics (Sci)",
+		"programCode": "MATH",
+		"programCourse": []
+	},
+	{
+		"programName": "Medical Physics",
+		"programCode": "MDPH",
+		"programCourse": []
+	},
+	{
+		"programName": "MDST",
+		"programCode": "MDST",
+		"programCourse": []
+	},
+	{
+		"programName": "Mechanical Engineering",
+		"programCode": "MECH",
+		"programCourse": []
+	},
+	{
+		"programName": "Management Core",
+		"programCode": "MGCR",
+		"programCourse": []
+	},
+	{
+		"programName": "Management Policy",
+		"programCode": "MGPO",
+		"programCourse": []
+	},
+	{
+		"programName": "Management Science",
+		"programCode": "MGSC",
+		"programCourse": []
+	},
+	{
+		"programName": "Microbiology (Agric&Envir Sc)",
+		"programCode": "MICR",
+		"programCourse": []
+	},
+	{
+		"programName": "Mining & Materials Engineering",
+		"programCode": "MIME",
+		"programCourse": []
+	},
+	{
+		"programName": "Microbiology and Immun (Sci)",
+		"programCode": "MIMM",
+		"programCourse": []
+	},
+	{
+		"programName": "McGill/Poly Mining Coop",
+		"programCode": "MPMC",
+		"programCourse": []
+	},
+	{
+		"programName": "Marketing",
+		"programCode": "MRKT",
+		"programCourse": []
+	},
+	{
+		"programName": "MSUS",
+		"programCode": "MSUS",
+		"programCourse": []
+	},
+	{
+		"programName": "Music-Arts Faculty",
+		"programCode": "MUAR",
+		"programCourse": []
+	},
+	{
+		"programName": "Composition",
+		"programCode": "MUCO",
+		"programCourse": []
+	},
+	{
+		"programName": "Choral Techniques",
+		"programCode": "MUCT",
+		"programCourse": []
+	},
+	{
+		"programName": "Ensemble",
+		"programCode": "MUEN",
+		"programCourse": []
+	},
+	{
+		"programName": "General Music Techniques",
+		"programCode": "MUGT",
+		"programCourse": []
+	},
+	{
+		"programName": "Music History and Literature",
+		"programCode": "MUHL",
+		"programCourse": []
+	},
+	{
+		"programName": "Practical Instrument",
+		"programCode": "MUIN",
+		"programCourse": []
+	},
+	{
+		"programName": "Instrumental Techniques",
+		"programCode": "MUIT",
+		"programCourse": []
+	},
+	{
+		"programName": "Jazz Studies",
+		"programCode": "MUJZ",
+		"programCourse": []
+	},
+	{
+		"programName": "Music Technology",
+		"programCode": "MUMT",
+		"programCourse": []
+	},
+	{
+		"programName": "Music Professional Development",
+		"programCode": "MUPD",
+		"programCourse": []
+	},
+	{
+		"programName": "Performance",
+		"programCode": "MUPG",
+		"programCourse": []
+	},
+	{
+		"programName": "Performance Practice",
+		"programCode": "MUPP",
+		"programCourse": []
+	},
+	{
+		"programName": "MURG",
+		"programCode": "MURG",
+		"programCourse": []
+	},
+	{
+		"programName": "Musicianship",
+		"programCode": "MUSP",
+		"programCourse": []
+	},
+	{
+		"programName": "Sound Recording",
+		"programCode": "MUSR",
+		"programCourse": []
+	},
+	{
+		"programName": "Music Theory and Analysis",
+		"programCode": "MUTH",
+		"programCourse": []
+	},
+	{
+		"programName": "Neurology and Neurosurgery",
+		"programCode": "NEUR",
+		"programCourse": []
+	},
+	{
+		"programName": "Natural Resource Sciences",
+		"programCode": "NRSC",
+		"programCourse": []
+	},
+	{
+		"programName": "Neuroscience",
+		"programCode": "NSCI",
+		"programCourse": []
+	},
+	{
+		"programName": "Nursing",
+		"programCode": "NUR1",
+		"programCourse": []
+	},
+	{
+		"programName": "Nursing",
+		"programCode": "NUR2",
+		"programCourse": []
+	},
+	{
+		"programName": "Nutrition and Dietetics",
+		"programCode": "NUTR",
+		"programCourse": []
+	},
+	{
+		"programName": "Obstetrics and Gynaecology",
+		"programCode": "OBGY",
+		"programCourse": []
+	},
+	{
+		"programName": "Occupational Therapy",
+		"programCode": "OCC1",
+		"programCourse": []
+	},
+	{
+		"programName": "Ophthalmology",
+		"programCode": "OPTH",
+		"programCourse": []
+	},
+	{
+		"programName": "Organizational Behaviour",
+		"programCode": "ORGB",
+		"programCourse": []
+	},
+	{
+		"programName": "Paediatrics",
+		"programCode": "PAED",
+		"programCourse": []
+	},
+	{
+		"programName": "Parasitology",
+		"programCode": "PARA",
+		"programCourse": []
+	},
+	{
+		"programName": "Pathology",
+		"programCode": "PATH",
+		"programCourse": []
+	},
+	{
+		"programName": "Pharmacology and Therapeutics",
+		"programCode": "PHAR",
+		"programCourse": []
+	},
+	{
+		"programName": "Physiology",
+		"programCode": "PHGY",
+		"programCourse": []
+	},
+	{
+		"programName": "Philosophy",
+		"programCode": "PHIL",
+		"programCourse": []
+	},
+	{
+		"programName": "Physical Therapy",
+		"programCode": "PHTH",
+		"programCourse": []
+	},
+	{
+		"programName": "Philosophy & Western Religions",
+		"programCode": "PHWR",
+		"programCourse": []
+	},
+	{
+		"programName": "Physics",
+		"programCode": "PHYS",
+		"programCourse": []
+	},
+	{
+		"programName": "PLAI",
+		"programCode": "PLAI",
+		"programCourse": []
+	},
+	{
+		"programName": "Plant Science",
+		"programCode": "PLNT",
+		"programCourse": []
+	},
+	{
+		"programName": "Political Science",
+		"programCode": "POLI",
+		"programCourse": []
+	},
+	{
+		"programName": "Phys & Occ Therapy",
+		"programCode": "POTH",
+		"programCourse": []
+	},
+	{
+		"programName": "PPHS",
+		"programCode": "PPHS",
+		"programCourse": []
+	},
+	{
+		"programName": "Practicums",
+		"programCode": "PRAC",
+		"programCourse": []
+	},
+	{
+		"programName": "Procedure",
+		"programCode": "PROC",
+		"programCourse": []
+	},
+	{
+		"programName": "Private Law 2",
+		"programCode": "PRV2",
+		"programCourse": []
+	},
+	{
+		"programName": "Private Law 3",
+		"programCode": "PRV3",
+		"programCourse": []
+	},
+	{
+		"programName": "Private Law 4",
+		"programCode": "PRV4",
+		"programCourse": []
+	},
+	{
+		"programName": "Private Law 5",
+		"programCode": "PRV5",
+		"programCourse": []
+	},
+	{
+		"programName": "Psychology",
+		"programCode": "PSYC",
+		"programCourse": []
+	},
+	{
+		"programName": "Psychiatry",
+		"programCode": "PSYT",
+		"programCourse": []
+	},
+	{
+		"programName": "Public Law 1",
+		"programCode": "PUB1",
+		"programCourse": []
+	},
+	{
+		"programName": "Public Law 2",
+		"programCode": "PUB2",
+		"programCourse": []
+	},
+	{
+		"programName": "Public Law 3",
+		"programCode": "PUB3",
+		"programCourse": []
+	},
+	{
+		"programName": "Quebec Studies",
+		"programCode": "QCST",
+		"programCourse": []
+	},
+	{
+		"programName": "Radiology (Diagnostic)",
+		"programCode": "RADD",
+		"programCourse": []
+	},
+	{
+		"programName": "Redpath Museum",
+		"programCode": "REDM",
+		"programCourse": []
+	},
+	{
+		"programName": "Religious Studies",
+		"programCode": "RELG",
+		"programCourse": []
+	},
+	{
+		"programName": "RETL",
+		"programCode": "RETL",
+		"programCourse": []
+	},
+	{
+		"programName": "Russian (Arts)",
+		"programCode": "RUSS",
+		"programCourse": []
+	},
+	{
+		"programName": "SEAD",
+		"programCode": "SEAD",
+		"programCourse": []
+	},
+	{
+		"programName": "SENT",
+		"programCode": "SENT",
+		"programCourse": []
+	},
+	{
+		"programName": "Sociology (Arts)",
+		"programCode": "SOCI",
+		"programCourse": []
+	},
+	{
+		"programName": "Soil Science",
+		"programCode": "SOIL",
+		"programCourse": []
+	},
+	{
+		"programName": "Surgery",
+		"programCode": "SURG",
+		"programCourse": []
+	},
+	{
+		"programName": "Social Work",
+		"programCode": "SWRK",
+		"programCourse": []
+	},
+	{
+		"programName": "Transfer Credit Processing",
+		"programCode": "TRNS",
+		"programCourse": []
+	},
+	{
+		"programName": "UQAC",
+		"programCode": "UQAC",
+		"programCourse": []
+	},
+	{
+		"programName": "UQSP",
+		"programCode": "UQSP",
+		"programCourse": []
+	},
+	{
+		"programName": "Urban Planning",
+		"programCode": "URBP",
+		"programCourse": []
+	},
+	{
+		"programName": "Resource Development",
+		"programCode": "WILD",
+		"programCourse": []
+	},
+	{
+		"programName": "Women's Studies",
+		"programCode": "WMST",
+		"programCourse": []
+	},
+	{
+		"programName": "Woodland Resources",
+		"programCode": "WOOD",
+		"programCourse": []
+	},
+	{
+		"programName": "Law Writing Courses",
+		"programCode": "WRIT",
+		"programCourse": []
+	},
+	{
+		"programName": "French CCE non-transcript",
+		"programCode": "YCFN",
+		"programCourse": []
+	},
+	{
+		"programName": "YRFA",
+		"programCode": "YRFA",
+		"programCourse": []
+	}
+]

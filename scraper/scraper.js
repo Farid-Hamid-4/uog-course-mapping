@@ -2,6 +2,8 @@
 const playwright = require('playwright');
 const fileSystem = require('fs');
 const { join } = require('path');
+const { match } = require('assert');
+const { title } = require('process');
 
 /**
  * Program Information
@@ -561,7 +563,7 @@ async function main() {
             let matchingNum = subjects[index].match(/[ (]{2}[0-9]{1,3}[)]{1}/g);
             // Program object
             let programObject = {
-                programName: subjects[index].substring(subjects[index].lastIndexOf(matchingCod[0]),subjects[index].indexOf(matchingNum[0])),
+                programName: subjects[index].substring(matchingCod[0].length,subjects[index].indexOf(matchingNum[0])),
                 programCode: matchingCod[0].trim(),
                 programCourse: [] // Get the object array from that string
             };
@@ -575,9 +577,11 @@ async function main() {
         newLineText = innerText.split("\n"); // Split by new lines, there are Exactly 2 lines every time, so 0, 2, 4, 6, 8 are all course code names + some extra stuff
         for (i = 0; i < newLineText.length; i += 2) {
             // console.log(newLineText[i]);
-            newLineText[i] = newLineText[i].toLowerCase(); //Lower case so it can be used 
-            courseCodeString = newLineText[i].split(" "); // Split by spaces, this way we can grab 0 and 1, the rest are redundant because we want course code letters and then course code numbers
-            courseCodes.push(courseCodeString[0] + "-" + courseCodeString[1]); // push them with a - in the middle to make up the site
+            if (!newLineText[i+1].includes("Not Offered")) {
+                newLineText[i] = newLineText[i].toLowerCase(); //Lower case so it can be used 
+                courseCodeString = newLineText[i].split(" "); // Split by spaces, this way we can grab 0 and 1, the rest are redundant because we want course code letters and then course code numbers
+                courseCodes.push(courseCodeString[0] + "-" + courseCodeString[1]); // push them with a - in the middle to make up the site
+            }
         }
         if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
             await browser.close();
@@ -609,20 +613,39 @@ async function main() {
         }
         await page.goto(coursePage + courseCodes[k]);
         
-        title = await page.innerText("h1#page-title");
+        let title = await page.innerText("h1#page-title");
         if (title.includes("Page not found")) break;
         // This is where the getting info
-        
+        let testing1 = title.match(/[A-Z]{4}[ 1-9 ]{5}/g);
+        let testing2 = title.match(/[ (]{2}[1-9]{1}[ ]{1}[c]{1}[r]{1}[e]{1}[d]{1}[i]{1}[t]{1}[s]{1}[)]{1}/g);
+        let name = '';
         let temp = courseCodes[k].split("-");
+        console.log(title);
+
+        if (testing1 == null || testing2 == null ) {
+            nameSplit = courseCodes[k].toUpperCase().split("-");
+            name = nameSplit[0];
+        } else {
+            name = title.substring(title.match(/[A-Z]{4}[ 1-9 ]{5}/g)[0].length,title.indexOf(title.match(/[ (]{2}[1-9]{1}[ ]{1}[c]{1}[r]{1}[e]{1}[d]{1}[i]{1}[t]{1}[s]{1}[)]{1}/g)[0]));
+        }
+
+        sem = await page.innerText("p.catalog-terms");
+        sem = getSem(sem);
+        
+
         if (temp[0].toUpperCase() == allSubjects[indexk].programCode) {
             let courseObject = { //Course object holds all the information for each course
-                code: courseCodes[k]
+                name: name,
+                code: courseCodes[k].toUpperCase().replace("-"," "),
+                semester: sem
             };
             allSubjects[indexk].programCourse.push(courseObject);
         } else {
             indexk++;
             let courseObject = { //Course object holds all the information for each course
-                code: courseCodes[k]
+                name: name,
+                code: courseCodes[k].toUpperCase().replace("-"," "),
+                semester: sem
             };
             allSubjects[indexk].programCourse.push(courseObject);
         }
