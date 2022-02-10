@@ -322,14 +322,14 @@ let caseRemove = (invalidString, removeString, replaceString) => {
 async function main() {
     // Open a Chromium browser. We use headless: true
     // to run the process in the background.
-    const browser = await playwright.chromium.launch({
-        headless: true
+    browser = await playwright.chromium.launch({
+        headless: false
     });
     // Open a new page / tab in the browser.
-    const page = await browser.newPage({
+    page = await browser.newPage({
         bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
     });
-
+/*
     const calendarURL = "https://calendar.uoguelph.ca/undergraduate-calendar/course-descriptions/";
 
     let programArray = [];
@@ -533,6 +533,67 @@ async function main() {
     
     // Print the courses to a JSON folder
     getJSONFile(programArray);
+    */
+
+
+    // Mcgill scraper
+    let searchPage = "https://www.mcgill.ca/study/2021-2022/courses/search?page=" // page without number, it will go till the end
+    let coursePage = "https://www.mcgill.ca/study/2021-2022/courses/"
+    let courseCodes = []; // array holding course codes, first two words of name
+    let courseCodeString = ""; // Holds information by spaces
+    let loadedPages = 1; // Maintains index of current page, page 0 counts as 1
+    let pageExists = "1"; // This isn't in use yet but no worries
+    let newLineText; // Keeps text of element
+
+    // Go to first page
+    await page.goto(searchPage + 0);
+
+
+    for (loadedPages; pageExists.length != 0; loadedPages++){ // 549 is last page, pageExists is trying to find length 0 but wasn't working properly previously.
+        pageExists = await page.$$('text=❯');
+        innerText = await page.innerText("div.view-content"); // Get text
+        newLineText = innerText.split("\n"); // Split by new lines, there are Exactly 2 lines every time, so 0, 2, 4, 6, 8 are all course code names + some extra stuff
+        for (i = 0; i < newLineText.length; i += 2) {
+            // console.log(newLineText[i]);
+            newLineText[i] = newLineText[i].toLowerCase(); //Lower case so it can be used 
+            courseCodeString = newLineText[i].split(" "); // Split by spaces, this way we can grab 0 and 1, the rest are redundant because we want course code letters and then course code numbers
+            courseCodes.push(courseCodeString[0] + "-" + courseCodeString[1]); // push them with a - in the middle to make up the site
+        }
+        if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
+            await browser.close();
+            browser = await playwright.chromium.launch({
+                headless: false
+            });
+            // Open a new page / tab in the browser.
+            page = await browser.newPage({
+                bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
+            });
+        }
+        await page.goto(searchPage + loadedPages);
+    }
+    let k = 0;
+    for (k; k < courseCodes.length; k++){
+        if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
+            await browser.close();
+            browser = await playwright.chromium.launch({
+                headless: false
+            });
+            // Open a new page / tab in the browser.
+            page = await browser.newPage({
+                bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
+            });
+        }
+        await page.goto(coursePage + courseCodes[k]);
+        title = await page.innerText("h1#page-title");
+        if (title.includes("Page not found")) break;
+        loadedPages++;
+    }
+    if (title.includes("Page not found")) console.log("This one was empty " + courseCodes[k]);
+    console.log("Went through this many course sites " + k);
+
+    console.log("loaded pages: " + loadedPages);
+
+    console.log("Course Codes Length is " + courseCodes.length);
     // Turn off the browser to clean up after ourselves.
     await browser.close();
 }
