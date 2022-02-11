@@ -600,7 +600,7 @@ async function main() {
 
     let k = 0;
     let indexk = 0;
-    for (k; k < 200/*courseCodes.length*/; k++){
+    for (k; k < 50/*courseCodes.length*/; k++){
         if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
             await browser.close();
             browser = await playwright.chromium.launch({
@@ -618,15 +618,18 @@ async function main() {
         // This is where the getting info
         let testing1 = title.match(/[A-Z]{4}[ 1-9 ]{5}/g);
         let testing2 = title.match(/[ (]{2}[1-9]{1}[ ]{1}[c]{1}[r]{1}[e]{1}[d]{1}[i]{1}[t]{1}[s]{1}[)]{1}/g);
+        
+        let credit = '';
         let name = '';
         let temp = courseCodes[k].split("-");
         console.log(title);
 
-        if (testing1 == null || testing2 == null ) {
+        if (testing1 == null || testing2 == null) {
             nameSplit = courseCodes[k].toUpperCase().split("-");
             name = nameSplit[0];
         } else {
             name = title.substring(title.match(/[A-Z]{4}[ 1-9 ]{5}/g)[0].length,title.indexOf(title.match(/[ (]{2}[1-9]{1}[ ]{1}[c]{1}[r]{1}[e]{1}[d]{1}[i]{1}[t]{1}[s]{1}[)]{1}/g)[0]));
+            credit = testing2[0].match(/\d/g);
         }
 
         sem = await page.innerText("p.catalog-terms");
@@ -637,6 +640,7 @@ async function main() {
             let courseObject = { //Course object holds all the information for each course
                 name: name,
                 code: courseCodes[k].toUpperCase().replace("-"," "),
+                credit: credit[0],
                 semester: sem
             };
             allSubjects[indexk].programCourse.push(courseObject);
@@ -645,6 +649,7 @@ async function main() {
             let courseObject = { //Course object holds all the information for each course
                 name: name,
                 code: courseCodes[k].toUpperCase().replace("-"," "),
+                credit: credit[0],
                 semester: sem
             };
             allSubjects[indexk].programCourse.push(courseObject);
