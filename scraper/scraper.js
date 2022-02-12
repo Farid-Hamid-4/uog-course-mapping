@@ -153,13 +153,10 @@ let getPreCode2 = (prereqStr) => {
         mandatory: []
     };
 
-    let coursePrereqs = prereqStr.match(/[A-Z]{4}[ 0-9]{4}/g); // splits the prerequisite string and holds the course codes in the string
+    let coursePrereqs = prereqStr.match(/[A-Z]{4}[ ]{1}[0-9D]{3,5}/g); // splits the prerequisite string and holds the course codes in the string
     
-    
-
-
     if (coursePrereqs != null) {
-        let tmp = prereqStr.match(/[A-Z]{4}[ 0-9]{4}/g);
+        let tmp = prereqStr.match(/[A-Z]{4}[ ]{1}[0-9D]{3,5}/g);
         for (let i = 0; i < coursePrereqs.length; i++) {
             coursePrereqs[i] = coursePrereqs[i].replace(" ","*");
         }
@@ -175,28 +172,36 @@ let getPreCode2 = (prereqStr) => {
                 /* Loop through all words in prerequisites */
                 for (let j = 0; j < prerequisitesSpaceSplit.length; j++) {
                     if (j == 0 && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 1: index 0 is a course code
-                        if (prerequisitesSpaceSplit[j+1].includes("or")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
+                        if (prerequisitesSpaceSplit[j+1].includes("or") || prerequisitesSpaceSplit[j+1].includes("OR")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
+                            courseRequirementGrp.or_courses.push(coursePrereqs[i].replace("*"," "));
+                        } else if ((prerequisitesSpaceSplit[j+1].includes("and"))) {
+                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
                         } else { // else it is a mandatory, push to mandatory array
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i]);
+                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
                         }
                     } else if (j > -1 && j < prerequisitesSpaceSplit.length-1 && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 2: index 1->(length-1)
-                        if (prerequisitesSpaceSplit[j+1].includes("or")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
-                        } else if (prerequisitesSpaceSplit[j-1].includes("or")) { // Check if an "or" comes before course code "... or CIS*#", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
-                        } else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
+                        if (prerequisitesSpaceSplit[j+1].includes("or") || prerequisitesSpaceSplit[j+1].includes("OR")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
+                            courseRequirementGrp.or_courses.push(coursePrereqs[i].replace("*"," "));
+                        } else if (prerequisitesSpaceSplit[j-1].includes("or") || prerequisitesSpaceSplit[j-1].includes("OR")) { // Check if an "or" comes before course code "... or CIS*#", if true, push to or_courses array
+                            courseRequirementGrp.or_courses.push(coursePrereqs[i].replace("*"," "));
+                        } else if ((prerequisitesSpaceSplit[j+1].includes("and"))) {
+                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
+                        } else if ((prerequisitesSpaceSplit[j-1].includes("and"))) {
+                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
+                        }  else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
+                            courseRequirementGrp.or_courses.push(coursePrereqs[i].replace("*"," "));
                         } else { // else it is mandatory, push to mandatory array
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i]);
+                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
                         }
                     } else if (j <= prerequisitesSpaceSplit.length && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 3: 
-                        if (prerequisitesSpaceSplit[j-1].includes("or")) { // Check if or comes after course code "CIS*# or ...", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
+                        if (prerequisitesSpaceSplit[j-1].includes("or") || prerequisitesSpaceSplit[j-1].includes("OR")) { // Check if or comes after course code "CIS*# or ...", if true, push to or_courses array
+                            courseRequirementGrp.or_courses.push(coursePrereqs[i].replace("*"," "));
+                        } else if ((prerequisitesSpaceSplit[j-1].includes("and"))) {
+                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
                         } else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
+                            courseRequirementGrp.or_courses.push(coursePrereqs[i].replace("*"," "));
                         } else { // else it is mandatory, push to mandatory array
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i]);
+                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
                         }
                     }
                 }
