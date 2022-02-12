@@ -9,7 +9,7 @@ import os
 import pygraphviz as pgv
 
 # Program Information
-__author__ = "Harsh Topiwala, Jainil Patel, Andrew Heft, Nicholas Baker, Lourenco Velez, Farid Hamid"
+__author__ = "Harsh Topiwala, Jainil Patel, Nicholas Baker, Lourenco Velez, Farid Hamid"
 __version__ = "1.0.0"
 __maintainer__ = "Harsh Topiwala"
 __email__ = "htopiwal@uoguelph.ca"
