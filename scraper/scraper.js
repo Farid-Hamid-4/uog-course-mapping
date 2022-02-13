@@ -160,9 +160,11 @@ let getPreCode2 = (prereqStr) => {
         for (let i = 0; i < coursePrereqs.length; i++) {
             coursePrereqs[i] = coursePrereqs[i].replace(" ","*");
         }
-        for (let i = 0; i < coursePrereqs.length; i++) {
+        for (let i = 0; i < coursePrereqs.length; i++) { // This sets all the matching spaces to stars
             prereqStr = prereqStr.replace(tmp[i],coursePrereqs[i]);
         }
+
+        
         let prerequisitesSpaceSplit = prereqStr.split(" "); // splits the prerequisite string so it can go word by word to find cases, "or" "1 of" "2 of", e.t.c
         if (prereqStr.includes("or") || prereqStr.match(/[(1-9 ]{3}[of]{2}/g) != null) { // If there is an "or" case or a "(# of ...)" case
 
@@ -173,43 +175,43 @@ let getPreCode2 = (prereqStr) => {
                 for (let j = 0; j < prerequisitesSpaceSplit.length; j++) {
                     if (j == 0 && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 1: index 0 is a course code
                         if (prerequisitesSpaceSplit[j+1].includes("or") || prerequisitesSpaceSplit[j+1].includes("OR")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.or_courses.push(tmp[i]);
                         } else if ((prerequisitesSpaceSplit[j+1].includes("and"))) {
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.mandatory.push(tmp[i]);
                         } else { // else it is a mandatory, push to mandatory array
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.mandatory.push(tmp[i]);
                         }
                     } else if (j > -1 && j < prerequisitesSpaceSplit.length-1 && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 2: index 1->(length-1)
                         if (prerequisitesSpaceSplit[j+1].includes("or") || prerequisitesSpaceSplit[j+1].includes("OR")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.or_courses.push(tmp[i]);
                         } else if (prerequisitesSpaceSplit[j-1].includes("or") || prerequisitesSpaceSplit[j-1].includes("OR")) { // Check if an "or" comes before course code "... or CIS*#", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.or_courses.push(tmp[i]);
                         } else if ((prerequisitesSpaceSplit[j+1].includes("and"))) {
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.mandatory.push(tmp[i]);
                         } else if ((prerequisitesSpaceSplit[j-1].includes("and"))) {
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.mandatory.push(tmp[i]);
                         }  else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.or_courses.push(tmp[i]);
                         } else { // else it is mandatory, push to mandatory array
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.mandatory.push(tmp[i]);
                         }
                     } else if (j <= prerequisitesSpaceSplit.length && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 3: 
                         if (prerequisitesSpaceSplit[j-1].includes("or") || prerequisitesSpaceSplit[j-1].includes("OR")) { // Check if or comes after course code "CIS*# or ...", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.or_courses.push(tmp[i]);
                         } else if ((prerequisitesSpaceSplit[j-1].includes("and"))) {
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.mandatory.push(tmp[i]);
                         } else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.or_courses.push(tmp[i]);
                         } else { // else it is mandatory, push to mandatory array
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i].replace("*"," "));
+                            courseRequirementGrp.mandatory.push(tmp[i]);
                         }
                     }
                 }
             }
         } else if (prereqStr.match(/[1-9 ]{2}[of]{2}/g) != null) { // If it does not have an "or", and it is not a "(# of ...)" case, check if it is a "# of ..." case. No brackets. Then it they are all or cases
-            courseRequirementGrp.or_courses = coursePrereqs;
+            courseRequirementGrp.or_courses = tmp;
         } else { // If it does not have an "or", it is not a "(# of ...)", and it is not a "# of ..." case, then all course codes are mandatory
-            courseRequirementGrp.mandatory = coursePrereqs;
+            courseRequirementGrp.mandatory = tmp;
         }
     } 
     return courseRequirementGrp;
@@ -386,274 +388,238 @@ let caseRemove = (invalidString, removeString, replaceString) => {
     return invalidString;
 }
 
+let printHelpMenu = () => {
+    console.log("\nusage: node ./scraper.js [-h] {uog,mcg} ...");
+    console.log("\npositional arguments::\n\tuog\tScrape University of Guelph and generate json files\n\tmcg\tScrape Mcgill and generate json files\n");
+    console.log("options:\n\t-h, --help\tshow this help message and exit\n");
+}
+
 /**
  * @name main
  * @description This is the main for the program
  */
 async function main() {
-    // Open a Chromium browser. We use headless: true
-    // to run the process in the background.
-    browser = await playwright.chromium.launch({
-        headless: true
-    });
-    // Open a new page / tab in the browser.
-    page = await browser.newPage({
-        bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
-    });
-/*
-    const calendarURL = "https://calendar.uoguelph.ca/undergraduate-calendar/course-descriptions/";
 
-    let programArray = [];
+    const commandLine = process.argv;
+    if (commandLine.length == 3) {
+        if (commandLine[2] == "uog") {
+            // Open a Chromium browser. We use headless: true
+            // to run the process in the background.
+            browser = await playwright.chromium.launch({
+                headless: true
+            });
+            // Open a new page / tab in the browser.
+            page = await browser.newPage({
+                bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
+            });
 
-    console.clear();
-    await page.goto(calendarURL);
-    let innerText = await page.textContent("div.az_sitemap");
-    innerText = innerText.replace("#ABCDEFGHIJKLMNOPQRSTUVWXYZ","");
-    let programCodes = innerText.match(/[A-Z]{2,4}/g);
-    let i = 0, j = 0, k = 0;
+            const calendarURL = "https://calendar.uoguelph.ca/undergraduate-calendar/course-descriptions/";
 
-    // Convert each character in the program codes to lowercase
-    for (i = 0; i < programCodes.length; i++) {
-        programCodes[i] = programCodes[i].toLowerCase();
+            let programArray = [];
 
-        // The course has a program code of "IAEF" but the url displays it as the following
-        // https://calendar.uoguelph.ca/undergraduate-calendar/course-descriptions/ieaf/
-        // In other words, the program code is not consistent with the url "AE" and "EA" respectively.
-        if (programCodes[i] == "iaef") {
-            programCodes[i] = "ieaf";
-        }
-    } 
+            console.clear();
+            await page.goto(calendarURL);
+            let innerText = await page.textContent("div.az_sitemap");
+            innerText = innerText.replace("#ABCDEFGHIJKLMNOPQRSTUVWXYZ","");
+            let programCodes = innerText.match(/[A-Z]{2,4}/g);
+            let i = 0, j = 0, k = 0;
 
-    // Tell the tab to navigate to the various program topic pages.
-    for (i = 0; i < programCodes.length; i++) {
-        console.log("\n"+ i + " of " + programCodes.length + " Programs have been scraped\n");
-        
+            // Convert each character in the program codes to lowercase
+            for (i = 0; i < programCodes.length; i++) {
+                programCodes[i] = programCodes[i].toLowerCase();
 
-        // Go to the programs page
-        let url = calendarURL.concat(programCodes[i]).concat("/");
-        await page.goto(url);
-
-        // get the full program name
-        let title = await page.textContent('h1.page-title');
-        tPtr = title.split('(');
-
-        // Get the program name and code
-        let programName = tPtr[0].trim();
-        let programCode = programCodes[i].toUpperCase();
-
-        // Get all the text within the program page
-        let innerText = await page.innerText('div.sc_sccoursedescs'); // Grabs a string from that page
-
-        // Program object
-        let programObject = {
-            programName: programName,
-            programCode: programCode,
-            programCourse: getJSON(innerText) // Get the object array from that string
-        };
-
-        // Add to the overall 
-        programArray.push(programObject);
-        console.clear();
-    }
-
-    console.log("\nAll the programs have been scraped\nNow scraping Majors\n")
-
-    const degreeUrl = "https://calendar.uoguelph.ca/undergraduate-calendar/degree-programs/";
-    const majorUrl = "https://calendar.uoguelph.ca/undergraduate-calendar/programs-majors-minors/"
-
-    await page.goto(degreeUrl);
-
-    innerText = await page.innerText("div.sitemap");    
-    let newLineText = innerText.split("\n");
-    let bachelor = [];
-    let programs = [];
-    let urlCases = ["and ", "co op:c", "co op ", " hrt"];
-    let urlCaseReplace = ["", "co op c", "", " hort"];
-    let majorCount = 0;
-
-    // Go into Degree-Programs site and get degree
-    for (i = 0; i < newLineText.length; i++) {
-        if (!newLineText[i].includes("Indigenous")) {
-            newLineText[i] = newLineText[i].replace(/[and ]{4}/g,"");
-        }
-        newLineText[i] = siteMapRegex(newLineText[i]);
-    }
-    
-    
-    // Go into Degree-Programs site and get Programs from Degree. degreeUrl + degree -> degree is held in newLineText
-    for (i = 0; i < newLineText.length; i++) {
-
-        if (newLineText[i].includes("bachelor")) {
-            await page.goto(degreeUrl+newLineText[i]+"/");
-            let checkTxt = await page.textContent("nav#tabs");
-            if (checkTxt.includes("Programs")){
-                newLineText[i] = newLineText[i] + "/#programstext";
-            } else if (checkTxt.includes("Requirements")){
-                newLineText[i] = newLineText[i] + "/#requirementstext"
-            }
-            bachelor.push(newLineText[i]);
-        }
-    }
-
-    console.clear();
-    // go into Degree programs and make array of programs. Navigate to each program in the degree. degreeUrl + degree -> get programs -> majorUrl + program
-    for (i = 0; i < bachelor.length; i++){
-        console.log("\n"+ i + " of " + bachelor.length + " Degrees have been scraped\n");
-        // Go into programs section (This means that there are multiple majors)
-        if (bachelor[i].includes("programstext")){
-            await page.goto(degreeUrl+bachelor[i]);
-            innerText = await page.innerText("div.sitemap");
-            newLineText = innerText.split("\n");
-            // Inside degree url in programs section, regex newlinetext which holds sites of programs
-            for (j = 0; j < newLineText.length; j++){
-                newLineText[j] = siteMapRegex(newLineText[j]);
-                // navigate programs, programs is majorUrl + newLineText + #requirementsText
-                await page.goto(majorUrl+newLineText[j]);
-
-                // check if page was found
-                let title = await page.textContent("h1.page-title");
-                for (let caseCheck = 0; caseCheck < urlCases.length && title.includes("Page Not Found"); caseCheck++){
-
-                    // Before removing "co op" remove the last c from url as there are unique cases where co-op stays in the middle but the -c at the end does not
-                    if (caseCheck == 2){
-                        if (newLineText[j].slice(-1) == 'c'){
-                            newLineText[j] = newLineText[j].substring(0, newLineText[j].lastIndexOf("-")) + "c";
-                        }
-                        await page.goto(majorUrl+newLineText[j]);
-                        title = await page.textContent("h1.page-title");
-                        if (!title.includes("Page Not Found")) break;
-                    }
-                    
-                    newLineText[j] = caseRemove(newLineText[j], urlCases[caseCheck], urlCaseReplace[caseCheck]);
-                    // Open page
-                    await page.goto(majorUrl+newLineText[j]);
-                    title = await page.textContent("h1.page-title");
+                // The course has a program code of "IAEF" but the url displays it as the following
+                // https://calendar.uoguelph.ca/undergraduate-calendar/course-descriptions/ieaf/
+                // In other words, the program code is not consistent with the url "AE" and "EA" respectively.
+                if (programCodes[i] == "iaef") {
+                    programCodes[i] = "ieaf";
                 }
-                newLineText[j] = newLineText[j] + "/#requirementstext";
+            } 
+
+            // Tell the tab to navigate to the various program topic pages.
+            for (i = 0; i < programCodes.length; i++) {
+                console.log("\n"+ i + " of " + programCodes.length + " Programs have been scraped\n");
                 
-                // Go to requirements
-                await page.goto(majorUrl+newLineText[j]);
-                
 
-                // Grab course requirements, Line 455 already puts us in the requirements section of major
-                let checkForMajor = await page.innerText("div#requirementstextcontainer");
-                
-                //If major is included in the text at all
-                if (checkForMajor.includes("Major")) {
-                    let majorFlag = 0;
-                    checkForMajor = checkForMajor.split("\n");
-                    
-                    //Create the major object
-                    let majorObject = {
-                        majorName: '',
-                        majorCode: '',
-                        majorCourses: []
-                    };
+                // Go to the programs page
+                let url = calendarURL.concat(programCodes[i]).concat("/");
+                await page.goto(url);
 
-                    //Get the header text
-                    let majorTitle = await page.innerText("h1.page-title");
+                // get the full program name
+                let title = await page.textContent('h1.page-title');
+                tPtr = title.split('(');
 
-                    //Get the major name and code
-                    majorObject.majorName = majorTitle.substring(0,majorTitle.indexOf(majorTitle.match(/[ (A-Z:)]{5,9}/g)[0]));
-                    majorObject.majorCode = majorTitle.match(/[A-Z:]{2,6}/g)[0];
+                // Get the program name and code
+                let programName = tPtr[0].trim();
+                let programCode = programCodes[i].toUpperCase();
 
-                    //Loop through the pages line by line
-                    for (let k = 0; k < checkForMajor.length; k++) {
-                        checkForMajor[k] = checkForMajor[k].trim();
-                        
-                        //If line holds major or any of these grab info below
-                        if (checkForMajor[k] == "Major" || checkForMajor[k] == "Major (Honours Program)" || checkForMajor[k] == "Major Co-op (Honours Program)" ||  checkForMajor[k] == "Schedule of Studies" ||  checkForMajor[k] == "Core Requirements" || checkForMajor[k] == "Major (Honours Program) Co-op") {
-                            majorFlag = 1;
-                        }
+                // Get all the text within the program page
+                let innerText = await page.innerText('div.sc_sccoursedescs'); // Grabs a string from that page
 
-                        //If line matches these stop grabing info
-                        if (checkForMajor[k].includes("Area of Emphasis") || checkForMajor[k] == "Restricted Electives" || checkForMajor[k] == "Minor" || checkForMajor[k] == "Minor (Honours Program)" || checkForMajor[k] == "List A:" || checkForMajor[k] == "Credit Summary") {
-                            majorFlag = 0;
-                        }
+                // Program object
+                let programObject = {
+                    programName: programName,
+                    programCode: programCode,
+                    programCourse: getJSON(innerText) // Get the object array from that string
+                };
 
-                        //If the line holds a course code & vredit value & the major flag is checked grab info
-                        if (majorFlag == 1 && checkForMajor[k].match(/[0-9]{1}[.]{1}[0-9]{1}[0-9]{1}/g) != null && checkForMajor[k].match(/[A-Z*]{2,5}[0-9]{4}/g) != null && checkForMajor[k].includes("\t")) {
-                            let matchingCodes = checkForMajor[k].match(/[A-Z*]{2,5}[0-9]{4}/g);
-                            checkForMajor[k].indexOf(checkForMajor[k].match(/[A-Z*]{2,5}[0-9]{4}/g)[0])
-                            if (checkForMajor[k].indexOf(matchingCodes[0]) == 0) {
-                                for (let q = 0; q < matchingCodes.length; q++) {
-                                    majorObject.majorCourses.push(matchingCodes[q]);
+                // Add to the overall 
+                programArray.push(programObject);
+                console.clear();
+            }
+
+            console.log("\nAll the programs have been scraped\nNow scraping Majors\n")
+
+            const degreeUrl = "https://calendar.uoguelph.ca/undergraduate-calendar/degree-programs/";
+            const majorUrl = "https://calendar.uoguelph.ca/undergraduate-calendar/programs-majors-minors/"
+
+            await page.goto(degreeUrl);
+
+            innerText = await page.innerText("div.sitemap");    
+            let newLineText = innerText.split("\n");
+            let bachelor = [];
+            let programs = [];
+            let urlCases = ["and ", "co op:c", "co op ", " hrt"];
+            let urlCaseReplace = ["", "co op c", "", " hort"];
+            let majorCount = 0;
+
+            // Go into Degree-Programs site and get degree
+            for (i = 0; i < newLineText.length; i++) {
+                if (!newLineText[i].includes("Indigenous")) {
+                    newLineText[i] = newLineText[i].replace(/[and ]{4}/g,"");
+                }
+                newLineText[i] = siteMapRegex(newLineText[i]);
+            }
+            
+            
+            // Go into Degree-Programs site and get Programs from Degree. degreeUrl + degree -> degree is held in newLineText
+            for (i = 0; i < newLineText.length; i++) {
+
+                if (newLineText[i].includes("bachelor")) {
+                    await page.goto(degreeUrl+newLineText[i]+"/");
+                    let checkTxt = await page.textContent("nav#tabs");
+                    if (checkTxt.includes("Programs")){
+                        newLineText[i] = newLineText[i] + "/#programstext";
+                    } else if (checkTxt.includes("Requirements")){
+                        newLineText[i] = newLineText[i] + "/#requirementstext"
+                    }
+                    bachelor.push(newLineText[i]);
+                }
+            }
+
+            console.clear();
+            // go into Degree programs and make array of programs. Navigate to each program in the degree. degreeUrl + degree -> get programs -> majorUrl + program
+            for (i = 0; i < bachelor.length; i++){
+                console.log("\n"+ i + " of " + bachelor.length + " Degrees have been scraped\n");
+                // Go into programs section (This means that there are multiple majors)
+                if (bachelor[i].includes("programstext")){
+                    await page.goto(degreeUrl+bachelor[i]);
+                    innerText = await page.innerText("div.sitemap");
+                    newLineText = innerText.split("\n");
+                    // Inside degree url in programs section, regex newlinetext which holds sites of programs
+                    for (j = 0; j < newLineText.length; j++){
+                        newLineText[j] = siteMapRegex(newLineText[j]);
+                        // navigate programs, programs is majorUrl + newLineText + #requirementsText
+                        await page.goto(majorUrl+newLineText[j]);
+
+                        // check if page was found
+                        let title = await page.textContent("h1.page-title");
+                        for (let caseCheck = 0; caseCheck < urlCases.length && title.includes("Page Not Found"); caseCheck++){
+
+                            // Before removing "co op" remove the last c from url as there are unique cases where co-op stays in the middle but the -c at the end does not
+                            if (caseCheck == 2){
+                                if (newLineText[j].slice(-1) == 'c'){
+                                    newLineText[j] = newLineText[j].substring(0, newLineText[j].lastIndexOf("-")) + "c";
                                 }
+                                await page.goto(majorUrl+newLineText[j]);
+                                title = await page.textContent("h1.page-title");
+                                if (!title.includes("Page Not Found")) break;
                             }
-                            //If there is an or below grab info
-                            if (k +1 < checkForMajor.length) {
-                                if (checkForMajor[k+1].match(/[A-Z*]{2,5}[0-9]{4}/g) != null && checkForMajor[k+1].indexOf("or") == 0) {
-                                    matchingCodes = checkForMajor[k+1].match(/[A-Z*]{2,5}[0-9]{4}/g);
-                                    for (let q = 0; q < matchingCodes.length; q++) {
-                                        majorObject.majorCourses.push(matchingCodes[q]);
+                            
+                            newLineText[j] = caseRemove(newLineText[j], urlCases[caseCheck], urlCaseReplace[caseCheck]);
+                            // Open page
+                            await page.goto(majorUrl+newLineText[j]);
+                            title = await page.textContent("h1.page-title");
+                        }
+                        newLineText[j] = newLineText[j] + "/#requirementstext";
+                        
+                        // Go to requirements
+                        await page.goto(majorUrl+newLineText[j]);
+                        
+
+                        // Grab course requirements, Line 455 already puts us in the requirements section of major
+                        let checkForMajor = await page.innerText("div#requirementstextcontainer");
+                        
+                        //If major is included in the text at all
+                        if (checkForMajor.includes("Major")) {
+                            let majorFlag = 0;
+                            checkForMajor = checkForMajor.split("\n");
+                            
+                            //Create the major object
+                            let majorObject = {
+                                majorName: '',
+                                majorCode: '',
+                                majorCourses: []
+                            };
+
+                            //Get the header text
+                            let majorTitle = await page.innerText("h1.page-title");
+
+                            //Get the major name and code
+                            majorObject.majorName = majorTitle.substring(0,majorTitle.indexOf(majorTitle.match(/[ (A-Z:)]{5,9}/g)[0]));
+                            majorObject.majorCode = majorTitle.match(/[A-Z:]{2,6}/g)[0];
+
+                            //Loop through the pages line by line
+                            for (let k = 0; k < checkForMajor.length; k++) {
+                                checkForMajor[k] = checkForMajor[k].trim();
+                                
+                                //If line holds major or any of these grab info below
+                                if (checkForMajor[k] == "Major" || checkForMajor[k] == "Major (Honours Program)" || checkForMajor[k] == "Major Co-op (Honours Program)" ||  checkForMajor[k] == "Schedule of Studies" ||  checkForMajor[k] == "Core Requirements" || checkForMajor[k] == "Major (Honours Program) Co-op") {
+                                    majorFlag = 1;
+                                }
+
+                                //If line matches these stop grabing info
+                                if (checkForMajor[k].includes("Area of Emphasis") || checkForMajor[k] == "Restricted Electives" || checkForMajor[k] == "Minor" || checkForMajor[k] == "Minor (Honours Program)" || checkForMajor[k] == "List A:" || checkForMajor[k] == "Credit Summary") {
+                                    majorFlag = 0;
+                                }
+
+                                //If the line holds a course code & vredit value & the major flag is checked grab info
+                                if (majorFlag == 1 && checkForMajor[k].match(/[0-9]{1}[.]{1}[0-9]{1}[0-9]{1}/g) != null && checkForMajor[k].match(/[A-Z*]{2,5}[0-9]{4}/g) != null && checkForMajor[k].includes("\t")) {
+                                    let matchingCodes = checkForMajor[k].match(/[A-Z*]{2,5}[0-9]{4}/g);
+                                    checkForMajor[k].indexOf(checkForMajor[k].match(/[A-Z*]{2,5}[0-9]{4}/g)[0])
+                                    if (checkForMajor[k].indexOf(matchingCodes[0]) == 0) {
+                                        for (let q = 0; q < matchingCodes.length; q++) {
+                                            majorObject.majorCourses.push(matchingCodes[q]);
+                                        }
+                                    }
+                                    //If there is an or below grab info
+                                    if (k +1 < checkForMajor.length) {
+                                        if (checkForMajor[k+1].match(/[A-Z*]{2,5}[0-9]{4}/g) != null && checkForMajor[k+1].indexOf("or") == 0) {
+                                            matchingCodes = checkForMajor[k+1].match(/[A-Z*]{2,5}[0-9]{4}/g);
+                                            for (let q = 0; q < matchingCodes.length; q++) {
+                                                majorObject.majorCourses.push(matchingCodes[q]);
+                                            }
+                                        }
                                     }
                                 }
                             }
+                            
+                            //Add object to the array and add to count
+                            majorList.push(majorObject);
+                            majorCount++;
                         }
                     }
-                    
-                    //Add object to the array and add to count
-                    majorList.push(majorObject);
-                    majorCount++;
-                }
+                } // else grab required courses
+                console.clear();
             }
-        } // else grab required courses
-        console.clear();
-    }
-    console.log("\nAll the programs and degrees have been scraped\n");
-    
-    // Print the courses to a JSON folder
-    getJSONFile(programArray);
-    */
-
-
-    // Mcgill scraper
-    let searchPage = "https://www.mcgill.ca/study/2021-2022/courses/search?f%5B0%5D=level%3Aundergraduate&page=" // page without number, it will go till the end
-    let coursePage = "https://www.mcgill.ca/study/2021-2022/courses/"
-    let courseCodes = []; // array holding course codes, first two words of name
-    let courseCodeString = ""; // Holds information by spaces
-    let loadedPages = 1; // Maintains index of current page, page 0 counts as 1
-    let pageExists = "1"; // This isn't in use yet but no worries
-    let newLineText; // Keeps text of element
-
-    // Go to first page
-    await page.goto(searchPage + 0);
-    await page.click('text=Show more');
-    let subjects = await page.innerText("ul#facetapi-facet-search-apicourses-block-field-subject-code");
-    subjects = subjects.split("\n");
-    let allSubjects = [];
-
-    // This is getting all the subject titles
-    for (let index = 0; index < subjects.length; index++) {
-        if (!subjects[index].includes("Apply")){
+            console.log("\nAll the programs and degrees have been scraped\n");
             
-            //subjectSplit = subjects[index].split(" ");
-            let matchingCod = subjects[index].match(/[A-Z1-9 ]{5}/g);
-            let matchingNum = subjects[index].match(/[ (]{2}[0-9]{1,3}[)]{1}/g);
-            // Program object
-            let programObject = {
-                programName: subjects[index].substring(matchingCod[0].length,subjects[index].indexOf(matchingNum[0])),
-                programCode: matchingCod[0].trim(),
-                programCourse: [] // Get the object array from that string
-            };
-            allSubjects.push(programObject);
-        }
-    }
-
-    for (loadedPages; pageExists.length != 0; loadedPages++){ // 549 is last page, pageExists is trying to find length 0 but wasn't working properly previously.
-        pageExists = await page.$$('text=❯');
-        innerText = await page.innerText("div.view-content"); // Get text
-        newLineText = innerText.split("\n"); // Split by new lines, there are Exactly 2 lines every time, so 0, 2, 4, 6, 8 are all course code names + some extra stuff
-        for (i = 0; i < newLineText.length; i += 2) {
-            // console.log(newLineText[i]);
-            if (!newLineText[i+1].includes("Not Offered")) {
-                newLineText[i] = newLineText[i].toLowerCase(); //Lower case so it can be used 
-                courseCodeString = newLineText[i].split(" "); // Split by spaces, this way we can grab 0 and 1, the rest are redundant because we want course code letters and then course code numbers
-                courseCodes.push(courseCodeString[0] + "-" + courseCodeString[1]); // push them with a - in the middle to make up the site
-            }
-        }
-        if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
+            // Print the courses to a JSON folder
+            getJSONFile(programArray);
             await browser.close();
+        } else if (commandLine[2] == "mcg") {
+            // Open a Chromium browser. We use headless: true
+            // to run the process in the background.
             browser = await playwright.chromium.launch({
                 headless: true
             });
@@ -661,104 +627,169 @@ async function main() {
             page = await browser.newPage({
                 bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
             });
-        }
-        console.clear();
-        console.log("loaded pages: "+ loadedPages);
-        await page.goto(searchPage + loadedPages);
-    }
 
-    let k = 0;
-    let indexk = 0;
-    for (k; k < 50/*courseCodes.length*/; k++){
-        if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
-            await browser.close();
-            browser = await playwright.chromium.launch({
-                headless: true
-            });
-            // Open a new page / tab in the browser.
-            page = await browser.newPage({
-                bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
-            });
-        }
-        await page.goto(coursePage + courseCodes[k]);
-        
-        let title = await page.innerText("h1#page-title");
-        if (title.includes("Page not found")) break;
+            // Mcgill scraper
+            let searchPage = "https://www.mcgill.ca/study/2021-2022/courses/search?f%5B0%5D=level%3Aundergraduate&page=" // page without number, it will go till the end
+            let coursePage = "https://www.mcgill.ca/study/2021-2022/courses/"
+            let courseCodes = []; // array holding course codes, first two words of name
+            let courseCodeString = ""; // Holds information by spaces
+            let loadedPages = 1; // Maintains index of current page, page 0 counts as 1
+            let pageExists = "1"; // This isn't in use yet but no worries
+            let newLineText; // Keeps text of element
 
-        // This is where the getting info
-        let testing1 = title.match(/[A-Z]{4}[ 1-9 ]{5}/g);
-        let testing2 = title.match(/[ (]{2}[1-9]{1}[ ]{1}[c]{1}[r]{1}[e]{1}[d]{1}[i]{1}[t]{1}[s]{1}[)]{1}/g);
-        
-        let credit = '';
-        let name = '';
-        let temp = courseCodes[k].split("-");
-        if (temp[0].toUpperCase() != allSubjects[indexk].programCode) {
-            indexk++;
-        }
-        let description = '';
-        let prereq = '';
+            // Go to first page
+            await page.goto(searchPage + 0);
+            await page.click('text=Show more');
+            let subjects = await page.innerText("ul#facetapi-facet-search-apicourses-block-field-subject-code");
+            subjects = subjects.split("\n");
+            let allSubjects = [];
 
-        let content = await page.innerText("div#block-system-main");
-        content = content.split("\n");
-        for (i = 0; i < content.length; i++) {
-            if (content[i].includes(allSubjects[indexk].programName)) {
-                description = content[i];
-            }
-            if (content[i].includes("Prerequisite")) {
-                content[i] = content[i].replace(".","");
-                if (content[i].includes("Prerequisite(s): ")) {
-                    prereq = getTextFrom(content[i],"Prerequisite(s): ");
-                } else if (content[i].includes("Prerequisites: ")) {
-                    prereq = getTextFrom(content[i],"Prerequisites: ");
-                } else {
-                    prereq = getTextFrom(content[i],"Prerequisite: ");
+            // This is getting all the subject titles
+            for (let index = 0; index < subjects.length; index++) {
+                if (!subjects[index].includes("Apply")){
+                    
+                    //subjectSplit = subjects[index].split(" ");
+                    let matchingCod = subjects[index].match(/[A-Z1-9 ]{5}/g);
+                    let matchingNum = subjects[index].match(/[ (]{2}[0-9]{1,3}[)]{1}/g);
+                    // Program object
+                    let programObject = {
+                        programName: subjects[index].substring(matchingCod[0].length,subjects[index].indexOf(matchingNum[0])),
+                        programCode: matchingCod[0].trim(),
+                        programCourse: [] // Get the object array from that string
+                    };
+                    allSubjects.push(programObject);
                 }
             }
+
+            for (loadedPages; pageExists.length != 0; loadedPages++){ // 549 is last page, pageExists is trying to find length 0 but wasn't working properly previously.
+                pageExists = await page.$$('text=❯');
+                innerText = await page.innerText("div.view-content"); // Get text
+                newLineText = innerText.split("\n"); // Split by new lines, there are Exactly 2 lines every time, so 0, 2, 4, 6, 8 are all course code names + some extra stuff
+                for (i = 0; i < newLineText.length; i += 2) {
+                    if (!newLineText[i+1].includes("Not Offered")) {
+                        newLineText[i] = newLineText[i].toLowerCase(); //Lower case so it can be used 
+                        courseCodeString = newLineText[i].split(" "); // Split by spaces, this way we can grab 0 and 1, the rest are redundant because we want course code letters and then course code numbers
+                        courseCodes.push(courseCodeString[0] + "-" + courseCodeString[1]); // push them with a - in the middle to make up the site
+                    }
+                }
+                if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
+                    await browser.close();
+                    browser = await playwright.chromium.launch({
+                        headless: true
+                    });
+                    // Open a new page / tab in the browser.
+                    page = await browser.newPage({
+                        bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
+                    });
+                }
+                console.clear();
+                console.log("loaded pages: "+ loadedPages);
+                await page.goto(searchPage + loadedPages);
+            }
+
+            let k = 0;
+            let indexk = 0;
+            for (k; k < 500/*courseCodes.length*/; k++){
+                if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
+                    await browser.close();
+                    browser = await playwright.chromium.launch({
+                        headless: true
+                    });
+                    // Open a new page / tab in the browser.
+                    page = await browser.newPage({
+                        bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
+                    });
+                }
+                await page.goto(coursePage + courseCodes[k]);
+                
+                let title = await page.innerText("h1#page-title");
+                if (title.includes("Page not found")) break;
+
+                let testing1 = title.match(/[A-Z]{4}[ ]{1}[0-9]{3}[ ]{1}/g);
+                let testing2 = title.match(/[ (]{2}[1-9.]{1,3}[ ]{1}[c]{1}[r]{1}[e]{1}[d]{1}[i]{1}[t]{1}[s]{1}[)]{1}/g);
+                
+                let credit = '';
+                let name = '';
+                let temp = courseCodes[k].split("-");
+                if (temp[0].toUpperCase() != allSubjects[indexk].programCode) {
+                    indexk++;
+                }
+                let description = '';
+                let prereq = '';
+
+                let content = await page.innerText("div#block-system-main");
+                content = content.split("\n");
+                for (i = 0; i < content.length; i++) {
+                    if (content[i].includes(allSubjects[indexk].programName)) {
+                        description = content[i];
+                    }
+                    if (content[i].includes("Prerequisite")) {
+                        content[i] = content[i].replace(".","");
+                        if (content[i].includes("Prerequisite(s): ")) {
+                            prereq = getTextFrom(content[i],"Prerequisite(s): ");
+                        } else if (content[i].includes("Prerequisites: ")) {
+                            prereq = getTextFrom(content[i],"Prerequisites: ");
+                        } else if (content[i].includes("Prerequisite: ")) {
+                            prereq = getTextFrom(content[i],"Prerequisite: ");
+                        }
+                    }
+                }
+
+                if (testing1 == null || testing2 == null) {
+                    nameSplit = courseCodes[k].toUpperCase().split("-");
+                    name = nameSplit[0];
+                } else {
+                    name = title.substring(testing1[0].length,title.indexOf(testing2[0]));
+                    credit = testing2[0].match(/\d/g)[0];
+                }
+
+                sem = await page.innerText("p.catalog-terms");
+                sem = getSem(sem);
+
+                let courseObject = { //Course object holds all the information for each course
+                    name: name,
+                    code: courseCodes[k].toUpperCase().replace("-"," "),
+                    credit: credit,
+                    semester: sem,
+                    description: description,
+                    prerequisites: prereq,
+                    offering: '',
+                    equate: '',
+                    restriction: '',
+                    department: '',
+                    location: '',
+                    prerequisiteCodes: getPreCode2(prereq)
+                };
+
+                allSubjects[indexk].programCourse.push(courseObject);
+
+                console.clear();
+                console.log("loaded pages: "+ loadedPages);
+                console.log("Courses Searched: "+ k);
+                loadedPages++;
+            }
+            writeJsonFile("./test.json",allSubjects);
+            if (title.includes("Page not found")) console.log("This one was empty " + courseCodes[k]);
+            console.log("Went through this many course sites " + k);
+
+            console.log("loaded pages: " + loadedPages);
+
+            console.log("Course Codes Length is " + courseCodes.length);
+            // Turn off the browser to clean up after ourselves.
+            await browser.close();
+        } else if (commandLine[2] == "-h" || commandLine[2] == "--help") {
+            printHelpMenu();
         }
-
-        if (testing1 == null || testing2 == null) {
-            nameSplit = courseCodes[k].toUpperCase().split("-");
-            name = nameSplit[0];
-        } else {
-            name = title.substring(title.match(/[A-Z]{4}[ 1-9 ]{5}/g)[0].length,title.indexOf(title.match(/[ (]{2}[1-9]{1}[ ]{1}[c]{1}[r]{1}[e]{1}[d]{1}[i]{1}[t]{1}[s]{1}[)]{1}/g)[0]));
-            credit = testing2[0].match(/\d/g)[0];
-        }
-
-        sem = await page.innerText("p.catalog-terms");
-        sem = getSem(sem);
-
-        
-
-        let courseObject = { //Course object holds all the information for each course
-            name: name,
-            code: courseCodes[k].toUpperCase().replace("-"," "),
-            credit: credit,
-            semester: sem,
-            description: description,
-            prerequisites: prereq,
-            offering: '',
-            equate: '',
-            restriction: '',
-            department: '',
-            location: '',
-            prerequisiteCodes: getPreCode2(prereq)
-        };
-        allSubjects[indexk].programCourse.push(courseObject);
-
-        console.clear();
-        console.log("loaded pages: "+ loadedPages);
-        console.log("Courses Searched: "+ k);
-        loadedPages++;
+    } else {
+        printHelpMenu();
     }
-    writeJsonFile("./test.json",allSubjects);
-    if (title.includes("Page not found")) console.log("This one was empty " + courseCodes[k]);
-    console.log("Went through this many course sites " + k);
 
-    console.log("loaded pages: " + loadedPages);
+    
 
-    console.log("Course Codes Length is " + courseCodes.length);
-    // Turn off the browser to clean up after ourselves.
-    await browser.close();
+
+
+    
+    
 }
 
 main();
