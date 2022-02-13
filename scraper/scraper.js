@@ -8,9 +8,9 @@ const { title } = require('process');
 /**
  * Program Information
  * @author Farid Hamid, Harsh Topwala, Jainil Patel, Lourenco Velez, Nicholas Baker
- * @version "1.0.0"
- * @maintainer "Jainil Patel, Nicholas Baker" 
- * @email "jainil@uoguelph.ca, nbaker05@uoguelph.ca" 
+ * @version "4.0.0"
+ * @maintainer "Jainil Patel, Nicholas Baker, Lourenco Velez" 
+ * @email "jainil@uoguelph.ca, nbaker05@uoguelph.ca, lvelez@uoguelph.ca" 
  * @status "Development"
  */
 
@@ -88,65 +88,94 @@ let getOf = (prerequisitesSpaceSplit,index) => {
 
 /**
  * @name getPreCode
- * @description This function will go though the given string and determine which semesters are within
+ * @description This function will go though the given string and determine the prereq courses
+ * @param {string} prereqStr This string holds the requirements for the current course
+ * @param {Object} courseRequirementGrp This object holds the or and manditory courses
+ * @param {string array} coursePrereqs This string array holds all the courses
+ * @param {string array} tmp This string array holds all the manipulated courses
+ * @returns {Object} courseRequirementGrp holds the requirement groups, or/of cases, and mandatory
+ */
+let getPreCode = (prereqStr,courseRequirementGrp,coursePrereqs,tmp) => {
+    
+    let prerequisitesSpaceSplit = prereqStr.split(" "); // splits the prerequisite string so it can go word by word to find cases, "or" "1 of" "2 of", e.t.c
+    if (prereqStr.includes("or") || prereqStr.match(/[(1-9 ]{3}[of]{2}/g) != null) { // If there is an "or" case or a "(# of ...)" case
+
+        /* Loop through the course codes in the prerequisites */
+        for (let i = 0; i < coursePrereqs.length; i++) {
+            
+            /* Loop through all words in prerequisites */
+            for (let j = 0; j < prerequisitesSpaceSplit.length; j++) {
+                if (j == 0 && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 1: index 0 is a course code
+                    if (prerequisitesSpaceSplit[j+1].includes("or") || prerequisitesSpaceSplit[j+1].includes("OR")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
+                        courseRequirementGrp.or_courses.push(tmp[i]);
+                    } else if ((prerequisitesSpaceSplit[j+1].includes("and"))) {
+                        courseRequirementGrp.mandatory.push(tmp[i]);
+                    } else { // else it is a mandatory, push to mandatory array
+                        courseRequirementGrp.mandatory.push(tmp[i]);
+                    }
+                } else if (j > -1 && j < prerequisitesSpaceSplit.length-1 && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 2: index 1->(length-1)
+                    if (prerequisitesSpaceSplit[j+1].includes("or") || prerequisitesSpaceSplit[j+1].includes("OR")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
+                        courseRequirementGrp.or_courses.push(tmp[i]);
+                    } else if (prerequisitesSpaceSplit[j-1].includes("or") || prerequisitesSpaceSplit[j-1].includes("OR")) { // Check if an "or" comes before course code "... or CIS*#", if true, push to or_courses array
+                        courseRequirementGrp.or_courses.push(tmp[i]);
+                    } else if ((prerequisitesSpaceSplit[j+1].includes("and"))) {
+                        courseRequirementGrp.mandatory.push(tmp[i]);
+                    } else if ((prerequisitesSpaceSplit[j-1].includes("and"))) {
+                        courseRequirementGrp.mandatory.push(tmp[i]);
+                    }  else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
+                        courseRequirementGrp.or_courses.push(tmp[i]);
+                    } else { // else it is mandatory, push to mandatory array
+                        courseRequirementGrp.mandatory.push(tmp[i]);
+                    }
+                } else if (j <= prerequisitesSpaceSplit.length && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 3: 
+                    if (prerequisitesSpaceSplit[j-1].includes("or") || prerequisitesSpaceSplit[j-1].includes("OR")) { // Check if or comes after course code "CIS*# or ...", if true, push to or_courses array
+                        courseRequirementGrp.or_courses.push(tmp[i]);
+                    } else if ((prerequisitesSpaceSplit[j-1].includes("and"))) {
+                        courseRequirementGrp.mandatory.push(tmp[i]);
+                    } else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
+                        courseRequirementGrp.or_courses.push(tmp[i]);
+                    } else { // else it is mandatory, push to mandatory array
+                        courseRequirementGrp.mandatory.push(tmp[i]);
+                    }
+                }
+            }
+        }
+    } else if (prereqStr.match(/[1-9 ]{2}[of]{2}/g) != null) { // If it does not have an "or", and it is not a "(# of ...)" case, check if it is a "# of ..." case. No brackets. Then it they are all or cases
+        courseRequirementGrp.or_courses = tmp;
+    } else { // If it does not have an "or", it is not a "(# of ...)", and it is not a "# of ..." case, then all course codes are mandatory
+        courseRequirementGrp.mandatory = tmp;
+    } 
+    return courseRequirementGrp;
+}
+
+/**
+ * @name getPreCodeGuelph
+ * @description This function will go though the given string and determine the prereq courses for guelph
  * @param {string} prereqStr This string holds the requirements for the current course
  * @returns {Object} courseRequirementGrp holds the requirement groups, or/of cases, and mandatory
  */
-let getPreCode = (prereqStr) => {
+let getPreCodeGuelph = (prereqStr) => {
 
     let courseRequirementGrp = {
         or_courses: [],
         mandatory: []
     };
 
-    let prerequisitesSpaceSplit = prereqStr.split(" "); // splits the prerequisite string so it can go word by word to find cases, "or" "1 of" "2 of", e.t.c
     let coursePrereqs = prereqStr.match(/[A-Z*]{2,5}[0-9]{4}/g); // splits the prerequisite string and holds the course codes in the string
 
     if (coursePrereqs != null) {
-        if (prereqStr.includes("or") || prereqStr.match(/[(1-9 ]{3}[of]{2}/g) != null) { // If there is an "or" case or a "(# of ...)" case
-
-            /* Loop through the course codes in the prerequisites */
-            for (let i = 0; i < coursePrereqs.length; i++) {
-                
-                /* Loop through all words in prerequisites */
-                for (let j = 0; j < prerequisitesSpaceSplit.length; j++) {
-                    if (j == 0 && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 1: index 0 is a course code
-                        if (prerequisitesSpaceSplit[j+1].includes("or")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
-                        } else { // else it is a mandatory, push to mandatory array
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i]);
-                        }
-                    } else if (j > -1 && j < prerequisitesSpaceSplit.length-1 && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 2: index 1->(length-1)
-                        if (prerequisitesSpaceSplit[j+1].includes("or")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
-                        } else if (prerequisitesSpaceSplit[j-1].includes("or")) { // Check if an "or" comes before course code "... or CIS*#", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
-                        } else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
-                        } else { // else it is mandatory, push to mandatory array
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i]);
-                        }
-                    } else if (j <= prerequisitesSpaceSplit.length && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 3: 
-                        if (prerequisitesSpaceSplit[j-1].includes("or")) { // Check if or comes after course code "CIS*# or ...", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
-                        } else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(coursePrereqs[i]);
-                        } else { // else it is mandatory, push to mandatory array
-                            courseRequirementGrp.mandatory.push(coursePrereqs[i]);
-                        }
-                    }
-                }
-            }
-        } else if (prereqStr.match(/[1-9 ]{2}[of]{2}/g) != null) { // If it does not have an "or", and it is not a "(# of ...)" case, check if it is a "# of ..." case. No brackets. Then it they are all or cases
-            courseRequirementGrp.or_courses = coursePrereqs;
-        } else { // If it does not have an "or", it is not a "(# of ...)", and it is not a "# of ..." case, then all course codes are mandatory
-            courseRequirementGrp.mandatory = coursePrereqs;
-        }
+        courseRequirementGrp = getPreCode(prereqStr,courseRequirementGrp,coursePrereqs,coursePrereqs);
     } 
     return courseRequirementGrp;
 }
 
-let getPreCode2 = (prereqStr) => {
+/**
+ * @name getPreCodeMcGill
+ * @description This function will go though the given string and determine the prereq courses for mcgill
+ * @param {string} prereqStr This string holds the requirements for the current course
+ * @returns {Object} courseRequirementGrp holds the requirement groups, or/of cases, and mandatory
+ */
+let getPreCodeMcGill = (prereqStr) => {
 
     let courseRequirementGrp = {
         or_courses: [],
@@ -163,56 +192,8 @@ let getPreCode2 = (prereqStr) => {
         for (let i = 0; i < coursePrereqs.length; i++) { // This sets all the matching spaces to stars
             prereqStr = prereqStr.replace(tmp[i],coursePrereqs[i]);
         }
-
         
-        let prerequisitesSpaceSplit = prereqStr.split(" "); // splits the prerequisite string so it can go word by word to find cases, "or" "1 of" "2 of", e.t.c
-        if (prereqStr.includes("or") || prereqStr.match(/[(1-9 ]{3}[of]{2}/g) != null) { // If there is an "or" case or a "(# of ...)" case
-
-            /* Loop through the course codes in the prerequisites */
-            for (let i = 0; i < coursePrereqs.length; i++) {
-                
-                /* Loop through all words in prerequisites */
-                for (let j = 0; j < prerequisitesSpaceSplit.length; j++) {
-                    if (j == 0 && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 1: index 0 is a course code
-                        if (prerequisitesSpaceSplit[j+1].includes("or") || prerequisitesSpaceSplit[j+1].includes("OR")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(tmp[i]);
-                        } else if ((prerequisitesSpaceSplit[j+1].includes("and"))) {
-                            courseRequirementGrp.mandatory.push(tmp[i]);
-                        } else { // else it is a mandatory, push to mandatory array
-                            courseRequirementGrp.mandatory.push(tmp[i]);
-                        }
-                    } else if (j > -1 && j < prerequisitesSpaceSplit.length-1 && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 2: index 1->(length-1)
-                        if (prerequisitesSpaceSplit[j+1].includes("or") || prerequisitesSpaceSplit[j+1].includes("OR")) { // Check if an "or" comes after course code "CIS*# or ...", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(tmp[i]);
-                        } else if (prerequisitesSpaceSplit[j-1].includes("or") || prerequisitesSpaceSplit[j-1].includes("OR")) { // Check if an "or" comes before course code "... or CIS*#", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(tmp[i]);
-                        } else if ((prerequisitesSpaceSplit[j+1].includes("and"))) {
-                            courseRequirementGrp.mandatory.push(tmp[i]);
-                        } else if ((prerequisitesSpaceSplit[j-1].includes("and"))) {
-                            courseRequirementGrp.mandatory.push(tmp[i]);
-                        }  else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(tmp[i]);
-                        } else { // else it is mandatory, push to mandatory array
-                            courseRequirementGrp.mandatory.push(tmp[i]);
-                        }
-                    } else if (j <= prerequisitesSpaceSplit.length && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 3: 
-                        if (prerequisitesSpaceSplit[j-1].includes("or") || prerequisitesSpaceSplit[j-1].includes("OR")) { // Check if or comes after course code "CIS*# or ...", if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(tmp[i]);
-                        } else if ((prerequisitesSpaceSplit[j-1].includes("and"))) {
-                            courseRequirementGrp.mandatory.push(tmp[i]);
-                        } else if (getOf(prerequisitesSpaceSplit,j))  { // Check if current course code falls within (# of .course code here..), if true, push to or_courses array
-                            courseRequirementGrp.or_courses.push(tmp[i]);
-                        } else { // else it is mandatory, push to mandatory array
-                            courseRequirementGrp.mandatory.push(tmp[i]);
-                        }
-                    }
-                }
-            }
-        } else if (prereqStr.match(/[1-9 ]{2}[of]{2}/g) != null) { // If it does not have an "or", and it is not a "(# of ...)" case, check if it is a "# of ..." case. No brackets. Then it they are all or cases
-            courseRequirementGrp.or_courses = tmp;
-        } else { // If it does not have an "or", it is not a "(# of ...)", and it is not a "# of ..." case, then all course codes are mandatory
-            courseRequirementGrp.mandatory = tmp;
-        }
+        courseRequirementGrp = getPreCode(prereqStr,courseRequirementGrp,coursePrereqs,tmp);
     } 
     return courseRequirementGrp;
 }
@@ -287,7 +268,7 @@ let getJSON = (innerText) => {
                         locationFlag == 1;
                     } else if (content[innerIndex].includes("Prerequisite(s):")) { // Grabs prerequisites
                         courseObject.prerequisites = getTextFrom(content[innerIndex], "Prerequisite(s):");
-                        courseObject.prerequisiteCodes = getPreCode(courseObject.prerequisites);
+                        courseObject.prerequisiteCodes = getPreCodeGuelph(courseObject.prerequisites);
                     } else { // Grabs descriptions
                         courseObject.description = content[innerIndex].trim();
                     }
@@ -317,7 +298,7 @@ let getJSON = (innerText) => {
  * @description This fucntion will print all the courses for json files
  * @param {Object array} programArray is all the programs
  */
-let getJSONFile = (programArray) => {
+let getJSONFile = (programArray, type) => {
     if (!fileSystem.existsSync("./json")) { // Checks to see if the folder exists
         fileSystem.mkdir("./json", (err) => {
             if (err) {
@@ -327,11 +308,16 @@ let getJSONFile = (programArray) => {
     }
 
     // Create a json file for all the courses, and for each season
-    writeJsonFile('./json/AllCourses.json', programArray);
-    writeJsonFile('./json/Summer.json', summerCoursesArray);
-    writeJsonFile('./json/Fall.json', fallCoursesArray);
-    writeJsonFile('./json/Winter.json', winterCoursesArray);
-    writeJsonFile('./json/MajorData.json', majorList);
+    if (type == "uog") {
+        writeJsonFile('./json/GuelphAllCourses.json', programArray);
+        writeJsonFile('./json/GuelphSummer.json', summerCoursesArray);
+        writeJsonFile('./json/GuelphFall.json', fallCoursesArray);
+        writeJsonFile('./json/GuelphWinter.json', winterCoursesArray);
+        writeJsonFile('./json/GuelphMajorData.json', majorList);
+    } else if (type == "mcg") {
+        writeJsonFile("./json/McGillAllCourses.json",programArray);
+    }
+    
 }
 
 /**
@@ -388,6 +374,10 @@ let caseRemove = (invalidString, removeString, replaceString) => {
     return invalidString;
 }
 
+/**
+ * @name printHelpMenu
+ * @description This function will print the command line help menu
+ */
 let printHelpMenu = () => {
     console.log("\nusage: node ./scraper.js [-h] {uog,mcg} ...");
     console.log("\npositional arguments::\n\tuog\tScrape University of Guelph and generate json files\n\tmcg\tScrape Mcgill and generate json files\n");
@@ -399,7 +389,6 @@ let printHelpMenu = () => {
  * @description This is the main for the program
  */
 async function main() {
-
     const commandLine = process.argv;
     if (commandLine.length == 3) {
         if (commandLine[2] == "uog") {
@@ -615,9 +604,10 @@ async function main() {
             console.log("\nAll the programs and degrees have been scraped\n");
             
             // Print the courses to a JSON folder
-            getJSONFile(programArray);
+            getJSONFile(programArray,"uog");
             await browser.close();
         } else if (commandLine[2] == "mcg") {
+
             // Open a Chromium browser. We use headless: true
             // to run the process in the background.
             browser = await playwright.chromium.launch({
@@ -628,7 +618,7 @@ async function main() {
                 bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
             });
 
-            // Mcgill scraper
+            /* ----------------- Mcgill scraper ----------------- */
             let searchPage = "https://www.mcgill.ca/study/2021-2022/courses/search?f%5B0%5D=level%3Aundergraduate&page=" // page without number, it will go till the end
             let coursePage = "https://www.mcgill.ca/study/2021-2022/courses/"
             let courseCodes = []; // array holding course codes, first two words of name
@@ -640,24 +630,27 @@ async function main() {
             // Go to first page
             await page.goto(searchPage + 0);
             await page.click('text=Show more');
-            let subjects = await page.innerText("ul#facetapi-facet-search-apicourses-block-field-subject-code");
-            subjects = subjects.split("\n");
+
+            // This is setting up all the subjects
+            let subjects = await page.innerText("ul#facetapi-facet-search-apicourses-block-field-subject-code"); //This grabs the text holding all the subjects
             let allSubjects = [];
+            subjects = subjects.split("\n");
 
             // This is getting all the subject titles
-            for (let index = 0; index < subjects.length; index++) {
-                if (!subjects[index].includes("Apply")){
+            for (let index = 0; index < subjects.length; index++) { // This will loop through and grab all subjects from 
+
+                if (!subjects[index].includes("Apply")){ // If the line does not include apply then it holds the subjects info
                     
-                    //subjectSplit = subjects[index].split(" ");
                     let matchingCod = subjects[index].match(/[A-Z1-9 ]{5}/g);
                     let matchingNum = subjects[index].match(/[ (]{2}[0-9]{1,3}[)]{1}/g);
+                    
                     // Program object
-                    let programObject = {
+                    let programObject = { // This object is gunna hold all the courses within each subject
                         programName: subjects[index].substring(matchingCod[0].length,subjects[index].indexOf(matchingNum[0])),
                         programCode: matchingCod[0].trim(),
                         programCourse: [] // Get the object array from that string
                     };
-                    allSubjects.push(programObject);
+                    allSubjects.push(programObject); // Push each subject to the bigger array which will be sent to a file
                 }
             }
 
@@ -665,6 +658,7 @@ async function main() {
                 pageExists = await page.$$('text=❯');
                 innerText = await page.innerText("div.view-content"); // Get text
                 newLineText = innerText.split("\n"); // Split by new lines, there are Exactly 2 lines every time, so 0, 2, 4, 6, 8 are all course code names + some extra stuff
+                
                 for (i = 0; i < newLineText.length; i += 2) {
                     if (!newLineText[i+1].includes("Not Offered")) {
                         newLineText[i] = newLineText[i].toLowerCase(); //Lower case so it can be used 
@@ -672,6 +666,7 @@ async function main() {
                         courseCodes.push(courseCodeString[0] + "-" + courseCodeString[1]); // push them with a - in the middle to make up the site
                     }
                 }
+
                 if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
                     await browser.close();
                     browser = await playwright.chromium.launch({
@@ -682,14 +677,18 @@ async function main() {
                         bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
                     });
                 }
+
                 console.clear();
                 console.log("loaded pages: "+ loadedPages);
                 await page.goto(searchPage + loadedPages);
             }
 
-            let k = 0;
-            let indexk = 0;
-            for (k; k < 500/*courseCodes.length*/; k++){
+            // Initialize indexing variables
+            let courseIndex = 0;
+            let index = 0;
+
+            for (courseIndex = 0; courseIndex < 50/*courseCodes.length*/; courseIndex++){
+                
                 if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
                     await browser.close();
                     browser = await playwright.chromium.launch({
@@ -700,55 +699,57 @@ async function main() {
                         bypassCSP: true, // This is needed to enable JavaScript execution on GitHub.
                     });
                 }
-                await page.goto(coursePage + courseCodes[k]);
+                await page.goto(coursePage + courseCodes[courseIndex]); // This will go to the courses page
                 
+                // This checks the title to see if it is a page found
                 let title = await page.innerText("h1#page-title");
                 if (title.includes("Page not found")) break;
 
-                let testing1 = title.match(/[A-Z]{4}[ ]{1}[0-9]{3}[ ]{1}/g);
-                let testing2 = title.match(/[ (]{2}[1-9.]{1,3}[ ]{1}[c]{1}[r]{1}[e]{1}[d]{1}[i]{1}[t]{1}[s]{1}[)]{1}/g);
+                let titleCode = title.match(/[A-Z]{4}[ ]{1}[0-9]{3}[ ]{1}/g); // This grabs the cours code of the title
+                let titleCredit = title.match(/[ (]{2}[1-9.]{1,3}[ ]{1}[c]{1}[r]{1}[e]{1}[d]{1}[i]{1}[t]{1}[s]{1}[)]{1}/g); // This grabs the credits from the title
                 
+                // Initialize object variables
                 let credit = '';
                 let name = '';
-                let temp = courseCodes[k].split("-");
-                if (temp[0].toUpperCase() != allSubjects[indexk].programCode) {
-                    indexk++;
-                }
                 let description = '';
                 let prereq = '';
 
+                // This tests to see that the code and the current site match if they dont then the next index will match because the courses are ordered
+                let testCode = courseCodes[courseIndex].split("-");
+                if (testCode[0].toUpperCase() != allSubjects[index].programCode) {
+                    index++;
+                }
+
+                // This will grab all the descriptions and the prereqs from the course page
                 let content = await page.innerText("div#block-system-main");
                 content = content.split("\n");
                 for (i = 0; i < content.length; i++) {
-                    if (content[i].includes(allSubjects[indexk].programName)) {
+                    if (content[i].includes(allSubjects[index].programName)) { // This gets the decription of the course
                         description = content[i];
                     }
-                    if (content[i].includes("Prerequisite")) {
+                    if (content[i].includes("Prerequisite")) { // This gets the prereq of the course
                         content[i] = content[i].replace(".","");
-                        if (content[i].includes("Prerequisite(s): ")) {
-                            prereq = getTextFrom(content[i],"Prerequisite(s): ");
-                        } else if (content[i].includes("Prerequisites: ")) {
-                            prereq = getTextFrom(content[i],"Prerequisites: ");
-                        } else if (content[i].includes("Prerequisite: ")) {
-                            prereq = getTextFrom(content[i],"Prerequisite: ");
-                        }
+                        let preColon = content[i].indexOf(": ") + 2;
+                        prereq = prereq + content[i].substring(preColon,content[i].length) + ";";
                     }
                 }
 
-                if (testing1 == null || testing2 == null) {
-                    nameSplit = courseCodes[k].toUpperCase().split("-");
+                // This will get the name of the course and credit
+                if (titleCode == null || titleCredit == null) {
+                    nameSplit = courseCodes[courseIndex].toUpperCase().split("-");
                     name = nameSplit[0];
                 } else {
-                    name = title.substring(testing1[0].length,title.indexOf(testing2[0]));
-                    credit = testing2[0].match(/\d/g)[0];
+                    name = title.substring(titleCode[0].length,title.indexOf(titleCredit[0]));
+                    credit = titleCredit[0].match(/\d/g)[0];
                 }
 
+                // This will get the semester of the course
                 sem = await page.innerText("p.catalog-terms");
                 sem = getSem(sem);
 
                 let courseObject = { //Course object holds all the information for each course
                     name: name,
-                    code: courseCodes[k].toUpperCase().replace("-"," "),
+                    code: courseCodes[courseIndex].toUpperCase().replace("-"," "),
                     credit: credit,
                     semester: sem,
                     description: description,
@@ -758,23 +759,22 @@ async function main() {
                     restriction: '',
                     department: '',
                     location: '',
-                    prerequisiteCodes: getPreCode2(prereq)
+                    prerequisiteCodes: getPreCodeMcGill(prereq)
                 };
 
-                allSubjects[indexk].programCourse.push(courseObject);
+                allSubjects[index].programCourse.push(courseObject); // Push the course object to the program array
 
                 console.clear();
-                console.log("loaded pages: "+ loadedPages);
-                console.log("Courses Searched: "+ k);
+                console.log("Courses Searched: "+ courseIndex);
                 loadedPages++;
             }
-            writeJsonFile("./test.json",allSubjects);
-            if (title.includes("Page not found")) console.log("This one was empty " + courseCodes[k]);
-            console.log("Went through this many course sites " + k);
 
-            console.log("loaded pages: " + loadedPages);
+            getJSONFile(allSubjects,"mcg");
 
-            console.log("Course Codes Length is " + courseCodes.length);
+            if (title.includes("Page not found")) console.log("This one was empty " + courseCodes[courseIndex]);
+            
+            console.clear();
+            console.log("\nAll the programs have been scraped\n");
             // Turn off the browser to clean up after ourselves.
             await browser.close();
         } else if (commandLine[2] == "-h" || commandLine[2] == "--help") {
@@ -783,13 +783,6 @@ async function main() {
     } else {
         printHelpMenu();
     }
-
-    
-
-
-
-    
-    
 }
 
 main();
