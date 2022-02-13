@@ -32,7 +32,13 @@ or
 ### 3. Navgiate to the 'scraper' directory, install dependencies and run the scraper
 
 `npm install`  
-`node scraper.js`
+
+**To run the scraper use the following commands**
+
+Help menu - `node scraper.js` or `node scraper.js -h`
+
+Generate Guelph json - `node scraper.js uog`
+Generate McGill json - `node scraper.js mcg`
 
 **If `node ./index.js` throws an error, make sure chromium is installed on your system and make sure your Node version is >= 14**
 
