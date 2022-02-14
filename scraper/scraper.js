@@ -67,7 +67,7 @@ let getSem = (courseTitle) => {
  */
 let getOf = (prerequisitesSpaceSplit,index) => {
 
-    let before, after, of;
+    let before, after, of = -1;
 
     for (let i = 0; i < prerequisitesSpaceSplit.length; i++) { // Loops through course prerequisites separated by space and searches for 1 of case. (1 of ...)
         if (prerequisitesSpaceSplit[i].includes("(")) { // Checks for first bracket of case
@@ -75,7 +75,8 @@ let getOf = (prerequisitesSpaceSplit,index) => {
         } else if (prerequisitesSpaceSplit[i].includes(")")) { // Checks for last bracket of casae
             after = i; // Keeps track of last bracket index
         } else if (prerequisitesSpaceSplit[i].includes("of")) { // Checks for keyword 'of'
-            of = i; // Keeps track of 'of' index
+            if (of == -1);
+                of = i; // Keeps track of 'of' index
         }
         if (before != null && after != null && of != null) { // If all keys are found then check if it meets format
             if ((before < of) && (of < index) && (index <= after)) { // if format is (# of ...) then return true
@@ -84,6 +85,55 @@ let getOf = (prerequisitesSpaceSplit,index) => {
         }
     }
     return false
+}
+
+
+/**
+ * @name getOptionalExtras
+ * @description This function will go through the prerequisite string and check for special OR cases of permission, approval, equivalent.
+ * @param {string} prereqStr This string holds the requirements for the current course
+ * @returns {Array} extraArray holds an array of strings that match the cases and sends them back to be added
+ */
+let getOptionalExtras = (prereqStr) => {
+    let extraArray = []; // Array holding strings
+    let orCase = prereqStr.split(" or "); // split by or, as there could be or cases.
+    for (let i = 0; i < orCase.length && orCase.length != 1; i++){ // go through string. need this OR maybe this OR approval maybe
+        orCase[i] = orCase[i].replace(/[,]/g,"");
+        orCase[i] = orCase[i].replace(/[;]/g,"");
+        if (orCase[i].includes("and")){ // if there is an and, split the string into two
+            splitAnd = orCase[i].split("and");
+            for (let k = 0; k < splitAnd.length; k++){ // Go through string, check for permission of, and equivalent, push to obj at end
+                /* Permission, instructor approval, equivalent, and CEGEP cases inside 'OR    and      OR', this loop goes through the stuff between the OR and, and OR*/
+                if (splitAnd[k].toLowerCase().includes("permission of") || splitAnd[k].toLowerCase().includes("approval of instructor") || splitAnd[k].toLowerCase().includes("equivalent") || splitAnd[k].toLowerCase().includes("cegep")){
+                    console.log(splitAnd[k]);
+                    extraArray.push(splitAnd[k].trim());
+                }
+            }
+            i++; // increment i as we have gone through 1 index of orcase inside the for loop.
+            if (i == orCase.length) break;
+        }
+        if (orCase[i].toLowerCase().includes("permission of") || orCase[i].toLowerCase().includes("approval of instructor") || orCase[i].toLowerCase().includes("consent of")){ // Check for cases, approval of instructor or permission of someone, typically instructor
+            extraArray.push(orCase[i].trim());
+        } else if (orCase[i].toLowerCase().includes("equivalent")){ // Identify if there is an equivalent of
+            extraArray.push(orCase[i].trim());
+        } else if (orCase[i].toLowerCase().includes("cegep")){ // If cegep is present
+            extraArray.push(orCase[i].trim());
+        }
+    }
+
+    /* There is a case where (or CEGEP ... ), this accounts for that case */
+    if (prereqStr.includes("(or") && prereqStr.toLowerCase().includes("cegep")){ // check if the case exists
+        orCase = prereqStr.match(/\(([^)]+)\)/g); // match the string
+        for (let i = 0; i < orCase.length; i++){
+            if (orCase[i].toLowerCase().includes("cegep")){ // check if CEGEP exists
+                orCase[i] = orCase[i].replace('(or ', ""); // Remove the brackets and the or, format lines
+                orCase[i] = orCase[i].replace(')', "");
+                extraArray.push(orCase[i]);
+            }
+        }
+    }
+
+    return extraArray;
 }
 
 /**
@@ -96,9 +146,15 @@ let getOf = (prerequisitesSpaceSplit,index) => {
  * @returns {Object} courseRequirementGrp holds the requirement groups, or/of cases, and mandatory
  */
 let getPreCode = (prereqStr,courseRequirementGrp,coursePrereqs,tmp) => {
-    
     let prerequisitesSpaceSplit = prereqStr.split(" "); // splits the prerequisite string so it can go word by word to find cases, "or" "1 of" "2 of", e.t.c
-    if (prereqStr.includes("or") || prereqStr.match(/[(1-9 ]{3}[of]{2}/g) != null) { // If there is an "or" case or a "(# of ...)" case
+    if (prereqStr.includes("or") || prereqStr.match(/[(1-9 ]{3}[of]{2}/g) != null && coursePrereqs.length > 1) { // If there is an "or" case or a "(# of ...)" case, if the courseprereqs length is less than 1, then it has some special cases, just insert it into mandatory
+
+        /* If it has 'or' and course codes then it must be dealt with, check for credits */
+        let optionalRequirements = getOptionalExtras(prereqStr);
+            if (optionalRequirements.length > 0)
+                for (let i = 0; i < optionalRequirements.length; i++){
+                    courseRequirementGrp.or_courses.push(optionalRequirements[i]);
+                }
 
         /* Loop through the course codes in the prerequisites */
         for (let i = 0; i < coursePrereqs.length; i++) {
@@ -127,7 +183,7 @@ let getPreCode = (prereqStr,courseRequirementGrp,coursePrereqs,tmp) => {
                     } else { // else it is mandatory, push to mandatory array
                         courseRequirementGrp.mandatory.push(tmp[i]);
                     }
-                } else if (j <= prerequisitesSpaceSplit.length && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) { // Case 3: 
+                } else if (j <= prerequisitesSpaceSplit.length && prerequisitesSpaceSplit[j].includes(coursePrereqs[i])) {
                     if (prerequisitesSpaceSplit[j-1].includes("or") || prerequisitesSpaceSplit[j-1].includes("OR")) { // Check if or comes after course code "CIS*# or ...", if true, push to or_courses array
                         courseRequirementGrp.or_courses.push(tmp[i]);
                     } else if ((prerequisitesSpaceSplit[j-1].includes("and"))) {
@@ -165,6 +221,8 @@ let getPreCodeGuelph = (prereqStr) => {
 
     if (coursePrereqs != null) {
         courseRequirementGrp = getPreCode(prereqStr,courseRequirementGrp,coursePrereqs,coursePrereqs);
+    } else if (prereqStr != "") {
+        courseRequirementGrp.mandatory.push(prereqStr.replace(/[;]/g, ""));
     } 
     return courseRequirementGrp;
 }
@@ -183,7 +241,7 @@ let getPreCodeMcGill = (prereqStr) => {
     };
 
     let coursePrereqs = prereqStr.match(/[A-Z]{4}[ ]{1}[0-9D]{3,5}/g); // splits the prerequisite string and holds the course codes in the string
-    
+
     if (coursePrereqs != null) {
         let tmp = prereqStr.match(/[A-Z]{4}[ ]{1}[0-9D]{3,5}/g);
         for (let i = 0; i < coursePrereqs.length; i++) {
@@ -194,6 +252,8 @@ let getPreCodeMcGill = (prereqStr) => {
         }
         
         courseRequirementGrp = getPreCode(prereqStr,courseRequirementGrp,coursePrereqs,tmp);
+    } else if (prereqStr != "") {
+        courseRequirementGrp.mandatory.push(prereqStr.replace(/;/g, ""));
     } 
     return courseRequirementGrp;
 }
@@ -654,7 +714,7 @@ async function main() {
                 }
             }
 
-            for (loadedPages; pageExists.length != 0; loadedPages++){ // 549 is last page, pageExists is trying to find length 0 but wasn't working properly previously.
+            for (loadedPages; pageExists.length != 0; loadedPages++){ // Check if next page exists
                 pageExists = await page.$$('text=❯');
                 innerText = await page.innerText("div.view-content"); // Get text
                 newLineText = innerText.split("\n"); // Split by new lines, there are Exactly 2 lines every time, so 0, 2, 4, 6, 8 are all course code names + some extra stuff
@@ -687,7 +747,7 @@ async function main() {
             let courseIndex = 0;
             let index = 0;
 
-            for (courseIndex = 0; courseIndex < 50/*courseCodes.length*/; courseIndex++){
+            for (courseIndex = 0; courseIndex < courseCodes.length; courseIndex++){
                 
                 if (loadedPages % 100 == 0){ // Every 100 pages, reset the browser.... It's bad IK but I couldn't think of anything for the mean time to run through pages
                     await browser.close();
