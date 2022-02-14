@@ -9,7 +9,7 @@ from printResults.printCourseResults import printCourseResults
 
 
 # Program Information
-__author__ = "Harsh Topiwala, Jainil Patel, Andrew Heft, Nicholas Baker, Lourenco Velez, Farid Hamid"
+__author__ = "Harsh Topiwala, Jainil Patel, Nicholas Baker, Lourenco Velez, Farid Hamid"
 __version__ = "1.0.0"
 __maintainer__ = "Farid Hamid"
 __email__ = "fhamid@uoguelph.ca"
