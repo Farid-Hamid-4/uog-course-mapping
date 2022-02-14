@@ -7,7 +7,7 @@ import json
 import os
 import pygraphviz as pgv
 from PyPDF2 import PdfFileMerger, PdfFileReader
-import win32file as wfile
+#import win32file as wfile
 
 # Program Information
 __author__ = "Harsh Topiwala, Jainil Patel, Andrew Heft, Nicholas Baker, Lourenco Velez, Farid Hamid"
@@ -329,7 +329,7 @@ def main():
     """
 
     # Increase the max standard input
-    wfile._setmaxstdio(775)
+    #wfile._setmaxstdio(775)
     parseArguments()
 
 if __name__ == "__main__":
