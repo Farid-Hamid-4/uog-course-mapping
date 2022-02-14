@@ -21,7 +21,6 @@ A CLI-based program with the purpose of generating a graph to visualize courses 
 Last Updated: 2/3/2022, by Harsh Topiwala
 """
 
-
 def noPrerequisiteNodes(data, graph, delimeter):
     """
     Create a node for courses that don't have any prerequisites
@@ -36,14 +35,18 @@ def noPrerequisiteNodes(data, graph, delimeter):
     
     return graph
 
-def getSubjectCodes():
+def getSubjectCodes(graphType):
     """
     Creates an array of all subject codes
     :return: (string array) Return a string array of subject codes
     """
 
     # Open file and append program code to string array (codeData)
-    file = open(os.path.dirname(__file__) + '/../scraper/json/McGillAllCourses.json', encoding="utf-8")
+    if graphType == 'subject':
+        file = open(os.path.dirname(__file__) + '/../scraper/json/McGillAllCourses.json', encoding="utf-8")
+    elif graphType == 'program':
+        file = open(os.path.dirname(__file__) + '/../scraper/json/GuelphAllCourses.json', encoding="utf-8")
+    
     data = json.load(file)
     codeData = []
     for courses in data:
@@ -195,7 +198,7 @@ def getNodeColor(courseCode, delimeter):
     Returns color of node depending on course level
     :param p1: courseCode (string)
     :return: (String) color of node
-    """ 
+    """
     courseYear = (courseCode.split(delimeter))[1][0]
     if courseYear == '1':
         return 'red'
@@ -304,20 +307,33 @@ def parseArguments():
 
     args = vars(parser.parse_args())
 
+    # If the user chooses the program flag and requests all courses, then merge all graphs into one pdf
     if args['which'] == 'prg':
-        generateGraph(args['[Program Code]'], 'program')
+        if(args['[Program Code]'] == 'All'): 
+            mergeFile = PdfFileMerger()
+            programCodes = getSubjectCodes('program')
+            for programCode in programCodes:
+                generateGraph(programCode, 'program')
+                for filename in os.scandir('./graphs'):
+                    if filename.is_file():
+                        mergeFile.append(PdfFileReader('./graphs/' + filename.name, 'r'))
+                        os.remove('./graphs/' + filename.name)
+            mergeFile.write("Guelph_Merged_Programs.pdf")
+        else: 
+            generateGraph(args['[Program Code]'], 'program')
     elif args['which'] == 'mrg':
         generateGraph(args['[Major Code]'], 'major')
+    # If the user chooses the program flag and requests all courses, then merge all graphs into one pdf
     elif args['which'] == 'sbg':
         mergeFile = PdfFileMerger()
-        subjectCodes = getSubjectCodes()
+        subjectCodes = getSubjectCodes('subject')
         for programCode in subjectCodes:
             generateGraph(programCode, 'subject')
             for filename in os.scandir('./graphs'):
                if filename.is_file():
                     mergeFile.append(PdfFileReader('./graphs/' + filename.name, 'r'))
                     os.remove('./graphs/' + filename.name)
-        mergeFile.write("mergedFile.pdf")
+        mergeFile.write("McGill_Merged_Programs.pdf")
     else:
         listAllMajors()
 
