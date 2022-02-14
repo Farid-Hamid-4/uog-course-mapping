@@ -1,6 +1,7 @@
-# UoG Course Finder
+# UoG Course Finder and McGill Subject Graph Maker
 
 A program to search and filter course offerings at the University of Guelph.
+Graphs majors and programs for University of Guelph, and subjects for McGill.
 
 ## Getting Started
 
@@ -29,10 +30,16 @@ or
 
 `git checkout sprint1`
 
-### 3. Navgiate to the 'scraper' directory, install dependencies and run the scraper
+### 3. Navigate to the 'scraper' directory, install dependencies and run the scraper
 
 `npm install`  
-`node scraper.js`
+
+**To run the scraper use the following commands**
+
+Help menu - `node scraper.js` or `node scraper.js -h`
+
+Generate Guelph json - `node scraper.js uog`
+Generate McGill json - `node scraper.js mcg`
 
 **If `node ./index.js` throws an error, make sure chromium is installed on your system and make sure your Node version is >= 14**
 
@@ -50,6 +57,7 @@ Install dependencies - `pip3 install -r requirements.txt `
 
 Help menu - `python3 courseSearch.py`  
 
+Generate prerequisite graph for McGill subjects - `python3 makeGraph.py sbg`
 Generate prerequisite graph for a program - `python3 makeGraph.py prg {program code, i.e CIS}`  
 Generate prerequisite graph for a major - `python3 makeGraph.py mrg {major code, i.e CS}`  
 List all majors - `python3 makeGraph.py lm`  
