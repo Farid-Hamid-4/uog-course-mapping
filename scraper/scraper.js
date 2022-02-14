@@ -241,7 +241,7 @@ let getPreCodeMcGill = (prereqStr) => {
     };
 
     let coursePrereqs = prereqStr.match(/[A-Z]{4}[ ]{1}[0-9D]{3,5}/g); // splits the prerequisite string and holds the course codes in the string
-    
+
     if (coursePrereqs != null) {
         let tmp = prereqStr.match(/[A-Z]{4}[ ]{1}[0-9D]{3,5}/g);
         for (let i = 0; i < coursePrereqs.length; i++) {
