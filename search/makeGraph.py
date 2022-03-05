@@ -5,6 +5,7 @@
 import argparse
 import json
 import os
+import sys
 import pygraphviz as pgv
 from PyPDF2 import PdfFileMerger, PdfFileReader
 #import win32file as wfile
@@ -332,6 +333,10 @@ def parseArguments():
     # Parser for listing majors and their codes
     listMajorsParser = subparsers.add_parser('lm', help='List all majors and their codes, i.e python3 makeGraph.py lp')
     listMajorsParser.set_defaults(which='lm')
+
+    if len(sys.argv) < 2:
+        parser.print_help()
+        sys.exit(1)
 
     args = vars(parser.parse_args())
 
