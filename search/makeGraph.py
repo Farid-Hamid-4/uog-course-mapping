@@ -239,6 +239,15 @@ def generateGraph(code, graphType):
     #graph.graph_attr["size"] = "7.75, 10.25"
     #graph.graph_attr["ratio"] = "fill"
 
+    if len(data) == 1:
+        if data[0] == '\0':
+            print("Could not find program with code '{}'".format(code))
+            graph.close()
+            sys.exit(1)
+            
+    elif len(data) == 0:
+        graph.add_node("No courses offered")
+
     # Generate graph
     for dataItem in data:
         # Traverse through prerequisites and create nodes and edges
@@ -258,16 +267,6 @@ def generateGraph(code, graphType):
 
     # Codes with no prerequisites 
     noPrerequisiteNodes(data, graph, delimeter)
-
-    if len(data) == 1:
-        if data[0] == '\0':
-            print("Could not find program with code '{}'".format(code))
-            graph.close()
-            sys.exit(1)
-    elif len(data) == 0:
-        graph.add_node("No courses offered")
-
-
 
     # Layout and export graph
     graph.layout(prog='dot')
