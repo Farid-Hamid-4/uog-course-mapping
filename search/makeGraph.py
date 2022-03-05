@@ -3,6 +3,7 @@
 
 # Imports
 import argparse
+from heapq import merge
 import json
 import os
 import sys
@@ -103,7 +104,7 @@ def grabProgramData(programCode, graphType):
         file = open(os.path.dirname(__file__) + '/../scraper/json/McGillAllCourses.json', encoding="utf-8")
     
     data = json.load(file)
-    courseData = []
+    courseData = ['\0']
     # Traverse through all programs and find program with specified code 
     for program in data:
         if program['programCode'] == programCode:
@@ -258,15 +259,18 @@ def generateGraph(code, graphType):
     # Codes with no prerequisites 
     noPrerequisiteNodes(data, graph, delimeter)
 
-    if len(data) == 0:
+    if len(data) == 1:
+        if data[0] == '\0':
+            print("Could not find program with code '{}'".format(code))
+            graph.close()
+            sys.exit(1)
+    elif len(data) == 0:
         graph.add_node("No courses offered")
+
+
 
     # Layout and export graph
     graph.layout(prog='dot')
-
-    # Check if directory for graphs exists
-    if not os.path.exists('graphs'):
-        os.makedirs('graphs')
 
     # Case 1: If graphtype is subject, create all the graphs and merge the files into one pdf file
     if graphType == 'subject':
@@ -278,6 +282,10 @@ def generateGraph(code, graphType):
     graph.close()
 
 
+# Fix issue where files combine regardless of what contents they have when generating all
+# Fix issue where existing merge files are appended to instead of deleted
+# Fix issue where graphs folder is not generated
+# Fix issue with order of merge (add names to array and iterate through there when merging)
 def mergeFiles(graphType, finalFileName):
     """
     Merges all prerequisite graphs into a single file ONLY IF the 'All' flag is specified
@@ -286,24 +294,31 @@ def mergeFiles(graphType, finalFileName):
     mergeFile = PdfFileMerger()
     codes = getCodes(graphType)
     existingFiles = set()
+    mergeOrder = []
+
+    mergedNamePath = './graphs/' + finalFileName
+    if os.path.exists(mergedNamePath):
+        os.remove(mergedNamePath)
 
     for filename in os.scandir('./graphs'):
-        existingFiles.add(filename.name)    
+        existingFiles.add(filename.name)
 
     # Generate graph for each subject or major if it doesn't already exist
     for code in codes:
-        if os.path.exists('./graphs/' + 'graphs/{}_{}_graph.pdf'.format(code, graphType)) == False:
+        currFileName = '{}_{}_graph.pdf'.format(code, graphType)
+        mergeOrder.append(currFileName)
+        if os.path.exists('./graphs/' + currFileName) == False:
             generateGraph(code, graphType)
 
     # Merge graphs
-    for filename in os.scandir('./graphs'):
-        if filename.is_file():
-            mergeFile.append(PdfFileReader('./graphs/' + filename.name, 'r'))
+    for filename in mergeOrder:
+        if filename.split("_")[1] == graphType:
+            mergeFile.append(PdfFileReader('./graphs/' + filename, 'r'))
             # Only remove file if it wasn't in the graphs directory before
-            if filename.name not in existingFiles:
-                os.remove('./graphs/' + filename.name)
+            if filename not in existingFiles:
+                os.remove('./graphs/' + filename)
 
-    mergeFile.write('./graphs/' + finalFileName)
+    mergeFile.write(mergedNamePath)
 
 def parseArguments():
     """
@@ -339,6 +354,10 @@ def parseArguments():
         sys.exit(1)
 
     args = vars(parser.parse_args())
+
+    # Check if directory for graphs exists
+    if not os.path.exists('graphs'):
+        os.makedirs('graphs')
 
     # If the user chooses the program flag and requests all courses, then merge all graphs into one pdf
     if args['which'] == 'prg':
