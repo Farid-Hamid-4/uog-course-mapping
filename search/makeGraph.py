@@ -35,7 +35,7 @@ def noPrerequisiteNodes(data, graph, delimeter):
     
     return graph
 
-def getSubjectCodes(graphType):
+def getCodes(graphType):
     """
     Creates an array of all subject codes
     :return: (string array) Return a string array of subject codes
@@ -68,7 +68,7 @@ def getName(code, graphType):
         file = open(os.path.dirname(__file__) + '/../scraper/json/GuelphAllCourses.json')
     elif graphType == 'major':
         # Open file containing major courses information for reading
-        file = open(os.path.dirname(__file__) + '/../scraper/json/MajorData.json')
+        file = open(os.path.dirname(__file__) + '/../scraper/json/GuelphMajorData.json')
     elif graphType == 'subject':
         graphType = 'program'
         file = open(os.path.dirname(__file__) + '/../scraper/json/McGillAllCourses.json', encoding="utf-8")
@@ -120,7 +120,7 @@ def grabMajorData(majorCode):
     """ 
 
     # Open file containing all course information for reading
-    file = open(os.path.dirname(__file__) + '/../scraper/json/MajorData.json')
+    file = open(os.path.dirname(__file__) + '/../scraper/json/GuelphMajorData.json')
     data = json.load(file)
     majorData = []
     # Traverse through all programs and find program with specified code 
@@ -158,7 +158,7 @@ def listAllMajors():
     :return: N/A
     """ 
     # Open file containing all course information for reading
-    file = open(os.path.dirname(__file__) + '/../scraper/json/MajorData.json')
+    file = open(os.path.dirname(__file__) + '/../scraper/json/GuelphMajorData.json')
     data = json.load(file)
     # Traverse through all programs and find program with specified code 
     print('\n-----------------------------------------------------\n')
@@ -276,6 +276,34 @@ def generateGraph(code, graphType):
     
     graph.close()
 
+
+def mergeFiles(graphType, finalFileName):
+    """
+    Merges all prerequisite graphs into a single file ONLY IF the 'All' flag is specified
+    :return: (String) Result to be displayed back to user.
+    """ 
+    mergeFile = PdfFileMerger()
+    codes = getCodes(graphType)
+    existingFiles = set()
+
+    for filename in os.scandir('./graphs'):
+        existingFiles.add(filename.name)    
+
+    # Generate graph for each subject or major if it doesn't already exist
+    for code in codes:
+        if os.path.exists('./graphs/' + 'graphs/{}_{}_graph.pdf'.format(code, graphType)) == False:
+            generateGraph(code, graphType)
+
+    # Merge graphs
+    for filename in os.scandir('./graphs'):
+        if filename.is_file():
+            mergeFile.append(PdfFileReader('./graphs/' + filename.name, 'r'))
+            # Only remove file if it wasn't in the graphs directory before
+            if filename.name not in existingFiles:
+                os.remove('./graphs/' + filename.name)
+
+    mergeFile.write('./graphs/' + finalFileName)
+
 def parseArguments():
     """
     Parses CLI command to get program to generate graph for.
@@ -309,31 +337,18 @@ def parseArguments():
 
     # If the user chooses the program flag and requests all courses, then merge all graphs into one pdf
     if args['which'] == 'prg':
-        if(args['[Program Code]'] == 'All'): 
-            mergeFile = PdfFileMerger()
-            programCodes = getSubjectCodes('program')
-            for programCode in programCodes:
-                generateGraph(programCode, 'program')
-                for filename in os.scandir('./graphs'):
-                    if filename.is_file():
-                        mergeFile.append(PdfFileReader('./graphs/' + filename.name, 'r'))
-                        os.remove('./graphs/' + filename.name)
-            mergeFile.write("Guelph_Merged_Programs.pdf")
+        if(args['[Program Code]'] == 'All'):
+            mergeFiles('program', 'Guelph_Merged_Programs.pdf')
         else: 
             generateGraph(args['[Program Code]'], 'program')
     elif args['which'] == 'mrg':
         generateGraph(args['[Major Code]'], 'major')
     # If the user chooses the program flag and requests all courses, then merge all graphs into one pdf
     elif args['which'] == 'sbg':
-        mergeFile = PdfFileMerger()
-        subjectCodes = getSubjectCodes('subject')
-        for programCode in subjectCodes:
-            generateGraph(programCode, 'subject')
-            for filename in os.scandir('./graphs'):
-               if filename.is_file():
-                    mergeFile.append(PdfFileReader('./graphs/' + filename.name, 'r'))
-                    os.remove('./graphs/' + filename.name)
-        mergeFile.write("McGill_Merged_Programs.pdf")
+        if(args['[Subject Code]'] == 'All'):
+            mergeFiles('subject', 'McGill_Merged_Programs.pdf')
+        else:
+            generateGraph(args['[Subject Code]'], 'subject')
     else:
         listAllMajors()
 
