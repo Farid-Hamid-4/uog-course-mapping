@@ -1,0 +1,4212 @@
+[
+	{
+		"name": "Intermediate Management Accounting",
+		"code": "ACCT*3230",
+		"credit": "0.50",
+		"semester": "SW",
+		"description": "Auditing I is an examination of the principles and theory underlying the practice of auditing. Concepts of materiality and audit risk are examined and discussed. Sources and techniques for gathering auditing evidence will also be examined. Modern organizations rely on information systems, technology and internal controls to manage and monitor their operations and the impact of these systems on the quality of information produced and on the scope of audits are important elements of this course.",
+		"prerequisites": "ACCT*2230",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "BUS*3230",
+		"restriction": "Enrolment may be restricted to particular degrees or programs. See department for more information.",
+		"department": "Department of Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"ACCT*2230"
+			]
+		}
+	},
+	{
+		"name": "Auditing I",
+		"code": "ACCT*3280",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This course presents a critical evaluation of accounting concepts, principles and practices in relation to both the traditional and current value accounting measurement models. Emphasis will be on the effect of alternative accounting practices and measurement models on income determination and asset valuation.",
+		"prerequisites": "ACCT*3330",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"ACCT*3330"
+			]
+		}
+	},
+	{
+		"name": "Intermediate Financial Accounting II",
+		"code": "ACCT*3340",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "The fundamentals of the tax system as it applies to all taxpayers will be the focus of the first half of the course. The second half will develop forms of business organizations from a tax perspective. Basic tax planning techniques which attempt to maximize the cash flows and returns on investments will then be studied. The emphasis in the course is on business decision making. A review of personal financial planning and investment decisions will also be included.",
+		"prerequisites": "ACCT*3330",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"ACCT*3330"
+			]
+		}
+	},
+	{
+		"name": "Taxation",
+		"code": "ACCT*3350",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This course is a critical evaluation of issues and problems associated with business combinations, long-term intercorporate investments, foreign operations and accounting for not-for-profit organizations. There is a strong emphasis on applying this body of knowledge through practical problems.",
+		"prerequisites": "ACCT*3330",
+		"offering": "",
+		"equate": "",
+		"restriction": "This is a Priority Access Course. Enrolment may be restricted to particular degrees or programs. See the department for more information.",
+		"department": "Department of Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"ACCT*3330"
+			]
+		}
+	},
+	{
+		"name": "Special Studies in Agricultural Science I",
+		"code": "AGR*3010",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course focuses on computational aspects of analytical techniques for biological data. Topics covered include, how to operate a computer efficiently when using biological data, types of biological data used in animal biosciences, how to prepare biological data for analysis, programming skills for bio-data organization, manipulation and problem solving, bio-data visualization, and computational aspects of data modelling.",
+		"prerequisites": "10.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Plant Agriculture",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Special Studies in Agricultural Science II",
+		"code": "AGR*4010",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course will be a survey of principles and applications of technologies supporting precision farming and planning for natural resource data management. Topics will include Global positioning system (GPS), yield monitoring and mapping, remote sensing, geographic information system (GIS), variable rate technologies (VRT), data layering, Internet information access, and computer software for management.",
+		"prerequisites": "15.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Animal Biosciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"15.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Research Project I",
+		"code": "AGR*4450",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "Independent study of a current topic in agricultural or environmental science designed to encourage senior undergraduates to conduct research. The focus of this course will be the completion of the research plan developed in AGR*4450 by the student in consultation with a faculty advisor. The course includes participation in meetings organized by the coordinator and meetings with a faculty advisor to review research progress. Students will carry out independent research, prepare a written report of the research findings in a scholarly style and make a presentation to other students in the course of the research results. Open to students in semesters 6, 7 and 8 of the B.SC. (Agr.) or B.Sc. degree program.",
+		"prerequisites": "10.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Permission of the course coordinator (contingent on the availability and agreement of a faculty advisor). BSC.Agr or BSC or BBRM, 70% cumulative average.",
+		"department": "Dean's Office, Ontario Agricultural College",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Research Project II",
+		"code": "AGR*4460",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "The issues facing the agriculture and food sector are many and varied and relate to the economy, the environment and society. Within these issues there are problems which require thoughtful solutions. Working in teams, with guidance from faculty advisors, students will have an opportunity to develop solutions to real-world problems facing the agriculture and food sector. In the process students will have an opportunity to develop their research, communication, presentation, writing and group work skills.",
+		"prerequisites": "AGR*4450",
+		"offering": "",
+		"equate": "",
+		"restriction": "Permission of the course coordinator and faculty advisor.",
+		"department": "Dean's Office, Ontario Agricultural College",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"AGR*4450"
+			]
+		}
+	},
+	{
+		"name": "Special Projects in Anthropology",
+		"code": "ANTH*3950",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Current issues and future trends in the discipline of socio-cultural anthropology will provide the subject matter of this variable content course. This course is meant to provide an opportunity for socio-cultural anthropology majors to consider the latest developments in the sub-discipline. Course topics will be announced and course outlines will be available at course selection time.",
+		"prerequisites": "10.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required. Please note, a student is allowed a total of 1.00 credits only for reading courses.",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Special Projects in Anthropology",
+		"code": "ANTH*4880",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This special study/reading course option is designed to provide advanced undergraduates with an opportunity to explore independently the frontiers and foundations of a field of knowledge. Under supervision, the student will study in greater depth topics related to regular upper-level courses offered in the department which the student has taken or is taking. Permission of the instructor who will be supervising the project is required.",
+		"prerequisites": "12.50 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required. Please note, a student is allowed a total of 1.00 credits only for reading courses.",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"12.50 credits"
+			]
+		}
+	},
+	{
+		"name": "Special Projects in Anthropology",
+		"code": "ANTH*4890",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Development and design of an honours thesis proposal conducted under the supervision of a faculty member. Recommended to honours major students.",
+		"prerequisites": "12.50 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required. Please note, a student is allowed a total of 1.00 credits only for reading courses.",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"12.50 credits"
+			]
+		}
+	},
+	{
+		"name": "Honours Anthropology Thesis I",
+		"code": "ANTH*4900",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Completion and presentation of honours thesis.",
+		"prerequisites": "15.00 credits including ANTH*3690, (SOAN*3070 or SOAN*3120)",
+		"offering": "",
+		"equate": "",
+		"restriction": "A cumulative average of 75% in all Sociology and Anthropology courses. Instructor consent required.",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"SOAN*3070",
+				"SOAN*3120"
+			],
+			"mandatory": [
+				"ANTH*3690"
+			]
+		}
+	},
+	{
+		"name": "Honours Anthropology Thesis II",
+		"code": "ANTH*4910",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Completion and presentation of honours thesis.",
+		"prerequisites": "ANTH*4900",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"ANTH*4900"
+			]
+		}
+	},
+	{
+		"name": "History of Photographic Media",
+		"code": "ARTH*2290",
+		"credit": "0.50",
+		"semester": "S",
+		"description": "This course provides an overview of some of the most significant methodological approaches and critical practices used by art historians to write about visual culture. Traditional methods of art historical analysis include connoisseurship, iconography, and formalism. With these we will be exploring newer interpretative models and multidisciplinary approaches such as structuralism, semiotics, post-structuralism, and psychoanalytic theory as well as political theories such as feminism and socio-cultural theory.",
+		"prerequisites": "2.00 credits",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"2.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Individual Study - Art History",
+		"code": "ARTH*4600",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides an opportunity for independent study based on Art History related voluntary or paid experience. Evaluation will be based on the student's performance on related work assignments at the host institution as well as any assignments determined by the relevant instructor. Written proposals/rationales, signed by the appropriate instructor, must be submitted to the Director of the School for approval by the last day of course selection in the Fall (for Winter) or Winter (for the following Fall semester).",
+		"prerequisites": "14.00 credits, including 6 credits in Art History.",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"14.00 credits, including 6 credits in Art History."
+			]
+		}
+	},
+	{
+		"name": "Issues in Public Health",
+		"code": "ASCI*3200",
+		"credit": "0.50",
+		"semester": "S",
+		"description": "This course offers an opportunity for individual students to pursue unique curricular opportunities when they arise and are approved as appropriate to B.A.S. students (e.g., independent reading and/or research under a faculty member's supervision in a research lab or program; a course taken while studying on exchange or abroad; a course developed in conjunction with experiential learning situations, etc.). See the B.A.S. website for learning contracts and other requirements that must be completed well in advance to permit registration for independent studies.",
+		"prerequisites": "8.50 credits",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "",
+		"department": "Dean's Office, College of Arts",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"8.50 credits"
+			]
+		}
+	},
+	{
+		"name": "Independent Studies in Arts/Sciences",
+		"code": "ASCI*3700",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Under faculty supervision students will devise and research a topic, and then plan, develop, peer-edit and complete a major paper. Designed to function as a senior-level writing seminar, this course is particularly recommended to students who plan to pursue graduate study and who have a cumulative average of at least 75%.",
+		"prerequisites": "A minimum of 9.00 credits.",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in the BAS degree program. Instructor consent required.",
+		"department": "Dean's Office, College of Arts",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"A minimum of 9.00 credits."
+			]
+		}
+	},
+	{
+		"name": "Independent Studies in Arts/Sciences",
+		"code": "ASCI*4700",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course continues work undertaken in ASCI*4700, and will normally be planned in concert with planning for ASCI*4700. This course offers an opportunity for individual students to pursue unique curricular opportunities when they arise and are approved as appropriate to B.A.S. students. See the B.A.S. website for learning contracts and other requirements that must be completed well in advance to permit registration for independent studies.",
+		"prerequisites": "A minimum of 14.00 credits.",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in the BAS degree program. Instructor consent required.",
+		"department": "Dean's Office, College of Arts",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"A minimum of 14.00 credits."
+			]
+		}
+	},
+	{
+		"name": "Independent Studies in Arts/Sciences",
+		"code": "ASCI*4710",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course continues work undertaken in ASCI*4700, and will normally be planned in concert with planning for ASCI*4700. This course offers an opportunity for individual students to pursue unique curricular opportunities when they arise and are approved as appropriate to B.A.S. students. See the B.A.S. website for learning contracts and other requirements that must be completed well in advance to permit registration for independent studies.",
+		"prerequisites": "ASCI*4700",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in the BAS degree program. Instructor consent required.",
+		"department": "Dean's Office, College of Arts",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"ASCI*4700"
+			]
+		}
+	},
+	{
+		"name": "Introduction to Biochemistry",
+		"code": "BIOC*2580",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course develops the understanding of biochemical processes by examining the molecular mechanisms underlying the regulation of specific cellular and physiological systems. Examples may include: oxygen binding and transport; regulation of enzyme function; carbohydrate and lipid metabolic pathways and metabolic integration; structure of membranes and membrane proteins; and membrane transport and signaling.",
+		"prerequisites": "CHEM*1050",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Molecular and Cellular Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CHEM*1050"
+			]
+		}
+	},
+	{
+		"name": "Structure and Function in Biochemistry",
+		"code": "BIOC*3560",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course covers the tools and techniques by which biological molecules are isolated, separated, identified, and analyzed. Detailed discussion of experimental methods for macromolecule purification and characterization is included.",
+		"prerequisites": "BIOC*2580",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Molecular and Cellular Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOC*2580"
+			]
+		}
+	},
+	{
+		"name": "Analytical Biochemistry",
+		"code": "BIOC*3570",
+		"credit": "0.75",
+		"semester": "SF",
+		"description": "This course explores the relationship between the functions and the three dimensional structures of DNA, RNA and proteins. Topics covered include how these structures are determined, the principles governing their folding and architecture, why some proteins don't fold at all, and the use of these structures to guide drug discovery. Practical skills are emphasized, including the use of bioinformatics and visualisation tools to analyse sequences and structures.",
+		"prerequisites": "(CHEM*2400 or CHEM*2480), BIOC*2580",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Molecular and Cellular Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"CHEM*2400",
+				"CHEM*2480"
+			],
+			"mandatory": [
+				"BIOC*2580"
+			]
+		}
+	},
+	{
+		"name": "Ecology",
+		"code": "BIOL*2060",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This field course provides an opportunity for students to explore the biological diversity of a selected landscape from the perspectives of Western science and Indigenous culture. Students, working in collaboration with Indigenous peoples, will collect field samples using methods from Western scientific and Indigenous knowledge systems. Data will be analyzed to evaluate strengths and limitations of these methods and to examine factors affecting diversity and sustainable methods of land stewardship. Using knowledge gained, students will discuss and communicate their findings with diverse audien",
+		"prerequisites": "4.00 credits including BIOL*1070",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Integrative Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOL*1070"
+			]
+		}
+	},
+	{
+		"name": "Internship In Biological Science",
+		"code": "BIOL*3660",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course focuses on Canadian wildlife and ways to mitigate various human-animal interactions. There will be a specific emphasis on wildlife rehabilitation: its benefits, risks (to humans and animals), ethical concerns, principles of stabilization of sick and injured animals, and other key areas for consideration. Common presentations and underlying reasons for sick and injured animals that are admitted to a rehabilitation centre are presented. Whether in a wildlife centre or in the field, understanding important physiologic differences between species and how to stabilize animals for subsequent treatment by a permitted rehabilitator or a wildlife veterinarian are discussed.",
+		"prerequisites": "7.50 credits, minimum cumulative average of 60%",
+		"offering": "",
+		"equate": "",
+		"restriction": "Majors offered by CBS. Instructor consent required.",
+		"department": "Dean's Office, College of Biological Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"7.50 credits, minimum cumulative average of 60%"
+			]
+		}
+	},
+	{
+		"name": "Field Biology",
+		"code": "BIOL*4700",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Students may apply for 1-week courses in the OUPFB (Ontario Universities Program in Field Biology). This program offers a diversity of field courses in biological subjects ranging from the Arctic to the Tropics, microbes to mammals, and covering marine, freshwater and terrestrial habitats. Costs include food and lodging and may include transportation. Detailed information is available from the Department of Integrative Biology.",
+		"prerequisites": "BIOL*2060",
+		"offering": "",
+		"equate": "",
+		"restriction": "Permission of the course coordinator. Instructor consent required.",
+		"department": "Department of Integrative Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOL*2060"
+			]
+		}
+	},
+	{
+		"name": "Field Biology",
+		"code": "BIOL*4710",
+		"credit": "0.25",
+		"semester": "SFW",
+		"description": "Students may apply for 2-week courses in the OUPFB (Ontario Universities Program in Field Biology). This program offers a diversity of field courses in biological subjects ranging from the Arctic to the Tropics, microbes to mammals, and covering marine, freshwater and terrestrial habitats. Costs include food and lodging and may include transportation. Detailed information is available from the Department of Integrative Biology.",
+		"prerequisites": "BIOL*2060",
+		"offering": "",
+		"equate": "",
+		"restriction": "Permission of the course coordinator. Instructor consent required.",
+		"department": "Department of Integrative Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOL*2060"
+			]
+		}
+	},
+	{
+		"name": "Field Biology",
+		"code": "BIOL*4800",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Students may apply for 1-week courses in the OUPFB (Ontario Universities Program in Field Biology). This program offers a diversity of field courses in biological subjects ranging from the Arctic to the Tropics, microbes to mammals, and covering marine, freshwater and terrestrial habitats. Costs include food and lodging and may include transportation. Detailed information is available from the Department of Integrative Biology.",
+		"prerequisites": "BIOL*2060",
+		"offering": "",
+		"equate": "",
+		"restriction": "Permission of the course coordinator. Instructor consent required.",
+		"department": "Department of Integrative Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOL*2060"
+			]
+		}
+	},
+	{
+		"name": "Field Biology",
+		"code": "BIOL*4810",
+		"credit": "0.25",
+		"semester": "SFW",
+		"description": "Students may apply for 2-week courses in the OUPFB (Ontario Universities Program in Field Biology). This program offers a diversity of field courses in biological subjects ranging from the Arctic to the Tropics, microbes to mammals, and covering marine, freshwater and terrestrial habitats. Costs include food and lodging and may include transportation. Detailed information is available from the Department of Integrative Biology.",
+		"prerequisites": "BIOL*2060",
+		"offering": "",
+		"equate": "",
+		"restriction": "Permission of the course coordinator. Instructor consent required.",
+		"department": "Department of Integrative Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOL*2060"
+			]
+		}
+	},
+	{
+		"name": "Field Biology",
+		"code": "BIOL*4900",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Students may apply for 2-week courses in the OUPFB (Ontario Universities Program in Field Biology). This program offers a diversity of field courses in biological subjects ranging from the Arctic to the Tropics, microbes to mammals, and covering marine, freshwater and terrestrial habitats. Costs include food and lodging and may include transportation. Detailed information is available from the Department of Integrative Biology.",
+		"prerequisites": "BIOL*2060",
+		"offering": "",
+		"equate": "",
+		"restriction": "Permission of the course coordinator. Instructor consent required.",
+		"department": "Department of Integrative Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOL*2060"
+			]
+		}
+	},
+	{
+		"name": "Principles of Pharmacology",
+		"code": "BIOM*3090",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course focuses on the normal functioning of mammals. The physiology of the nervous, muscular, endocrine, reproductive, cardiovascular and digestive systems and homeostasis as reflected in respiratory and renal function is treated in a detailed manner. The integrative nature of various physiological systems is highlighted and cellular and molecular information is incorporated to enhance the understanding of these systems. Aspects of medically significant changes in the mammalian physiological systems are also introduced.",
+		"prerequisites": "BIOC*2580, (1 of ANSC*3080, BIOM*3200, HK*3810, HK*3940, ZOO*3200, ZOO*3600)",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Biomedical Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"ANSC*3080",
+				"BIOM*3200",
+				"HK*3810",
+				"HK*3940",
+				"ZOO*3200",
+				"ZOO*3600"
+			],
+			"mandatory": [
+				"BIOC*2580"
+			]
+		}
+	},
+	{
+		"name": "Biomedical Physiology",
+		"code": "BIOM*3200",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This course will explore a variety of issues related to the scientific ideals and practical realities of health sciences research and its clinical applications. Topics will include critical thinking, critical appraisal of the medical literature, the principles of evidence based medicine, and selected issues related to scientific integrity.",
+		"prerequisites": "BIOC*2580",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "HK*3810. This is a Priority Access Course. Enrolment may be restricted to particular programs or specializations or semester levels during certain periods. Please see the department of Biomedical Sciences website for more information.",
+		"department": "Department of Biomedical Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOC*2580"
+			]
+		}
+	},
+	{
+		"name": "Pharmacology",
+		"code": "BIOM*4090",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This multidisciplinary course provides an introduction to various aspects of mammalian reproduction of medical and veterinary significance. The course will cover the normal physiology and gross and micro anatomy of the female and male reproductive systems. Placentation, pregnancy and post-partum physiology will also be addressed. The impact of the reproductive biology on social and economic issues will be discussed.",
+		"prerequisites": "BIOM*3090",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Biomedical Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOM*3090"
+			]
+		}
+	},
+	{
+		"name": "Literature-based Research in Biomedical Sciences",
+		"code": "BIOM*4500",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "In this course students will conduct and individual research project on a current topic in any of the biomedical sciences (such as anatomy, physiology, pharmacology, toxicology, genetics, biochemistry). Students work under the supervision of individual faculty. Faculty consent must be obtained prior to being admitted into the course by the course coordinator.",
+		"prerequisites": "12.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "HK*4230. Instructor consent required. Enrolment restricted to BSC.BIOM majors or BSC.NEUR minors.",
+		"department": "Department of Biomedical Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"12.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Research in Biomedical Sciences",
+		"code": "BIOM*4510",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This is the first part of the two-semester course BIOM*4521/2. In this course, students will conduct an extensive individual research project on a current topic in any of the biomedical sciences (such as anatomy, physiology, pharmacology, toxicology, genetics, biochemistry). Students work under the supervision of individual faculty. Students should make arrangements to find their own faculty advisor well in advance of course selection. A departmental registration form must be obtained from the course coordinator and signed by the faculty advisor before students can be admitted into the course. This is a two-semester course offered over consecutive semesters. When you select it you must select BIOM*4521 in the first semester and BIOM*4522 in the second semester. A grade will not be assigned in BIOM*4521 until BIOM*4522 has been completed.",
+		"prerequisites": "14.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "BIOM*4521, BIOM*4522. Instructor consent required. Enrolment restricted to BSC.BIOM majors.",
+		"department": "Department of Biomedical Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"14.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Applied Business Project I",
+		"code": "BUS*4550",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides an opportunity to conduct a second independent study on a business issue for third or fourth year students in an agreed program of study with the instructor.",
+		"prerequisites": "10.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "AGEC*4550, FARE*4550. Instructor consent required.",
+		"department": "Department of Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Applied Business Project II",
+		"code": "BUS*4560",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides an opportunity to conduct a second independent study on a business issue for third or fourth year students in an agreed program of study with the instructor.",
+		"prerequisites": "BUS*4550",
+		"offering": "",
+		"equate": "",
+		"restriction": "AGEC*4560, FARE*4560. Instructor consent required.",
+		"department": "Department of Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BUS*4550"
+			]
+		}
+	},
+	{
+		"name": "Structure and Spectroscopy",
+		"code": "CHEM*2070",
+		"credit": "0.50",
+		"semester": "SW",
+		"description": "This course provides instruction in quantitative analysis of important inorganic species in solution by volumetric, gravimetric and spectrophotometric techniques. The students will utilize spreadsheet applications to study solution equilibria and data analysis. This course is intended to build the foundations of good analytical laboratory practice.",
+		"prerequisites": "CHEM*2060",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CHEM*2060"
+			]
+		}
+	},
+	{
+		"name": "Analytical Chemistry I",
+		"code": "CHEM*2400",
+		"credit": "0.75",
+		"semester": "SFW",
+		"description": "This course consists of a lecture portion that is the same as CHEM*2400 and a 3 hour laboratory component.",
+		"prerequisites": "CHEM*1050",
+		"offering": "",
+		"equate": "",
+		"restriction": "CHEM*2480. This is a Priority Access Course. Enrolment may be restricted to particular programs or specializations or semester levels during certain periods. Please see the department website for more information.",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CHEM*1050"
+			]
+		}
+	},
+	{
+		"name": "Analytical Chemistry I",
+		"code": "CHEM*2480",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides an introduction to organic chemistry through the discussion of stereochemistry and major reaction mechanisms such as nucleophilic substitution and elimination, electrophilic addition, free radical reactions, electrophilic aromatic substitution, nucleophilic addition and nucleophilic acyl substitution.",
+		"prerequisites": "CHEM*1050",
+		"offering": "",
+		"equate": "",
+		"restriction": "CHEM*2400 This is a Priority Access Course. Enrolment may be restricted to particular programs or specializations or semester levels during certain periods. Please see the department website for more information.",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CHEM*1050"
+			]
+		}
+	},
+	{
+		"name": "Organic Chemistry I",
+		"code": "CHEM*2700",
+		"credit": "0.50",
+		"semester": "SW",
+		"description": "This course provides an introduction to organic chemistry through the discussion of stereochemistry and major reaction mechanisms such as nucleophilic substitution and elimination, electrophilic addition, free radical reactions, electrophilic aromatic substitution, nucleophilic addition and nucleophilic acyl substitution. This course is not acceptable for BSCH students in CHEM, BPCH, or BIOC, or for students in MBG or BTOX majors who intend to enroll in CHEM*3750 as a restricted elective. This course is intended for students who do not plan to enroll in any further organic chemistry courses.",
+		"prerequisites": "CHEM*1050",
+		"offering": "",
+		"equate": "",
+		"restriction": "This is a Priority Access Course. Enrolment may be restricted to particular programs, specializations or semester levels during certain periods. Please see the departmental website for more information.",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CHEM*1050"
+			]
+		}
+	},
+	{
+		"name": "Fundamental Organic Chemistry",
+		"code": "CHEM*2720",
+		"credit": "0.50",
+		"semester": "SW",
+		"description": "This course examines the laws and applications of chemical thermodynamics and chemical kinetics.",
+		"prerequisites": "CHEM*1050",
+		"offering": "",
+		"equate": "",
+		"restriction": "CHEM*2700",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CHEM*1050"
+			]
+		}
+	},
+	{
+		"name": "Environmental Chemistry and Toxicology",
+		"code": "CHEM*3360",
+		"credit": "0.50",
+		"semester": "SW",
+		"description": "This course is designed to introduce students to modern methods of instrumental analysis in analytical chemistry. The focus of the course is on trace analysis, and therefore methods for the identification, separation and quantification of trace substances in solids, liquids and vapors will be described. The course is intended to build the foundations of good laboratory practice with good understanding of new concepts and principles of instrumental chemical analysis.",
+		"prerequisites": "CHEM*1050",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "TOX*3360",
+		"restriction": "",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CHEM*1050"
+			]
+		}
+	},
+	{
+		"name": "Analytical Chemistry II: Instrumental Analysis",
+		"code": "CHEM*3430",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Analytical Instrumentation, data acquisition, processing and applications in Chemistry and Biological Chemistry.",
+		"prerequisites": "(CHEM*2400 or CHEM*2480)",
+		"offering": "",
+		"equate": "",
+		"restriction": "TOX*3300. This is a Priority Access Course. Enrolment may be restricted to particular programs or specializations. See department for more information.",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"CHEM*2400",
+				"CHEM*2480"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Organic Chemistry II",
+		"code": "CHEM*3750",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This course provides an in-depth treatment of various aspects of organic chemistry. This will include such topics as the chemistry of heterocycles, polar rearrangements, organic photochemistry, synthetic planning and a detailed discussion of organic spectroscopy.",
+		"prerequisites": "CHEM*2700",
+		"offering": "",
+		"equate": "",
+		"restriction": "This is a Priority Access Course. Enrolment may be restricted to particular programs, specializations or semester levels during certain periods. Please see the departmental website for more information.",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CHEM*2700"
+			]
+		}
+	},
+	{
+		"name": "Chemistry Research Project I",
+		"code": "CHEM*4900",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This is a research project and seminar in chemistry . Students must make arrangements with both a faculty supervisor and the course coordinator prior to registration.",
+		"prerequisites": "5.00 credits in chemistry including (1.50 credits from CHEM*3430, CHEM*3640, CHEM*3650, CHEM*3750, CHEM*3760, CHEM*3870)",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CHEM*3430",
+				"CHEM*3640",
+				"CHEM*3650",
+				"CHEM*3750",
+				"CHEM*3760",
+				"CHEM*3870"
+			]
+		}
+	},
+	{
+		"name": "Chemistry Research Project II",
+		"code": "CHEM*4910",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This is a research project and seminar in chemistry . Students must make arrangements with both a faculty supervisor and the course coordinator prior to registration.",
+		"prerequisites": "CHEM*4900",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CHEM*4900"
+			]
+		}
+	},
+	{
+		"name": "Classical Mythology",
+		"code": "CLAS*2000",
+		"credit": "0.50",
+		"semester": "SW",
+		"description": "A survey of Ancient Greek Art and Archaeology, with stress on form and function plus stylistic trends and aesthetic values. The course will illuminate the cultural, social, and political life in Ancient Greece. (Also listed as ARTH*2150).",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "School of Languages and Literatures",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Experiential Learning and Language",
+		"code": "CLAS*3700",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "The historical and formal roots of fiction in the classical prose romances. Special attention is paid to the influence of myth, religion, historiography and ethical biography. Among texts studied are Daphnis and Chloe, Satyricon, and Aithiopika.",
+		"prerequisites": "10.00 credits including 1.50 credits in Classics.",
+		"offering": "",
+		"equate": "",
+		"restriction": "A minimum cumulative average of 70% in all Classics course attempts. Instructor consent required.",
+		"department": "School of Languages and Literatures",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits including 1.50 credits in Classics."
+			]
+		}
+	},
+	{
+		"name": "Co-op Work Term I",
+		"code": "COOP*1000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course will introduce students to the theory, practice and policies of co-operative education at the University of Guelph. Students will learn to take full advantage of the co-op option. They will acquire practice in the skills required to succeed in the competitive process of securing suitable work terms. Specifically, the course will cover: characteristics and expectations of professional work environments, interview skills, resume and cover letter writing, as well as general skills required to be successful in the co-op program. Students also obtain practice in the co-op employment process.",
+		"prerequisites": "COOP*1100",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Co-operative Education & Career Services",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"COOP*1100"
+			]
+		}
+	},
+	{
+		"name": "Co-op Work Term II",
+		"code": "COOP*2000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is a semester long experience in a paid work setting. Co-op work semesters differ depending on the program and major. Location of the work term is varied. Refer to the schedule of studies for your degree program to determine which semester this course is scheduled. Students must obtain a passing work report evaluation and work performance evaluation grade in order to continue in the Co-op Program.",
+		"prerequisites": "Completion of previous co-op work requirements in COOP*1000",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Co-operative Education & Career Services",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"COOP*1000"
+			]
+		}
+	},
+	{
+		"name": "Co-op Work Term III",
+		"code": "COOP*3000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is a semester long experience in a paid work setting. Co-op work semesters differ depending on the program and major. Location of the work term is varied. Refer to the schedule of studies for your degree program to determine which semester this course is scheduled. Students must obtain a passing work report evaluation and work performance evaluation grade in order to continue in the Co-op Program",
+		"prerequisites": "Completion of previous co-op work requirements in COOP*2000",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Co-operative Education & Career Services",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"COOP*2000"
+			]
+		}
+	},
+	{
+		"name": "Co-op Work Term IV",
+		"code": "COOP*4000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is a semester long experience in a paid work setting. Co-op work semesters differ depending on the program and major. Location of the work term is varied. Refer to the schedule of studies for your degree program to determine which semester this course is scheduled. Students must obtain a passing work report evaluation and work performance evaluation grade in order to continue in the Co-op Program.",
+		"prerequisites": "Completion of previous co-op work requirements in COOP*3000",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Co-operative Education & Career Services",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"COOP*3000"
+			]
+		}
+	},
+	{
+		"name": "Co-op Work Term V",
+		"code": "COOP*5000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is a semester long experience in a paid work setting. Co-op work semesters differ depending on the program and major. Location of the work term is varied. Refer to the schedule of studies for your degree program to determine which semester this course is scheduled. Students must obtain a passing work report evaluation and work performance evaluation grade in order to continue in the Co-op Program.",
+		"prerequisites": "Completion of previous co-op work requirements in COOP*4000",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Co-operative Education & Career Services",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"COOP*4000"
+			]
+		}
+	},
+	{
+		"name": "Introduction to Computer Applications",
+		"code": "CIS*1000",
+		"credit": "0.50",
+		"semester": "S",
+		"description": "An introduction to the basics of designing and developing a website. It examines the basic concepts, technologies, issues and techniques required to develop and maintain websites. The course is suitable for students with no previous programming experience.",
+		"prerequisites": "",
+		"offering": "Offered through Distance Education format only. Last Offering: - Summer 2021",
+		"equate": "",
+		"restriction": "CIS*1200. Not available to students registered in BASC.AHN, BCOMP degree or a CIS minor.",
+		"department": "School of Computer Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Web Design and Development",
+		"code": "CIS*1050",
+		"credit": "0.50",
+		"semester": "SW",
+		"description": "This course covers an introduction to computer hardware and software, data organization, problem-solving and programming. The course includes exposure to application packages for personal and business use and is intended forstudents who wish a balance between programming and the use of software packages.",
+		"prerequisites": "",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "",
+		"department": "School of Computer Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Computer Science Project",
+		"code": "CIS*4900",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course is a continuation of CIS*4900. The student will conduct and write an undergraduate thesis under the individual supervision of a faculty member. In addition the student is required to present their work in a seminar and also participate in the critical analysis and review of the work of other students taking this course.",
+		"prerequisites": "7.00 credits in CIS",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "School of Computer Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"7.00 credits in CIS"
+			]
+		}
+	},
+	{
+		"name": "Computer Science Thesis",
+		"code": "CIS*4910",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course is a continuation of CIS*4900. The student will conduct and write an undergraduate thesis under the individual supervision of a faculty member. In addition the student is required to present their work in a seminar and also participate in the critical analysis and review of the work of other students taking this course.",
+		"prerequisites": "CIS*4900",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "School of Computer Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CIS*4900"
+			]
+		}
+	},
+	{
+		"name": "Summer Workshop",
+		"code": "CTS*3030",
+		"credit": "1.00",
+		"semester": "S",
+		"description": "Students in this course will focus on two projects: a polished, professional version of their digital portfolio and the creation of an edition of the CTS student journal. Through this process they will develop an awareness of desktop publishing options, copyright, the open access movement, digital design, and self-presentation for the web.",
+		"prerequisites": "CTS*2000 CTS*2010",
+		"offering": "",
+		"equate": "",
+		"restriction": "Restricted to students in Culture and Technology Studies. This is a Priority Access Course. Enrolment may be restricted to particular programs or specializations.",
+		"department": "Dean's Office, College of Arts",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CTS*2000",
+				"CTS*2010"
+			]
+		}
+	},
+	{
+		"name": "Digital Research Project",
+		"code": "CTS*4020",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This is a directed project supervised by a CTS-affiliated faculty member. The student and faculty member will collaboratively develop a course of study organized around a well-defined topic related to CTS. The student will work through the readings, meeting regularly with the faculty member to discuss the material, or the course may entail the development of skills in a programming language or toolkit. This course will culminate with the production of a final paper or project that will incorporate a substantive long-form argument. Students are required to submit a proposal to the CTS curriculum committee and receive approval prior to course registration.",
+		"prerequisites": "Take CTS*4010",
+		"offering": "",
+		"equate": "",
+		"restriction": "This is a Priority Access Course. Enrolment may be restricted to particular programs, specializations, majors or semester levels during certain periods.",
+		"department": "Dean's Office, College of Arts",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CTS*4010"
+			]
+		}
+	},
+	{
+		"name": "Independent Project",
+		"code": "CTS*4030",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is a directed project supervised by a CTS-affiliated faculty member. The student and faculty member will collaboratively develop a course of study organized around a well-defined topic related to CTS. The student will work through the readings, meeting regularly with the faculty member to discuss the material, or the course may entail the development of skills in a programming language or toolkit. This course will culminate with the production of a final paper or project that will incorporate a substantive long-form argument. Students are required to submit a proposal to the CTS curriculum committee and receive approval prior to course registration.",
+		"prerequisites": "",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor Consent Required.",
+		"department": "Dean's Office, College of Arts",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Introductory Microeconomics",
+		"code": "ECON*1050",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course looks at the Canadian Economy in terms of aggregate performance and policy; analysis of the determinants of national income, employment and the price level, and the role of government monetary and fiscal policies in improving the rate of economic growth.",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Economics and Finance",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Introductory Macroeconomics",
+		"code": "ECON*1100",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course examines the implications of economic growth on the quality of the environment, employing the basic principles of economic analysis.",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Economics and Finance",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Intermediate Microeconomics",
+		"code": "ECON*2310",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course is an analysis of open as well as closed economy models of aggregate spending, output, employment, prices and interest rates under alternative assumptions about the nature of labour, product and financial markets. This includes theories of consumption, investment and money demand.",
+		"prerequisites": "(ECON*1050 or FARE*1040), (1 of IPS*1500, MATH*1030, MATH*1080, MATH*1200)",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Economics and Finance",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"ECON*1050",
+				"FARE*1040",
+				"IPS*1500",
+				"MATH*1030",
+				"MATH*1080",
+				"MATH*1200"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Intermediate Macroeconomics",
+		"code": "ECON*2410",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course surveys the development of the Canadian economy from the aboriginal economy to the early fur and fish trades, agricultural settlement, industrialization, the Great Depression, growth of the public sector and fast economic growth after World War Two. Particular attention is paid to international economic relations and to regional differences within Canada.",
+		"prerequisites": "ECON*1100, (1 of IPS*1500, MATH*1030, MATH*1080, MATH*1200)",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Economics and Finance",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"IPS*1500",
+				"MATH*1030",
+				"MATH*1080",
+				"MATH*1200"
+			],
+			"mandatory": [
+				"ECON*1100"
+			]
+		}
+	},
+	{
+		"name": "Intermediate Special Study in Economics",
+		"code": "ECON*3900",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course introduces students to the latest developments in the economic analysis of the inside workings of firms. The course is centered on the concept of organizational structure, which is made up of three variables: allocation of decision rights, performance evaluation and performance incentives. The course tries to explain the diversity of economic organizations, and more generally, why economic activity is sometimes carried out through firms and sometimes through markets.",
+		"prerequisites": "ECON*2310, ECON*2410, ECON*2740, ECON*2770",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Economics and Finance",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"ECON*2310",
+				"ECON*2410",
+				"ECON*2740",
+				"ECON*2770"
+			]
+		}
+	},
+	{
+		"name": "Special Study in Economics",
+		"code": "ECON*4900",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "The special study option is designed to provide senior undergraduate students with an opportunity to pursue an independent course of study. The subject matter will be related to regular 4000 level courses. Students will be required to submit a major paper/report on the subject matter studied. Formal agreement between the student and instructor of the course is required as well as the approval of the department chair or designate.",
+		"prerequisites": "(ECON*3600 or ECON*3810), ECON*3710, ECON*3740",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Economics and Finance",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"ECON*3600",
+				"ECON*3810"
+			],
+			"mandatory": [
+				"ECON*3710",
+				"ECON*3740"
+			]
+		}
+	},
+	{
+		"name": "Special Study in Economics",
+		"code": "ECON*4910",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course is an advanced treatment of the interrelationship between economic activities and the state of the natural environment from an economics perspective.",
+		"prerequisites": "(ECON*3600 or ECON*3810), ECON*3710, ECON*3740",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Economics and Finance",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"ECON*3600",
+				"ECON*3810"
+			],
+			"mandatory": [
+				"ECON*3710",
+				"ECON*3740"
+			]
+		}
+	},
+	{
+		"name": "Engineering Economics",
+		"code": "ENGG*3240",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course introduces notions of energy conservation and efficiency, an integrated approach to energy auditing and examples of typical applications (examples include: steam generation and distribution, process or comfort cooling, pumping and compressed air, human needs for modern living, energy consumption in buildings and industry). It also covers pinch technology and its application for energy recovery in industry, and methods to achieve low energy buildings.",
+		"prerequisites": "10.25 credits including, MATH*1210",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "Registration in the Engineering program.",
+		"department": "School of Engineering",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"MATH*1210"
+			]
+		}
+	},
+	{
+		"name": "Proposal for Engineering Design IV",
+		"code": "ENGG*4000",
+		"credit": "0.00",
+		"semester": "SF",
+		"description": "Students work in groups to design a manufacturing system to produce a specific product. Choices must be made about the materials to be used, the methods to manufacture each part of the product and the final assembly and/or packaging process. Attention is paid to economics and efficiency of the overall manufacturing system.",
+		"prerequisites": "ENGG*3100",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in the semester preceding the last semester of the BENG Program. Instructor consent required. Restriction waiver requests are handled by the Director, School of Engineering, or designate.",
+		"department": "School of Engineering",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"ENGG*3100"
+			]
+		}
+	},
+	{
+		"name": "Effective Writing",
+		"code": "ENGL*1030",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course is focused on the disciplinary skill of close reading and is intended for students planning to specialize in the study of English Literature. Through a series of case studies, the course introduces students to a range of historical and national writings in prose, poetry, and drama, and to some of the key terms and concepts in contemporary literary studies. Lectures and discussions address selected works from the Middle Ages onwards, the periods in which these works were produced, and some of the ways in which these texts have been or could be interpreted. ENGL*1080 and its companion course, ENGL*2080, are required for a major or minor in English. Students are encouraged to enrol in ENGL*2080 in the semester after they have completed ENGL*1080. Reading - and writing-intensive course.",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "School of English and Theatre Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Directed Reading",
+		"code": "ENGL*4810",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This seminar provides opportunities to study English-language modern and contemporary poetry. Students are advised to complete a 3000-level lecture course in this subject area prior to enrolling in the 4000-level course.",
+		"prerequisites": "ENGL*2080, (ENGL*2120 or ENGL*2130), (ENGL*3940 or ENGL*3960)",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "School of English and Theatre Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"ENGL*2120",
+				"ENGL*2130",
+				"ENGL*3940",
+				"ENGL*3960"
+			],
+			"mandatory": [
+				"ENGL*2080"
+			]
+		}
+	},
+	{
+		"name": "Honours English Essay",
+		"code": "ENGL*4910",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "A major essay (approx. 25 pages) on some subject of special interest to the student is prepared and written under the direction of a faculty member. Consent of the instructor must be obtained and the subject must be approved by the School prior to the semester in which the course is to be taken. This option is intended only for students who have performed particularly well within the honours program. Exceptional students may use ENGL*4910 for creative writing, on the approval of the instructor.",
+		"prerequisites": "ENGL*2080, (ENGL*2120 or ENGL*2130), (ENGL*3940 or ENGL*3960)",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "School of English and Theatre Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"ENGL*2120",
+				"ENGL*2130",
+				"ENGL*3940",
+				"ENGL*3960"
+			],
+			"mandatory": [
+				"ENGL*2080"
+			]
+		}
+	},
+	{
+		"name": "Discovering Planet Earth",
+		"code": "ENVS*1060",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course introduces students to what it means to think critically from an environmental sciences perspective. It covers an introduction to: philosophy of science, philosophy of the environment, the evaluation of scientific evidence, and scientific arguments. The course focuses on how we understand and recognize environmental problems, how we decide what to do about them, and what role science can and should play in these discussions.",
+		"prerequisites": "",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "May not be taken for credit by students in BBRM, BSC or BSC(Env).",
+		"department": "School of Environmental Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Soil Science",
+		"code": "ENVS*2060",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This is an interdisciplinary approach to environmental issues which offers opportunities to investigate social processes and philosophical considerations with respect to the position and influence of humankind, and the development of social conditions, values and economic activities that have led to our present situation. These investigations are carried out within the context of physical environmental considerations, such as the state of the earth, forests, air water and our use of energy, and will lead the student to a detailed consideration of the future.",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "SOIL*2010",
+		"restriction": "AGR*2320",
+		"department": "School of Environmental Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Apiculture and Honey Bee Biology",
+		"code": "ENVS*2210",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides students with direct training in the academic skills used in researching and communicating environmental science. Within the context of current problems in environmental science, students will develop skills in library research, statistical interpretation, oral and poster presentation and written communication to diverse audiences. Students will research and report on scientific issues within environmental issues being reported in the media.",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "ENVB*2210",
+		"restriction": "",
+		"department": "School of Environmental Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Geology of Natural Disasters",
+		"code": "ENVS*2250",
+		"credit": "0.50",
+		"semester": "SW",
+		"description": "This course will provide students with an overview of recent research into what climate change means for Canada and Canadians. Students will learn about evidence for significant changes to the Boreal forests and about the potential impacts of climate change on human health through increasing heat waves and the heat stress on individuals. The course is intended to bridge the gap between abstract discussion of the climate and understand what these changes mean at both personal and societal levels.",
+		"prerequisites": "1 of ENVS*1050, ENVS*1060, GEOL*1050, GEOL*1100, GEOG*1300, GEOG*1350",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "GEOL*2250",
+		"restriction": "",
+		"department": "School of Environmental Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"ENVS*1050",
+				"ENVS*1060",
+				"GEOL*1050",
+				"GEOL*1100",
+				"GEOG*1300",
+				"GEOG*1350"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Climate Change Biology",
+		"code": "ENVS*3010",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This course examines the role and use of pesticides by various facets of society and the effect of these pesticides on biological activities in the environment. Preparation of a research proposal is required for the course.",
+		"prerequisites": "BIOL*2060",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "ENVB*3010",
+		"restriction": "",
+		"department": "School of Environmental Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOL*2060"
+			]
+		}
+	},
+	{
+		"name": "Environmental Flexible Internship",
+		"code": "ENVS*3330",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course is focused on interpreting data of the physical environment. Students will access various online databases, such as meteorological and hydrological time series, and perform and interpret statistical analysis with the data. Issues around errors and data collection will be explored by performing simple experiments. Students will make a numerical simulation of a dynamic environmental phenomenon. Students will produce and interpret graphical presentations of data.",
+		"prerequisites": "9 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "UNIV*2100. Not available to co-op students. Must have at least a 70% cumulative grade average. Must have at least two terms until graduation to be able to complete internship requirement before graduation. Instructor consent required.",
+		"department": "School of Environmental Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"9 credits"
+			]
+		}
+	},
+	{
+		"name": "Introduction to Advanced Independent Research",
+		"code": "ENVS*4410",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "In this course the student will undertake an independent research project of a practical or theoretical nature that relates to environmental sciences and is conducted under the supervision of a faculty member. This course is designed to provide a research intensive experience. This course is designed to be the completion of the research proposal developed in ENVS*4410. In this course the student will undertake an independent research project of a practical or theoretical nature that relates to environmental sciences and is conducted under the supervision of a faculty member. This course is designed to provide a research intensive experience. This course is designed to be the completion of the research proposal developed in which the course is taken.",
+		"prerequisites": "Minimum of 10.00 credits. Minimum cumulative average of 70%.",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in BSC(Env), BSC(Agr), BSCH or BBRM. Instructor consent required.",
+		"department": "School of Environmental Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"Minimum of 10.00 credits. Minimum cumulative average of 70%."
+			]
+		}
+	},
+	{
+		"name": "Advanced Independent Research",
+		"code": "ENVS*4420",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "In this course the student will undertake an independent research project of a practical or theoretical nature that relates to environmental sciences and is conducted under the supervision of a faculty member. This course is designed to be the completion of the research proposal developed in ENVS*4410 by the student in consultation with a faculty advisory. This course can be selected in place of ENVS*4420 if the student and faculty advisor deem the project to be of sufficient scope to necessitate a 1.00 credit course. Students must arrangements with both a faculty supervisor and the course coordinator at least one semester in advance. A school registration form must be obtained from the course coordinator and submitted no later than the second class day of the semester in which the course is taken.",
+		"prerequisites": "ENVS*4410. Minimum cumulative average of 70%.",
+		"offering": "",
+		"equate": "",
+		"restriction": "ENVS*4430. Registration in BSC(Env), BSC(Agr), BSCH or BBRM. Instructor consent required.",
+		"department": "School of Environmental Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"ENVS*4410"
+			]
+		}
+	},
+	{
+		"name": "Advanced Independent Research",
+		"code": "ENVS*4430",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "Students will focus on the manipulation of specific environment parameters and how that manipulation affects biological growth and development or achieves a commercial/research objective. The technical skills developed will be balanced with in-depth discussions on the broader environmental and societal implications of controlled environment agriculture (e.g., food insecurity, urban agriculture, adapting to a changing climate). Weekly activities will focus on both practical and theoretical aspects of CES crop production and will be used to support student research activities.",
+		"prerequisites": "ENVS*4410. Minimum cumulative average of 70%.",
+		"offering": "",
+		"equate": "",
+		"restriction": "ENVS*4420. Registration in BSC(Env), BSC(Agr), BSCH or BBRM. Instructor consent required.",
+		"department": "School of Environmental Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"ENVS*4410"
+			]
+		}
+	},
+	{
+		"name": "Topics in Environmental Sciences",
+		"code": "ENVS*4510",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides an opportunity for students to engage in advanced independent research and study. Students will undertake a project based on research in the literature that relates to environmental sciences. Projects will be designed to be completed in a single semester. Students must make arrangements with both a faculty supervisor and the course coordinator at least one semester in advance. A School registration form must be obtained from the course coordinator and submitted no later than the second class day of the semester in which the course is taken.",
+		"prerequisites": "Minimum of 10.00 credits. Minimum cumulative average of 70%.",
+		"offering": "",
+		"equate": "",
+		"restriction": "Restricted to students in the BBRM.EM, BSCH, BSC(Agr), BSC(Env) Instructor consent required.",
+		"department": "School of Environmental Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"Minimum of 10.00 credits. Minimum cumulative average of 70%."
+			]
+		}
+	},
+	{
+		"name": "Experiential Learning and Language",
+		"code": "EURO*3700",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course examines the major trends and developments in European culture and society since the end of the Cold War and the post-1989 geo-political, social and cultural events. The course will focus on literature, film, art, political and economic theory and will address Europe's transcontinental relationships, inter-European immigration, the role of religious and cultural minorities, the impact of the financial crisis on the Eurozone and its repercussions on the social and cultural life of Europeans.",
+		"prerequisites": "10.00 credits including 1.50 credits in European Studies.",
+		"offering": "",
+		"equate": "",
+		"restriction": "A minimum cumulative average of 70% in all European Studies course attempts. Instructor consent required.",
+		"department": "School of Languages and Literatures",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits including 1.50 credits in European Studies."
+			]
+		}
+	},
+	{
+		"name": "Research Internship in Family Relations And Human Development",
+		"code": "FRHD*3500",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course analyses theoretical approaches and concepts in the study of the family.",
+		"prerequisites": "FRHD*3070, STAT*2090",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Family Relations and Applied Nutrition",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"FRHD*3070",
+				"STAT*2090"
+			]
+		}
+	},
+	{
+		"name": "Introduction to Finance",
+		"code": "FIN*2000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides an in-depth analysis of the theory, application and evidence of financial investments with particular emphasis on the stock market. The course reviews issues relating to the valuation of financial assets, and then focuses on two main themes: building optimal domestic and international portfolios through dynamic asset allocation and assessing the risk-return relation in the cross-section of stocks.",
+		"prerequisites": "ECON*1050, (1 of IPS*1500, MATH*1030, MATH*1080, MATH*1200), (1 of ECON*2740, PSYC*1010, PSYC*2010, SOAN*2120, STAT*2040, STAT*2060, STAT*2080, STAT*2120)",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "ECON*2560",
+		"restriction": "",
+		"department": "Department of Economics and Finance",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"IPS*1500",
+				"MATH*1030",
+				"MATH*1080",
+				"MATH*1200",
+				"ECON*2740",
+				"PSYC*1010",
+				"PSYC*2010",
+				"SOAN*2120",
+				"STAT*2040",
+				"STAT*2060",
+				"STAT*2080",
+				"STAT*2120"
+			],
+			"mandatory": [
+				"ECON*1050"
+			]
+		}
+	},
+	{
+		"name": "Special Study in Finance",
+		"code": "FIN*4900",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "The special study option is designed to provide senior undergraduate students with an opportunity to review the literature on a specialized finance topic in order to prepare, submit and present a major paper. A formal agreement between the student and instructor of the course is required as well as the approval of the department chair or designate.",
+		"prerequisites": "ECON*3740,FIN*3100, (ECON*3660 or FIN*3000)",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Economics and Finance",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"ECON*3660",
+				"FIN*3000"
+			],
+			"mandatory": [
+				"ECON*3740",
+				"FIN*3100"
+			]
+		}
+	},
+	{
+		"name": "Principles of Food Science",
+		"code": "FOOD*2010",
+		"credit": "0.50",
+		"semester": "SW",
+		"description": "Students will acquire basic skills in technical and business communication and be prepared to complete a variety of communication assignments in subsequent semesters. Students will learn and apply the principles of effective written and oral communication.",
+		"prerequisites": "",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "FOOD*2150, FOOD*3090, NUTR*2150",
+		"department": "Department of Food Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Introduction to Food Chemistry",
+		"code": "FOOD*2400",
+		"credit": "0.50",
+		"semester": "S",
+		"description": "Food processes and the relationships between chemistry, microbiology, and engineering as they apply to food processing are discussed. The following topics are included: high and low temperature processes; moisture control and intermediate moisture foods; concentration and dehydration processes; and novel food processing techniques.",
+		"prerequisites": "CHEM*1040",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "FOOD*3030, FOOD*3050",
+		"department": "Department of Food Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CHEM*1040"
+			]
+		}
+	},
+	{
+		"name": "Topics in Food Science",
+		"code": "FOOD*4220",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course involves independent laboratory research of a selected topic in Food Science, under the supervision of an individual faculty. The laboratory research is based on the literature review conducted in FOOD*4220. In addition, a review and critical appraisal of experimental principles will guide the design of laboratory experiments. Students are required to present a concise report in a written paper and in a seminar. Students must make arrangements with both faculty supervisor and the course co-ordinator in a prior course selection period.",
+		"prerequisites": "14.00 credits including 1.50 credits at the 3000 level or higher in Food Science.",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Food Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"14.00 credits including 1.50 credits at the 3000 level or higher in Food Science."
+			]
+		}
+	},
+	{
+		"name": "Research in Food Science",
+		"code": "FOOD*4230",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course examines the research and development process related to new food products. Through a series of lectures and presentations students will learn the underlying theory behind food product development including idea generation, prototype development and new product manufacturing, evaluation and product marketing. Students will also gain a real world understanding of the process through their involvement and interaction with invited industry speakers. Students will work in teams with students from other disciplines to plan a food product development project.",
+		"prerequisites": "FOOD*4220",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Food Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"FOOD*4220"
+			]
+		}
+	},
+	{
+		"name": "Independent Studies I",
+		"code": "FARE*4550",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "An opportunity to conduct a second independent study project for majors in Agricultural Economics (of the Bachelor of Arts or Bachelor of Science in Agriculture degree programs), Agribusiness (of the Bachelor of Commerce degree program), and Environmental Economics and Policy (of the Bachelor of Science in Environmental Sciences degree program).",
+		"prerequisites": "10.00 credits including (FARE*2410 or FARE*2700)",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required. Permission of the instructor and Chair of the Department of Food, Agricultural and Resource Economics is required.",
+		"department": "Department of Food, Agricultural and Resource Economics",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"FARE*2410",
+				"FARE*2700"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Independent Studies II",
+		"code": "FARE*4560",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "An opportunity to conduct a second independent study project for majors in Agricultural Economics (of the Bachelor of Arts or Bachelor of Science in Agriculture degree programs), Agribusiness (of the Bachelor of Commerce degree program), and Environmental Economics and Policy (of the Bachelor of Science in Environmental Sciences degree program).",
+		"prerequisites": "10.00 credits including (FARE*2410 or FARE*2700)",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required. Permission of the instructor and Chair of the Department of Food, Agricultural and Resource Economics is required.",
+		"department": "Department of Food, Agricultural and Resource Economics",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"FARE*2410",
+				"FARE*2700"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Independent French Study",
+		"code": "FREN*1010",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This basic course in French grammar, oral and written skills is for students who have up to and including Ontario Grade 10 French (or equivalent) but not above. This course is not intended for students with native or near-native ability in French, including Francophones and French immersion students. Students with advanced French may be removed from the course.",
+		"prerequisites": "",
+		"offering": "",
+		"equate": "",
+		"restriction": "Permission of French Studies, School of Languages and Literatures. Instructor consent required.",
+		"department": "School of Languages and Literatures",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Experiential Learning and Language",
+		"code": "FREN*3700",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course examines the relationship between source text and its adaptation(s). The art of adaptation will be addressed through theories of authorship, identity, intertextuality and genre. Students will reflect on the ways artistic creation is achieved by means of repetition and variation, and will analyse the forms and codes of the traditions that are inherited and often transgressed.",
+		"prerequisites": "10.00 credits including 1.50 credits in French Studies.",
+		"offering": "",
+		"equate": "",
+		"restriction": "A minimum cumulative average of 70% in all French Studies course attempts. Instructor consent required.",
+		"department": "School of Languages and Literatures",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits including 1.50 credits in French Studies."
+			]
+		}
+	},
+	{
+		"name": "Research Paper in French Studies I",
+		"code": "FREN*4740",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "A research paper in French on an approved topic in French literature or language will be required. Individual attention will be given to methods of research and techniques of writing. This course is intended to serve as an introduction to future research at the M.A. and Ph.D. levels.",
+		"prerequisites": "1.00 credits at the 3000-level in French.",
+		"offering": "",
+		"equate": "",
+		"restriction": "70% average in all French Studies course attempts is required, although at least 75% is recommended. Instructor consent required.",
+		"department": "School of Languages and Literatures",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"1.00 credits at the 3000-level in French."
+			]
+		}
+	},
+	{
+		"name": "Research Paper in French Studies II",
+		"code": "FREN*4770",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "A research paper in French on an approved topic in French literature or language will be required. Individual attention will be given to methods of research and techniques of writing. This course is intended to serve as an introduction to future research at the M.A. and Ph.D. levels.",
+		"prerequisites": "FREN*4740",
+		"offering": "",
+		"equate": "",
+		"restriction": "70% average in all French Studies course attempts is required, although at least 75% is recommended. Instructor consent required.",
+		"department": "School of Languages and Literatures",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"FREN*4740"
+			]
+		}
+	},
+	{
+		"name": "Global Environmental Change",
+		"code": "GEOG*3020",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This course examines contemporary transformations in how human-environment relations are monitored and communicated. In particular, it will explore how media firms, digital technologies, and technology users shape responses to challenges like climate change and biodiversity loss. Topics may include media representations of nature, social media and digital devices in environmental campaigns, and new technologies for environmental assessment. Students will develop skills in areas such as discourse analysis, data visualization, and/or social media analytics.",
+		"prerequisites": "7.50 credits",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Geography, Environment and Geomatics",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"7.50 credits"
+			]
+		}
+	},
+	{
+		"name": "Indigenous-Settler Relationships in Environmental Governance",
+		"code": "GEOG*3210",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "Many argue that current food systems are unsustainable and will be unable to provide adequate and appropriate nutrition for the global society in the 21st century. This course will explore this issue by taking a global and historic perspective to understand the structure and functioning of agriculture and food systems. We will pay particular attention to the interaction of farms with social, economic, institutional and environmental forces that combine to shape patterns of agricultural activity. In particular, we will explore ways of assessing the extent to which different kinds of food systems are \"sustainable\" as well as assess how resilient and robust these food systems are to environmental problems (such as climate change) and economic upheaval.",
+		"prerequisites": "1 of GEOG*2030, GEOG*2210, SOC*2280",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Geography, Environment and Geomatics",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"GEOG*2030",
+				"GEOG*2210",
+				"SOC*2280"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Independent Study in Geography",
+		"code": "GEOG*4990",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "The independent study option is designed to provide senior undergraduate students with an opportunity to pursue library or field research under faculty supervision and to prepare a research report. Formal agreement between the student and the faculty supervisor is required, as is approval of the department chair.",
+		"prerequisites": "",
+		"offering": "",
+		"equate": "",
+		"restriction": "Rerstricted to students in BSCH.EG, BSCH.EG:C, BAH.EGOV, BAH.GEOG and BSES with an overall average of at least 70% at the time of registration. Instructor consent required.",
+		"department": "Department of Geography, Environment and Geomatics",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Experiential Learning and Language",
+		"code": "GERM*3700",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "A reading course on some approved topic in German language or literature, leading to an end-of-term research paper.",
+		"prerequisites": "10.00 credits including 1.50 credits in German.",
+		"offering": "",
+		"equate": "",
+		"restriction": "A minimum cumulative average of 70% in all German course attempts. Instructor consent required.",
+		"department": "School of Languages and Literatures",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits including 1.50 credits in German."
+			]
+		}
+	},
+	{
+		"name": "Early Modern Europe",
+		"code": "HIST*1010",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course introduces students to the basics of the historian's craft, including interpreting primary sources, locating and critically analyzing secondary sources, and writing for history. For more detail on the content of sections consult the History department website. https://www.uoguelph.ca/history",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of History",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "World Religions",
+		"code": "HIST*2070",
+		"credit": "0.50",
+		"semester": "S",
+		"description": "This course covers selected events and issues in Indigenous history in the Americas, including topics such as origin narratives, self-governance, intertribal contact, transatlantic trade, treaty-making, stages of colonization, Indigenous rights and Indigenous protest movements. Themes may focus on specific regions of the Americas and may be examined through notable Indigenous figures, law and policy, technology, food, material culture, or moments of conflict.",
+		"prerequisites": "2.00 credits",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of History",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"2.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Buying and Selling: Consumer Cultures",
+		"code": "HIST*2220",
+		"credit": "0.50",
+		"semester": "S",
+		"description": "This course is a survey of the inter-connected nature of gender constructs, nation-states and violence in history, primarily focused on the nineteenth and twentieth centuries. The course proceeds in a roughly chronological order, examining individuals, nations, revolutions, and wars across the globe. We engage in individual and comparative studies to question the gendered origins and effects of nationalism and violence in history - and their continuing relevance.",
+		"prerequisites": "2.00 credits",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of History",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"2.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Hockey in Canadian History",
+		"code": "HIST*2280",
+		"credit": "0.50",
+		"semester": "S",
+		"description": "This course provides a survey of United States history from the Revolutionary period to the present. Course lectures, readings and assignments ask students to interrogate broadly the social, cultural, economic and political changes and continuities in America, as well as the nation's emergence as a superpower.",
+		"prerequisites": "2.00 credits",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of History",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"2.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Popular Culture and Punishment, 1700-1900",
+		"code": "HIST*3130",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This course will explore the phenomenon of the 'witch-hunts' in early modern Europe through a focus on Scotland in the period 1560-1700. In addition to placing the witch-hunts in their historical context by providing students with the background to Scotland's political, religious, and social history in the early modern period, the course will introduce students to the considerable body of historical writing on the subject of the witch-hunts and give them hands on experience with primary source documents in order to discuss specific witch trials themselves. Popular and elite conceptions of witchcraft will be explored, as well as gender history.",
+		"prerequisites": "7.50 credits including (HIST*1010 or SOC*1500)",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of History",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"HIST*1010",
+				"SOC*1500"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Witch-hunts and Popular Culture",
+		"code": "HIST*3140",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This course will cover the history and culture of Mexico from its Pre-columbian civilizations to the present. Topics may include: Aztec and Mayan civilizations, European discovery and conquest, inquisition, convents, independence, the Mexican revolution, indigenismo, NAFTA and Zapatista insurgency in Chiapas.",
+		"prerequisites": "7.50 credits",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of History",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"7.50 credits"
+			]
+		}
+	},
+	{
+		"name": "Independent Reading",
+		"code": "HIST*3470",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "An independent study course based on either History related voluntary or paid workplace experience. Evaluation will be based on assignments relating to work duties. These will usually be in the form of a weekly journal, and a major project relating to some specific aspect of the work experience. Students interested in this option must have their project approved by the department prior to the semester in which they plan to engage in their work experience. Students will then be assigned to a faculty supervisor who will oversee the project.",
+		"prerequisites": "7.50 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of History",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"7.50 credits"
+			]
+		}
+	},
+	{
+		"name": "Workplace Learning",
+		"code": "HIST*3480",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course examines Canada's experience with the Second World War. Topics include: Canada's changing roles in the world; the role and growth of the state; gender and sexuality; conscription and English-French relations; race, ethnicity and the experiences of Indigenous peoples during the war; the homefront and social transformations; military engagements and soldier experiences; nationalisms, citizenship and identity; wartime legacies and post-war ramifications; public history and the memory of the war.",
+		"prerequisites": "7.50 credits including 1.50 History credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of History",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"7.50 credits including 1.50 History credits"
+			]
+		}
+	},
+	{
+		"name": "Experiential Learning: Research",
+		"code": "HIST*4070",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This course explores both individual and collective acts of Indigenous resistance in settler-colonial societies. Diverse forms of resistance will be studied from text-based to action-based movements. Resistance may be examined through notable figures, delegations, marches, occupations, and literature. (H)",
+		"prerequisites": "10.00 credits including 1.50 credits in History at the 3000-level",
+		"offering": "",
+		"equate": "",
+		"restriction": "Restricted to students in the BA Honours program with a minimum of 70% average in all History course attempts.",
+		"department": "Department of History",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits including 1.50 credits in History at the 3000-level"
+			]
+		}
+	},
+	{
+		"name": "Special History Project Seminar I",
+		"code": "HIST*4470",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This seminar course provides an in-depth analysis of the French Revolution, 1789-1799, and the literature surrounding its interpretation. (H)",
+		"prerequisites": "10.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Restricted to students in the BA Honours program with a minimum of 70% average in all History course attempts. Instructor consent required.",
+		"department": "Department of History",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Special History Project Seminar II",
+		"code": "HIST*4970",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "A continuation of HIST*4470. (H)",
+		"prerequisites": "10.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Restricted to students in the BA Honours program with a minimum of 70% average in all History course attempts. Instructor consent required.",
+		"department": "Department of History",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Advanced Study in Human Health and Nutritional Sciences",
+		"code": "HK*4230",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course introduces the methods available for reducing musculoskeletal injuries in the workplace. Topics include: biomechanical, psychophysical, physiological, and integrated approaches to performing physical demands analyses, anatomy and etiology of low back injuries and upper limb disorders, principles of redesigning tasks to reduce the risk of injury, pre-employment screening and legislated guidelines. Students apply the course material to ergonomic assessments performed in industrial environments.",
+		"prerequisites": "12.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Course coordinator consent required.",
+		"department": "Department of Human Health and Nutritional Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"12.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Research in Human Health and Nutritional Sciences",
+		"code": "HK*4360",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "First part of the two-semester course HK*4371/2. The student will select a research topic and design and complete a project in an area of interest, in consultation with a faculty advisor. This is a two-semester course offered over consecutive semesters. When you select it you must select HK*4371 in the first semester and HK*4372 in the second semester. A grade will not be assigned to HK*4371 until HK*4372 has been completed. Students must make arrangements with both a faculty advisor and the course coordinator at least one semester in advance and the signature of the course coordinator will be required to select the course. A departmental registration form must be obtained from the course coordinator and submitted no later than the second class day of the semester in which the student is registered for the course.",
+		"prerequisites": "12.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Course coordinator consent required.",
+		"department": "Department of Human Health and Nutritional Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"12.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Research in Human Health and Nutritional Sciences II",
+		"code": "HK*4371",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Second part of the two-semester course HK*4371/2. The student will select a research topic and design and complete a project in an area of interest, in consultation with a faculty advisor. This is a two-semester course offered over consecutive semesters. When you select it you must select HK*4371 in the first semester and HK*4372 in the second semester. A grade will not be assigned to HK*4371 until HK*4372 has been completed. Students must make arrangements with both a faculty advisor and the course coordinator at least one semester in advance and the signature of the course coordinator will be required to select the course. A departmental registration form must be obtained from the course coordinator and submitted no later than the second class day of the semester in which the student is registered for the course.",
+		"prerequisites": "12.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Course coordinator consent required.",
+		"department": "Department of Human Health and Nutritional Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"12.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Research in Human Health and Nutritional Sciences II",
+		"code": "HK*4372",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "First part of the two-semester course HK*4441/2. This course will provide students who have completed HK*3402 with the opportunity to pursue anatomical studies in an interdisciplinary fashion at the advanced level. Students will use their knowledge in anatomy to develop educational material and/or teach anatomical concepts and applications of human anatomy. This is a two-semester course offered over consecutive semesters. When you select it you must select HK*4441 in the first semester and HK*4442 in the second semester. A grade will not be assigned to HK*4441 until HK*4442 has been completed. Students must make arrangements with the course coordinator at least one semester in advance, and the signature of the course coordinator will be required to select the course. A departmental registration form must be obtained from the course coordinator and submitted no later than the second class day of the semester in which the student is registered for the course.",
+		"prerequisites": "HK*4371",
+		"offering": "",
+		"equate": "",
+		"restriction": "Course coordinator consent required.",
+		"department": "Department of Human Health and Nutritional Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"HK*4371"
+			]
+		}
+	},
+	{
+		"name": "Teaching, Learning and Knowledge Transfer",
+		"code": "HK*4510",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "First part of a two-semester course HK*4511/2. In consultation with a faculty advisor, the student will select, design and complete an independent project on the scholarship of teaching, learning and/or knowledge transfer in human health. This is a two-semester course offered over consecutive semesters; when you select it you must select HK*4511 in the first semester and HK*4512 in the second semester (a grade will not be assigned to HK*4511 until HK*4512 has been completed). Students must make arrangements with both a faculty advisor and the course coordinator at least one semester in advance and the signature of the course coordinator will be required to select the course. A departmental registration form must be obtained from the course coordinator and submitted no later than the second class day of the semester in which the student is registered for the course.",
+		"prerequisites": "10.00 credits including BIOL*1080",
+		"offering": "",
+		"equate": "",
+		"restriction": "Course coordinator consent required.",
+		"department": "Department of Human Health and Nutritional Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOL*1080"
+			]
+		}
+	},
+	{
+		"name": "Teaching, Learning & Knowledge Transfer II",
+		"code": "HK*4511",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Second part of a two-semester course HK*4511/2. In consultation with a faculty advisor, the student will select, design and complete an independent project on the scholarship of teaching, learning and/or knowledge transfer in human health. This is a two-semester course offered over consecutive semesters; when you select it you must select HK*4511 in the first semester and HK*4512 in the second semester (a grade will not be assigned to HK*4511 until HK*4512 has been completed). Students must make arrangements with both a faculty advisor and the course coordinator at least one semester in advance and the signature of the course coordinator will be required to select the course. A departmental registration form must be obtained from the course coordinator and submitted no later than the second class day of the semester in which the student is registered for the course.",
+		"prerequisites": "10.00 credits including BIOL*1080",
+		"offering": "",
+		"equate": "",
+		"restriction": "Course coordinator consent required.",
+		"department": "Department of Human Health and Nutritional Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOL*1080"
+			]
+		}
+	},
+	{
+		"name": "Teaching, Learning & Knowledge Transfer II.",
+		"code": "HK*4512",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "The central focus of this course is a comprehensive examination of the effects of a variety of work parameters on normal cardio-respiratory adjustments required to meet metabolic demands. Immediate adjustments to increase metabolic rate as well as long term cardio-respiratory adaptability will be discussed.",
+		"prerequisites": "HK*4511",
+		"offering": "",
+		"equate": "",
+		"restriction": "Course coordinator consent required.",
+		"department": "Department of Human Health and Nutritional Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"HK*4511"
+			]
+		}
+	},
+	{
+		"name": "Experiential Learning",
+		"code": "HUMN*3190",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is an integrated course of studies in the humanities as they relate to the resources of Latin America. It is offered either as preparation for the Latin America semester (in fall) or during this study abroad program (in winter).",
+		"prerequisites": "7.50 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Dean's Office, College of Arts",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"7.50 credits"
+			]
+		}
+	},
+	{
+		"name": "Experiential Learning",
+		"code": "HUMN*4190",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides an opportunity for independent study based in the Arts and/or Humanities related to either voluntary or paid experience. Evaluation will be based on assignments directly related to the experience. Students interested in this course must have their project approved by the instructor and the office of the Associate Dean (Academic) of the College of Arts prior to the semester in which they plan to engage in their experiential learning experience.",
+		"prerequisites": "10.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Dean's Office, College of Arts",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Capstone: Indigenous Env Gov",
+		"code": "INDG*4000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This capstone course provides students in the Indigenous Environmental Governance certificate program the opportunity to apply their learning from previous courses towards a culminating experiential learning experience. At the onset of the course, students will be introduced to more advanced research and research ethics issues, including an overview of some Indigenous research methods. Students will have the opportunity to apply these methodologies, as well as prior learning in the program, towards an independent culminating experience, such as an independent study or community-engaged learning research project related to environmental governance in Indigenous communities, nations, territories, and elsewhere.",
+		"prerequisites": "GEOG*3210, INDG*1000, POLS*3340, SOC*2280",
+		"offering": "First Offering - Fall 2023. Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "",
+		"department": "Dean's Office, College of Social and Applied Human Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"GEOG*3210",
+				"INDG*1000",
+				"POLS*3340",
+				"SOC*2280"
+			]
+		}
+	},
+	{
+		"name": "Independent Research",
+		"code": "UNIV*2800",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "In this course students will critically engage with the concept and experiences of allyship as it relates to fostering inclusive, actionable, and accountable communities. Students will explore individual, interpersonal, and institutional allyship behaviours, with attention given to challenging problematic and performative approaches. This interdisciplinary course, embedded within scholarly and community-based understandings of intersectional allyship, seeks to foster civic leadership through service-learning. In partnership with the Integrated Youth Services Network, students will apply their learning through community outreach and the development of allyship training resources.",
+		"prerequisites": "4.00 credits completed; minimum 60% cumulative average",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Associate VP Academic",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"4.00 credits completed minimum 60% cumulative average"
+			]
+		}
+	},
+	{
+		"name": "Independent Research",
+		"code": "UNIV*3800",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Ideas Congress (ICON) applies collaboration and student innovation to solve authentic systems problems in a mentored, project-based learning environment. With a focus on career-readiness, ICON teaches students valuable interpersonal, team and communication skills coupled with a focus on innovation and social entrepreneurship. Students will be challenged to innovate ideas for today's most pressing sustainability challenges. ICON partners students and faculty with community groups introducing students to broad, legitimate challenges (e.g., food insecurity, food waste, etc.), and providing students with access to expertise from across campus and the community.",
+		"prerequisites": "4.00 credits completed; minimum 60% cumulative average",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Associate VP Academic",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"4.00 credits completed minimum 60% cumulative average"
+			]
+		}
+	},
+	{
+		"name": "Independent Research",
+		"code": "UNIV*4800",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course offers students in any program the opportunity to pursue credit for relevant research experience (paid or unpaid) with the addition of course assignments either during the research experience or in a following semester. Details of the learning outcomes and requirements will be outlined in a learning contract initiated by the student and approved by a faculty supervisor. Open to students in any undergraduate program. Students should consult their program counsellor to determine how the course will count toward their program. Please consult the website for more information.",
+		"prerequisites": "4.00 credits completed; minimum 60% cumulative average",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Associate VP Academic",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"4.00 credits completed minimum 60% cumulative average"
+			]
+		}
+	},
+	{
+		"name": "Understanding Development and Global Inequalities",
+		"code": "IDEV*1000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course examines the local and global context within which inclusive and sustainable development takes place. It explores why particular economic, social, political and institutional structures are in place and the implications of those structures for inclusive and sustainable development. Key issues will include global institutions, religion, the global economy, natural and physical environment, gender, urbanization, power structures, aid architecture, nature of non-governmental organizations, local and international business, governance and fragility, and corruption.",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Dean's Office, College of Social and Applied Human Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Individual Work/Study in International Development",
+		"code": "IDEV*3200",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides an opportunity for students to engage with development practitioners in a real-world context. Students will implement a community engagement project determined in consultation with a community partner. The focus of engagement opportunities will be on the analysis of a development issue and defining related policy and/or practice options. The course explores the challenges associated with engaging with development practitioners in the real world and equips students with the necessary skills for successful engagement.",
+		"prerequisites": "10.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required. Written approval of the faculty advisor for International Development.",
+		"department": "Dean's Office, College of Social and Applied Human Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Field Course in Development Studies",
+		"code": "IDEV*3500",
+		"credit": "1.00",
+		"semester": "S",
+		"description": "This capstone course for the Major in International Development Studies course equips students to analyze complex issues in inclusive and sustainable development by applying and integrating the diverse theoretical and empirical concepts, approaches and ideas taught throughout their studies in International Development. Students will reflect on their personal positions and perspectives on development and drawing on their engagement experience. The course shows how different perspectives on sustainable and inclusive development can influence understanding and proposed solutions to development issues.",
+		"prerequisites": "7.50 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "A cumulative average of 70%. Instructor consent required.",
+		"department": "Dean's Office, College of Social and Applied Human Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"7.50 credits"
+			]
+		}
+	},
+	{
+		"name": "Thesis in International Development Studies I",
+		"code": "IDEV*4100",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Students conduct, write and present an undergraduate thesis under the supervision of a faculty member.",
+		"prerequisites": "14.00 credits including IDEV*3000, IDEV*3100",
+		"offering": "First offering - Fall 2022 Restriction(s): Registration in BA.IDS with a minimum average of 80% in all IDS major course attempts. Instructor consent required.",
+		"equate": "",
+		"restriction": "",
+		"department": "Dean's Office, College of Social and Applied Human Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"IDEV*3000",
+				"IDEV*3100"
+			]
+		}
+	},
+	{
+		"name": "Thesis in International Development Studies II",
+		"code": "IDEV*4150",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "In this course students will learn about a region that they intend to study further in an advanced work/study project (IDEV*4200). It may be offered as a reading course or as a seminar.",
+		"prerequisites": "IDEV*4100",
+		"offering": "First offering - Winter 2023",
+		"equate": "",
+		"restriction": "Restricted to students in BAH.IDS. Instructor consent required.",
+		"department": "Dean's Office, College of Social and Applied Human Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"IDEV*4100"
+			]
+		}
+	},
+	{
+		"name": "Regional Context",
+		"code": "IDEV*4190",
+		"credit": "0.25",
+		"semester": "SFW",
+		"description": "Individual work/study option at an advanced level. See IDEV*3200 for course description.",
+		"prerequisites": "10.00 credits including IDEV*2010 or IDEV*2500",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required. Written approval of the faculty advisor for International Development.",
+		"department": "Dean's Office, College of Social and Applied Human Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"IDEV*2010",
+				"IDEV*2500"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Advanced Work/Study in International Development",
+		"code": "IDEV*4200",
+		"credit": "0.75",
+		"semester": "SFW",
+		"description": "This course brings together students in international development in their final year of study to examine key debates and to integrate knowledge from different areas of emphasis in the specialization. Students draw from a variety of disciplinary and inter-disciplinary perspectives in lectures, text-based seminars and in reaction to guest speakers. In addition, students develop and present research projects which focus theoretical insight on practical concerns.",
+		"prerequisites": "IDEV*4190",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required. Written approval of the faculty advisor for International Development.",
+		"department": "Dean's Office, College of Social and Applied Human Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"IDEV*4190"
+			]
+		}
+	},
+	{
+		"name": "Advocating and Effecting Change in Development Policy and Practice",
+		"code": "IDEV*4600",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course aims to equip students with the knowledge and understanding needed to advocate for, and bring about, change in policy and practice that impact inclusive and sustainable development within government, civil society organizations and the private sector. The course examines the actions and processes through which changes in policy and practice take place, and the barriers that need to be overcome in order to effect such changes. These might include formal legal, political and administrative engagement, use of social media, protest, civil disobedience, etc. The course predominantly involves the in-depth analysis of successes and failures of advocacy and activism efforts at bringing about changes that have positive development impacts.",
+		"prerequisites": "14.00 credits including IDEV*2400, IDEV*3000, IDEV*3100, IDEV*3300",
+		"offering": "First Offering - Fall 2022.",
+		"equate": "",
+		"restriction": "",
+		"department": "Dean's Office, College of Social and Applied Human Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"IDEV*2400",
+				"IDEV*3000",
+				"IDEV*3100",
+				"IDEV*3300"
+			]
+		}
+	},
+	{
+		"name": "Experiential Learning and Language",
+		"code": "ITAL*3700",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course investigates the history of Italian migration to Canada. Students explore historical, literary, archival and oral records. They use digital tools to curate and upload their research to an open-access online exhibit and acquire competence in copyright and ethics clearance. Assignments and projects address issues facing those who work in the creation and preservation of heritage material in the digital age. Lectures and texts are in English. Students registered in ITAL3800 will meet a fourth hour per week to discuss and create heritage material in Italian. This course is offered in conjunction with HUMN3800. [Co-requisite(s): HUMN*3800]",
+		"prerequisites": "10.00 credits including 1.50 credits in Italian.",
+		"offering": "",
+		"equate": "",
+		"restriction": "A minimum cumulative average of 70% in all Italian course attempts. Instructor consent required.",
+		"department": "School of Languages and Literatures",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits including 1.50 credits in Italian."
+			]
+		}
+	},
+	{
+		"name": "JLS Honours Thesis I",
+		"code": "JLS*4800",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is Part II of the JLS Honours Thesis. Students undertake research and write an Honours thesis that makes an argument that builds upon placing the research findings into the context of the literature that they examined in Honours Thesis I. Students are required to first complete Justice and Legal Studies Honours Thesis I and receive permission of a faculty supervisor to undertake this course.",
+		"prerequisites": "",
+		"offering": "",
+		"equate": "",
+		"restriction": "Restricted to students in BAH.JLS and BAH.JLS:C.",
+		"department": "Department of Political Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "JLS Honours Thesis II",
+		"code": "JLS*4900",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is Part II of the JLS Honours Thesis. Students undertake research and write an Honours thesis that makes an argument that builds upon placing the research findings into the context of the literature that they examined in Honours Thesis I. Students are required to first complete Justice and Legal Studies Honours Thesis I and receive permission of a faculty supervisor to undertake this course.",
+		"prerequisites": "",
+		"offering": "",
+		"equate": "",
+		"restriction": "Restricted to students in BAH.JLS and BAH.JLS:C. Instructor Consent Required.",
+		"department": "Department of Political Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Independent Study",
+		"code": "LARC*3500",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides an integrated overview of professional issues involving practice, ethics, environmental concerns, government policy, research needs and professional responsibilities to society. Emphasis is placed on writing and oral presentations.",
+		"prerequisites": "LARC*3040",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "School of Environmental Design and Rural Development",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"LARC*3040"
+			]
+		}
+	},
+	{
+		"name": "Landscape Architecture Internship",
+		"code": "LARC*4620",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "Students are required to submit a project work plan, prepare professional quality design and presentation drawings, and make formal presentations. Students are encouraged to select problems that require an interdisciplinary approach that integrate skills and knowledge obtained in previous courses to produce a comprehensive final design project.",
+		"prerequisites": "LARC*3060, LARC*3440, LARC*4610",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "School of Environmental Design and Rural Development",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"LARC*3060",
+				"LARC*3440",
+				"LARC*4610"
+			]
+		}
+	},
+	{
+		"name": "Special Study in Landscape Architecture",
+		"code": "LARC*4730",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Students participate in a case study supervised by a faculty member. Travel and field studies may be involved and may entail additional costs. Students are required to submit a major paper or project.",
+		"prerequisites": "LARC*3040",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "School of Environmental Design and Rural Development",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"LARC*3040"
+			]
+		}
+	},
+	{
+		"name": "Case Studies",
+		"code": "LARC*4740",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Students participate in a case study supervised by a faculty member. Travel and field studies may be involved and may entail additional costs. Students are required to submit a major paper or project.",
+		"prerequisites": "LARC*3040",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "School of Environmental Design and Rural Development",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"LARC*3040"
+			]
+		}
+	},
+	{
+		"name": "Introduction to Canadian Business Management",
+		"code": "MGMT*2150",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides an overview of the strategic factors shaping international business. Students will examine fundamental theories, concepts and practices of managing business in a global setting. The course will include an exploration of multiculturalism, diversity, and cultural perspectives in the conduct of international business.",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "HTM*2150",
+		"restriction": "MGMT*1000. Not available to students in the BCOMM program.Departmen(s): School of Hospitality, Food and Tourism Management",
+		"department": "",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Corporate Social Responsibility",
+		"code": "MGMT*3020",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course is designed to enhance managerial skills in interpersonal communication (both oral and written), team leadership and meeting facilitation through an intensive seminar experience. The content of the seminars are based on a review of the 'great books' of leadership and management. Students will collectively select, review, discuss and debate the texts, and upon successful completion of the course will have further developed their skills in critical enquiry, consultation, evaluation, presentation, facilitation and leadership",
+		"prerequisites": "9.00 credits",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "BUS*3020",
+		"restriction": "This is a Priority Access Course. Some restrictions may apply during some time periods. Please contact the department for more information.",
+		"department": "Department of Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"9.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Business Analytics",
+		"code": "MGMT*3140",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This course teaches students about negotiation theory in addition to practical strategies and styles that can improve their conflict management and negotiation skills. The course covers conflict management from a variety of perspectives, including as first party and as third party skills.",
+		"prerequisites": "9.00 credits including (1 of MATH*1030, MATH*1080, MATH*1200) (1 of ECON*2740, PSYC*1010, STAT*2040, STAT*2060)",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "Restricted to students in BCOMM. This is a Priority Access Course. Enrolment may be restricted to particular programs or specializations. See department for more information.",
+		"department": "Department of Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"MATH*1030",
+				"MATH*1080",
+				"MATH*1200",
+				"ECON*2740",
+				"PSYC*1010",
+				"STAT*2040",
+				"STAT*2060"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Financial Management",
+		"code": "MGMT*3320",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides a lecture, discussion or seminar program on a selected topic or current issue in management. The specific topic of the course will be identified on an ad hoc basis as contemporary issues and topics in management arise.",
+		"prerequisites": "ACCT*2230 or HTM*3070",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "Registration in BCOMM or BA.EURS area of emphasis in European Business Studies.",
+		"department": "Department of Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"ACCT*2230",
+				"HTM*3070"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Current Topics in Management",
+		"code": "MGMT*3400",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Using principles of Design Thinking, students in this course will work effectively in teams to critically analyze industry-specific problems to thoughtfully develop solutions to industry problems. Students will engage in critical thinking and self-reflection to examine relevant issues from a variety of perspectives and will be required to present proposed solutions in a meaningful and impactful way.",
+		"prerequisites": "9.00 credits including (MGMT*1000 or MGMT*2150)",
+		"offering": "",
+		"equate": "",
+		"restriction": "BUS*4250, HTM*4200. Restricted to students in BCOMM and BAH.EURS_EBS. This is a Priority Access Course. See department for more information.",
+		"department": "Department of Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"MGMT*1000",
+				"MGMT*2150"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Strategic Management",
+		"code": "MGMT*4000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is an interdisciplinary course that involves management, food science and human health and nutrition majors. This course requires interdisciplinary teams of students to develop new food products, services and business ventures for the agricultural and food industries. Processes include analyzing, planning, coordinating and implementing information required for the conception, promotion and distribution of new food products and marketing ideas designed to create and maintain beneficial exchanges between food and agricultural industries while meeting the expectations and demands of consumers and the economy.",
+		"prerequisites": "MGMT*3320, [1 of ( ECON*2560 or FIN*2000), ECON*3460, ECON*3560], (1 of FARE*3310, HTM*3120, REAL*3890)",
+		"offering": "",
+		"equate": "",
+		"restriction": "BUS*4250, HTM*4200. Restricted to students in BCOMM and BAH.EURS_EBS. This is a Priority Access Course. See department for more information.",
+		"department": "School of Hospitality, Food and Tourism Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"ECON*2560",
+				"FIN*2000",
+				"FARE*3310",
+				"HTM*3120",
+				"REAL*3890"
+			],
+			"mandatory": [
+				"MGMT*3320",
+				"ECON*3460",
+				"ECON*3560"
+			]
+		}
+	},
+	{
+		"name": "Management Thesis",
+		"code": "MGMT*4991",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course is the second part of the two-semester course MGMT*4991/2. This two semester course represents the production of an undergraduate thesis in any management discipline. The thesis is an independent research project under the direct supervision of an individual faculty member. The research topic will be chosen in consultation with a faculty advisor, and will normally reflect the student's major in the Bachelor of Commerce program. A departmental registration form must be obtained from the course coordinator and signed by the faculty advisor before students can be admitted into the course. This two-semester course is offered over any two consecutive semesters, with MGMT*4991 in the first semester and MGMT*4992 in the second semester. A grade will not be assigned in MGMT*4991 until MGMT*4992 has been completed.",
+		"prerequisites": "14.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Restricted to students in BCOMM Minimum of 70% cumulative average. Instructor consent required.",
+		"department": "Dean's Office, Gordon S. Lang School of Business and Economics, Department of Economics and Finance, Department of Food, Agricultural and Resource Economics, Department of Management, Department of Marketing and Consumer Studies, School of Hospitality, Food and Tourism Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"14.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Management Thesis",
+		"code": "MGMT*4992",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course is the second part of the two-semester course MGMT*4991/2. This two semester course represents the production of an undergraduate thesis in any management discipline. The thesis is an independent research project under the direct supervision of an individual faculty member. The research topic will be chosen in consultation with a faculty advisor, and will normally reflect the student's major in the Bachelor of Commerce program. A departmental registration form must be obtained from the course coordinator and signed by the faculty advisor before students can be admitted into the course. This two-semester course is offered over any two consecutive semesters, with MGMT*4991 in the first semester and MGMT*4992 in the second semester. A grade will not be assigned in MGMT*4991 until MGMT*4992 has been completed.",
+		"prerequisites": "14.00 credits, MGMT*4991",
+		"offering": "",
+		"equate": "",
+		"restriction": "Restricted to students in BCOMM Minimum of 70% cumulative average. Instructor consent required.",
+		"department": "Dean's Office, Gordon S. Lang School of Business and Economics, Department of Economics and Finance, Department of Food, Agricultural and Resource Economics, Department of Management, Department of Marketing and Consumer Studies, School of Hospitality, Food and Tourism Management",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"MGMT*4991"
+			]
+		}
+	},
+	{
+		"name": "Introductory Marketing",
+		"code": "MCS*1000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides an overview of business communication by reviewing and discussing key issues (such as ethics and globalization), and the components of a business plan. Weekly lectures are supplemented by discussions of business cases and hand-in assignments designed to introduce students to basic business communication skills",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "This is a Priority Access Course. Some restrictions may apply during some time periods. Please contact the department for more information. This course may not be taken for credit subsequent to receiving credit in FARE*4370 or HTM*3080.",
+		"department": "Department of Marketing and Consumer Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Business Communication",
+		"code": "MCS*2000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "In this course students are introduced to the concepts and principles of information acquisition, manipulation and management as relevant to organizational decision-making. Experience in the evaluation of information technology applications used in organizations is provided.",
+		"prerequisites": "4.00 credits",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Marketing and Consumer Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"4.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Information Management",
+		"code": "MCS*2020",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This introductory course is designed to help students develop and achieve their personal goals in financial management.",
+		"prerequisites": "4.00 credits",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "This is a Priority Access Course. Some restrictions may apply during some time periods. Please contact the department for more information. Not available to students registered in BCOMP program.",
+		"department": "Department of Marketing and Consumer Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"4.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Personal Financial Management",
+		"code": "MCS*2100",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Organizations survive and achieve their goals by satisfying the needs and wants of consumers as well as or better than their competitors. This course examines consumer behaviours, the economic, social, cultural and psychological factors related to consumer behaviours, the evolution and change in behaviours and relationships, and the ways in which consumers respond to stimuli employed in the marketing of products, services and ideas.",
+		"prerequisites": "5.00 credits",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "COST*2100",
+		"restriction": "",
+		"department": "Department of Marketing and Consumer Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"5.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Business and Consumer Law",
+		"code": "MCS*3040",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course examines actionable marketing strategies and tactics that can be implemented and measured with a variety of digital tools. We will examine the convergence of owned media, earned media and paid media in digital spaces, and learn how a strategic plan can be supported on digital marketing platforms. Marketing management principles, and the design, measurement and evaluation of communication programs will be viewed through the lens of digital marketing.",
+		"prerequisites": "4.00 credits",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "Registration in BCOMM program, BA.BADM minor, or BA.EURS area of emphasis in European Business Studies. This is a Priority Access Course. Some restrictions may apply during some time periods. Please contact the department for more information.",
+		"department": "Department of Marketing and Consumer Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"4.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Consumer Studies Practicum",
+		"code": "MCS*4950",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "The practicum provides students with supervised experience in developing marketing plans or working on consumer studies projects.",
+		"prerequisites": "15.00 credits including MCS*3030, MCS*3500, MCS*3620",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in BCOMM.MKMN or BCOMM.MKMN:C. Instructor consent required.",
+		"department": "Department of Marketing and Consumer Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"MCS*3030",
+				"MCS*3500",
+				"MCS*3620"
+			]
+		}
+	},
+	{
+		"name": "Introduction to Microbiology",
+		"code": "MICR*2420",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course uses a hands-on approach to investigate microbial growth and factors that impact growth and the interactions of microbes with biotic and abiotic environments. This course will explore the ecological diversity of microorganisms of selected environments. Students will develop a wide range of microbiology-related laboratory skills.",
+		"prerequisites": "4.00 credits including (1 of BIOL*1070, BIOL*1080, BIOL*1090, CHEM*1040)",
+		"offering": "",
+		"equate": "",
+		"restriction": "This is a Priority Access Course. Enrolment may be restricted to particular programs, specializations or semester levels during certain periods. Please see the departmental website for more information.",
+		"department": "Department of Molecular and Cellular Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"BIOL*1070",
+				"BIOL*1080",
+				"BIOL*1090",
+				"CHEM*1040"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Research Project in Molecular and Cellular Biology I",
+		"code": "MCB*4500",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This course involves independent research of a practical or theoretical nature on a specific topic in molecular and cellular biology. It is carried out under the supervision of an individual faculty member. Students should make arrangements with both a faculty advisor and the course coordinator at least one semester in advance of taking the course. The signature of the course coordinator will be required to select the course. A departmental registration form must be obtained from, and submitted to, the course coordinator no later than the 2nd class day of the semester in which the student is registered for the course.",
+		"prerequisites": "MBG*3350 or equivalent laboratory experience at the discretion of the student's faculty advisor. Normally, students must have completed 6 semesters in an appropriate program in the biological sciences",
+		"offering": "",
+		"equate": "",
+		"restriction": "Minimum 70% cumulative average in science courses during the first 6 semesters of the relevant majors. Students in programs offering project courses cannot enroll in MCB*4500. Grade requirements may be waived in exceptional circumstances at the discretion of faculty advisor and course coordinator. Course coordinator consent required.",
+		"department": "Department of Molecular and Cellular Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"equivalent laboratory experience at the discretion of the student's faculty advisor. Normally students must have completed 6 semesters in an appropriate program in the biological sciences",
+				"MBG*3350"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Research Project in Molecular and Cellular Biology",
+		"code": "MCB*4510",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This course involves the independent study of a current topic in Molecular and Cellular Biology, selected from the recent research literature and involving a review and critical appraisal of the area. The course comprises independent library research, participation in weekly meetings, and written and oral presentations. Students should make arrangements with both faculty advisor and the course coordinator in a prior course selection period.",
+		"prerequisites": "MCB*4500. Normally, students must have completed 6 semesters in an appropriate program in the biological sciences. Minimum 70% cumulative average in science courses during the first 6 semesters of the relevant majors.",
+		"offering": "",
+		"equate": "",
+		"restriction": "Students in programs offering project courses cannot enroll in MCB*4510. Grade requirements may be waived in exceptional circumstances at the discretion of faculty advisor and course coordinator. Course coordinator consent required.",
+		"department": "Department of Molecular and Cellular Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"MCB*4500"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Topics in Molecular and Cellular Biology",
+		"code": "MCB*4600",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course involves the independent study of a current topic in Molecular and Cellular Biology, selected from the recent research literature and involving a review and critical appraisal of the area. The course comprises independent library research, participation in weekly meetings, and written and oral presentations. Students should make arrangements with both faculty advisor and the course coordinator in a prior course selection period.",
+		"prerequisites": "MBG*3350 or equivalent laboratory experience at the discretion of the student's faculty advisor. Normally, students must have a minimum of 3.00 credits in 3000 or 4000 level BIOC, MBG, MCB OR MICR courses",
+		"offering": "",
+		"equate": "",
+		"restriction": "Students in programs offering topics courses cannot enroll in MCB*4600. Coordinator consent required.",
+		"department": "Department of Molecular and Cellular Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"equivalent laboratory experience at the discretion of the student's faculty advisor. Normally students must have a minimum of 3.00 credits in 3000",
+				"MBG*3350"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Laboratory Methods in Molecular Biology",
+		"code": "MBG*3350",
+		"credit": "0.75",
+		"semester": "SFW",
+		"description": "This course examines the genomes of eukaryotes and prokaryotes including how genomes are mapped and sequenced, the function of the genome and ethical issues arising from genomic information. How genomic data is used for understanding and treating human disease and for the study of evolution will also be discussed.",
+		"prerequisites": "BIOC*2580, MCB*2050",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in BSC.BIOC (major or minor), BIOC:C, BTOX, BTOX:C, BPCH, BPCH:C, MICR(major or minor), MICR:C , MBG (major or minor), PBTC, PLSC (major or minor), TOX, TOX:C",
+		"department": "Department of Molecular and Cellular Biology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOC*2580",
+				"MCB*2050"
+			]
+		}
+	},
+	{
+		"name": "Applied Music II",
+		"code": "MUSC*1510",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course offers an introduction to the avant-garde musical life of the 20th century and beyond including the works of Debussy, Stravinsky, Satie, Schoenberg, Cage, Cowell, and others.",
+		"prerequisites": "A minimum grade of 70% in MUSC*1500.",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in a Music Specialization.",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"MUSC*1500"
+			]
+		}
+	},
+	{
+		"name": "Classical Music from Concert Hall to Cinema",
+		"code": "MUSC*2380",
+		"credit": "0.50",
+		"semester": "S",
+		"description": "This course offers class instruction in the technical and aesthetic aspects of music composition and improvisation.",
+		"prerequisites": "2.00 credits",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "MUSC*1060. Not available to students registered in a Music specialization.",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"2.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Applied Music III",
+		"code": "MUSC*2500",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "A continuation of MUSC*2500.",
+		"prerequisites": "(MUSC*1180 or MUSC*2180), a minimum grade of 70% in MUSC*1510. (MUSC*1180 or MUSC*2180 may be taken as corequisite)",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in a Music specialization.",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"MUSC*1180",
+				"MUSC*1180",
+				"MUSC*2180",
+				"MUSC*2180",
+				"MUSC*1180",
+				"MUSC*1180",
+				"MUSC*2180",
+				"MUSC*2180"
+			],
+			"mandatory": [
+				"MUSC*1510"
+			]
+		}
+	},
+	{
+		"name": "Applied Music IV",
+		"code": "MUSC*2510",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "The study and performance of selected instrumental music through participation in one of the School's ensembles: Chamber Ensemble, Concert Winds, Contemporary Music Ensemble, Jazz Ensemble. In order to register for an ensemble, the student must arrange for an audition with the School of Fine Art and Music. Auditions will be held prior to the first day of classes each Fall and Winter semester. Students must check with the School of Fine Art and Music office for audition dates. Students are encouraged to audition for an ensemble in the Fall semester and to participate in it for both Fall and Winter semesters. Not all ensembles will be able to accept new members in Winter. Consult the School of Fine Art and Music for further information.",
+		"prerequisites": "A minimum grade of 70% in MUSC*2500",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in a Music specialization.",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"MUSC*2500"
+			]
+		}
+	},
+	{
+		"name": "Applied Music V",
+		"code": "MUSC*3500",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "A continuation of MUSC*3500 including preparation and performance of a juried recital; restricted to students in a Music program (honours major or minor or general, area of concentration).",
+		"prerequisites": "3.00 credits in music courses including a minimum grade of 70% in MUSC*2510",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in a Music Program (Honours major or minor, General).",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"MUSC*2510"
+			]
+		}
+	},
+	{
+		"name": "Applied Music VI",
+		"code": "MUSC*3510",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "The study and performance of selected instrumental or vocal chamber music through participation in a small ensemble under the guidance of a supervising instructor. Students will organize the ensemble, which normally consists of two to six vocalists and/or instrumentalists, design a project with the instructor, and submit the proposal to the Music Faculty Committee for approval by the last day of course selection in Fall (for Winter) or Winter (for the following Fall). A form is available from the School office for this purpose.",
+		"prerequisites": "4.00 credits in music courses including a minimum grade of 70% in MUSC*3500",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in a Music Program (Honours major or minor, General, Area of Concentration).",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"MUSC*3500"
+			]
+		}
+	},
+	{
+		"name": "Experiential Learning in Music",
+		"code": "MUSC*4200",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "The Honours Seminar in Music teaches advanced research methods common to a range of musical investigations: musicology (including ethnomusicology, popular music and jazz), music theory, music pedagogy, and musical creation. In addition, the Honours Seminar in Music allows students to engage in individual research with concentrated energy through a one semester/one credit course in a supportive peer environment. Students will develop a research project proposal for approval by the instructor in the semester prior to enrolling in this course.",
+		"prerequisites": "3.00 credits in Music, including (1 of MUSC*3730, MUSC*3740, MUSC*3800, MUSC*3820, MUSC*3860, MUSC*3880)",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration in a Music Program (Honours major or minor, General). Instructor consent required.",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"MUSC*3730",
+				"MUSC*3740",
+				"MUSC*3800",
+				"MUSC*3820",
+				"MUSC*3860",
+				"MUSC*3880"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Honours Music Recital Preparation",
+		"code": "MUSC*4460",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Second part of a two-semester performance project culminating in a music recital at the end of the second semester. MUSC*4460 and MUSC*4470 are normally taken over consecutive semesters.",
+		"prerequisites": "Completion of the music core, a minimum grade of 70% in MUSC*3510",
+		"offering": "",
+		"equate": "MUSC*4401",
+		"restriction": "Permission of the School and registration in an honours major in music.",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"MUSC*3510"
+			]
+		}
+	},
+	{
+		"name": "Honours Music Recital",
+		"code": "MUSC*4470",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Second part of a two-semester performance project culminating in a music recital at the end of the second semester. MUSC*4460 and MUSC*4470 are normally taken over consecutive semesters.",
+		"prerequisites": "A minimum grade of 70% in MUSC*4460",
+		"offering": "",
+		"equate": "MUSC*4402",
+		"restriction": "Registration in an honours major in music.",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"MUSC*4460"
+			]
+		}
+	},
+	{
+		"name": "Nanoscience Research Project I",
+		"code": "NANO*4910",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "Students will work with faculty in their laboratories on research topics of current interest. A final written paper and oral presentation of the work will be given by the students.",
+		"prerequisites": "1.50 credits in NANO courses at the 3000 level.",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"1.50 credits in NANO courses at the 3000 level."
+			]
+		}
+	},
+	{
+		"name": "Nanoscience Research Project II",
+		"code": "NANO*4920",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "Students will work with faculty in their laboratories on research topics of current interest. A final written paper and oral presentation of the work will be given by the students.",
+		"prerequisites": "NANO*4910",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"NANO*4910"
+			]
+		}
+	},
+	{
+		"name": "Research in Neurosciences",
+		"code": "NEUR*4401",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is the second part of the two-semester course NEUR*4401/2.. In this course, students will conduct independent research of a current topic in any of the biomedical neurosciences: (such as anatomy, physiology, pharmacology, toxicology, molecular biology, biochemistry). Students work under the supervision of individual faculty. Faculty consent must be obtained prior to being admitted into the course by the course coordinator. This is a two-semester course offered over consecutive semesters. When you register for this course you must select NEUR*4401 in the first semester and NEUR*4402 in the second semester. A grade will not be assigned in NEUR*4401 until NEUR*4402 has been completed.",
+		"prerequisites": "14.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "BIOM*4510, BIOM*4521, BIOM*4522, NEUR*4450. Instructor consent required. Enrolment restricted to BSC.NEUR major and minor.",
+		"department": "Department of Biomedical Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"14.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Research in Neurosciences",
+		"code": "NEUR*4402",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "In this course, students will conduct independent laboratory research on a current topic in any of the biomedical neurosciences (such as anatomy, physiology, pharmacology, toxicology, molecular biology, biochemistry). Students work under the supervision of individual faculty. Faculty consent must be obtained prior to being admitted into the course by the course coordinator.",
+		"prerequisites": "NEUR*4401",
+		"offering": "",
+		"equate": "",
+		"restriction": "BIOM*4510, BIOM*4521, BIOM*4522, NEUR*4450. Enrolment restricted to BSC.NEUR major and minor.",
+		"department": "Department of Biomedical Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"NEUR*4401"
+			]
+		}
+	},
+	{
+		"name": "Research in Neurosciences",
+		"code": "NEUR*4450",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "In this course, students will conduct independent laboratory research on a current topic in any of the biomedical neurosciences (such as anatomy, physiology, pharmacology, toxicology, molecular biology, biochemistry). Students work under the supervision of individual faculty. Faculty consent must be obtained prior to being admitted into the course by the course coordinator.",
+		"prerequisites": "14.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "BIOM*4510, BIOM*4521, BIOM*4522, NEUR*4401. NEUR*4402. Instructor consent required. Enrolment restricted to BSC.NEUR major and minor.",
+		"department": "Department of Biomedical Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"14.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Fundamentals of Nutrition",
+		"code": "NUTR*3210",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "The course emphasizes the biochemical basis for the dietary essentiality of vitamins and minerals. The course extends the fundamentals of nutrition to include conditional essentiality of micronutrients, biochemical individuality and the use of micronutrient supplementation to promote human and animal health. Both plant and animal sources of nutrients are discussed.",
+		"prerequisites": "BIOC*2580",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Human Health and Nutritional Sciences",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"BIOC*2580"
+			]
+		}
+	},
+	{
+		"name": "Research Internship in AHN",
+		"code": "NUTR*3500",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course examines the principles and methods used in nutritional assessment of individuals and populations in health and disease states. Dietary, anthropometric and biochemical techniques will be primary components. Nutritional screening, advanced techniques for body composition assessment, physical exam and clinical indicators will also be addressed. Significant independent learning will be required.",
+		"prerequisites": "FRHD*3070, STAT*2090",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Family Relations and Applied Nutrition",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"FRHD*3070",
+				"STAT*2090"
+			]
+		}
+	},
+	{
+		"name": "Principles of Disease",
+		"code": "PATH*3610",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "A course designed to familiarize the fisheries manager, researcher or veterinarian with the basic principles of diagnosis, prevention, and control of disease of free living and captive aquatic animals, with emphasis on fish.",
+		"prerequisites": "1.50 credits in biology",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "PATH*3600",
+		"department": "Department of Pathobiology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"1.50 credits in biology"
+			]
+		}
+	},
+	{
+		"name": "Animals in Philosophy",
+		"code": "PHIL*2080",
+		"credit": "0.50",
+		"semester": "S",
+		"description": "This course is designed to develop clarity of thought and method in the analysis and construction of arguments. By contrast to PHIL*2110, the emphasis here is upon informal principles of critical thinking and arguments stated in terms of ordinary language. Topics include the nature and methods of arguing, classification, definition and fallacies.",
+		"prerequisites": "2.00 credits or (1 of PHIL*1000, PHIL*1010, PHIL*1050)",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Philosophy",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"PHIL*1000",
+				"PHIL*1010",
+				"PHIL*1050"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Introductory Physics",
+		"code": "PHYS*1020",
+		"credit": "0.50",
+		"semester": "S",
+		"description": "This course discusses physics of matter and energy at the macroscopic and microscopic levels, with special emphasis on topics of importance to the biological sciences. Topics include properties of waves, acoustics and hearing, optical systems and vision, quantum nature of radiation and its interaction with biomolecules, electricity, high energy radiation and radioactivity.",
+		"prerequisites": "",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Physics",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Law, Politics and Judicial Process",
+		"code": "POLS*3130",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course examines the legal and political effects of the Canadian Charter of Rights and Freedoms. Issues to be examined may include the Charter's influence on Canadian political culture and identity, interest groups and social movements, the power of the courts, and public policy. Analysis of specific Charter sections and judicial decisions along with comparisons to other countries will be used to aid the analysis.",
+		"prerequisites": "1 of POLS*2250, POLS*2300, POLS*2350",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Political Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"POLS*2250",
+				"POLS*2300",
+				"POLS*2350"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "The Constitution and Canadian Federalism",
+		"code": "POLS*3210",
+		"credit": "0.50",
+		"semester": "SW",
+		"description": "This course explores the impact of modern science and technology, and its impact on the western tradition of justice from the seventeenth century to the twentieth century. It will explore this theme in writers such as Thomas Hobbes, Jonathan Swift, J-J Rousseau, Edmund Burke, Friedrich Nietzsche and George Grant. The exact selection of thinkers will vary from year to year and students are advised to check the course outline.",
+		"prerequisites": "HIST*2600 or POLS*2300",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Political Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"HIST*2600",
+				"POLS*2300"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Environmental Politics and Governance",
+		"code": "POLS*3370",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This course involves a treatment of the basic principles and institutions of national government and politics in the United States as well as the making and execution of public policy at the national and state levels.",
+		"prerequisites": "7.50 credits",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Political Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"7.50 credits"
+			]
+		}
+	},
+	{
+		"name": "Selected Topics in Political Science",
+		"code": "POLS*3960",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "The seminar critically investigates topics in comparative, transnational, or international law and judicial processes.",
+		"prerequisites": "1.50 credits at the 3000 level in Political Science or equivalent",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Political Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"1.50 credits at the 3000 level in Political Science or equivalent"
+			]
+		}
+	},
+	{
+		"name": "Special Topics Seminar in Political Science",
+		"code": "POLS*4900",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This course provides for independent reading and research in selected areas of the discipline not covered by regular course offerings. Prior to enrollment in the course, approval must be obtained from a member of the department willing to supervise the research. Students should approach potential supervisors with a proposal for readings and research, which may include reflection and expansion on a subject matter addressed in previous course assignments.",
+		"prerequisites": "14.00 credits, including 1.00 credits in Political Science at the 3000 level.",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Political Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"14.00 credits, including 1.00 credits in Political Science at the 3000 level."
+			]
+		}
+	},
+	{
+		"name": "Selected Topics in Political Science II",
+		"code": "POLS*4910",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides for independent reading and research in selected areas of the discipline not covered by regular course offerings. Prior to enrollment in the course, approval must be obtained from a member of the department willing to supervise the research. Students should approach potential supervisors with a proposal for readings and research, which may include reflection and expansion on a subject matter addressed in previous course assignments.",
+		"prerequisites": "1.50 credits at the 3000 level in Political Science or equivalent",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Political Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"1.50 credits at the 3000 level in Political Science or equivalent"
+			]
+		}
+	},
+	{
+		"name": "Selected Topics in Political Science",
+		"code": "POLS*4930",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This is Part I of the Honours Essay. Students complete the necessary reading and research for their Honours Essay under the supervision of a department advisor. A research proposal is expected by the end of the semester. Political science majors who wish to pursue an honours thesis must register in this course in their 7th semester. Student selection of an approved subject area and instructor must be completed in the semester previous to enrolment in this course.",
+		"prerequisites": "1.50 credits at the 3000 level in Political Science or equivalent",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Political Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"1.50 credits at the 3000 level in Political Science or equivalent"
+			]
+		}
+	},
+	{
+		"name": "Honours Political Science Research I",
+		"code": "POLS*4970",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is Part II of the Honours Essay. Students organize and write their essays under the supervision of their advisor. Major honours political science students must register in this course in their 8th semester.",
+		"prerequisites": "70% average in all POLS courses. Recommendation: Students with less than a 75% average are advised not to take this course.",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Political Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"70% average in all POLS courses. Recommendation: Students with less than a 75% average are advised not to take this course."
+			]
+		}
+	},
+	{
+		"name": "Honours Political Science Research II",
+		"code": "POLS*4980",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is Part II of the Honours Essay. Students organize and write their essays under the supervision of their advisor. Major honours political science students must register in this course in their 8th semester.",
+		"prerequisites": "POLS*4970",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Political Science",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"POLS*4970"
+			]
+		}
+	},
+	{
+		"name": "Introduction to Psychology",
+		"code": "PSYC*1000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course introduces research designs and quantitative approaches used in psychological science, with an emphasis on conceptual understanding. Specific topics include distributions, meta-analysis, confidence intervals and p-values, effect size, and regression, as well as the differences between descriptive, correlational, and experimental research designs.",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "This is a Priority Access Course. Some restrictions may apply during some time periods.",
+		"department": "Department of Psychology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Social Psychology",
+		"code": "PSYC*2310",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides a detailed description of principles and concepts of learning and motivation, as well as an introduction to their underlying neurobiological mechanisms. Through the examination of empirical evidence in the fields of Psychology and Behavioural Neuroscience, this course offers a comprehensive description of the role of conditioning in normal and abnormal behaviours.",
+		"prerequisites": "1 of PSYC*1000, PSYC*1100, PSYC*1200",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Psychology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"PSYC*1000",
+				"PSYC*1100",
+				"PSYC*1200"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Behavioural Neuroscience I",
+		"code": "PSYC*2410",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This course is an introduction to and an analysis of the major theories of developmental psychology. Emphasis will be placed on the processes of development in the child including physical growth, perception, cognition, personality and interactions with the social environment. The application of developmental psychology to educational and social issues will be discussed.",
+		"prerequisites": "1 of PSYC*1000, PSYC*1100, PSYC*1200",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "This is a Priority Access Course. Some restrictions may apply during some time periods.",
+		"department": "Department of Psychology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"PSYC*1000",
+				"PSYC*1100",
+				"PSYC*1200"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Independent Research Project",
+		"code": "PSYC*3240",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course focuses on training students how to conduct research such that measurement theory guides measure selection and construction. Consequences of measurement theory (reliability/validity) for the accuracy of research findings and interpretation of test scores are also covered. A variety of individual difference variables are examined with an emphasis on how measurement strategies differ depending on the nature of the construct. (H)",
+		"prerequisites": "2.50 credits in Psychology including PSYC*2360",
+		"offering": "",
+		"equate": "PSYC*3900",
+		"restriction": "A minimum grade point average of 75% in Psychology courses. Instructor consent required.",
+		"department": "Department of Psychology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"PSYC*2360"
+			]
+		}
+	},
+	{
+		"name": "Psychology Externship",
+		"code": "PSYC*3910",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides individual students with hands-on experience conducting a research project. Students are supervised directly by a faculty member as they conduct an in-depth investigation of a specific topic within psychology. Typically, the course involves both the practice and reporting of research. Students will apply the research and communication skills they have acquired through prior coursework in order to work more independently. Course registration requires the signature of the Psychology Academic Manager. This signature is contingent upon the student demonstrating they have obtained a faculty supervisor's signature and satisfy the course prerequisites. Please see the Psychology department website for more information. https://www.uoguelph.ca/psychology/",
+		"prerequisites": "PSYC*2070, PSYC*2360, (2 of PSYC*2020, PSYC*2310, PSYC*2450, PSYC*2740), (1 of PSYC*2330, PSYC*2390, PSYC*2410, PSYC*2650)",
+		"offering": "",
+		"equate": "",
+		"restriction": "Restricted to Psychology majors BAH, BAH:C, and Psychology area of concentration. Instructor consent required.",
+		"department": "Department of Psychology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"PSYC*2020",
+				"PSYC*2310",
+				"PSYC*2450",
+				"PSYC*2740",
+				"PSYC*2330",
+				"PSYC*2390",
+				"PSYC*2410",
+				"PSYC*2650"
+			],
+			"mandatory": [
+				"PSYC*2070",
+				"PSYC*2360"
+			]
+		}
+	},
+	{
+		"name": "Advanced Independent Research Project",
+		"code": "PSYC*4240",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This is an in-depth examination of specific advances in social psychological research, theory, and/or applications. Selected topic areas may include the psychology of social groups, women's health and well-being, and community interventions. Specific topics, to be announced prior to course selection, will vary according to the interests of the instructor of the course.",
+		"prerequisites": "14.00 credits including [(PSYC*2040 or PSYC*3290) ), 1.00 credits in Psychology at the 3000 level]",
+		"offering": "",
+		"equate": "",
+		"restriction": "PSYC*4500, PSYC*4510. Restricted to students in BAH.PSYC, BAH.PSYC:C, BSCH.PBC or a major or minor in Neurosciences with a minimum grade point average of 75% in all Psychology course attempts. Instructor consent required.",
+		"department": "Department of Psychology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"PSYC*2040",
+				"PSYC*3290"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Honours Thesis I",
+		"code": "PSYC*4870",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course is a continuation of PSYC*4870. Students conduct research and write an undergraduate thesis under the direction of a faculty member.",
+		"prerequisites": "14.00 credits including (1 of NEUR*3500, PSYC*3000, 7.50 credits in Psychology)",
+		"offering": "",
+		"equate": "",
+		"restriction": "PSYC*4540. Restricted to students in BAH.PSYC, BAH.PSYC:C, BSCH.PBC or a major or minor in Neurosciences with a minimum grade point average of 75% in all Psychology course attempts. Instructor consent required.",
+		"department": "Department of Psychology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"NEUR*3500",
+				"PSYC*3000"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Honours Thesis II",
+		"code": "PSYC*4880",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This course is a continuation of PSYC*4870. Students conduct research and write an undergraduate thesis under the direction of a faculty member.",
+		"prerequisites": "PSYC*4870",
+		"offering": "",
+		"equate": "",
+		"restriction": "PSYC*4540. Restricted to students in BAH.PSYC, BAH.PSYC:C, BSCH.PBC or a major or minor in Neurosciences with a minimum grade point average of 75% in all Psychology course attempts. Instructor consent required.",
+		"department": "Department of Psychology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"PSYC*4870"
+			]
+		}
+	},
+	{
+		"name": "Sociology",
+		"code": "SOC*1100",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course will introduce students to the study of crime and criminal justice. It will examine the various criminological theories, types of criminal behaviour, and the criminal justice system.",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Homicide",
+		"code": "SOC*2760",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "An interpretation of the political process and its relationship to other aspects of the social structure, including such topics as political parties, movements, factions, citizen participation, power structures and the process of political exchange.",
+		"prerequisites": "1 of ANTH*1150, FRHD*1010, PHIL*1010, POLS*1400, PSYC*1000, PSYC*1100, PSYC*1200, SOC*1100, SOC*1500",
+		"offering": "Offered through Distance Education format only.",
+		"equate": "",
+		"restriction": "This is a Priority Access Course. Enrolment may be restricted to particular programs or specializations. Please see the departmental website for more information.",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"ANTH*1150",
+				"FRHD*1010",
+				"PHIL*1010",
+				"POLS*1400",
+				"PSYC*1000",
+				"PSYC*1100",
+				"PSYC*1200",
+				"SOC*1100",
+				"SOC*1500"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Special Projects in Sociology",
+		"code": "SOC*3950",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course will focus on the changing nature of violence in our society by critically evaluating theory, research and public policy on the causes and control of violence. The links among structural, institutional and interpersonal violence will be examined as well as the social construction of violence, particularly why some forms of violence are considered to be more serious social problems than others.",
+		"prerequisites": "10.00 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required. Please note, a student is allowed a total of 1.00 credits only for reading courses.",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits"
+			]
+		}
+	},
+	{
+		"name": "Special Projects in Sociology",
+		"code": "SOC*4880",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This special study/reading course option is designed to provide advanced undergraduates with an opportunity to explore independently the frontiers and foundations of a field of knowledge. Under supervision, the student will study in greater depth topics related to regular upper-level courses offered in the department which the student has taken or is taking. Permission of the instructor who will be supervising the project is required.",
+		"prerequisites": "12.50 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required. Please note, a student is allowed a total of 1.00 credits only for reading courses.",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"12.50 credits"
+			]
+		}
+	},
+	{
+		"name": "Special Projects in Sociology",
+		"code": "SOC*4890",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Development and design of an honours thesis proposal conducted under the supervision of a faculty member. Recommended to Honours students.",
+		"prerequisites": "12.50 credits",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required. Please note, a student is allowed a total of 1.00 credits only for reading courses.",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"12.50 credits"
+			]
+		}
+	},
+	{
+		"name": "Honours Sociology Thesis I",
+		"code": "SOC*4900",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Completion and presentation of honours thesis.",
+		"prerequisites": "15.00 credits including SOC*3310, SOAN*3070, SOAN*3120. CJPP students must have 15.00 credits including SOC*2700, SOAN*3120, or POLS*3650",
+		"offering": "",
+		"equate": "",
+		"restriction": "A cumulative average of 75% in all Sociology and Anthropology courses. Instructor consent required.",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"SOAN*3120",
+				"SOAN*3120",
+				"POLS*3650"
+			],
+			"mandatory": [
+				"SOC*3310",
+				"SOAN*3070",
+				"SOAN*3120",
+				"SOC*2700",
+				"SOAN*3120"
+			]
+		}
+	},
+	{
+		"name": "Honours Sociology Thesis II",
+		"code": "SOC*4910",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Completion and presentation of honours thesis.",
+		"prerequisites": "SOC*4900",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"SOC*4900"
+			]
+		}
+	},
+	{
+		"name": "Introduction to Gender Systems",
+		"code": "SOAN*2400",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "This course examines the social, economic, and political dimensions of work, locating work and its transformation within the broader context of globalization, economic restructuring, and shifts in public policy. Theoretical approaches and concepts used in the study of work will be introduced and critically assessed.",
+		"prerequisites": "ANTH*1150 or SOC*1100",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Department of Sociology and Anthropology",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"ANTH*1150",
+				"SOC*1100"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Experiential Learning and Language",
+		"code": "SPAN*3700",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "A reading course in Spanish or Spanish American literature designed according to the previous studies and the interests of the individual student. Normally, students will not be permitted to take more than two courses in the Directed Readings sequence.",
+		"prerequisites": "10.00 credits including 1.50 credits in Spanish.",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "A minimum cumulative average of 70% in all Spanish course attempts. Instructor consent required.",
+		"department": "School of Languages and Literatures",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"10.00 credits including 1.50 credits in Spanish."
+			]
+		}
+	},
+	{
+		"name": "Research Paper in Hispanic Studies",
+		"code": "SPAN*4840",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "Students will write an intensive research paper in Spanish on a topic relating to a literary or linguistic subject in Hispanic Studies. This paper will be completed within one semester and students will be assigned to a faculty supervisor who will oversee the project.",
+		"prerequisites": "1 of SPAN*3210, SPAN*3220, SPAN*3230",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "School of Languages and Literatures",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"SPAN*3210",
+				"SPAN*3220",
+				"SPAN*3230"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Statistics I",
+		"code": "STAT*2040",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "In this course, students will learn how to implement good study design and analyze data from complex studies. This course follows naturally from STAT*2040 and features both previously unseen statistical techniques, as well as studying in greater depth some topics covered in STAT*2040. These topics will include: experiments and observational studies; a review of t-tests and confidence intervals; confounding variables; association and causality; Analysis of Variance (ANOVA); simple and multiple linear regression; binary responses (logistic regression); odds ratios and relative risk; and an introduction to experimental design (including blocked designs and factorial treatment designs). Assignments carried out using modern statistical software will form the basis for mastering the material.",
+		"prerequisites": "1 of 4U Calculus and Vectors, Advanced Functions and Calculus, OAC Calculus, MATH*1080",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "STAT*2060, STAT*2080, STAT*2120, STAT*2230. This is a Priority Access Course. Enrollment may be restricted to particular programs or specializations. See department for more information.",
+		"department": "Department of Mathematics and Statistics",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"MATH*1080"
+			]
+		}
+	},
+	{
+		"name": "Experiential Learning I",
+		"code": "SART*3800",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course provides students with an opportunity to continue the workplace or activity begun in SART*3800 in greater depth, or to experience a new work/study situation. Evaluation will be based on assignments related to work duties. Written proposals, signed by the supervisor and a faculty member, must be submitted to the Director for the School for approval by the last day of course selection in the Fall (for Winter) or Winter (for the following Summer or Fall) semester.",
+		"prerequisites": "3.00 credits in Studio Art",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration is limited to students registered in the Art History or Studio Art specializations with an average of 70% in all ARTH and SART course attempts. Instructor consent required.",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"3.00 credits in Studio Art"
+			]
+		}
+	},
+	{
+		"name": "Experiential Learning II",
+		"code": "SART*3900",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This course will study the technical development of observational drawing as well as the experimental and intentional development of drawing as a contemporary art form. Drawings will be made and discussed with attention to semiotic theory in order to examine the production and interpretation of meaning.",
+		"prerequisites": "SART*3800 and 3.50 credits in Studio Art",
+		"offering": "",
+		"equate": "",
+		"restriction": "Registration is limited to students registered in the Art History or Studio Art specializations with an average of 80% in all ARTH and SART course attempts. Instructor consent required.",
+		"department": "School of Fine Art and Music",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"SART*3800"
+			]
+		}
+	},
+	{
+		"name": "Experiential Learning",
+		"code": "THST*3000",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "Under the supervision of a faculty member, students in this course will be placed in experiential learning situations at the university or in the wider community where they will support a community or academic project. Students will be required to become familiar with the goals and procedures of the project, to frame and articulate learning objectives, and to express in writing their learning outcomes. Depending on the placement, a police record check may be required in order to placed. Please consult with the Theatre Studies website for further information on experiential learning opportunities. https://www.uoguelph.ca/sets/theatre-studies/ba",
+		"prerequisites": "7.50 credits, including THST*2050, THST*2190",
+		"offering": "",
+		"equate": "",
+		"restriction": "Restricted to students in a Theatre Studies specialization. Instructor consent required.",
+		"department": "School of English and Theatre Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"THST*2050",
+				"THST*2190"
+			]
+		}
+	},
+	{
+		"name": "Experiential Learning",
+		"code": "THST*3010",
+		"credit": "0.50",
+		"semester": "SFW",
+		"description": "This variable content course focuses on a selected area of theatre history. Students will be encouraged to integrate primary and secondary materials in a presentation of research findings which may take a range of forms including an essay, media or theatrical presentation.",
+		"prerequisites": "7.50 credits, including THST*2050, THST*2190",
+		"offering": "",
+		"equate": "",
+		"restriction": "Restricted to students in a Theatre Studies specialization. Instructor consent required.",
+		"department": "School of English and Theatre Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"THST*2050",
+				"THST*2190"
+			]
+		}
+	},
+	{
+		"name": "Shakespeare: Text & Performance",
+		"code": "THST*3260",
+		"credit": "0.50",
+		"semester": "S",
+		"description": "Within a studio context, students are introduced to techniques of voice, particularly in relation to performing verse. The course is taught as an intensive lab in conjunction with the Stratford Festival and is offered in Stratford, Ontario. The course may involve a lab fee. Admission to the course is by application to the School of English and Theatre Studies. Further information is available from the School.",
+		"prerequisites": "2.50 credits in Theatre Studies including THST*3140 or 1.00 credits in English",
+		"offering": "",
+		"equate": "",
+		"restriction": "",
+		"department": "School of English and Theatre Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"THST*3140"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Voice and Text in Performance",
+		"code": "THST*3340",
+		"credit": "0.50",
+		"semester": "S",
+		"description": "Students will collaborate in the exploration of theory and creative practice in a project-based course. The projects may be theatrical or media-based, or an integration of both depending on the iteration of the course. Please consult the Theatre Studies website for more information.",
+		"prerequisites": "2.50 credits in Theatre Studies including THST*3190",
+		"offering": "",
+		"equate": "",
+		"restriction": "Instructor consent required.",
+		"department": "School of English and Theatre Studies",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"THST*3190"
+			]
+		}
+	},
+	{
+		"name": "Environmental Chemistry and Toxicology",
+		"code": "TOX*3360",
+		"credit": "0.50",
+		"semester": "SW",
+		"description": "This course will focus on the toxicology of mammalian body systems with emphasis on dose-response, mechanisms and the sites of action of major groups of chemical toxicants and biological toxins. The course is designed for students majoring in Bio-Medical Sciences, Biomedical Toxicology and Toxicology.",
+		"prerequisites": "CHEM*1050",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "CHEM*3360",
+		"restriction": "",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"CHEM*1050"
+			]
+		}
+	},
+	{
+		"name": "Toxicology Research Project I",
+		"code": "TOX*4900",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This course involves a research project in toxicology. Students must make arrangements with both the faculty supervisor and the course coordinator at least one semester in advance. The project supervisor should normally be a faculty member from the Toxicology Program.",
+		"prerequisites": "CHEM*3430 or TOX*3300",
+		"offering": "",
+		"equate": "",
+		"restriction": "Normally a minimum cumulative average of 70% is required. Instructor consent required.",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [
+				"CHEM*3430",
+				"TOX*3300"
+			],
+			"mandatory": []
+		}
+	},
+	{
+		"name": "Toxicology Research Project II",
+		"code": "TOX*4910",
+		"credit": "1.00",
+		"semester": "SFW",
+		"description": "This course involves a research project in toxicology. Students must make arrangements with both the faculty supervisor and the course coordinator at least one semester in advance. The project supervisor should normally be a faculty member from the Toxicology Program.",
+		"prerequisites": "TOX*4900",
+		"offering": "",
+		"equate": "",
+		"restriction": "Normally a minimum cumulative average of 70% is required. Instructor consent required.",
+		"department": "Department of Chemistry",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": [
+				"TOX*4900"
+			]
+		}
+	},
+	{
+		"name": "Introduction to Women's Studies",
+		"code": "WMST*1000",
+		"credit": "0.50",
+		"semester": "SF",
+		"description": "An interdisciplinary analysis of the role gender plays in representation, drawing on areas such as television, film, music, literature, visual arts, ethnography, medicine and law. International and cross-cultural perspectives included.",
+		"prerequisites": "",
+		"offering": "Also offered through Distance Education format.",
+		"equate": "",
+		"restriction": "",
+		"department": "Dean's Office, College of Arts",
+		"location": "Guelph",
+		"prerequisiteCodes": {
+			"or_courses": [],
+			"mandatory": []
+		}
+	}
+]
