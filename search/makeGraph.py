@@ -201,7 +201,10 @@ def getNodeColor(courseCode, delimeter):
     :param p1: courseCode (string)
     :return: (String) color of node
     """
-    courseYear = (courseCode.split(delimeter))[1][0]
+    if delimeter in courseCode:
+        courseYear = (courseCode.split(delimeter))[1][0]
+    else:
+        return 'magenta'
     if courseYear == '1':
         return 'red'
     elif courseYear == '2':
