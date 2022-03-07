@@ -150,12 +150,12 @@ let getPreCode = (prereqStr,courseRequirementGrp,coursePrereqs,tmp) => {
     if (prereqStr.includes("or") || prereqStr.match(/[(1-9 ]{3}[of]{2}/g) != null && coursePrereqs.length > 1) { // If there is an "or" case or a "(# of ...)" case, if the courseprereqs length is less than 1, then it has some special cases, just insert it into mandatory
 
         /* If it has 'or' and course codes then it must be dealt with, check for credits */
-        /*let optionalRequirements = getOptionalExtras(prereqStr);
+        let optionalRequirements = getOptionalExtras(prereqStr);
             if (optionalRequirements.length > 0)
                 for (let i = 0; i < optionalRequirements.length; i++){
-                    courseRequirementGrp.extra.push(optionalRequirements[i]);
+                    courseRequirementGrp.or_courses.push(optionalRequirements[i]);
                 }
-        */
+
         /* Loop through the course codes in the prerequisites */
         for (let i = 0; i < coursePrereqs.length; i++) {
             
@@ -214,17 +214,16 @@ let getPreCodeGuelph = (prereqStr) => {
 
     let courseRequirementGrp = {
         or_courses: [],
-        mandatory: []/*,
-        extra: []*/
+        mandatory: []
     };
 
     let coursePrereqs = prereqStr.match(/[A-Z*]{2,5}[0-9]{4}/g); // splits the prerequisite string and holds the course codes in the string
 
     if (coursePrereqs != null) {
         courseRequirementGrp = getPreCode(prereqStr,courseRequirementGrp,coursePrereqs,coursePrereqs);
-    } /*else if (prereqStr != "") {
-        courseRequirementGrp.extra.push(prereqStr.replace(/[;]/g, ""));
-    } */
+    } else if (prereqStr != "") {
+        courseRequirementGrp.mandatory.push(prereqStr.replace(/[;]/g, ""));
+    } 
     return courseRequirementGrp;
 }
 
@@ -238,12 +237,11 @@ let getPreCodeMcGill = (prereqStr) => {
 
     let courseRequirementGrp = {
         or_courses: [],
-        mandatory: []/*,
-        extra: []*/
+        mandatory: []
     };
 
     let coursePrereqs = prereqStr.match(/[A-Z]{4}[ ]{1}[0-9D]{3,5}/g); // splits the prerequisite string and holds the course codes in the string
-
+    
     if (coursePrereqs != null) {
         let tmp = prereqStr.match(/[A-Z]{4}[ ]{1}[0-9D]{3,5}/g);
         for (let i = 0; i < coursePrereqs.length; i++) {
@@ -254,9 +252,9 @@ let getPreCodeMcGill = (prereqStr) => {
         }
         
         courseRequirementGrp = getPreCode(prereqStr,courseRequirementGrp,coursePrereqs,tmp);
-    } /*else if (prereqStr != "") {
-        courseRequirementGrp.extra.push(prereqStr.replace(/;/g, ""));
-    } */
+    } else if (prereqStr != "") {
+        courseRequirementGrp.mandatory.push(prereqStr.replace(/;/g, ""));
+    } 
     return courseRequirementGrp;
 }
 
