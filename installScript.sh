@@ -2,8 +2,12 @@
 
 # update and upgrade
 cd ~
+
 sudo apt-get -qq -y update
 sudo apt upgrade
+
+# install nginx
+sudo apt-get install nginx
 
 # Install Chromium
 sudo apt install -y chromium
