@@ -7,74 +7,21 @@ Graphs majors and programs for University of Guelph, and subjects for McGill.
 
 ### Dependencies
 
-* Chromium (if you're using a linux-based system, `sudo apt-get install chromium`)
-* graphviz (if you're using a linux-based system, `sudo apt-get install graphviz graphviz-dev`)
 * Node 14 or higher
-    * Playwright
 * Python 3.9 or higher
-    * pip3
-    * pygraphviz
-    * pytest
+    * sudo apt install python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools
 
-## Installation 
+## Installation and setup of React and Flask
 
-### 1. Clone this repository using HTTPS or SSH
+1. Navigate to the directory named `webapp`
+2. Run `npm install` to install dependencies for the node program 
+3. Run `npm run build` to create a build for the NGINX server to serve
+4. Naviate to the directory named `flask-api`
+5. Run `python3 install -r requirements.txt` to install Python dependencies
 
-`git clone https://gitlab.socs.uoguelph.ca/w22_cis3760_team6/team6.git`  
+## Installation and setup of NGINX and Flask
 
-or  
-
-`git clone git@gitlab.socs.uoguelph.ca:w22_cis3760_team6/team6.git`
-
-### 2. Checkout to 'sprint6' branch
-
-`git checkout sprint6`
-
-### 3. Navigate to the 'scraper' directory, install dependencies and run the scraper
-
-`npm install`  
-
-**To run the scraper use the following commands**
-
-Help menu - `node scraper.js` or `node scraper.js -h`
-
-Generate Guelph json - `node scraper.js uog`
-Generate McGill json - `node scraper.js mcg`
-
-**If `node ./index.js` throws an error, make sure chromium is installed on your system and make sure your Node version is >= 14**
-
-After running the node script, a directory named 'json' should appear with all course data.
-
-### 4. Install python dependencies
-
-Naviate to the `search` directory.
-**Make sure you have pip3 installed before continuing and make sure python version is >= 3.9!**  
-Install dependencies - `pip3 install -r requirements.txt `
-
-### Install Script
-
-To run the install script, enter the following in the terminal
-
-`chmod u+x installScript.sh`
-
-## Program Execution
-
-* Be sure to use a bash shell to execute the program!
-
-Help menu - `python3 courseSearch.py`  
-
-Generate prerequisite graph for McGill subjects - `python3 makeGraph.py sbg {subject code, i.e. all}`
-Generate prerequisite graph for a program - `python3 makeGraph.py prg {program code, i.e CIS}`  
-Generate prerequisite graph for a major - `python3 makeGraph.py mrg {major code, i.e CS}`  
-List all majors (for UoG) - `python3 makeGraph.py lm`  
-List all programs (for UoG) - `python3 courseSearch.py lp`
-Search by course code - `python3 courseSearch.py cc {course code, i.e ACCT*1220}`  
-Search by program code - `python3 courseSearch.py pc {program code, i.e ACCT}`  
-Search by course weight and season - `python3 courseSearch.py cw {course weight, i.e 0.25}, {season (optional), i.e S}`  
-
-## Installation and setup of NGINX
-
-1. Run the install script to install NGINX
+1. While in the repo directory, run the install script to install NGINX
 2. Navigate to the etc folder - `cd /etc`
 3. Obtain the hostname - `cat /hostname`
 4. Open an editor to copy the hostname into /etc/hosts - `sudo nano hosts`
@@ -85,6 +32,7 @@ Search by course weight and season - `python3 courseSearch.py cw {course weight,
 6. Navigate to the sites-available folder - `cd /etc/nginx/sites-available`
 7. Create a file called flask-api - `sudo nano flask-api`
 8. Copy the following into the file - 
+```
 server {
     server_name 131.104.49.106;
     root /home/sysadmin/sprint-1/webapp/build;
@@ -93,11 +41,34 @@ server {
     location / {
         try_files $uri /index.html;
     }
+
+    location /api {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/sysadmin/sprint-1/flask-api/flask-api.sock;
+    }
 }
+```
+9. Navigate to `/etc/systemd/system`
+10. Create and open a file called flask-api.service - `sudo nano flask-api.service`
+11. Copy the follwing into the file -
+```
+[Unit]
+Description="uWSGI server instance for flask-api"
+After=network.target
 
-## Webapp
+[Service]
+User=sysadmin
+Group=sysadmin
+WorkingDirectory=/home/sysadmin/sprint-1/flask-api/
+Environment=FLASK_ENV=test
+ExecStart=/home/sysadmin/.local/bin/uwsgi --ini /home/sysadmin/sprint-1/flask-api/app.ini
 
-To run the web server, input `131.104.49.106` in your browser
+[Install]
+WantedBy=multi-user.target
+```
+11. Run `sudo ufw allow 'Nginx Full'`
+12. Run `sudo systemctl nginx start` and `sudo systemctl flask-api start` to run the nginx server and Flask API.
+
 
 ## Running tests
 
