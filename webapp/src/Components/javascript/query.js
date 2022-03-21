@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -34,26 +33,26 @@ const Query = () => {
                 "Content-Type": "application/json"
             },
         })
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                // Result table is the table that will show our results, empty the table before adding new children
-                let table = document.getElementById('resultTable');
-                while (table.hasChildNodes()) {
-                    table.removeChild(table.firstChild);
-                }
-                // Counter for number of rows, insert each search result into the table
-                let i = 0;
-                for (const course in data) {
-                    let row = table.insertRow(i);
-                    let cell = row.insertCell(0);
-                    cell.innerHTML = data[course]['code'];
-                    i += 1;
-                }
-            }, function (rejectionReason) { // Error check
-                console.log('Error parsing', rejectionReason);
-            });
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            // Result table is the table that will show our results, empty the table before adding new children
+            let table = document.getElementById('resultTable');
+            while (table.hasChildNodes()) {
+                table.removeChild(table.firstChild);
+            }
+            // Counter for number of rows, insert each search result into the table
+            let i = 0;
+            for (const course in data) {
+                let row = table.insertRow(i);
+                let cell = row.insertCell(0);
+                cell.innerHTML = data[course]['code'];
+                i += 1;
+            }
+        }, function (rejectionReason) { // Error check
+            console.log('Error parsing', rejectionReason);
+        });
     }
 
     // Depending on university onchange event, populate the programs table
@@ -104,16 +103,16 @@ const Query = () => {
                 "Content-Type": "application/json"
             },
         })
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                for (const i in data) {
-                    programs.options[programs.options.length] = new Option(data[i], data[i]);
-                }
-            }, function (rejectionReason) { // Error check
-                console.log('Error parsing', rejectionReason);
-            });
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            for (const i in data) {
+                programs.options[programs.options.length] = new Option(data[i], data[i]);
+            }
+        }, function (rejectionReason) { // Error check
+            console.log('Error parsing', rejectionReason);
+        });
 
         // Populate Programs and Credits drop down
         // Change this code after receiving information from fetch, populate tables with json contents
@@ -122,22 +121,10 @@ const Query = () => {
 
         // Dynamic change of Credits based on University
     };
-    // Current accepted schools
+    // Schools, credits and offering seasons
     const schools = [
         "University of Guelph",
         "McGill University",
-    ];
-
-    // Need to receive values from back-end or hard code them in
-    const GuelphPrograms = [
-        "Computer Science",
-        "Biology",
-        "Physics",
-    ];
-    const McGillPrograms = [
-        "Biology",
-        "CS",
-        "Chemistry",
     ];
     const uogCredits = [
         "0.25",
@@ -169,11 +156,9 @@ const Query = () => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand" href="/query">
-                    {/* This image is not showing up for some reason */}
-                    {/* <img src="webapp\public\t6Logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""></img> */}
-                    Team 6
+            <nav className="navbar navbar-expand-lg navbar-dark bg-secondary padding">
+                <a className="navbar-brand padding" href="/query">
+                    <img src={require('../images/Team6_Logo.png')} width="60" height="60" class="d-inline-block align-top" />
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -182,6 +167,7 @@ const Query = () => {
                     <div className="navbar-nav">
                         <a className="nav-item nav-link active" href="/query">Query</a>
                         <a className="nav-item nav-link" href="/search">Search</a>
+                        <a className="nav-item nav-link" href="/graph">Graph</a>
                     </div>
                 </div>
             </nav>
@@ -231,6 +217,9 @@ const Query = () => {
                         <div class="table-responsive">
                             <table class="table table-striped table-hover" id="resultTable">
                                 <tbody>
+                                    <tr>
+                                        Search results will appear here
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

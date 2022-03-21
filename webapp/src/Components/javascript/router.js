@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { Router, Switch, Route } from "react-router-dom";
+import { useState } from 'react';
+import ReactFlow from 'react-flow-renderer';
+
 
 import Search from "./search";
 import Query from "./query";
 import history from "./history";
+import Graph from "./graph";
 
 export default class Routes extends Component {
     render() {
@@ -13,6 +17,7 @@ export default class Routes extends Component {
                     <Route path="/" exact component={Query} />
                     <Route path="/query" exact component={Query} />
                     <Route path="/search" exact component={Search} />
+                    <Route path="/graph" exact component={Graph} />
                 </Switch>
             </Router>
         )
