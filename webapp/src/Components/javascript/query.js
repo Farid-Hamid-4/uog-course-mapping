@@ -1,10 +1,11 @@
+import * as React from 'react';
+
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Stack from 'react-bootstrap/Stack'
 import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
-import * as React from "react";
 
 const Query = () => {
 
@@ -17,79 +18,114 @@ const Query = () => {
     // Search button functionality
     const searchSubmit = (e) => {
         e.preventDefault()
-        // params will be used in the future, it is a json to be sent to backend
-        const params = { University, Program, Credits, Offering }
 
-        // Once we have params, we can then reset values
-        setUniversity('');
-        setProgram('');
-        setCredits('');
-        setOffering('');
-
+        let parameters = '';
         // Fetch request to api/search which deals with using the parameters to use program to search
-        fetch('/api/search', {
-            method: 'GET',
+        fetch('/api/search/filtered', {
+            method: 'POST',
+            body: JSON.stringify({
+                school: University.toString(),
+                program: Program.toString(),
+                credit: Credits.toString(),
+                offering: Offering.toString()
+            }),
             headers: {
                 'Accept': 'application/json',
                 "Content-Type": "application/json"
             },
         })
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data){
-            // Result table is the table that will show our results, empty the table before adding new children
-            let table = document.getElementById('resultTable');
-            while (table.hasChildNodes())
-            {
-                table.removeChild(table.firstChild);
-            }
-            // Counter for number of rows, insert each search result into the table
-            let i = 0;
-            for (const course in data){
-                console.log(JSON.stringify(course))
-                let row = table.insertRow(i);
-                let cell = row.insertCell(0)
-                cell.innerHTML = data[course];
-                i += 1;
-            }
-        }, function (rejectionReason) { // Error check
-            console.log('Error parsing', rejectionReason);
-        });
-
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                // Result table is the table that will show our results, empty the table before adding new children
+                let table = document.getElementById('resultTable');
+                while (table.hasChildNodes()) {
+                    table.removeChild(table.firstChild);
+                }
+                // Counter for number of rows, insert each search result into the table
+                let i = 0;
+                for (const course in data) {
+                    let row = table.insertRow(i);
+                    let cell = row.insertCell(0);
+                    cell.innerHTML = data[course]['code'];
+                    i += 1;
+                }
+            }, function (rejectionReason) { // Error check
+                console.log('Error parsing', rejectionReason);
+            });
     }
 
     // Depending on university onchange event, populate the programs table
     const changeUniversity = (event) => {
-        setUniversity(event.target.value);
+        event.preventDefault();
+
         let university = event.target.value;
-        // Don't populate table if it's school or if it is equal to what it previously was
-        if (university === "School" || university === University) // Hide the elements
-            return;
+        let uniCredits = "";
+        if (university == "University of Guelph") {
+            university = "uog";
+            uniCredits = uogCredits;
+        }
+        if (university == "McGill University") {
+            university = "mcg";
+            uniCredits = mcgCredits;
+        }
 
-        // Program Selector is the program drop down
+        if (university === University) return;
+        //if (university === "McGill University" && University == 'mcg') return;
+
+        setProgram("");
+        setCredits("");
+
+        //Set the university
+        setUniversity(university);
+
+        //Clear the programs and credits drop down
         let programs = document.getElementById('ProgramSelector')
-        if (university === "University of Guelph") // Remove previous programs before adding the new ones
-        {
-            for (let i = programs.options.length-1; i > 0; i--)
-                programs.remove(i);
+        for (let i = programs.options.length - 1; i > 0; i--)
+            programs.remove(i);
 
-            for (let i = 0; i < GuelphPrograms.length; i++)
-                programs.options[programs.options.length] = new Option(GuelphPrograms[i], "Guelph " + GuelphPrograms[i]);
-        }
-        if (university === "McGill") // Remove previous programs before adding the new ones
-        {
-            for (let i = programs.options.length-1; i > 0; i--)
-                programs.remove(i);
+        let credits = document.getElementById('CreditSelector')
+        for (let i = credits.options.length - 1; i > 0; i--)
+            credits.remove(i);
 
-            for (let i = 0; i < McGillPrograms.length; i++)
-                programs.options[programs.options.length] = new Option(McGillPrograms[i], "McGill " + McGillPrograms[i]);
-        }
+        console.log(university + " First");
+        if (university == "") return;
+
+
+        // Fetch json formatted with Programs [], Credits[]
+        fetch('/api/search/university', {
+            method: 'POST',
+            body: JSON.stringify({
+                school: university,
+            }),
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                for (const i in data) {
+                    programs.options[programs.options.length] = new Option(data[i], data[i]);
+                }
+            }, function (rejectionReason) { // Error check
+                console.log('Error parsing', rejectionReason);
+            });
+
+        // Populate Programs and Credits drop down
+        // Change this code after receiving information from fetch, populate tables with json contents
+        for (let i = 0; i < uniCredits.length; i++)
+            credits.options[credits.options.length] = new Option(uniCredits[i], uniCredits[i]);
+
+        // Dynamic change of Credits based on University
     };
     // Current accepted schools
     const schools = [
         "University of Guelph",
-        "McGill",
+        "McGill University",
     ];
 
     // Need to receive values from back-end or hard code them in
@@ -103,10 +139,27 @@ const Query = () => {
         "CS",
         "Chemistry",
     ];
-    const mockCredits = [
-        "0.5",
+    const uogCredits = [
+        "0.25",
+        "0.50",
+        "0.75",
+        "1.00",
+        "1.75",
+        "2.00",
+        "2.50",
+        "2.75",
+        "7.50",
+    ];
+    const mcgCredits = [
         "1",
-        "1.5",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
     ];
     const offerings = [
         "Winter",
@@ -127,42 +180,39 @@ const Query = () => {
                 </button>
                 <div className="collapse navbar-collapse justify-content-end nav-pills" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        {/* <Button variant="outline-info">Query</Button>
-                        <Button variant="outline-info">Search</Button> */}
-                        <a className="nav-item nav-link active" href="/query">Query<span className="sr-only">(current)</span></a>
+                        <a className="nav-item nav-link active" href="/query">Query</a>
                         <a className="nav-item nav-link" href="/search">Search</a>
                     </div>
                 </div>
             </nav>
             <Container>
                 <Row>
-                    <Col>
+                    <Col xs={6}>
                         <h1>Filters</h1>
 
                         <Stack gap={2}>
                             <div className="input-group mb-3">
                                 <select className="form-select" id="SchoolSelector" title="School" onChange={changeUniversity}>
-                                    <option defaultValue={"No School Selected"}>School</option>
+                                    <option value=''>School</option>
                                     {schools.map((school) => (<option key={school}>{school}</option>))}
                                 </select>
                             </div>
 
                             <div className="input-group mb-3">
-                                <select className="form-select" id="ProgramSelector" title="Program" name="Program" onChange={(e) => setProgram(e.currentTarget.value)}>
-                                    <option defaultValue={"No Program Selected"}>Programs</option>
+                                <select className="form-select" id="ProgramSelector" title="Program" onChange={(e) => setProgram(e.currentTarget.value)}>
+                                    <option value=''>Programs</option>
                                 </select>
                             </div>
 
                             <div className="input-group mb-3">
-                                <select className="form-select" id="inputGroupSelect03" title="Credit" onChange={(e) => setCredits(e.currentTarget.value)}>
-                                    <option defaultValue={"No Credits Selected"}>Credits</option>
-                                    {mockCredits.map((credit) => (<option key={credit}>{credit}</option>))}
+                                <select className="form-select" id="CreditSelector" title="Credit" onChange={(e) => setCredits(e.currentTarget.value)}>
+                                    <option value=''>Credits</option>
                                 </select>
                             </div>
 
                             <div className="input-group mb-3">
                                 <select className="form-select" id="inputGroupSelect04" title="Offering" onChange={(e) => setOffering(e.currentTarget.value)}>
-                                    <option defaultValue={"No Offering selected"}>Offering</option>
+                                    <option value=''>Offering</option>
                                     {offerings.map((season) => (<option key={season}>{season}</option>))}
                                 </select>
                             </div>
@@ -171,13 +221,20 @@ const Query = () => {
                             </>
                         </Stack>
                     </Col>
-                    <Col>
+                    <Col xs={6}>
                         <h1>Results</h1>
-
-                        <Table striped bordered hover id="resultTable">
+                        
+                        {/* <Table responsive striped bordered hover id="resultTable" maxHeight="120px">
                             <tbody>
                             </tbody>
-                        </Table>
+                        </Table> */}
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover" id="resultTable">
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </Col>
                 </Row>
             </Container>

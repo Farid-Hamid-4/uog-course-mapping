@@ -5,7 +5,7 @@
 import json
 import os.path
 
-from printResults.printCourseResults import printCourseResults
+#from printResults.printCourseResults import printCourseResults
 
 # Program Information
 __author__ = "Harsh Topiwala, Jainil Patel, Nicholas Baker, Lourenco Velez, Farid Hamid"
@@ -37,7 +37,7 @@ def courseCodeSearch(courseCode):
         for course in program['programCourse']:
             if course['code'] == courseCode:
                 resultCount += 1
-                print(printCourseResults(course))
+                #print(printCourseResults(course))
                 print('-----------------------------------------------------\n')
                 break
 

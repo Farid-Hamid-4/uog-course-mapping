@@ -17,7 +17,7 @@ Graphs majors and programs for University of Guelph, and subjects for McGill.
 2. Run `npm install` to install dependencies for the node program 
 3. Run `npm run build` to create a build for the NGINX server to serve
 4. Naviate to the directory named `flask-api`
-5. Run `python3 install -r requirements.txt` to install Python dependencies
+5. Run `pip3 install -r requirements.txt` to install Python dependencies
 
 ## Installation and setup of NGINX and Flask
 
@@ -69,12 +69,64 @@ WantedBy=multi-user.target
 11. Run `sudo ufw allow 'Nginx Full'`
 12. Run `sudo systemctl nginx start` and `sudo systemctl flask-api start` to run the nginx server and Flask API.
 
+## HTTPS/SSL setup
+1. Create a configuration snippet file - `sudo nano /etc/nginx/snippets/self-signed.conf`
+2. Add the following to the configuration file
+```
+ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+```
+3. Create a second configuration snippet that points to the newly generated SSL key and certificate. - `sudo nano /etc/nginx/snippets/ssl-params.conf`
+4. Add the following to the configuration file
+```
+ssl_protocols TLSv1.2;
+ssl_prefer_server_ciphers on;
+ssl_dhparam /etc/ssl/certs/dhparam.pem;
+ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384;
+ssl_ecdh_curve secp384r1; # Requires nginx >= 1.1.0
+ssl_session_timeout 10m;
+ssl_session_cache shared:SSL:10m;
+ssl_session_tickets off; # Requires nginx >= 1.5.9
+# ssl_stapling on; # Requires nginx >= 1.3.7
+# ssl_stapling_verify on; # Requires nginx => 1.3.7
+resolver 8.8.8.8 8.8.4.4 valid=300s;
+resolver_timeout 5s;
+add_header X-Frame-Options DENY;
+add_header X-Content-Type-Options nosniff;
+add_header X-XSS-Protection "1; mode=block";
+```
+5. Generate the dhparam.pem file. This command will take some time - `sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048`
+6. Open the server block in sites-available - `sudo nano /etc/nginx/sites-available/flask-api`
+7. Paste this into the file
+```
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;    
 
-## Running tests
+    include snippets/self-signed.conf;
+    include snippets/ssl-params.conf;
 
-*COMPLETE STEP 4 OF INSTALLATION BEFORE CONTINUING*
+    server_name 131.104.49.106;
+    root /home/sysadmin/sprint-1/webapp/build;
+    index index.html;
+   
+    location / {
+        try_files $uri /index.html;
+    }
 
-In the 'search' directory - `python3 -m pytest`
+    location /api {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/sysadmin/sprint-1/flask-api/flask-api.sock;
+    }
+
+}
+
+server {
+    server_name 131.104.49.106;
+
+    return 302 https://$server_name$request_uri;
+}
+```
 
 ## Authors
 
