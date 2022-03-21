@@ -17,6 +17,11 @@ code {
   width: 100%;
 }
 
+.padding {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .table-responsive {
   height: 300px !important;
   overflow: auto;
