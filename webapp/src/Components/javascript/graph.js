@@ -88,6 +88,60 @@ const Graph = () => {
 
   const [searchValue, setSearch] = React.useState('');
   const [radioValue, setRadioValue] = React.useState('1');
+  const [University, setUniversity] = React.useState('');
+  const [Program, setProgram] = React.useState('');
+
+  // Depending on university onchange event, populate the programs table
+  const changeUniversity = (event) => {
+    event.preventDefault();
+
+    let university = event.target.value;
+    if (university == "University of Guelph") {
+        university = "uog";
+    }
+    if (university == "McGill University") {
+        university = "mcg";
+    }
+
+    if (university === University) return;
+    //if (university === "McGill University" && University == 'mcg') return;
+
+    setProgram("");
+
+    //Set the university
+    setUniversity(university);
+
+    //Clear the programs and credits drop down
+    let programs = document.getElementById('ProgramSelector')
+    for (let i = programs.options.length - 1; i > 0; i--)
+        programs.remove(i);
+
+    console.log(university + " First");
+    if (university == "") return;
+
+    // Fetch json formatted with Programs [], Credits[]
+    fetch('/api/search/university', {
+        method: 'POST',
+        body: JSON.stringify({
+            school: university,
+        }),
+        headers: {
+            'Accept': 'application/json',
+            "Content-Type": "application/json"
+        },
+    })
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        for (const i in data) {
+            programs.options[programs.options.length] = new Option(data[i], data[i]);
+        }
+    }, function (rejectionReason) { // Error check
+        console.log('Error parsing', rejectionReason);
+    });
+    // Dynamic change of Credits based on University
+};
 
   const searchSubmit = (e) => {
       e.preventDefault()
@@ -129,11 +183,15 @@ const Graph = () => {
     });
   }
 
-
   const radios = [
     { name: 'UoG', value: '1' },
     { name: 'McGill', value: '2' },
   ];
+
+  const schools = [
+    "University of Guelph",
+    "McGill University",
+];
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -147,6 +205,18 @@ const Graph = () => {
         <Button onClick={() => history.goBack()}>back</Button>
         <Stack gap={3}>
           <h1 className="text-center">Search for a course</h1>
+          <div className="input-group mb-3">
+              <select className="form-select" id="SchoolSelector" title="School" onChange={changeUniversity}>
+                  <option value=''>School</option>
+                  {schools.map((school) => (<option key={school}>{school}</option>))}
+              </select>
+          </div>
+
+          <div className="input-group mb-3">
+              <select className="form-select" id="ProgramSelector" title="Program" onChange={(e) => setProgram(e.currentTarget.value)}>
+                  <option value=''>Programs</option>
+              </select>
+          </div>
           <ButtonGroup>
               {radios.map((radio, idx) => (
                   <ToggleButton
