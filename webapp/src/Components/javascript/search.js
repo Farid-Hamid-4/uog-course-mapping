@@ -12,24 +12,48 @@ import ToggleButton from 'react-bootstrap/ToggleButton'
 import '../css/mainstyles.css'
 
 const Search = () => {
+    const [searchValue, setSearch] = React.useState('');
+    const [radioValue, setRadioValue] = React.useState('1');
 
     const searchSubmit = (e) => {
         e.preventDefault()
 
+        console.log(radioValue.toString());
+        console.log(searchValue.toString());
+
         // Fetch request to api/search which deals with using the parameters to use program to search
-         /*fetch('/api/search/filtered', {
-            method: 'POST',
-            body: JSON.stringify({ 
-                
-            }),
-            headers: {
-                'Accept': 'application/json',
-                "Content-Type": "application/json"
-            },
-        })
-            .then(function (response) {*/
+        fetch('/api/search/bar', {
+           method: 'POST',
+           body: JSON.stringify({
+               school: radioValue.toString(),
+               term: searchValue.toString()
+           }),
+           headers: {
+               'Accept': 'application/json',
+               "Content-Type": "application/json"
+           },
+       })
+       .then(function (response) {
+           return response.json();
+       })
+       .then(function (data) {
+            // Result table is the table that will show our results, empty the table before adding new children
+            let table = document.getElementById('resultTable');
+            while (table.hasChildNodes()) {
+                table.removeChild(table.firstChild);
+            }
+            // Counter for number of rows, insert each search result into the table
+            let i = 0;
+            for (const course in data) {
+                let row = table.insertRow(i);
+                let cell = row.insertCell(0);
+                cell.innerHTML = data[course]['code'];
+                i += 1;
+            }
+       }, function (rejectionReason) { // Error check
+           console.log('Error parsing', rejectionReason);
+       });
     }
-    const [radioValue, setRadioValue] = React.useState('1');
 
     const radios = [
         { name: 'UoG', value: '1' },
@@ -79,17 +103,19 @@ const Search = () => {
                                     </ToggleButton>
                                 ))}
                             </ButtonGroup>
-                                <input class="form-control" type="text" placeholder="Enter Course code, name" />
-                                <div class="text-center d-grid">
+                            <input class="form-control" type="text" placeholder="Enter Course code, name" onChange={(e) => setSearch(e.target.value)}/>
+                            <div class="text-center d-grid">
                                 <Button variant="info" type="submit" onClick={searchSubmit}>Search</Button>{' '}
-                                </div>
-                            <Table id="resultTable" striped bordered hover>
-                                <tbody>
-                                    <tr>
-                                        Search results will appear here
-                                    </tr>
-                                </tbody>
-                            </Table>
+                            </div>
+                            <div class="table-responsive">
+                                <Table class="table table-striped table-hover" id="resultTable" striped bordered hover>
+                                    <tbody>
+                                        <tr>
+                                            Search results will appear here
+                                        </tr>
+                                    </tbody>
+                                </Table>
+                            </div>
                         </Stack>
                     </Col>
                 </Row>

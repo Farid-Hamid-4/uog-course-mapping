@@ -31,9 +31,9 @@ def searchBar():
     filePath = os.path.dirname(__file__)
     filePath = filePath[:-1] + '../scraper/json/'
 
-    if searchInfo['school'] == 'uog':
+    if searchInfo['school'] == '1':
         filePath += 'GuelphAllCourses.json'
-    elif searchInfo['school'] == 'mcg':
+    elif searchInfo['school'] == '2':
         filePath += 'McGillAllCourses.json'
     
     file = open(filePath, encoding="utf-8")
@@ -43,13 +43,13 @@ def searchBar():
     response = []
 
     for i in range(len(data)):
-        programCourses = data[i]['courses']
+        programCourses = data[i]['programCourse']
         for j in range(len(programCourses)):
             term = searchInfo['term']
             if term in programCourses[j]['name'] or term in programCourses[j]['code']:
                 response.append(programCourses[j])
 
-    return response
+    return json.dumps(response)
     
 @app.route("/api/search/university", methods=['GET','POST'])
 def updateUniversity():

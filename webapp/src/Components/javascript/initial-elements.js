@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { MarkerType } from 'react-flow-renderer';
 
 export const nodes = [
@@ -9,7 +8,7 @@ export const nodes = [
     data: {
       label: (
         <>
-          Welcome to <strong>React Flow!</strong>
+          <strong>CIS*1300</strong>
         </>
       ),
     },
@@ -19,9 +18,7 @@ export const nodes = [
     id: '2',
     data: {
       label: (
-        <>
-          This is a <strong>default node</strong>
-        </>
+        'CIS*2500'
       ),
     },
     position: { x: 100, y: 100 },
@@ -30,9 +27,7 @@ export const nodes = [
     id: '3',
     data: {
       label: (
-        <>
-          This one has a <strong>custom style</strong>
-        </>
+        'CIS*1910'
       ),
     },
     position: { x: 400, y: 100 },
@@ -47,13 +42,13 @@ export const nodes = [
     id: '4',
     position: { x: 250, y: 200 },
     data: {
-      label: 'Another default node',
+      label: 'CIS*2430',
     },
   },
   {
     id: '5',
     data: {
-      label: 'Node id: 5',
+      label: 'CIS*2750',
     },
     position: { x: 250, y: 325 },
   },
@@ -62,36 +57,30 @@ export const nodes = [
     type: 'output',
     data: {
       label: (
-        <>
-          An <strong>output node</strong>
-        </>
+        'CIS*3750'
       ),
     },
     position: { x: 100, y: 480 },
-  },
-  {
-    id: '7',
-    type: 'output',
-    data: { label: 'Another output node' },
-    position: { x: 400, y: 450 },
-  },
+  }
 ];
 
 export const edges = [
-  { id: 'e1-2', source: '1', target: '2', label: 'this is an edge label' },
-  { id: 'e1-3', source: '1', target: '3' },
+  { id: 'e1-2', source: '1', target: '2', label: 'this is a mandatory prereq', markerEnd:{type: MarkerType.ArrowClosed} },
+  { id: 'e1-3', source: '1', target: '3', markerEnd:{type: MarkerType.ArrowClosed}},
   {
     id: 'e3-4',
     source: '3',
     target: '4',
     animated: true,
-    label: 'animated edge',
+    label: 'this is an optional prereq',
+	markerEnd: {
+		type: MarkerType.ArrowClosed,
+	}
   },
   {
     id: 'e4-5',
     source: '4',
     target: '5',
-    label: 'edge with arrow head',
     markerEnd: {
       type: MarkerType.ArrowClosed,
     },
@@ -100,18 +89,11 @@ export const edges = [
     id: 'e5-6',
     source: '5',
     target: '6',
-    type: 'smoothstep',
-    label: 'smooth step edge',
-  },
-  {
-    id: 'e5-7',
-    source: '5',
-    target: '7',
     type: 'step',
     style: { stroke: '#f6ab6c' },
-    label: 'a step edge',
-    animated: true,
-    labelStyle: { fill: '#f6ab6c', fontWeight: 700 },
+  	markerEnd : { 
+		type: MarkerType.ArrowClosed,
+	}
   },
 ];
 
