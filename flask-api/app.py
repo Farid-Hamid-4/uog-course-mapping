@@ -52,7 +52,7 @@ def getProgramData(school, programName):
     res = {}
 
     for program in data:
-        if program['programName'] == programName:
+        if program['programName'].replace('&', '') == programName:
             res = program
             break
     return res
@@ -153,7 +153,7 @@ def getMajorData(majorName):
     majorData = {}
     # Traverse through all programs and find program with specified code 
     for major in data:
-        if major['majorName'] == majorName:
+        if major['majorName'].replace('&', '') == majorName:
             majorData['programCourse'] = getCoursesData(major['majorCourses'])
             break
             
