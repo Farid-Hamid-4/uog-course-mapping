@@ -1,12 +1,12 @@
 import * as React from 'react';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Stack from 'react-bootstrap/Stack'
-import Button from 'react-bootstrap/Button'
-import Table from 'react-bootstrap/Table'
+import {Container, Row, Col, Stack, Button} from 'react-bootstrap'
+import Navbar from './navbar'
+import CreateCard from './cardgen'
 
 const Query = () => {
+
+    // Query Headers
+    const queryHeaders = {'Accept': 'application/json','Content-Type': 'application/json'}
 
     // set states, these will maintain what the current value of the dropdowns are.
     const [University, setUniversity] = React.useState('');
@@ -14,45 +14,44 @@ const Query = () => {
     const [Credits, setCredits] = React.useState('');
     const [Offering, setOffering] = React.useState('');
 
-    // Search button functionality
+    // Submit the search | Search Button Functionality
     const searchSubmit = (e) => {
         e.preventDefault()
 
-        let parameters = '';
-        // Fetch request to api/search which deals with using the parameters to use program to search
-        fetch('/api/search/filtered', {
-            method: 'POST',
-            body: JSON.stringify({
-                school: University.toString(),
-                program: Program.toString(),
-                credit: Credits.toString(),
-                offering: Offering.toString()
-            }),
-            headers: {
-                'Accept': 'application/json',
-                "Content-Type": "application/json"
-            },
-        })
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            // Result table is the table that will show our results, empty the table before adding new children
+        // Create query string with method and headers
+        // Parameters are school, program, credit, offering
+        const queryString = '/api/search/filtered?school=' + University.toString()
+                          + '&program=' + Program.toString()
+                          + '&credit=' + Credits.toString()
+                          + '&offering=' + Offering.toString();
+
+        const searchRequest = new Request(queryString, {
+            method: 'GET',
+            headers: queryHeaders,
+        });
+
+        // Fetch request
+        fetch(searchRequest)
+        .then(response => response.json())
+        .then(results => {
+            // Get results table and empty it
             let table = document.getElementById('resultTable');
             while (table.hasChildNodes()) {
                 table.removeChild(table.firstChild);
             }
-            // Counter for number of rows, insert each search result into the table
-            let i = 0;
-            for (const course in data) {
-                let row = table.insertRow(i);
-                let cell = row.insertCell(0);
-                cell.innerHTML = data[course]['code'];
-                i += 1;
+            // Insert each search result into the table
+            for (const course in results) {
+                let newCard = CreateCard(results[course]['code'] + ' - ' + results[course]['name'], results[course]['description']);
+                table.append(newCard);
             }
-        }, function (rejectionReason) { // Error check
-            console.log('Error parsing', rejectionReason);
-        });
+            // If there was no search result, then display that no results were found
+            if (!table.hasChildNodes()){
+                let emptyP = document.createElement('p');
+                let text = document.createTextNode('No ResultsFound');
+                emptyP.appendChild(text);
+                table.appendChild(emptyP);
+            }
+        })
     }
 
     // Depending on university onchange event, populate the programs table
@@ -60,21 +59,21 @@ const Query = () => {
         event.preventDefault();
 
         let university = event.target.value;
-        let uniCredits = "";
-        if (university == "University of Guelph") {
-            university = "uog";
+        let uniCredits = '';
+        if (university === 'University of Guelph') {
+            university = 'uog';
             uniCredits = uogCredits;
         }
-        if (university == "McGill University") {
-            university = "mcg";
+        if (university === 'McGill University') {
+            university = 'mcg';
             uniCredits = mcgCredits;
         }
 
         if (university === University) return;
-        //if (university === "McGill University" && University == 'mcg') return;
 
-        setProgram("");
-        setCredits("");
+        setProgram('');
+        setCredits('');
+        setOffering('');
 
         //Set the university
         setUniversity(university);
@@ -88,39 +87,31 @@ const Query = () => {
         for (let i = credits.options.length - 1; i > 0; i--)
             credits.remove(i);
 
-        console.log(university + " First");
-        if (university == "") return;
+        if (university === '') return;
 
-
-        // Fetch json formatted with Programs [], Credits[]
-        fetch('/api/search/university', {
-            method: 'POST',
-            body: JSON.stringify({
-                school: university,
-            }),
-            headers: {
-                'Accept': 'application/json',
-                "Content-Type": "application/json"
-            },
-        })
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            for (const i in data) {
-                programs.options[programs.options.length] = new Option(data[i], data[i]);
-            }
-        }, function (rejectionReason) { // Error check
-            console.log('Error parsing', rejectionReason);
+        // Create query string with method and headers
+        // Parameters are school
+        const queryString = '/api/search/university?school=' + university;
+        const searchRequest = new Request(queryString, {
+            method: 'GET',
+            headers: queryHeaders,
         });
-
-        // Populate Programs and Credits drop down
-        // Change this code after receiving information from fetch, populate tables with json contents
+        // Fetch request to api/search which deals with using the parameters to use program to search
+        fetch(searchRequest)
+        .then(response => response.json())
+        .then(results => {
+            for (const prog in results) {
+                programs.options[programs.options.length] = new Option(results[prog], results[prog]);
+            }
+        })
+        
+        // Populate Credits drop down
         for (let i = 0; i < uniCredits.length; i++)
             credits.options[credits.options.length] = new Option(uniCredits[i], uniCredits[i]);
 
         // Dynamic change of Credits based on University
     };
+
     // Schools, credits and offering seasons
     const schools = [
         "University of Guelph",
@@ -156,26 +147,11 @@ const Query = () => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-secondary padding">
-                <a className="navbar-brand padding" href="/query">
-                    <img src={require('../images/Team6_Logo.png')} width="60" height="60" class="d-inline-block align-top" />
-                </a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse justify-content-end nav-pills" id="navbarNavAltMarkup">
-                    <div className="navbar-nav">
-                        <a className="nav-item nav-link active" href="/query">Query</a>
-                        <a className="nav-item nav-link" href="/search">Search</a>
-                        <a className="nav-item nav-link" href="/graph">Graph</a>
-                    </div>
-                </div>
-            </nav>
+            {Navbar('/query')}
             <Container>
                 <Row>
                     <Col xs={6}>
                         <h1>Filters</h1>
-
                         <Stack gap={2}>
                             <div className="input-group mb-3">
                                 <select className="form-select" id="SchoolSelector" title="School" onChange={changeUniversity}>
@@ -202,32 +178,20 @@ const Query = () => {
                                     {offerings.map((season) => (<option key={season}>{season}</option>))}
                                 </select>
                             </div>
-                            <>
-                                <Button variant="info" type="submit" onClick={searchSubmit}>Search</Button>{' '}
-                            </>
+                            <Button variant="info" type="submit" onClick={searchSubmit}>Search</Button>{' '}
                         </Stack>
                     </Col>
-                    <Col xs={6}>
+                    <Col>
                         <h1>Results</h1>
-                        
-                        {/* <Table responsive striped bordered hover id="resultTable" maxHeight="120px">
-                            <tbody>
-                            </tbody>
-                        </Table> */}
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover" id="resultTable">
-                                <tbody>
-                                    <tr>
-                                        Search results will appear here
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div className="table-responsive">
+                            <Row xs={1} md={1} id = "resultTable">
+                                <p>Search results will appear here</p>
+                            </Row>
                         </div>
-
                     </Col>
                 </Row>
             </Container>
-        </div >
+        </div>
     )
 }
 
