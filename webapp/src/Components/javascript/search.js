@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Container, Row, Col, Stack, Button, ButtonGroup, Table, ToggleButton} from 'react-bootstrap'
+import {Container, Row, Col, Stack, Button, ButtonGroup, ToggleButton} from 'react-bootstrap'
 import Navbar from './navbar'
 import CreateCard from './cardgen'
 
@@ -44,7 +44,7 @@ const Search = () => {
             // If there was no search result, then display that no results were found
             if (!table.hasChildNodes()) {
                 let emptyP = document.createElement('p');
-                let text = document.createTextNode('No ResultsFound');
+                let text = document.createTextNode('No Results Found');
                 emptyP.appendChild(text);
                 table.appendChild(emptyP);
             }
