@@ -133,7 +133,7 @@ const Graph = () => {
     if (Program === '' || University === '') return;
     const queryString = '/api/graph?type=program'
       + '&school=' + University.toString()
-      + '&programName=' + Program.toString()
+      + '&programName=' + Program.toString().replaceAll('&', '')
       + '&majorName=';
 
     const searchRequest = new Request(queryString, {

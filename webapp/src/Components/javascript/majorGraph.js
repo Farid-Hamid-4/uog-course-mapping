@@ -42,6 +42,7 @@ const Graph = () => {
     React.useEffect(() => {
         //Clear the programs and credits drop down
         let majorDropdown = document.getElementById('MajorSelector');
+        if (majorDropdown.options.length > 1) return;
 
         // Create query string with method and headers
         // Parameters are school

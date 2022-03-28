@@ -73,7 +73,6 @@ const Query = () => {
 
         setProgram('');
         setCredits('');
-        setOffering('');
 
         //Set the university
         setUniversity(university);
