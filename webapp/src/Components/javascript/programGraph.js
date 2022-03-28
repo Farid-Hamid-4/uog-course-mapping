@@ -2,7 +2,6 @@ import * as React from 'react'
 import Stack from 'react-bootstrap/Stack'
 import Button from 'react-bootstrap/Button'
 import ReactFlow, {
-  addEdge,
   MiniMap,
   Controls,
   Background,
@@ -12,8 +11,7 @@ import ReactFlow, {
 } from 'react-flow-renderer'
 import Navbar from "./navbar"
 import dagre from 'dagre';
-
-const onInit = (reactFlowInstance) => console.log('flow loaded:', reactFlowInstance);
+import { nodes as initialNodes, edges as initialEdges } from './initial-elements';
 
 const row = {
   display: 'flex'
@@ -39,7 +37,25 @@ const nodeHeight = 36;
 
 const Graph = () => {
 
+  const onNodeClick = (event, clickNode) => {
+    event.preventDefault();
+    if (nodes === []) return;
+    nodes[clickNode.id-1].style = { ...clickNode.style, backgroundColor: '#eee'};
+    for (let i = 0; i < edges.length; i++){
+      console.log(nodes[edges[i].source-1]);
+      if (edges[i].source === clickNode.id && edges[i].animated != 'true')
+        nodes[edges[i].target-1].style = { ...clickNode.style, backgroundColor: '#eee'};
+    }
 
+    const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
+      nodes,
+      edges
+    )
+
+    setNodes(layoutedNodes); 
+    setEdges(layoutedEdges);
+    return
+  }
   const getLayoutedElements = (nodes, edges) => {
     dagreGraph.setGraph({ rankdir: 'LR' });
 
@@ -72,11 +88,6 @@ const Graph = () => {
 
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
-
-  const onConnect = React.useCallback(
-    (params) => setEdges((eds) => addEdge({ ...params, type: 'smoothstep', animated: true }, eds)),
-    []
-  );
 
   // Query Headers
   const queryHeaders = { 'Accept': 'application/json', 'Content-Type': 'application/json' }
@@ -189,9 +200,8 @@ const Graph = () => {
               edges={edges}
               onNodesChange={onNodesChange}
               onEdgesChange={onEdgesChange}
-              onConnect={onConnect}
+              onNodeClick={onNodeClick}
               connectionLineType="smoothstep"
-              onInit={onInit}
               style={{ width: '100%', height: 'calc(100vh - 86px)' }}
               fitView
             >
