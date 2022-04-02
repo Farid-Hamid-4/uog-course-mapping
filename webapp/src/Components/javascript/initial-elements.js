@@ -1,6 +1,8 @@
 import React from 'react';
 import { MarkerType } from 'react-flow-renderer';
 
+
+// This is an example node
 export const nodes = [
   {
     id: '1',
@@ -64,6 +66,7 @@ export const nodes = [
   }
 ];
 
+// This is example edges for the nodes
 export const edges = [
   { id: 'e1-2', source: '1', target: '2', label: 'this is a mandatory prereq', markerEnd:{type: MarkerType.ArrowClosed} },
   { id: 'e1-3', source: '1', target: '3', markerEnd:{type: MarkerType.ArrowClosed}},

@@ -1,11 +1,12 @@
 const navbar = (currActive) => {
-
+    // This is all the links to the various pages
     const nav_item = 'nav-item nav-link';
     let query_item = nav_item;
     let search_item = nav_item;
     let programGraph_item = nav_item;
     let majorGraph_item = nav_item;
     
+    // This will set the current active page the website is on for the navbar
     if (currActive === '/query') query_item = query_item.concat(" active");
     else if (currActive === '/search') search_item = search_item.concat(" active");
     else if (currActive === '/programGraph') programGraph_item = programGraph_item.concat(" active");
