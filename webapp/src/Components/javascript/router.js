@@ -8,6 +8,7 @@ import ProgramGraph from "./programGraph";
 import MajorGraph from "./majorGraph";
 
 export default class Routes extends Component {
+    // This will set the extensions to look at the different pages
     render() {
         return (
             <Router history={history}>

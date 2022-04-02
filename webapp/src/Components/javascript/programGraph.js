@@ -40,7 +40,9 @@ const Graph = () => {
   const onNodeClick = (event, clickNode) => {
     event.preventDefault();
     if (nodes === []) return;
-    nodes[clickNode.id-1].style = { ...clickNode.style, backgroundColor: '#eee'};
+    let j = 0;
+    for (j; nodes[j].id !== clickNode.id;j++) 
+    nodes[j].style = { ...clickNode.style, backgroundColor: '#eee'};
     for (let i = 0; i < edges.length; i++){
       console.log(nodes[edges[i].source-1]);
       if (edges[i].source === clickNode.id && edges[i].animated != 'true')

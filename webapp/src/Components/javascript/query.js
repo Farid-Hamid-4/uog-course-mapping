@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Container, Row, Col, Stack, Button} from 'react-bootstrap'
+import { Container, Row, Col, Stack, Button } from 'react-bootstrap'
 import Navbar from './navbar'
 import CreateCard from './cardgen'
 
 const Query = () => {
 
     // Query Headers
-    const queryHeaders = {'Accept': 'application/json','Content-Type': 'application/json'}
+    const queryHeaders = { 'Accept': 'application/json', 'Content-Type': 'application/json' }
 
     // set states, these will maintain what the current value of the dropdowns are.
     const [University, setUniversity] = React.useState('');
@@ -21,9 +21,9 @@ const Query = () => {
         // Create query string with method and headers
         // Parameters are school, program, credit, offering
         const queryString = '/api/search/filtered?school=' + University.toString()
-                          + '&program=' + Program.toString()
-                          + '&credit=' + Credits.toString()
-                          + '&offering=' + Offering.toString();
+            + '&program=' + Program.toString()
+            + '&credit=' + Credits.toString()
+            + '&offering=' + Offering.toString();
 
         const searchRequest = new Request(queryString, {
             method: 'GET',
@@ -32,32 +32,32 @@ const Query = () => {
 
         // Fetch request
         fetch(searchRequest)
-        .then(response => response.json())
-        .then(results => {
-            // Get results table and empty it
-            let table = document.getElementById('resultTable');
-            while (table.hasChildNodes()) {
-                table.removeChild(table.firstChild);
-            }
-            // Insert each search result into the table
-            for (const course in results) {
-                let newCard = CreateCard(results[course]['code'] + ' - ' + results[course]['name'], results[course]['description']);
-                table.append(newCard);
-            }
-            // If there was no search result, then display that no results were found
-            if (!table.hasChildNodes()){
-                let emptyP = document.createElement('p');
-                let text = document.createTextNode('No Results Found');
-                emptyP.appendChild(text);
-                table.appendChild(emptyP);
-            }
-        })
+            .then(response => response.json())
+            .then(results => {
+                // Get results table and empty it
+                let table = document.getElementById('resultTable');
+                while (table.hasChildNodes()) {
+                    table.removeChild(table.firstChild);
+                }
+                // Insert each search result into the table
+                for (const course in results) {
+                    let newCard = CreateCard(results[course]['code'] + ' - ' + results[course]['name'], results[course]['description']);
+                    table.append(newCard);
+                }
+                // If there was no search result, then display that no results were found
+                if (!table.hasChildNodes()) {
+                    let emptyP = document.createElement('p');
+                    let text = document.createTextNode('No Results Found');
+                    emptyP.appendChild(text);
+                    table.appendChild(emptyP);
+                }
+            })
     }
 
     // Depending on university onchange event, populate the programs table
     const changeUniversity = (event) => {
         event.preventDefault();
-
+        // This will set the current value of university to the selected university
         let university = event.target.value;
         let uniCredits = '';
         if (university === 'University of Guelph') {
@@ -97,13 +97,13 @@ const Query = () => {
         });
         // Fetch request to api/search which deals with using the parameters to use program to search
         fetch(searchRequest)
-        .then(response => response.json())
-        .then(results => {
-            for (const prog in results) {
-                programs.options[programs.options.length] = new Option(results[prog], results[prog]);
-            }
-        })
-        
+            .then(response => response.json())
+            .then(results => {
+                for (const prog in results) {
+                    programs.options[programs.options.length] = new Option(results[prog], results[prog]);
+                }
+            })
+
         // Populate Credits drop down
         for (let i = 0; i < uniCredits.length; i++)
             credits.options[credits.options.length] = new Option(uniCredits[i], uniCredits[i]);
@@ -183,7 +183,7 @@ const Query = () => {
                     <Col>
                         <h1>Results</h1>
                         <div className="table-responsive">
-                            <Row xs={1} md={1} id = "resultTable">
+                            <Row xs={1} md={1} id="resultTable">
                                 <p>Search results will appear here</p>
                             </Row>
                         </div>
