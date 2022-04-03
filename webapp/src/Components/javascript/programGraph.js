@@ -35,7 +35,7 @@ const nodeWidth = 172;
 const nodeHeight = 36;
 
 const Graph = () => {
-
+  // This is a work in progress for cascading
   const onNodeClick = (event, clickNode) => {
     event.preventDefault();
     if (nodes === []) return;
@@ -52,12 +52,13 @@ const Graph = () => {
       nodes,
       edges
     )
-
+    // This sets the values of the nodes and edges
     setNodes(layoutedNodes); 
     setEdges(layoutedEdges);
     return
   }
 
+  // This will get the layout of the graph
   const getLayoutedElements = (nodes, edges) => {
     dagreGraph.setGraph({ rankdir: 'LR' });
 
@@ -141,8 +142,10 @@ const Graph = () => {
       })
     // Dynamic change of Credits based on University
   };
+  // This is the get call to the api to get the information to put into the graph
   const generateGraph = (e) => {
     e.preventDefault();
+
     if (Program === '' || University === '') return;
     const queryString = '/api/graph?type=program'
       + '&school=' + University.toString()
@@ -153,7 +156,7 @@ const Graph = () => {
       method: 'GET',
       headers: queryHeaders,
     });
-
+    // This is the call to the api for the graph info
     fetch(searchRequest)
       .then(response => response.json())
       .then(results => {
@@ -161,6 +164,7 @@ const Graph = () => {
           results['nodes'],
           results['edges']
         );
+        // Set the nodes and the edges of the graph
         setNodes(layoutedNodes);
         setEdges(layoutedEdges);
       })
