@@ -11,7 +11,6 @@ import ReactFlow, {
 } from 'react-flow-renderer'
 import Navbar from "./navbar"
 import dagre from 'dagre';
-import { nodes as initialNodes, edges as initialEdges } from './initial-elements';
 
 const row = {
   display: 'flex'
@@ -41,8 +40,8 @@ const Graph = () => {
     event.preventDefault();
     if (nodes === []) return;
     let j = 0;
-    for (j; nodes[j].id !== clickNode.id;j++) 
-    nodes[j].style = { ...clickNode.style, backgroundColor: '#eee'};
+    for (j; nodes[j].id !== clickNode.id; j++) 
+      nodes[j].style = { ...clickNode.style, backgroundColor: '#eee'};
     for (let i = 0; i < edges.length; i++){
       console.log(nodes[edges[i].source-1]);
       if (edges[i].source === clickNode.id && edges[i].animated != 'true')
@@ -58,6 +57,7 @@ const Graph = () => {
     setEdges(layoutedEdges);
     return
   }
+
   const getLayoutedElements = (nodes, edges) => {
     dagreGraph.setGraph({ rankdir: 'LR' });
 
