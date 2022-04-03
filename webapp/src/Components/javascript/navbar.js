@@ -23,10 +23,10 @@ const navbar = (currActive) => {
                 </button>
                 <div className="collapse navbar-collapse justify-content-end nav-pills" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className={query_item} href="/query">Query</a>
-                        <a className={search_item} href="/search">Search</a>
-                        <a className={programGraph_item} href="/program">Program Graph</a>
-                        <a className={majorGraph_item} href="/major">Major Graph</a>
+                        <a className={query_item} href="/query"><strong>Query</strong></a>
+                        <a className={search_item} href="/search"><strong>Search</strong></a>
+                        <a className={programGraph_item} href="/program"><strong>Program Graph</strong></a>
+                        <a className={majorGraph_item} href="/major"><strong>Major Graph</strong></a>
                     </div>
                 </div>
             </nav>
