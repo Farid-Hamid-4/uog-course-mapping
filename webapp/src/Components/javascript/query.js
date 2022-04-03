@@ -41,7 +41,7 @@ const Query = () => {
                 }
                 // Insert each search result into the table
                 for (const course in results) {
-                    let newCard = CreateCard(results[course]['code'] + ' - ' + results[course]['name'], results[course]['description']);
+                    let newCard = CreateCard(results[course]['code'] + ' - ' + results[course]['name'], results[course]['description'] + '\n' + results[course]['prerequisites']);
                     table.append(newCard);
                 }
                 // If there was no search result, then display that no results were found
