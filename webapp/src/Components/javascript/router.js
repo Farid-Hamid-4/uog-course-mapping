@@ -16,8 +16,8 @@ export default class Routes extends Component {
                     <Route path="/" exact component={Query} />
                     <Route path="/query" exact component={Query} />
                     <Route path="/search" exact component={Search} />
-                    <Route path="/programGraph" exact component={ProgramGraph} />
-                    <Route path="/majorGraph" exact component={MajorGraph} />
+                    <Route path="/program" exact component={ProgramGraph} />
+                    <Route path="/major" exact component={MajorGraph} />
                 </Switch>
             </Router>
         )
