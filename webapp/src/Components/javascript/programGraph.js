@@ -227,6 +227,17 @@ const Graph = () => {
               <Button variant="info" type="submit" onClick={generateGraph}>Create Graph</Button>{' '}
             </div>
           </Stack>
+          <div class="legend-div">
+            <h3 className="text-center">Legend</h3>
+            <ul class="legend">
+              <li><span class="superawesome"></span>First Year Course</li>
+              <li><span class="awesome"></span>Second Year Course</li>
+              <li><span class="kindaawesome"></span>Third Year Course</li>
+              <li><span class="notawesome"></span>Fourth Year Course</li>
+              <li>┅Mandatory Course</li>
+              <li>━Optional Course (OR, 1 OF)</li>
+            </ul>
+          </div>
         </div>
         <div style={column && right} className="layoutFlow">
           <ReactFlowProvider>

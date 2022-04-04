@@ -12,6 +12,7 @@ import ReactFlow, {
 import Navbar from "./navbar"
 import dagre from 'dagre';
 
+import '../css/mainstyles.css'
 
 const row = {
   display: 'flex'
@@ -177,7 +178,7 @@ const Graph = () => {
     <div>
       {Navbar('/majorGraph')}
       <div style={row}>
-        <div style={column && left}>
+        <div class="navbar-div" style={column && left}>
           <Stack gap={3}>
             <h1 className="text-center">Guelph Major Graph Generator</h1>
             <div className="input-group mb-3">
@@ -188,10 +189,18 @@ const Graph = () => {
             <div className="text-center d-grid">
               <Button variant="info" type="submit" onClick={generateGraph}>Create Graph</Button>{' '}
             </div>
-            <div>
-              <h3 className="text-center">Legend</h3>
-            </div>
           </Stack>
+          <div class="legend-div">
+            <h3 className="text-center">Legend</h3>
+            <ul class="legend">
+              <li><span class="superawesome"></span>First Year Course</li>
+              <li><span class="awesome"></span>Second Year Course</li>
+              <li><span class="kindaawesome"></span>Third Year Course</li>
+              <li><span class="notawesome"></span>Fourth Year Course</li>
+              <li>┅Mandatory Course</li>
+              <li>━Optional Course (OR, 1 OF)</li>
+            </ul>
+          </div>
         </div>
         <div style={column && right} className="layoutFlow">
           <ReactFlowProvider>
