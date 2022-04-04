@@ -23,7 +23,7 @@ const column = {
 
 const left = {
   width: '15%',
-  background: '#d1d1d1'
+  background: '#EEEEEE'
 }
 
 const right = {

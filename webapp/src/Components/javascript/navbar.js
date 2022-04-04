@@ -14,7 +14,7 @@ const navbar = (currActive) => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-secondary padding">
+            <nav className="navbar navbar-expand-lg navbar-light padding" style={{"background-color": "#C1C0C0"}}>
                 <a className="navbar-brand padding" href="/query">
                     <img src={require('../images/Team6_Logo.png')} width="60" height="60" alt="T6Logo" className="d-inline-block align-top" />
                 </a>
@@ -23,10 +23,10 @@ const navbar = (currActive) => {
                 </button>
                 <div className="collapse navbar-collapse justify-content-end nav-pills" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className={query_item} href="/query">Query</a>
-                        <a className={search_item} href="/search">Search</a>
-                        <a className={programGraph_item} href="/programGraph">Program Graph</a>
-                        <a className={majorGraph_item} href="/majorGraph">Major Graph</a>
+                        <a className={query_item} href="/query"><strong>Query</strong></a>
+                        <a className={search_item} href="/search"><strong>Search</strong></a>
+                        <a className={programGraph_item} href="/program"><strong>Program Graph</strong></a>
+                        <a className={majorGraph_item} href="/major"><strong>Major Graph</strong></a>
                     </div>
                 </div>
             </nav>
