@@ -13,6 +13,7 @@ import ReactFlow, {
 import Navbar from "./navbar"
 import dagre from 'dagre';
 
+// This is the init message for the flow
 const onInit = (reactFlowInstance) => console.log('flow loaded:', reactFlowInstance);
 
 const row = {
@@ -25,7 +26,7 @@ const column = {
 
 const left = {
   width: '15%',
-  background: '#d1d1d1'
+  background: '#EEEEEE'
 }
 
 const right = {
@@ -39,29 +40,30 @@ const nodeHeight = 36;
 
 const Graph = () => {
     
-    React.useEffect(() => {
-        //Clear the programs and credits drop down
-        let majorDropdown = document.getElementById('MajorSelector');
-        if (majorDropdown.options.length > 1) return;
+  React.useEffect(() => {
+    //Clear the programs and credits drop down
+    let majorDropdown = document.getElementById('MajorSelector');
+    if (majorDropdown.options.length > 1) return;
 
-        // Create query string with method and headers
-        // Parameters are school
-        const queryString = '/api/search/getMajors';
-        const searchRequest = new Request(queryString, {
-            method: 'GET',
-            headers: queryHeaders,
-        });
-        // Fetch request to api/search which deals with using the parameters to use program to search
-        fetch(searchRequest)
-            .then(response => response.json())
-            .then(results => {
-                for (const major in results) {
-                    majorDropdown.options[majorDropdown.options.length] = new Option(results[major], results[major]);
-                }
-            })
+    // Create query string with method and headers
+    // Parameters are school
+    const queryString = '/api/search/getMajors';
+    const searchRequest = new Request(queryString, {
+        method: 'GET',
+        headers: queryHeaders,
     });
+    // Fetch request to api/search which deals with using the parameters to use program to search
+    fetch(searchRequest)
+      .then(response => response.json())
+      .then(results => {
+          for (const major in results) {
+              majorDropdown.options[majorDropdown.options.length] = new Option(results[major], results[major]);
+          }
+      })
+  });
 
-    const getLayoutedElements = (nodes, edges) => {
+  // This will get the layout of the graph
+  const getLayoutedElements = (nodes, edges) => {
     dagreGraph.setGraph({ rankdir: 'LR' });
 
     nodes.forEach((node) => {
@@ -105,14 +107,17 @@ const Graph = () => {
     const [Major, setMajor] = React.useState('');
     // Dynamic change of Credits based on University
 
+  // This is the get call to the api to get the information to put into the graph
   const generateGraph = (e) => {
     e.preventDefault();
+
     if (Major === '') return;
     const queryString = '/api/graph?type=major&school=uog&programName=&majorName=' + Major.toString();
     const searchRequest = new Request(queryString, {
       method: 'GET',
       headers: queryHeaders,
     });
+    // This is the call to the api for the graph info
     fetch(searchRequest)
       .then(response => response.json())
       .then(results => {
@@ -120,6 +125,7 @@ const Graph = () => {
           results['nodes'],
           results['edges']
         );
+        // Set the nodes and the edges of the graph
         setNodes(layoutedNodes);
         setEdges(layoutedEdges);
       })

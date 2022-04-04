@@ -8,6 +8,7 @@ import ProgramGraph from "./programGraph";
 import MajorGraph from "./majorGraph";
 
 export default class Routes extends Component {
+    // This will set the extensions to look at the different pages
     render() {
         return (
             <Router history={history}>
@@ -15,8 +16,8 @@ export default class Routes extends Component {
                     <Route path="/" exact component={Query} />
                     <Route path="/query" exact component={Query} />
                     <Route path="/search" exact component={Search} />
-                    <Route path="/programGraph" exact component={ProgramGraph} />
-                    <Route path="/majorGraph" exact component={MajorGraph} />
+                    <Route path="/program" exact component={ProgramGraph} />
+                    <Route path="/major" exact component={MajorGraph} />
                 </Switch>
             </Router>
         )

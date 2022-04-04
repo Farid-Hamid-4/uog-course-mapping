@@ -11,7 +11,6 @@ import ReactFlow, {
 } from 'react-flow-renderer'
 import Navbar from "./navbar"
 import dagre from 'dagre';
-import { nodes as initialNodes, edges as initialEdges } from './initial-elements';
 
 const row = {
   display: 'flex'
@@ -23,7 +22,7 @@ const column = {
 
 const left = {
   width: '15%',
-  background: '#d1d1d1'
+  background: '#EEEEEE'
 }
 
 const right = {
@@ -36,11 +35,13 @@ const nodeWidth = 172;
 const nodeHeight = 36;
 
 const Graph = () => {
-
+  // This is a work in progress for cascading
   const onNodeClick = (event, clickNode) => {
     event.preventDefault();
     if (nodes === []) return;
-    nodes[clickNode.id-1].style = { ...clickNode.style, backgroundColor: '#eee'};
+    let j = 0;
+    for (j; nodes[j].id !== clickNode.id; j++) 
+      nodes[j].style = { ...clickNode.style, backgroundColor: '#eee'};
     for (let i = 0; i < edges.length; i++){
       console.log(nodes[edges[i].source-1]);
       if (edges[i].source === clickNode.id && edges[i].animated != 'true')
@@ -51,11 +52,13 @@ const Graph = () => {
       nodes,
       edges
     )
-
+    // This sets the values of the nodes and edges
     setNodes(layoutedNodes); 
     setEdges(layoutedEdges);
     return
   }
+
+  // This will get the layout of the graph
   const getLayoutedElements = (nodes, edges) => {
     dagreGraph.setGraph({ rankdir: 'LR' });
 
@@ -139,8 +142,10 @@ const Graph = () => {
       })
     // Dynamic change of Credits based on University
   };
+  // This is the get call to the api to get the information to put into the graph
   const generateGraph = (e) => {
     e.preventDefault();
+
     if (Program === '' || University === '') return;
     const queryString = '/api/graph?type=program'
       + '&school=' + University.toString()
@@ -151,7 +156,7 @@ const Graph = () => {
       method: 'GET',
       headers: queryHeaders,
     });
-
+    // This is the call to the api for the graph info
     fetch(searchRequest)
       .then(response => response.json())
       .then(results => {
@@ -159,6 +164,7 @@ const Graph = () => {
           results['nodes'],
           results['edges']
         );
+        // Set the nodes and the edges of the graph
         setNodes(layoutedNodes);
         setEdges(layoutedEdges);
       })

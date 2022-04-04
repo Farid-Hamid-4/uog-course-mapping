@@ -57,7 +57,7 @@ const Search = () => {
     ];
 
     return (
-        <div>
+        <div style={{ width: '100%', height: '100vh' , 'background-color': '#EEEEEE'}}>
             {Navbar('/search')}
             <Container>
                 <Row className="justify-content-md-center">
