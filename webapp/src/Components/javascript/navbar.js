@@ -5,7 +5,7 @@ const navbar = (currActive) => {
     let search_item = nav_item;
     let programGraph_item = nav_item;
     let majorGraph_item = nav_item;
-    
+
     // This will set the current active page the website is on for the navbar
     if (currActive === '/query') query_item = query_item.concat(" active");
     else if (currActive === '/search') search_item = search_item.concat(" active");
@@ -14,7 +14,7 @@ const navbar = (currActive) => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light padding" style={{"background-color": "#C1C0C0"}}>
+            <nav className="navbar navbar-expand-lg navbar-light padding" style={{ "background-color": "#C1C0C0" }}>
                 <a className="navbar-brand padding" href="/query">
                     <img src={require('../images/Team6_Logo.png')} width="60" height="60" alt="T6Logo" className="d-inline-block align-top" />
                 </a>
@@ -31,6 +31,7 @@ const navbar = (currActive) => {
                 </div>
             </nav>
         </div>
+
     )
 }
 

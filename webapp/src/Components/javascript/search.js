@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Container, Row, Col, Stack, Button, ButtonGroup, ToggleButton} from 'react-bootstrap'
+import { Container, Row, Col, Stack, Button, ButtonGroup, ToggleButton } from 'react-bootstrap'
 import Navbar from './navbar'
 import CreateCard from './cardgen'
 
@@ -8,7 +8,7 @@ import '../css/mainstyles.css'
 const Search = () => {
 
     // Query Headers
-    const queryHeaders = {'Accept': 'application/json','Content-Type': 'application/json'}
+    const queryHeaders = { 'Accept': 'application/json', 'Content-Type': 'application/json' }
 
     // Radio values, searchValue Contains the school and radioValue contains the text
     const [searchValue, setSearch] = React.useState('');
@@ -21,7 +21,7 @@ const Search = () => {
         // Create query string with method and headers
         // Parameters are school, term
         const queryString = '/api/search/bar?school=' + radioValue.toString()
-                          + '&term=' + searchValue.toString();
+            + '&term=' + searchValue.toString();
         const searchRequest = new Request(queryString, {
             method: 'GET',
             headers: queryHeaders,
@@ -29,26 +29,26 @@ const Search = () => {
 
         // Fetch request
         fetch(searchRequest)
-        .then(response => response.json())
-        .then(results => {
-            // Get results table and empty it
-            let table = document.getElementById('resultTable');
-            while (table.hasChildNodes()) {
-                table.removeChild(table.firstChild);
-            }
-            // Insert each search result into the table
-            for (const course in results) {
-                let newCard = CreateCard(results[course]['code'] + ' - ' + results[course]['name'], results[course]['description'], 'Prerequisites: ' + results[course]['prerequisites'], 'Credit: ' + results[course]['credit'], 'Offerings: ' + results[course]['semester']);
-                table.append(newCard);
-            }
-            // If there was no search result, then display that no results were found
-            if (!table.hasChildNodes()) {
-                let emptyP = document.createElement('p');
-                let text = document.createTextNode('No Results Found');
-                emptyP.appendChild(text);
-                table.appendChild(emptyP);
-            }
-        })
+            .then(response => response.json())
+            .then(results => {
+                // Get results table and empty it
+                let table = document.getElementById('resultTable');
+                while (table.hasChildNodes()) {
+                    table.removeChild(table.firstChild);
+                }
+                // Insert each search result into the table
+                for (const course in results) {
+                    let newCard = CreateCard(results[course]['code'] + ' - ' + results[course]['name'], results[course]['description'], 'Prerequisites: ' + results[course]['prerequisites'], 'Credit: ' + results[course]['credit'], 'Offerings: ' + results[course]['semester']);
+                    table.append(newCard);
+                }
+                // If there was no search result, then display that no results were found
+                if (!table.hasChildNodes()) {
+                    let emptyP = document.createElement('p');
+                    let text = document.createTextNode('No Results Found');
+                    emptyP.appendChild(text);
+                    table.appendChild(emptyP);
+                }
+            })
     }
 
     const radios = [
@@ -57,7 +57,7 @@ const Search = () => {
     ];
 
     return (
-        <div style={{ width: '100%', height: '100vh' , 'background-color': '#EEEEEE'}}>
+        <div style={{ width: '100%', height: '100vh', 'background-color': '#EEEEEE' }}>
             {Navbar('/search')}
             <Container>
                 <Row className="justify-content-md-center">
@@ -80,14 +80,14 @@ const Search = () => {
                                     </ToggleButton>
                                 ))}
                             </ButtonGroup>
-                            <input className="form-control" type="text" placeholder="Enter Course code, name" onChange={(e) => setSearch(e.target.value)}/>
+                            <input className="form-control" type="text" placeholder="Enter Course code, name" onChange={(e) => setSearch(e.target.value)} />
                             <div className="text-center d-grid">
                                 <Button variant="info" type="submit" onClick={searchSubmit}>Search</Button>{' '}
                             </div>
                             <Col>
                                 <h1>Results</h1>
                                 <div className="table-responsive">
-                                    <Row xs={1} md={1} id = "resultTable">
+                                    <Row xs={1} md={1} id="resultTable">
                                         <p>Search results will appear here</p>
                                     </Row>
                                 </div>

@@ -145,7 +145,7 @@ const Query = () => {
     ];
 
     return (
-        <div style={{ width: '100%', height: '100vh' , 'background-color': '#EEEEEE'}}>
+        <div style={{ width: '100%', height: '100vh', 'background-color': '#EEEEEE' }}>
             {Navbar('/query')}
             <Container>
                 <Row>

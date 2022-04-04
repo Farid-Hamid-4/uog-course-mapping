@@ -41,7 +41,7 @@ const Graph = () => {
   const onNodeClick = (event, clickNode) => {
     event.preventDefault();
     if (nodes === []) return;
-    
+
     if (Major === '') return;
     const queryString = '/api/graph?type=major&school=uog&programName=&majorName=' + Major.toString();
     const searchRequest = new Request(queryString, {
@@ -50,33 +50,33 @@ const Graph = () => {
     });
     // This is the call to the api for the graph info
     fetch(searchRequest)
-    .then(response => response.json())
-    .then(results => {
+      .then(response => response.json())
+      .then(results => {
         let coloredNodes = recursion(results['nodes'], edges, clickNode.id, 'white');
         const { nodes: layoutedNodes, edges: layoutedEdges } = setLayoutedElements(
           coloredNodes,
           results['edges']
-          );
-          // Set the nodes and the edges of the graph
-          setNodes(layoutedNodes);
-          setEdges(layoutedEdges);
-        })
-        
-        return;
-      }
+        );
+        // Set the nodes and the edges of the graph
+        setNodes(layoutedNodes);
+        setEdges(layoutedEdges);
+      })
+
+    return;
+  }
 
   const recursion = (nodes, edges, id, color) => {
     let j = 0;
     // Get the number of the node id and store it in j
     for (j; nodes[j].id !== id; j++);
-    nodes[j].style = { ...nodes[j].style, background: color};
+    nodes[j].style = { ...nodes[j].style, background: color };
 
     // Find the source node and its corresponding target nodes and changes their colors
     for (let i = 0; i < edges.length; i++) {
       if (edges[i].source === id) {
         for (j = 0; nodes[j].id !== edges[i].target; j++);
         if (edges[i].animated) {
-		  nodes = recursion(nodes, edges, nodes[j].id, '#d3d3d3');
+          nodes = recursion(nodes, edges, nodes[j].id, '#d3d3d3');
         }
         else {
           nodes = recursion(nodes, edges, nodes[j].id, 'grey');
@@ -85,7 +85,7 @@ const Graph = () => {
     }
     return nodes;
   };
-    
+
   React.useEffect(() => {
     //Clear the programs and credits drop down
     let majorDropdown = document.getElementById('MajorSelector');
@@ -95,16 +95,16 @@ const Graph = () => {
     // Parameters are school
     const queryString = '/api/search/getMajors';
     const searchRequest = new Request(queryString, {
-        method: 'GET',
-        headers: queryHeaders,
+      method: 'GET',
+      headers: queryHeaders,
     });
     // Fetch request to api/search which deals with using the parameters to use program to search
     fetch(searchRequest)
       .then(response => response.json())
       .then(results => {
-          for (const major in results) {
-              majorDropdown.options[majorDropdown.options.length] = new Option(results[major], results[major]);
-          }
+        for (const major in results) {
+          majorDropdown.options[majorDropdown.options.length] = new Option(results[major], results[major]);
+        }
       })
   });
 
@@ -187,6 +187,9 @@ const Graph = () => {
             </div>
             <div className="text-center d-grid">
               <Button variant="info" type="submit" onClick={generateGraph}>Create Graph</Button>{' '}
+            </div>
+            <div>
+              <h3 className="text-center">Legend</h3>
             </div>
           </Stack>
         </div>

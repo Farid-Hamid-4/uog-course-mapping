@@ -40,46 +40,46 @@ const Graph = () => {
   const onNodeClick = (event, clickNode) => {
     event.preventDefault();
     if (nodes === []) return;
-    
+
     if (Program === '' || University === '') return;
     const queryString = '/api/graph?type=program'
-    + '&school=' + University.toString()
-    + '&programName=' + Program.toString().replaceAll('&', '')
-    + '&majorName=';
-    
+      + '&school=' + University.toString()
+      + '&programName=' + Program.toString().replaceAll('&', '')
+      + '&majorName=';
+
     const searchRequest = new Request(queryString, {
       method: 'GET',
       headers: queryHeaders,
     });
     // This is the call to the api for the graph info
     fetch(searchRequest)
-    .then(response => response.json())
-    .then(results => {
+      .then(response => response.json())
+      .then(results => {
         let coloredNodes = recursion(results['nodes'], edges, clickNode.id, 'white');
         const { nodes: layoutedNodes, edges: layoutedEdges } = setLayoutedElements(
           coloredNodes,
           results['edges']
-          );
-          // Set the nodes and the edges of the graph
-          setNodes(layoutedNodes);
-          setEdges(layoutedEdges);
-        })
-        
-        return;
-      }
+        );
+        // Set the nodes and the edges of the graph
+        setNodes(layoutedNodes);
+        setEdges(layoutedEdges);
+      })
+
+    return;
+  }
 
   const recursion = (nodes, edges, id, color) => {
     let j = 0;
     // Get the number of the node id and store it in j
     for (j; nodes[j].id !== id; j++);
-    nodes[j].style = { ...nodes[j].style, background: color};
+    nodes[j].style = { ...nodes[j].style, background: color };
 
     // Find the source node and its corresponding target nodes and changes their colors
     for (let i = 0; i < edges.length; i++) {
       if (edges[i].source === id) {
         for (j = 0; nodes[j].id !== edges[i].target; j++);
         if (edges[i].animated) {
-		  nodes = recursion(nodes, edges, nodes[j].id, '#d3d3d3');
+          nodes = recursion(nodes, edges, nodes[j].id, '#d3d3d3');
         }
         else {
           nodes = recursion(nodes, edges, nodes[j].id, 'grey');
