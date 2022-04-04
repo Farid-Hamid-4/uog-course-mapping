@@ -35,31 +35,62 @@ const nodeWidth = 172;
 const nodeHeight = 36;
 
 const Graph = () => {
+
   // This is a work in progress for cascading
   const onNodeClick = (event, clickNode) => {
     event.preventDefault();
     if (nodes === []) return;
-    let j = 0;
-    for (j; nodes[j].id !== clickNode.id; j++) 
-      nodes[j].style = { ...clickNode.style, backgroundColor: '#eee'};
-    for (let i = 0; i < edges.length; i++){
-      console.log(nodes[edges[i].source-1]);
-      if (edges[i].source === clickNode.id && edges[i].animated != 'true')
-        nodes[edges[i].target-1].style = { ...clickNode.style, backgroundColor: '#eee'};
-    }
+    
+    if (Program === '' || University === '') return;
+    const queryString = '/api/graph?type=program'
+    + '&school=' + University.toString()
+    + '&programName=' + Program.toString().replaceAll('&', '')
+    + '&majorName=';
+    
+    const searchRequest = new Request(queryString, {
+      method: 'GET',
+      headers: queryHeaders,
+    });
+    // This is the call to the api for the graph info
+    fetch(searchRequest)
+    .then(response => response.json())
+    .then(results => {
+        let coloredNodes = recursion(results['nodes'], edges, clickNode.id, 'white');
+        const { nodes: layoutedNodes, edges: layoutedEdges } = setLayoutedElements(
+          coloredNodes,
+          results['edges']
+          );
+          // Set the nodes and the edges of the graph
+          setNodes(layoutedNodes);
+          setEdges(layoutedEdges);
+        })
+        
+        return;
+      }
 
-    const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
-      nodes,
-      edges
-    )
-    // This sets the values of the nodes and edges
-    setNodes(layoutedNodes); 
-    setEdges(layoutedEdges);
-    return
-  }
+  const recursion = (nodes, edges, id, color) => {
+    let j = 0;
+    // Get the number of the node id and store it in j
+    for (j; nodes[j].id !== id; j++);
+    nodes[j].style = { ...nodes[j].style, background: color};
+
+    // Find the source node and its corresponding target nodes and changes their colors
+    for (let i = 0; i < edges.length; i++) {
+      if (edges[i].source === id) {
+        for (j = 0; nodes[j].id !== edges[i].target; j++);
+        if (edges[i].animated) {
+		  nodes = recursion(nodes, edges, nodes[j].id, '#d3d3d3');
+        }
+        else {
+          nodes = recursion(nodes, edges, nodes[j].id, 'grey');
+        }
+      }
+    }
+    return nodes;
+  };
 
   // This will get the layout of the graph
-  const getLayoutedElements = (nodes, edges) => {
+  const setLayoutedElements = (nodes, edges) => {
     dagreGraph.setGraph({ rankdir: 'LR' });
 
     nodes.forEach((node) => {
@@ -85,13 +116,11 @@ const Graph = () => {
       };
       return node;
     });
-
     return { nodes, edges };
   };
 
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
-
   // Query Headers
   const queryHeaders = { 'Accept': 'application/json', 'Content-Type': 'application/json' }
 
@@ -160,7 +189,7 @@ const Graph = () => {
     fetch(searchRequest)
       .then(response => response.json())
       .then(results => {
-        const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
+        const { nodes: layoutedNodes, edges: layoutedEdges } = setLayoutedElements(
           results['nodes'],
           results['edges']
         );
@@ -211,7 +240,6 @@ const Graph = () => {
               style={{ width: '100%', height: 'calc(100vh - 86px)' }}
               fitView
             >
-
               <MiniMap
                 nodeStrokeColor={(n) => {
                   if (n.style?.background) return n.style.background;

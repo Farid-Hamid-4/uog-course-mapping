@@ -2,7 +2,6 @@ import * as React from 'react'
 import Stack from 'react-bootstrap/Stack'
 import Button from 'react-bootstrap/Button'
 import ReactFlow, {
-  addEdge,
   MiniMap,
   Controls,
   Background,
@@ -13,8 +12,6 @@ import ReactFlow, {
 import Navbar from "./navbar"
 import dagre from 'dagre';
 
-// This is the init message for the flow
-const onInit = (reactFlowInstance) => console.log('flow loaded:', reactFlowInstance);
 
 const row = {
   display: 'flex'
@@ -39,6 +36,55 @@ const nodeWidth = 172;
 const nodeHeight = 36;
 
 const Graph = () => {
+
+  // This is a work in progress for cascading
+  const onNodeClick = (event, clickNode) => {
+    event.preventDefault();
+    if (nodes === []) return;
+    
+    if (Major === '') return;
+    const queryString = '/api/graph?type=major&school=uog&programName=&majorName=' + Major.toString();
+    const searchRequest = new Request(queryString, {
+      method: 'GET',
+      headers: queryHeaders,
+    });
+    // This is the call to the api for the graph info
+    fetch(searchRequest)
+    .then(response => response.json())
+    .then(results => {
+        let coloredNodes = recursion(results['nodes'], edges, clickNode.id, 'white');
+        const { nodes: layoutedNodes, edges: layoutedEdges } = setLayoutedElements(
+          coloredNodes,
+          results['edges']
+          );
+          // Set the nodes and the edges of the graph
+          setNodes(layoutedNodes);
+          setEdges(layoutedEdges);
+        })
+        
+        return;
+      }
+
+  const recursion = (nodes, edges, id, color) => {
+    let j = 0;
+    // Get the number of the node id and store it in j
+    for (j; nodes[j].id !== id; j++);
+    nodes[j].style = { ...nodes[j].style, background: color};
+
+    // Find the source node and its corresponding target nodes and changes their colors
+    for (let i = 0; i < edges.length; i++) {
+      if (edges[i].source === id) {
+        for (j = 0; nodes[j].id !== edges[i].target; j++);
+        if (edges[i].animated) {
+		  nodes = recursion(nodes, edges, nodes[j].id, '#d3d3d3');
+        }
+        else {
+          nodes = recursion(nodes, edges, nodes[j].id, 'grey');
+        }
+      }
+    }
+    return nodes;
+  };
     
   React.useEffect(() => {
     //Clear the programs and credits drop down
@@ -63,7 +109,7 @@ const Graph = () => {
   });
 
   // This will get the layout of the graph
-  const getLayoutedElements = (nodes, edges) => {
+  const setLayoutedElements = (nodes, edges) => {
     dagreGraph.setGraph({ rankdir: 'LR' });
 
     nodes.forEach((node) => {
@@ -96,16 +142,11 @@ const Graph = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
-  const onConnect = React.useCallback(
-    (params) => setEdges((eds) => addEdge({ ...params, type: 'smoothstep', animated: true }, eds)),
-    []
-  );
+  // Query Headers
+  const queryHeaders = { 'Accept': 'application/json', 'Content-Type': 'application/json' }
 
-    // Query Headers
-    const queryHeaders = { 'Accept': 'application/json', 'Content-Type': 'application/json' }
-
-    const [Major, setMajor] = React.useState('');
-    // Dynamic change of Credits based on University
+  const [Major, setMajor] = React.useState('');
+  // Dynamic change of Credits based on University
 
   // This is the get call to the api to get the information to put into the graph
   const generateGraph = (e) => {
@@ -121,7 +162,7 @@ const Graph = () => {
     fetch(searchRequest)
       .then(response => response.json())
       .then(results => {
-        const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
+        const { nodes: layoutedNodes, edges: layoutedEdges } = setLayoutedElements(
           results['nodes'],
           results['edges']
         );
@@ -156,9 +197,8 @@ const Graph = () => {
               edges={edges}
               onNodesChange={onNodesChange}
               onEdgesChange={onEdgesChange}
-              onConnect={onConnect}
+              onNodeClick={onNodeClick}
               connectionLineType="smoothstep"
-              onInit={onInit}
               style={{ width: '100%', height: 'calc(100vh - 86px)' }}
               fitView
             >
